@@ -75,3 +75,6 @@ Caused by: org.xml.sax.SAXParseException; lineNumber: 2; columnNumber: 10; DOCTY
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-10-14 11:16:04.281
 !MESSAGE ProjectImporter: already registered
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-10-14 16:26:15.384
+!MESSAGE Indexed 'motor_control' (25 sources, 85 headers) in 6.06 sec: 5,852 declarations; 33,289 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0051%)
