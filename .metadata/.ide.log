@@ -101,3 +101,71 @@
 2024-10-15 10:39:19,449 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 1825mS.
 2024-10-15 10:39:19,453 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
 2024-10-15 10:39:19,456 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 2mS.
+2024-10-15 15:37:18,982 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 15:37:19,250 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 15:37:52,623 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 15:37:52,960 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 15:37:56,527 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 15:37:56,809 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 15:47:47,012 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 15:47:47,097 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-10-15 15:47:47,315 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 15:47:47,351 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-10-15 15:47:49,305 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 15:47:49,505 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 15:47:51,666 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 15:47:51,892 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 15:47:58,054 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 15:47:58,294 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 15:51:22,735 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 16:13:14,127 [INFO] Gpio:277 - dependency for GPIO [RCC, SYS, TIM4, USART3, USB_OTG_FS]
+2024-10-15 16:13:24,516 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 339880280 Bytes (980418560)
+2024-10-15 16:13:25,361 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 433725784 Bytes (980418560)
+2024-10-15 16:13:25,587 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8
+2024-10-15 16:13:25,587 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
+2024-10-15 16:13:25,587 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
+2024-10-15 16:13:25,588 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USB_OTG_FS
+2024-10-15 16:13:25,588 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
+2024-10-15 16:13:25,588 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
+2024-10-15 16:13:25,588 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
+2024-10-15 16:13:25,590 [INFO] CodeGenerator:807 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.12.1.202409122256//db/
+2024-10-15 16:13:25,760 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/MXTmpFiles/license.tmp_save
+2024-10-15 16:13:25,912 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/MXTmpFiles/license.tmp
+2024-10-15 16:13:25,973 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Src/gpio.c_save
+2024-10-15 16:13:26,110 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Src/gpio.c
+2024-10-15 16:13:26,112 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Inc/gpio.h_save
+2024-10-15 16:13:26,166 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Inc/gpio.h
+2024-10-15 16:13:26,300 [WARN] IPConfigManager:3005 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2024-10-15 16:13:26,308 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Src/tim.c_save
+2024-10-15 16:13:26,443 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Src/tim.c
+2024-10-15 16:13:26,452 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Inc/tim.h_save
+2024-10-15 16:13:26,533 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Inc/tim.h
+2024-10-15 16:13:26,545 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Src/usart.c_save
+2024-10-15 16:13:26,647 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Src/usart.c
+2024-10-15 16:13:26,653 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Inc/usart.h_save
+2024-10-15 16:13:26,719 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Inc/usart.h
+2024-10-15 16:13:26,728 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Src/usb_otg.c_save
+2024-10-15 16:13:26,842 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Src/usb_otg.c
+2024-10-15 16:13:26,848 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Inc/usb_otg.h_save
+2024-10-15 16:13:26,903 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Inc/usb_otg.h
+2024-10-15 16:13:26,912 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Src/stm32f4xx_it.c_save
+2024-10-15 16:13:27,138 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Src/stm32f4xx_it.c
+2024-10-15 16:13:27,140 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Inc/stm32f4xx_it.h_save
+2024-10-15 16:13:27,190 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Inc/stm32f4xx_it.h
+2024-10-15 16:13:27,198 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Src/stm32f4xx_hal_msp.c_save
+2024-10-15 16:13:27,266 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Src/stm32f4xx_hal_msp.c
+2024-10-15 16:13:27,268 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/MXTmpFiles/system.tmp_save
+2024-10-15 16:13:27,318 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/MXTmpFiles/system.tmp
+2024-10-15 16:13:27,326 [INFO] CodeEngine:311 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Inc/stm32f4xx_hal_conf.h_save
+2024-10-15 16:13:27,394 [INFO] CodeEngine:335 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Inc/stm32f4xx_hal_conf.h
+2024-10-15 16:13:27,461 [WARN] IPConfigManager:3005 - Warning: the RefConfig PLL2P_FOR_MCO is not available in your config.xml file
+2024-10-15 16:13:27,469 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Inc/main.h_save
+2024-10-15 16:13:27,550 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Inc/main.h
+2024-10-15 16:13:27,554 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Src/main.c_save
+2024-10-15 16:13:27,637 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/Core/Src/main.c
+2024-10-15 16:13:27,843 [INFO] ProjectBuilder:3249 - Time for Copy HAL[2] : 1mS.
+2024-10-15 16:13:27,852 [INFO] ProjectBuilder:4828 - Project Generator version: 4.5.0-B34
+2024-10-15 16:13:27,928 [INFO] ConfigFileManager:1531 - The Die is : DIE421
+2024-10-15 16:13:29,393 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 1540mS.
+2024-10-15 16:13:29,394 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
+2024-10-15 16:13:29,396 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
