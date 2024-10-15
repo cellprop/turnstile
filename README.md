@@ -29,7 +29,7 @@ This turnstile system includes:
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/bidirectional-rfid-turnstile.git
+   git clone https://github.com/cellprop/turnstile.git
    ```
 2. Install the required dependencies
 
