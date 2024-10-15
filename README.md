@@ -35,9 +35,8 @@ This turnstile system includes:
 
 
 ## Hardware Requirements
-
-List the hardware components needed for this project, such as:
 - RFID sensor module
 - Limit switches
 - Motor and motor driver
-- Microcontroller (e.g., Arduino, Raspberry Pi)
+- LED Matrix
+- Microcontroller (STM32 Board)
