@@ -1400,3 +1400,31 @@ arm-none-eabi-size  motor2.elf
    9436	     12	   1716	  11164	   2b9c	motor2.elf
 Finished building: default.size.stdout
  
+16:18:33 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+16:21:04 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+16:34:24 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+16:35:49 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
