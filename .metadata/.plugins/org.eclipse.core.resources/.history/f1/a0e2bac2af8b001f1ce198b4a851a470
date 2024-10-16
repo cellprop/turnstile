@@ -36,6 +36,7 @@
 /* USER CODE BEGIN PD */
 volatile int counter = 0;
 volatile int rev = 0;
+uint8_t direction;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
