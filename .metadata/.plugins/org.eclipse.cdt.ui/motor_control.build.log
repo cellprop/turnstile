@@ -1,68 +1,10 @@
-16:13:36 **** Incremental Build of configuration Debug for project motor_control ****
+16:05:49 **** Incremental Build of configuration Debug for project motor_control ****
 make -j7 all 
-arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gpio.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
-arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
-arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
-arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/usart.o"
-arm-none-eabi-gcc "../Core/Src/usb_otg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/Users/vihaanravishankar/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usb_otg.d" -MT"Core/Src/usb_otg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/usb_otg.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:116:19: warning: implicit declaration of function 'RunMotorControlSequence' [-Wimplicit-function-declaration]
-  116 |                   RunMotorControlSequence();
-      |                   ^~~~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:174:6: warning: conflicting types for 'RunMotorControlSequence'; have 'void()'
-  174 | void RunMotorControlSequence()
-      |      ^~~~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:116:19: note: previous implicit declaration of 'RunMotorControlSequence' with type 'void()'
-  116 |                   RunMotorControlSequence();
-      |                   ^~~~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c: In function 'RunMotorControlSequence':
-../Core/Src/main.c:176:28: warning: implicit declaration of function 'GetEncoderPosition' [-Wimplicit-function-declaration]
-  176 |     int current_position = GetEncoderPosition();
-      |                            ^~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:181:5: warning: implicit declaration of function 'MoveToPosition' [-Wimplicit-function-declaration]
-  181 |     MoveToPosition(target_position);
-      |     ^~~~~~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:192:6: warning: conflicting types for 'MoveToPosition'; have 'void(int)'
-  192 | void MoveToPosition(int target_position)
-      |      ^~~~~~~~~~~~~~
-../Core/Src/main.c:181:5: note: previous implicit declaration of 'MoveToPosition' with type 'void(int)'
-  181 |     MoveToPosition(target_position);
-      |     ^~~~~~~~~~~~~~
-../Core/Src/main.c: In function 'MoveToPosition':
-../Core/Src/main.c:199:9: warning: implicit declaration of function 'SetMotorDirection' [-Wimplicit-function-declaration]
-  199 |         SetMotorDirection(1);  // Move forward (clockwise)
-      |         ^~~~~~~~~~~~~~~~~
-../Core/Src/main.c:200:9: warning: implicit declaration of function 'SetMotorSpeed' [-Wimplicit-function-declaration]
-  200 |         SetMotorSpeed(32000);  // Set moderate speed
-      |         ^~~~~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:226:6: warning: conflicting types for 'SetMotorSpeed'; have 'void(uint16_t)' {aka 'void(short unsigned int)'}
-  226 | void SetMotorSpeed(uint16_t speed)
-      |      ^~~~~~~~~~~~~
-../Core/Src/main.c:200:9: note: previous implicit declaration of 'SetMotorSpeed' with type 'void(uint16_t)' {aka 'void(short unsigned int)'}
-  200 |         SetMotorSpeed(32000);  // Set moderate speed
-      |         ^~~~~~~~~~~~~
-../Core/Src/main.c:234:6: warning: conflicting types for 'SetMotorDirection'; have 'void(int)'
-  234 | void SetMotorDirection(int direction)
-      |      ^~~~~~~~~~~~~~~~~
-../Core/Src/main.c:199:9: note: previous implicit declaration of 'SetMotorDirection' with type 'void(int)'
-  199 |         SetMotorDirection(1);  // Move forward (clockwise)
-      |         ^~~~~~~~~~~~~~~~~
-arm-none-eabi-gcc -o "motor_control.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor_control/STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor_control.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: motor_control.elf
- 
 arm-none-eabi-size  motor_control.elf 
-arm-none-eabi-objdump -h -S motor_control.elf  > "motor_control.list"
    text	   data	    bss	    dec	    hex	filename
-  16692	     12	   2964	  19668	   4cd4	motor_control.elf
+  16444	     12	   2964	  19420	   4bdc	motor_control.elf
 Finished building: default.size.stdout
  
-Finished building: motor_control.list
- 
 
-16:13:37 Build Finished. 0 errors, 9 warnings. (took 1s.36ms)
+16:05:50 Build Finished. 0 errors, 0 warnings. (took 412ms)
 

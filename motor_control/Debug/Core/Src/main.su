@@ -1,8 +1,9 @@
-../Core/Src/main.c:70:5:main	8	static
-../Core/Src/main.c:131:6:SystemClock_Config	88	static
-../Core/Src/main.c:174:6:RunMotorControlSequence	16	static
-../Core/Src/main.c:192:6:MoveToPosition	24	static
-../Core/Src/main.c:219:5:GetEncoderPosition	4	static
-../Core/Src/main.c:226:6:SetMotorSpeed	16	static
-../Core/Src/main.c:234:6:SetMotorDirection	16	static
-../Core/Src/main.c:255:6:Error_Handler	4	static,ignoring_inline_asm
+../Core/Src/main.c:65:6:RunMotorControlSequence	8	static
+../Core/Src/main.c:83:6:MoveToPosition	24	static
+../Core/Src/main.c:111:6:MoveToMotor	8	static
+../Core/Src/main.c:123:5:GetEncoderPosition	8	static
+../Core/Src/main.c:130:6:SetMotorSpeed	16	static
+../Core/Src/main.c:138:6:SetMotorDirection	16	static
+../Core/Src/main.c:159:5:main	8	static
+../Core/Src/main.c:223:6:SystemClock_Config	88	static
+../Core/Src/main.c:273:6:Error_Handler	4	static,ignoring_inline_asm

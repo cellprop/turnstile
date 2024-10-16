@@ -43,6 +43,8 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
+int current_position;
+int target_position;
 
 /* USER CODE END PM */
 
@@ -60,7 +62,94 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void RunMotorControlSequence()
+{
+    current_position = GetEncoderPosition();
+    target_position;
 
+    // Step 1: Move quarter cycle clockwise
+    target_position = current_position + QUARTER_CYCLE_COUNTS;
+    MoveToPosition(target_position);
+
+    // Step 2: Move half cycle counterclockwise
+    target_position = target_position - HALF_CYCLE_COUNTS;
+    MoveToPosition(target_position);
+
+    // Step 3: Move quarter cycle clockwise back to starting point
+    target_position = target_position + QUARTER_CYCLE_COUNTS;
+    MoveToPosition(target_position);
+}
+
+void MoveToPosition(int target_position)
+{
+    int current_position = GetEncoderPosition();
+
+    // Determine the direction based on the target position
+    if (current_position < target_position)
+    {
+        SetMotorDirection(1);  // Move forward (clockwise)
+        SetMotorSpeed(32000);  // Set moderate speed
+    }
+    else if (current_position > target_position)
+    {
+        SetMotorDirection(-1);  // Move backward (counterclockwise)
+        SetMotorSpeed(32000);   // Set moderate speed
+    }
+
+    // Keep moving until the target position is reached
+    while (current_position != target_position)
+    {
+        current_position = GetEncoderPosition();
+    }
+
+    // Stop the motor once the position is reached
+    SetMotorSpeed(0);
+}
+
+
+
+void MoveToMotor()
+{
+	 SetMotorDirection(1);  // Move forward (clockwise)
+	 SetMotorSpeed(32000);  // Set moderate speed
+}
+
+
+
+
+
+
+// Function to read encoder position
+int GetEncoderPosition()
+{
+    // Return the current encoder position from TIM4 counter
+    return __HAL_TIM_GET_CONTER(&htim4);
+}
+
+// Function to set motor speed using PWM (TIM4 Channel 3 on PB8)
+void SetMotorSpeed(uint16_t speed)
+{
+    // Adjust PWM duty cycle for TIM4 Channel 3 (PB8)
+    // Speed should be between 0 (stopped) and 65535 (full speed)
+    __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, speed);
+}
+
+// Function to set motor direction using GPIOs PA9 and PA10
+void SetMotorDirection(int direction)
+{
+    if (direction == 1)
+    {
+        // Move forward (set DIR1 high and DIR2 low)
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);   // DIR1 high
+        //HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET); // DIR2 low
+    }
+    else if (direction == -1)
+    {
+        // Move backward (set DIR1 low and DIR2 high)
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET); // DIR1 low
+        //HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);   // DIR2 high
+    }
+}
 /* USER CODE END 0 */
 
 /**
@@ -110,11 +199,14 @@ int main(void)
   while (1)
   {
 	  // Monitor the button press (PC13)
-	  if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET)  // Button pressed (active low)
-	  {
-		  // Trigger motor control sequence
-		  RunMotorControlSequence();
-	  }
+	  //if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET)  // Button pressed (active low)
+	  //{
+	  	  // Trigger motor control sequence
+		  //RunMotorControlSequence();
+	  //}
+
+	  //RunMotorControlSequence();
+	  MoveToMotor();
 
 	  HAL_Delay(100);  // Small delay to debounce the button
     /* USER CODE END WHILE */
@@ -171,81 +263,7 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void RunMotorControlSequence()
-{
-    int current_position = GetEncoderPosition();
-    int target_position;
 
-    // Step 1: Move quarter cycle clockwise
-    target_position = current_position + QUARTER_CYCLE_COUNTS;
-    MoveToPosition(target_position);
-
-    // Step 2: Move half cycle counterclockwise
-    target_position = target_position - HALF_CYCLE_COUNTS;
-    MoveToPosition(target_position);
-
-    // Step 3: Move quarter cycle clockwise back to starting point
-    target_position = target_position + QUARTER_CYCLE_COUNTS;
-    MoveToPosition(target_position);
-}
-
-void MoveToPosition(int target_position)
-{
-    int current_position = GetEncoderPosition();
-
-    // Determine the direction based on the target position
-    if (current_position < target_position)
-    {
-        SetMotorDirection(1);  // Move forward (clockwise)
-        SetMotorSpeed(32000);  // Set moderate speed
-    }
-    else if (current_position > target_position)
-    {
-        SetMotorDirection(-1);  // Move backward (counterclockwise)
-        SetMotorSpeed(32000);   // Set moderate speed
-    }
-
-    // Keep moving until the target position is reached
-    while (current_position != target_position)
-    {
-        current_position = GetEncoderPosition();
-    }
-
-    // Stop the motor once the position is reached
-    SetMotorSpeed(0);
-}
-
-// Function to read encoder position
-int GetEncoderPosition()
-{
-    // Return the current encoder position from TIM4 counter
-    return __HAL_TIM_GET_COUNTER(&htim4);
-}
-
-// Function to set motor speed using PWM (TIM4 Channel 3 on PB8)
-void SetMotorSpeed(uint16_t speed)
-{
-    // Adjust PWM duty cycle for TIM4 Channel 3 (PB8)
-    // Speed should be between 0 (stopped) and 65535 (full speed)
-    __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, speed);
-}
-
-// Function to set motor direction using GPIOs PA9 and PA10
-void SetMotorDirection(int direction)
-{
-    if (direction == 1)
-    {
-        // Move forward (set DIR1 high and DIR2 low)
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);   // DIR1 high
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET); // DIR2 low
-    }
-    else if (direction == -1)
-    {
-        // Move backward (set DIR1 low and DIR2 high)
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET); // DIR1 low
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);   // DIR2 high
-    }
-}
 /* USER CODE END 4 */
 
 /**
