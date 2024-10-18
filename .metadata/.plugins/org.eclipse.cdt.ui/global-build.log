@@ -1477,3 +1477,1316 @@ arm-none-eabi-size  rfid.elf
    9464	     12	   1748	  11224	   2bd8	rfid.elf
 Finished building: default.size.stdout
  
+17:45:41 **** Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+17:48:27 **** Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+17:48:27 **** Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+17:48:28 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+17:48:33 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+17:50:14 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+17:54:39 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+17:54:40 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+17:54:40 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/usart.o"
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+17:54:44 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+17:58:44 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+18:01:24 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+18:01:26 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+18:01:26 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+18:01:35 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+18:02:47 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+18:05:07 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+18:09:58 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+18:11:00 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+10:30:41 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+10:30:42 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+10:30:42 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/usart.o"
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+10:54:25 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+10:54:27 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+10:54:27 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+10:54:31 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+10:54:35 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+11:22:47 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+11:26:32 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+11:27:35 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+11:28:46 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+11:28:49 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+11:41:57 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+11:50:41 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:165:44: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  165 |                 HAL_UART_Transmit(&huart2, &processedData, sizeof(processedData), 1000);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            |
+      |                                            uint8_t (*)[13] {aka unsigned char (*)[13]}
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:749:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'uint8_t (*)[13]' {aka 'unsigned char (*)[13]'}
+  749 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+   9464	     12	   1748	  11224	   2bd8	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+11:56:59 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+11:57:00 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+11:57:01 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:166:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  166 |                 HAL_UART_Transmit(&huart2, "hello", 6, 1000);
+      |                                            ^~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:749:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  749 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+   9476	     12	   1748	  11236	   2be4	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+11:57:05 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9476	     12	   1748	  11236	   2be4	rfid.elf
+Finished building: default.size.stdout
+ 
+11:58:32 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+11:58:33 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+11:58:34 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/usart.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:166:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  166 |                 HAL_UART_Transmit(&huart2, "hello", 6, 1000);
+      |                                            ^~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:749:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  749 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+   9476	     12	   1748	  11236	   2be4	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+11:58:41 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9476	     12	   1748	  11236	   2be4	rfid.elf
+Finished building: default.size.stdout
+ 
+12:03:13 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+12:03:14 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+12:03:14 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:166:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  166 |                 HAL_UART_Transmit(&huart2, "hello", 6, 1000);
+      |                                            ^~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:749:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  749 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+   9160	     12	   1748	  10920	   2aa8	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+12:03:19 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9160	     12	   1748	  10920	   2aa8	rfid.elf
+Finished building: default.size.stdout
+ 
+12:09:57 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+12:09:58 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+12:09:58 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/usart.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:166:47: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_IT' differ in signedness [-Wpointer-sign]
+  166 |                 HAL_UART_Transmit_IT(&huart3, "hello", 6, 1000);
+      |                                               ^~~~~~~
+      |                                               |
+      |                                               char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:751:82: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  751 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:166:17: error: too many arguments to function 'HAL_UART_Transmit_IT'
+  166 |                 HAL_UART_Transmit_IT(&huart3, "hello", 6, 1000);
+      |                 ^~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:751:19: note: declared here
+  751 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                   ^~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+12:10:16 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+12:10:16 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+12:10:17 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:166:47: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_IT' differ in signedness [-Wpointer-sign]
+  166 |                 HAL_UART_Transmit_IT(&huart3, "hello", 6);
+      |                                               ^~~~~~~
+      |                                               |
+      |                                               char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:751:82: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  751 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+   8900	     12	   1748	  10660	   29a4	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+12:11:46 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8900	     12	   1748	  10660	   29a4	rfid.elf
+Finished building: default.size.stdout
+ 
+12:13:17 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+12:13:17 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+12:13:18 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+   8888	     12	   1748	  10648	   2998	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+12:13:23 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8888	     12	   1748	  10648	   2998	rfid.elf
+Finished building: default.size.stdout
+ 
+12:17:01 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+12:17:02 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+12:17:02 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+   8964	     12	   1748	  10724	   29e4	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+12:17:08 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8964	     12	   1748	  10724	   29e4	rfid.elf
+Finished building: default.size.stdout
+ 
+12:21:39 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+12:21:40 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+12:21:41 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:168:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  168 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   22 | #include "gpio.h"
+  +++ |+#include <stdio.h>
+   23 | 
+../Core/Src/main.c:168:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  168 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:168:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:170:47: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_IT' differ in signedness [-Wpointer-sign]
+  170 |                 HAL_UART_Transmit_IT(&huart3, usermsg, sizeof(usermsg)+2);
+      |                                               ^~~~~~~
+      |                                               |
+      |                                               char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:751:82: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  751 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:168:37: warning: '#' directive writing 1 byte into a region of size between 0 and 12 [-Wformat-overflow=]
+  168 |                 sprintf(usermsg,"$%s#",processedData);
+      |                                     ^
+../Core/Src/main.c:168:17: note: 'sprintf' output between 3 and 15 bytes into a destination of size 13
+  168 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+  11460	     92	   2092	  13644	   354c	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+12:21:49 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11460	     92	   2092	  13644	   354c	rfid.elf
+Finished building: default.size.stdout
+ 
+12:22:53 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+12:22:54 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+12:22:54 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:168:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  168 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   22 | #include "gpio.h"
+  +++ |+#include <stdio.h>
+   23 | 
+../Core/Src/main.c:168:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  168 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:168:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:170:47: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_IT' differ in signedness [-Wpointer-sign]
+  170 |                 HAL_UART_Transmit_IT(&huart3, usermsg, sizeof(usermsg)+2);
+      |                                               ^~~~~~~
+      |                                               |
+      |                                               char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:751:82: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  751 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:168:38: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  168 |                 sprintf(usermsg,"$%s#",processedData);
+      |                                      ^
+../Core/Src/main.c:168:17: note: 'sprintf' output between 3 and 15 bytes into a destination of size 14
+  168 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+  11460	     92	   2092	  13644	   354c	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+12:22:58 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11460	     92	   2092	  13644	   354c	rfid.elf
+Finished building: default.size.stdout
+ 
+12:26:51 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+12:26:52 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+12:26:52 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:169:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   22 | #include "gpio.h"
+  +++ |+#include <stdio.h>
+   23 | 
+../Core/Src/main.c:169:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:169:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:171:47: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_IT' differ in signedness [-Wpointer-sign]
+  171 |                 HAL_UART_Transmit_IT(&huart3, usermsg, sizeof(usermsg)+2);
+      |                                               ^~~~~~~
+      |                                               |
+      |                                               char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:751:82: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  751 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:169:38: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                                      ^
+../Core/Src/main.c:169:17: note: 'sprintf' output between 3 and 15 bytes into a destination of size 14
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+  11476	     92	   2100	  13668	   3564	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+12:26:56 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11476	     92	   2100	  13668	   3564	rfid.elf
+Finished building: default.size.stdout
+ 
+12:28:37 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+12:28:38 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+12:28:38 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:169:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   22 | #include "gpio.h"
+  +++ |+#include <stdio.h>
+   23 | 
+../Core/Src/main.c:169:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:169:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:171:47: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_IT' differ in signedness [-Wpointer-sign]
+  171 |                 HAL_UART_Transmit_IT(&huart3, usermsg, sizeof(usermsg)+2);
+      |                                               ^~~~~~~
+      |                                               |
+      |                                               char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:751:82: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  751 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:169:38: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                                      ^
+../Core/Src/main.c:169:17: note: 'sprintf' output between 3 and 15 bytes into a destination of size 14
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+  11476	     92	   2100	  13668	   3564	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+12:28:42 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11476	     92	   2100	  13668	   3564	rfid.elf
+Finished building: default.size.stdout
+ 
+12:30:09 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:169:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   22 | #include "gpio.h"
+  +++ |+#include <stdio.h>
+   23 | 
+../Core/Src/main.c:169:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:169:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:171:47: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_IT' differ in signedness [-Wpointer-sign]
+  171 |                 HAL_UART_Transmit_IT(&huart3, usermsg, sizeof(usermsg)+2);
+      |                                               ^~~~~~~
+      |                                               |
+      |                                               char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:751:82: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  751 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:169:38: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                                      ^
+../Core/Src/main.c:169:17: note: 'sprintf' output between 3 and 15 bytes into a destination of size 14
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+  11484	     92	   2100	  13676	   356c	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+12:35:29 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/usart.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:169:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   22 | #include "gpio.h"
+  +++ |+#include <stdio.h>
+   23 | 
+../Core/Src/main.c:169:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:169:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:171:47: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_IT' differ in signedness [-Wpointer-sign]
+  171 |                 HAL_UART_Transmit_IT(&huart3, usermsg, sizeof(usermsg)+2);
+      |                                               ^~~~~~~
+      |                                               |
+      |                                               char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:751:82: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  751 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:169:38: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                                      ^
+../Core/Src/main.c:169:17: note: 'sprintf' output between 3 and 15 bytes into a destination of size 14
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+  11480	     92	   2092	  13664	   3560	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+12:37:56 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/usart.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:169:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   22 | #include "gpio.h"
+  +++ |+#include <stdio.h>
+   23 | 
+../Core/Src/main.c:169:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:169:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:171:47: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_IT' differ in signedness [-Wpointer-sign]
+  171 |                 HAL_UART_Transmit_IT(&huart3, usermsg, sizeof(usermsg)+2);
+      |                                               ^~~~~~~
+      |                                               |
+      |                                               char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:751:82: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  751 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:169:38: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                                      ^
+../Core/Src/main.c:169:17: note: 'sprintf' output between 3 and 15 bytes into a destination of size 14
+  169 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+  11492	     92	   2100	  13684	   3574	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+12:43:35 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/usart.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:115:42: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_IT' differ in signedness [-Wpointer-sign]
+  115 |            HAL_UART_Transmit_IT(&huart3, usermsg, sizeof(usermsg)+2);
+      |                                          ^~~~~~~
+      |                                          |
+      |                                          char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:751:82: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  751 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:178:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  178 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   22 | #include "gpio.h"
+  +++ |+#include <stdio.h>
+   23 | 
+../Core/Src/main.c:178:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  178 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:178:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:178:38: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  178 |                 sprintf(usermsg,"$%s#",processedData);
+      |                                      ^
+../Core/Src/main.c:178:17: note: 'sprintf' output between 3 and 15 bytes into a destination of size 14
+  178 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+  11484	     92	   2100	  13676	   356c	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+12:45:36 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:115:42: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_IT' differ in signedness [-Wpointer-sign]
+  115 |            HAL_UART_Transmit_IT(&huart3, usermsg, sizeof(usermsg)+2);
+      |                                          ^~~~~~~
+      |                                          |
+      |                                          char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:751:82: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  751 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:176:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  176 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   22 | #include "gpio.h"
+  +++ |+#include <stdio.h>
+   23 | 
+../Core/Src/main.c:176:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  176 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:176:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:176:38: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  176 |                 sprintf(usermsg,"$%s#",processedData);
+      |                                      ^
+../Core/Src/main.c:176:17: note: 'sprintf' output between 3 and 15 bytes into a destination of size 14
+  176 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+  11484	     92	   2100	  13676	   356c	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+14:03:15 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:115:42: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_IT' differ in signedness [-Wpointer-sign]
+  115 |            HAL_UART_Transmit_IT(&huart3, usermsg, sizeof(usermsg)+2);
+      |                                          ^~~~~~~
+      |                                          |
+      |                                          char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:751:82: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  751 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:176:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  176 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   22 | #include "gpio.h"
+  +++ |+#include <stdio.h>
+   23 | 
+../Core/Src/main.c:176:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  176 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:176:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:176:38: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  176 |                 sprintf(usermsg,"$%s#",processedData);
+      |                                      ^
+../Core/Src/main.c:176:17: note: 'sprintf' output between 3 and 15 bytes into a destination of size 14
+  176 |                 sprintf(usermsg,"$%s#",processedData);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+  11536	     92	   2100	  13728	   35a0	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 
+14:04:27 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11536	     92	   2100	  13728	   35a0	rfid.elf
+Finished building: default.size.stdout
+ 
+14:51:07 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11536	     92	   2100	  13728	   35a0	rfid.elf
+Finished building: default.size.stdout
+ 
+14:51:23 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11536	     92	   2100	  13728	   35a0	rfid.elf
+Finished building: default.size.stdout
+ 
+15:01:17 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:115:42: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_IT' differ in signedness [-Wpointer-sign]
+  115 |            HAL_UART_Transmit_IT(&huart3, usermsg, sizeof(usermsg)+2);
+      |                                          ^~~~~~~
+      |                                          |
+      |                                          char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:751:82: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  751 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:176:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  176 |                 sprintf(usermsg,"%s",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   22 | #include "gpio.h"
+  +++ |+#include <stdio.h>
+   23 | 
+../Core/Src/main.c:176:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  176 |                 sprintf(usermsg,"%s",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:176:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:176:36: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  176 |                 sprintf(usermsg,"%s",processedData);
+      |                                    ^
+../Core/Src/main.c:176:17: note: 'sprintf' output between 1 and 13 bytes into a destination of size 12
+  176 |                 sprintf(usermsg,"%s",processedData);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
+arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
+   text	   data	    bss	    dec	    hex	filename
+  11532	     92	   2100	  13724	   359c	rfid.elf
+Finished building: default.size.stdout
+ 
+Finished building: rfid.list
+ 

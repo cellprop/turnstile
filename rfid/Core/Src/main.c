@@ -51,6 +51,9 @@ uint8_t flag = 0; // Flag to indicate data reception is complete
 uint8_t responseData;      // To store the boolean response (0 for false, 1 for true)
 uint8_t flagSuccess = 0;   // Flag to indicate if 'true' was received
 uint8_t flagFailure = 0;   // Flag to indicate if 'false' was received
+char usermsg[12];
+int v = 0;
+int flag_rev=0;
 
 /* USER CODE END PV */
 
@@ -95,9 +98,10 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
-  MX_USART2_UART_Init();
+  MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
   HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
+
 
   /* USER CODE END 2 */
 
@@ -106,6 +110,14 @@ int main(void)
   while (1)
   {
 
+	  if(flag_rev==1)
+	  {
+	   HAL_UART_Transmit_IT(&huart3, usermsg, sizeof(usermsg));
+	   flag_rev=0;
+
+
+	  }
+	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -161,22 +173,31 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	        }
 	        processedData[12] = '\0'; // Add the null terminator at the end
 
-	        // Transmit the processed data via USART2 (Polling)
-	        HAL_UART_Transmit(&huart2, processedData, sizeof(processedData) - 1, HAL_MAX_DELAY);
+	        sprintf(usermsg,"%s",processedData);
 
-	        // Receive the boolean response via USART2 (Polling)
-	        HAL_UART_Receive(&huart2, &responseData, 1, HAL_MAX_DELAY);
-
-	        // Check the boolean response and set flags accordingly
-	        if (responseData == 1) { // If the response is true
-	            flagSuccess = 1;
-	        } else if (responseData == 0) { // If the response is false
-	            flagFailure = 1;
-	        }
-
-	        // Re-enable UART receive interrupt for USART1 to receive the next set of data
-	        HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
+	        flag_rev=1;
+	        v++;
+	    	// Re-enable UART receive interrupt for USART1 to receive the next set of data
+	    	HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
 	    }
+
+	if (huart->Instance == USART3) { // Check if the interrupt is from USART1
+		HAL_UART_Receive_IT(&huart3, &responseData, 1);
+
+        if (responseData == 1) { // If the response is true
+            flagSuccess = 1;
+        }
+        else if (responseData == 0) { // If the response is false
+            flagFailure = 1;
+        }
+
+	}
+
+
+
+
+
+
 }
 
 /* USER CODE END 4 */

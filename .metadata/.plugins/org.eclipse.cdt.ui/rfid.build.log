@@ -1,10 +1,48 @@
-16:44:14 **** Incremental Build of configuration Debug for project rfid ****
+15:01:17 **** Incremental Build of configuration Debug for project rfid ****
 make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:115:42: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_IT' differ in signedness [-Wpointer-sign]
+  115 |            HAL_UART_Transmit_IT(&huart3, usermsg, sizeof(usermsg)+2);
+      |                                          ^~~~~~~
+      |                                          |
+      |                                          char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:751:82: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  751 | HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+      |                                                                   ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:176:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  176 |                 sprintf(usermsg,"%s",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   22 | #include "gpio.h"
+  +++ |+#include <stdio.h>
+   23 | 
+../Core/Src/main.c:176:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  176 |                 sprintf(usermsg,"%s",processedData);
+      |                 ^~~~~~~
+../Core/Src/main.c:176:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:176:36: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  176 |                 sprintf(usermsg,"%s",processedData);
+      |                                    ^
+../Core/Src/main.c:176:17: note: 'sprintf' output between 1 and 13 bytes into a destination of size 12
+  176 |                 sprintf(usermsg,"%s",processedData);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "rfid.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rfid/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rfid.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rfid.elf
+ 
 arm-none-eabi-size  rfid.elf 
+arm-none-eabi-objdump -h -S rfid.elf  > "rfid.list"
    text	   data	    bss	    dec	    hex	filename
-   9464	     12	   1748	  11224	   2bd8	rfid.elf
+  11532	     92	   2100	  13724	   359c	rfid.elf
 Finished building: default.size.stdout
  
+Finished building: rfid.list
+ 
 
-16:44:14 Build Finished. 0 errors, 0 warnings. (took 466ms)
+15:01:18 Build Finished. 0 errors, 4 warnings. (took 984ms)
 
