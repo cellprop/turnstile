@@ -19,7 +19,7 @@ void loop() {
     reconnect();
   }
   client.loop();
-  client.publish("turnstile", "Shivam is absent");
+  client.publish("turnstile_transmit", "Shivam is absent");
   delay(2000);
 }
 
