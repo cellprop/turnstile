@@ -46,7 +46,7 @@ void loop() {
     // Publish the received UART data to the MQTT topic
     publishMessage(uart_data);
 
-    // Process incoming MQTT messages (handled by callback)
+    // Listen for incoming MQTT messages (handled by callback)
     client.loop();
 
     // Reset the UART data received flag after processing
@@ -75,7 +75,7 @@ void reconnect() {
     Serial.print("Attempting MQTT connection...");
     if (client.connect("ESP8266Client")) {
       Serial.println("connected");
-      client.subscribe(subscribe_topic);  // Subscribe to the topic
+      client.subscribe(subscribe_topic);  // Subscribe to the correct topic
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -100,18 +100,19 @@ void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print(topic);
   Serial.print("] ");
 
-  // Extract the message and check for '1' or '0'
+  // Extract the message
   String message;
   for (int i = 0; i < length; i++) {
     message += (char)payload[i];
   }
   Serial.println(message);
 
-  // Step 4: Transmit '1' or '0' received via MQTT back via UART
-  if (message == "1" || message == "0") {
-    transmitToUART(message.c_str());
+  // Step 4: Transmit the received numerical value (1-10) back via UART
+  int received_value = message.toInt();
+  if (received_value >= 1 && received_value <= 10) {
+    transmitToUART(String(received_value).c_str());
   } else {
-    Serial.println("Received message is not '1' or '0'. Ignoring.");
+    Serial.println("Received message is not in the range 1-10. Ignoring.");
   }
 }
 
