@@ -11,7 +11,7 @@ PubSubClient client(espClient);
 
 // Define topics for publishing and subscribing
 const char* publish_topic = "turnstile_publish";
-const char* subscribe_topic = "turnstile";
+const char* subscribe_topic = "turnstile_subscribe";
 
 // Buffer to store incoming UART data
 char uart_data[256];
@@ -43,7 +43,7 @@ void loop() {
       reconnect();
     }
 
-    // Publish the received UART data
+    // Publish the received UART data to the MQTT topic
     publishMessage(uart_data);
 
     // Process incoming MQTT messages (handled by callback)
