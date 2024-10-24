@@ -1,8 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
-const char* ssid = "Cellprop";     // Replace with your Wi-Fi SSID
-const char* pass = "Cp#deco123";  // Replace with your Wi-Fi password
+const char* ssid = "Cellprop";               // Replace with your Wi-Fi SSID
+const char* pass = "Cp#deco123";             // Replace with your Wi-Fi password
 const char* mqtt_server = "192.168.68.138";  // Replace with your MQTT server address
 
 WiFiClient espClient;
@@ -36,7 +36,7 @@ void loop() {
 void setup_wifi() {
   delay(10);
   Serial.println("Connecting to ");
-  Serial.println(ssid); 
+  Serial.println(ssid);
 
   WiFi.begin(ssid, pass);
   while (WiFi.status() != WL_CONNECTED) {
@@ -44,7 +44,7 @@ void setup_wifi() {
     Serial.print(".");
   }
   Serial.println("");
-  Serial.println("WiFi connected"); 
+  Serial.println("WiFi connected");
 }
 
 void reconnect() {
