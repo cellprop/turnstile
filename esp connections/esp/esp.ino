@@ -11,7 +11,7 @@ PubSubClient client(espClient);
 
 // Define topics for publishing and subscribing
 const char* publish_topic = "turnstile_publish";
-const char* subscribe_topic = "turnstile_subscribe";
+const char* subscribe_topic = "turnstile";
 
 // Buffer to store incoming UART data
 char uart_data[256];
@@ -46,7 +46,7 @@ void loop() {
     // Publish the received UART data
     publishMessage(uart_data);
 
-    // Listen for incoming MQTT messages (handled by callback)
+    // Process incoming MQTT messages (handled by callback)
     client.loop();
 
     // Reset the UART data received flag after processing
@@ -58,30 +58,29 @@ void loop() {
 void setup_wifi() {
   delay(10);
   Serial.println("Connecting to ");
-  Serial.println(ssid); 
+  Serial.println(ssid);
 
   WiFi.begin(ssid, pass);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
-  Serial.println("");
-  Serial.println("WiFi connected"); 
+  Serial.println("\nWiFi connected");
 }
 
 // Function to reconnect to the MQTT broker
 void reconnect() {
+  // Loop until the client is connected
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
-
     if (client.connect("ESP8266Client")) {
       Serial.println("connected");
-      client.subscribe(subscribe_topic); // Subscribe to the topic
+      client.subscribe(subscribe_topic);  // Subscribe to the topic
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
       Serial.println(" try again in 5 seconds");
-      delay(5000);
+      delay(5000);  // Wait 5 seconds before retrying
     }
   }
 }
@@ -135,5 +134,5 @@ void readFromUART() {
 void transmitToUART(const char* message) {
   Serial.print("Sending back via UART: ");
   Serial.println(message);
-  Serial.println(message);  // Send the message over UART
+  Serial.write(message);  // Send the message over UART as raw data
 }
