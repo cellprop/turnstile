@@ -1,17 +1,29 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
-const char* ssid = "nWO";     // Replace with your Wi-Fi SSID
-const char* pass = "Cp#super123";  // Replace with your Wi-Fi password
-const char* mqtt_server = "192.168.68.106";  // Replace with your MQTT server address
+const char* ssid = "Cellprop";     // Replace with your Wi-Fi SSID
+const char* pass = "Cp#deco123";  // Replace with your Wi-Fi password
+const char* mqtt_server = "192.168.68.138";  // Replace with your MQTT server address
 
 WiFiClient espClient;
 PubSubClient client(espClient);
+
+// Callback function to handle incoming messages
+void callback(char* topic, byte* payload, unsigned int length) {
+  Serial.print("Message arrived [");
+  Serial.print(topic);
+  Serial.print("] ");
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println();
+}
 
 void setup() {
   Serial.begin(9600);
   setup_wifi();
   client.setServer(mqtt_server, 1884);
+  client.setCallback(callback);  // Set the callback function
 }
 
 void loop() {
@@ -19,7 +31,6 @@ void loop() {
     reconnect();
   }
   client.loop();
-  client.publish("turnstile", "Test content");
 }
 
 void setup_wifi() {
@@ -44,7 +55,8 @@ void reconnect() {
     // Attempt to connect
     if (client.connect("ESP8266Client")) {
       Serial.println("connected");
-      // Subscribe or publish as needed
+      // Subscribe to the "turnstile" topic after connecting
+      client.subscribe("turnstile");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
