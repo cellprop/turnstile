@@ -1,0 +1,12 @@
+../Core/Src/main.c:67:5:Get_LED_Index	2
+../Core/Src/main.c:76:6:Draw_Arrow	4
+../Core/Src/main.c:86:6:Clear_Arrow	4
+../Core/Src/main.c:96:6:Shift_Arrow	3
+../Core/Src/main.c:106:6:Draw_Strips	3
+../Core/Src/main.c:117:6:Draw_Cross	2
+../Core/Src/main.c:125:6:Clear_Cross	2
+../Core/Src/main.c:133:6:Arrow_Animation	1
+../Core/Src/main.c:145:6:Cross_Animation	1
+../Core/Src/main.c:165:5:main	1
+../Core/Src/main.c:214:6:SystemClock_Config	3
+../Core/Src/main.c:257:6:Error_Handler	1
