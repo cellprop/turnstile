@@ -1,5 +1,6 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
+#include <ArduinoJson.h>
 
 // Replace with your network and MQTT server details
 const char* ssid = "Cellprop";     // Replace with your Wi-Fi SSID
@@ -13,6 +14,9 @@ PubSubClient client(espClient);
 const char* publish_topic = "turnstile_publish";
 const char* subscribe_topic = "turnstile_subscribe";
 
+// Define static port ID
+const char* portId = ""; // Set your port ID here
+
 // Buffer to store incoming UART data
 char uart_data[256];
 bool uart_data_received = false;
@@ -20,10 +24,11 @@ bool uart_data_received = false;
 // Function prototypes
 void setup_wifi();
 void reconnect();
-void publishMessage(const char* message);
+void publishMessage(const char* rfid, int entry);
 void callback(char* topic, byte* payload, unsigned int length);
 void readFromUART();
 void transmitToUART(const char* message);
+String getTimestamp();
 
 void setup() {
   Serial.begin(9600);  // Initialize UART communication
@@ -43,8 +48,12 @@ void loop() {
       reconnect();
     }
 
-    // Publish the received UART data to the MQTT topic
-    publishMessage(uart_data);
+    // Extract RFID and entry value from uart_data
+    String rfid = String(uart_data).substring(0, 12); // First 12 characters
+    int entry = String(uart_data[12]).toInt(); // 13th character
+
+    // Publish the received data as JSON
+    publishMessage(rfid.c_str(), entry);
 
     // Listen for incoming MQTT messages (handled by callback)
     client.loop();
@@ -75,7 +84,7 @@ void reconnect() {
     Serial.print("Attempting MQTT connection...");
     if (client.connect("ESP8266Client")) {
       Serial.println("connected");
-      client.subscribe(subscribe_topic);  // Subscribe to the correct topic
+      client.subscribe(subscribe_topic);  // Subscribe to the topic
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -85,12 +94,24 @@ void reconnect() {
   }
 }
 
-// Function to publish a message to the MQTT topic
-void publishMessage(const char* message) {
+// Function to publish JSON message to the MQTT topic
+void publishMessage(const char* rfid, int entry) {
   if (client.connected()) {
-    client.publish(publish_topic, message);
+    // Create JSON document
+    StaticJsonDocument<200> doc;
+    doc["RFID"] = rfid;
+    doc["timeStamp"] = getTimestamp();
+    doc["entry"] = entry;
+    doc["portId"] = portId;
+
+    // Serialize JSON to string
+    char jsonBuffer[256];
+    serializeJson(doc, jsonBuffer);
+
+    // Publish JSON message
+    client.publish(publish_topic, jsonBuffer);
     Serial.print("Message published: ");
-    Serial.println(message);
+    Serial.println(jsonBuffer);
   }
 }
 
@@ -118,9 +139,9 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
 // Function to read data from UART
 void readFromUART() {
-  if (Serial.available() > 0) {
+  if (Serial.available() >= 13) { // Check if we have at least 13 characters
     int index = 0;
-    while (Serial.available() > 0 && index < sizeof(uart_data) - 1) {
+    while (Serial.available() > 0 && index < 13) {
       uart_data[index++] = Serial.read();
       delay(10);  // Add a small delay for stability
     }
@@ -136,4 +157,11 @@ void transmitToUART(const char* message) {
   Serial.print("Sending back via UART: ");
   Serial.println(message);
   Serial.write(message);  // Send the message over UART as raw data
+}
+
+// Function to get a timestamp in the format "YYYY-MM-DD HH:MM:SS"
+String getTimestamp() {
+  // Example timestamp (replace with RTC or NTP server as needed)
+  String timestamp = "2024-10-24 12:34:56"; // Use a method to get real-time data if needed
+  return timestamp;
 }
