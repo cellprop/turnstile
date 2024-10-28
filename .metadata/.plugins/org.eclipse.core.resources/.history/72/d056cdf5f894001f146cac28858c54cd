@@ -26,7 +26,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ws28xx.h"
-#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -61,6 +60,7 @@ typedef enum {
 /* USER CODE BEGIN PV */
 WS28XX_HandleTypeDef ws;
 SystemState currentState = STATE_READY; // Initialize to Ready State
+
 uint8_t rxData[14];        // Single buffer for USART1 and USART2
 char processedData[14]; // Buffer to store processed data
 char usermsg[14];          // Message to send

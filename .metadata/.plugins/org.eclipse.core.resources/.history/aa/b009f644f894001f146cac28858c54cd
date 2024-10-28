@@ -26,7 +26,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ws28xx.h"
-#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -61,9 +60,10 @@ typedef enum {
 /* USER CODE BEGIN PV */
 WS28XX_HandleTypeDef ws;
 SystemState currentState = STATE_READY; // Initialize to Ready State
+
 uint8_t rxData[14];        // Single buffer for USART1 and USART2
-char processedData[14]; // Buffer to store processed data
-char usermsg[14];          // Message to send
+uint8_t processedData[14]; // Buffer to store processed data
+char usermsg[13];          // Message to send
 uint8_t flag_rev = 0;      // Flag to indicate data reception
 uint8_t uart_source = 0;   // Variable to identify UART source (1 for USART1, 2 for USART2)
 
@@ -127,7 +127,26 @@ void Clear_Arrow(WS28XX_HandleTypeDef *ws) {
     WS28XX_Update(ws);
 }
 
+/* Reset the arrow position */
+void arrow_reset(void){
+    // Reset arrow indices to initial positions
+    int initial_arrow[] = {
+        83, 84, 91, 92, 99, 100, 107, 108, 115, 116, 123, 124,
+        131, 132, 137, 138, 139, 140, 141, 142, 146, 147, 148, 149,
+        155, 156
+    };
+    memcpy(arrow, initial_arrow, sizeof(initial_arrow));
 
+    // Reset variables in Arrow_Animation
+    extern uint8_t ArrowAnimationInitialized;
+    ArrowAnimationInitialized = 0;
+}
+
+void cross_animation_reset(void){
+    // Reset variables in Cross_Animation
+    extern uint8_t CrossAnimationInitialized;
+    CrossAnimationInitialized = 0;
+}
 
 /* Function to shift the arrow forward */
 void Shift_Arrow() {

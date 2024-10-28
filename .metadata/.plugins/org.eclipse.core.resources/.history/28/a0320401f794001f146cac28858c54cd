@@ -26,20 +26,11 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ws28xx.h"
-#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-typedef enum {
-    STATE_READY,
-    STATE_READING,
-    STATE_OPEN,
-    STATE_CLOSED,
-    STATE_OVERCAPACITY,
-    STATE_SLEEP,
-    STATE_EMERGENCY
-} SystemState;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -48,7 +39,8 @@ typedef enum {
 #define LED_COLS 32
 #define DELAY_TIME 50
 #define BLINK_DELAY 500
-
+volatile int counter = 0;
+volatile int rev = 0;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -59,18 +51,6 @@ typedef enum {
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-WS28XX_HandleTypeDef ws;
-SystemState currentState = STATE_READY; // Initialize to Ready State
-uint8_t rxData[14];        // Single buffer for USART1 and USART2
-char processedData[14]; // Buffer to store processed data
-char usermsg[14];          // Message to send
-uint8_t flag_rev = 0;      // Flag to indicate data reception
-uint8_t uart_source = 0;   // Variable to identify UART source (1 for USART1, 2 for USART2)
-
-uint8_t responseData;      // For NOS response
-uint8_t flagSuccess = 0;   // Flag to indicate if 'true' was received
-uint8_t flagFailure = 0;   // Flag to indicate if 'false' was received
-
 /* Arrow LED indices */
 int arrow[] = {
     83, 84, 91, 92, 99, 100, 107, 108, 115, 116, 123, 124,
@@ -83,9 +63,15 @@ int topCross[] = {224, 231, 222, 217, 213, 210, 203, 204, 196, 195, 189, 186, 18
 int middleCross[] = {103, 96, 105, 110, 114, 117, 123, 124, 132, 131, 138, 141, 145, 150, 152, 159};
 int bottomCross[] = {31, 24, 33, 38, 42, 45, 51, 52, 59, 60, 66, 69, 73, 78, 80, 87};
 
-/* Other variables */
-volatile int counter = 0;
-volatile int rev = 0;
+uint8_t rxData[14]; // Array to store received bytes
+uint8_t processedData[13]; // Array to store data without start and end byte
+uint8_t flag = 0; // Flag to indicate data reception is complete
+uint8_t responseData;      // To store the boolean response (0 for false, 1 for true)
+uint8_t flagSuccess = 0;   // Flag to indicate if 'true' was received
+uint8_t flagFailure = 0;   // Flag to indicate if 'false' was received
+char usermsg[12];
+int v = 0;
+int flag_rev=0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -127,14 +113,12 @@ void Clear_Arrow(WS28XX_HandleTypeDef *ws) {
     WS28XX_Update(ws);
 }
 
-
-
 /* Function to shift the arrow forward */
 void Shift_Arrow() {
     for (int i = 0; i < 26; i++) {
-        arrow[i] += 8;
+        arrow[i] = arrow[i] + 8;
         if (arrow[i] >= 240) {
-            arrow[i] = arrow[i] % 240 + 16; // Ensure arrow stays within valid indices
+            arrow[i] = arrow[i] % (LED_ROWS * LED_COLS - 16);
         }
     }
 }
@@ -167,66 +151,30 @@ void Clear_Cross(WS28XX_HandleTypeDef *ws, int *cross) {
 }
 
 /* Function for arrow animation */
-void Arrow_Animation(uint8_t reset) {
-    static uint32_t lastUpdate = 0;
-    static uint8_t initialized = 0;
+void Arrow_Animation() {
+    Draw_Strips(&ws, COLOR_RGB565_CYAN, 255);
 
-    if (reset) {
-        initialized = 0;
-        lastUpdate = HAL_GetTick();
-        return;
-    }
-
-    // Initialize on first call
-    if (!initialized) {
-        Draw_Strips(&ws, COLOR_RGB565_CYAN, 255);
-        initialized = 1;
-    }
-
-    // Update animation based on DELAY_TIME
-    if (HAL_GetTick() - lastUpdate >= DELAY_TIME) {
-        lastUpdate = HAL_GetTick();
-
+    while (1) {
         Clear_Arrow(&ws);
         Shift_Arrow();
         Draw_Arrow(&ws, COLOR_RGB565_GREEN, 255);
+        HAL_Delay(DELAY_TIME);
     }
 }
 
 /* Function for cross animation */
-void Cross_Animation(uint8_t reset) {
-    static uint32_t lastUpdate = 0;
-    static uint8_t isOn = 0;
-    static uint8_t initialized = 0;
+void Cross_Animation() {
+    Draw_Strips(&ws, COLOR_RGB565_CYAN, 255);
 
-    if (reset) {
-        initialized = 0;
-        isOn = 0;
-        lastUpdate = HAL_GetTick();
-        return;
-    }
-
-    // Initialize on first call
-    if (!initialized) {
-        Draw_Strips(&ws, COLOR_RGB565_CYAN, 255);
-        initialized = 1;
-    }
-
-    // Toggle the cross based on BLINK_DELAY
-    if (HAL_GetTick() - lastUpdate >= BLINK_DELAY) {
-        lastUpdate = HAL_GetTick();
-
-        if (isOn) {
-            Clear_Cross(&ws, topCross);
-            Clear_Cross(&ws, middleCross);
-            Clear_Cross(&ws, bottomCross);
-            isOn = 0;
-        } else {
-            Draw_Cross(&ws, topCross, COLOR_RGB565_RED, 255);
-            Draw_Cross(&ws, middleCross, COLOR_RGB565_RED, 255);
-            Draw_Cross(&ws, bottomCross, COLOR_RGB565_RED, 255);
-            isOn = 1;
-        }
+    while (1) {
+        Draw_Cross(&ws, topCross, COLOR_RGB565_RED, 255);
+        Draw_Cross(&ws, middleCross, COLOR_RGB565_RED, 255);
+        Draw_Cross(&ws, bottomCross, COLOR_RGB565_RED, 255);
+        HAL_Delay(BLINK_DELAY);
+        Clear_Cross(&ws, topCross);
+        Clear_Cross(&ws, middleCross);
+        Clear_Cross(&ws, bottomCross);
+        HAL_Delay(BLINK_DELAY);
     }
 }
 
@@ -295,104 +243,38 @@ void quarter_cycle_acw(void)
 	Speed_Control(1000);
 }
 
+
+
+//RFID FUNCTIONS
+void read_rfid(void){
+	if(flag_rev==1)
+		  {
+		   HAL_UART_Transmit_IT(&huart3, usermsg, sizeof(usermsg));
+		   flag_rev=0;
+
+
+		  }
+		  HAL_Delay(1000);
+}
+
+
+
 //STATE FUNCTIONS
 
 void ready_state(void){
-    static uint8_t state_initialized = 0;
 
-    if(state_initialized == 0){
-        // Reset the arrow animation
-        Arrow_Animation(1); // Reset animation
-        state_initialized = 1;
-    }
-
-    // Call the Arrow Animation function
-    Arrow_Animation(0); // Continue animation
-
-    // Check if data has been received
-    if(flag_rev == 1){
-        state_initialized = 0; // Reset for next time
-        currentState = STATE_READING; // Transition to Reading State
-    }
 }
 
 void reading_state(void){
-    if(flag_rev == 1){
-        HAL_UART_Transmit_IT(&huart3, (uint8_t *)usermsg, strlen(usermsg));
-        flag_rev = 0;
-    }
-    HAL_Delay(1000); // Delay as needed
 
-    // Check for authentication result
-    if(flagSuccess == 1){
-        flagSuccess = 0;
-        currentState = STATE_OPEN; // Transition to Open State
-    }
-    else if(flagFailure == 1){
-        flagFailure = 0;
-        currentState = STATE_CLOSED; // Transition to Closed State
-    }
 }
 
 void open_state(void){
-    static uint8_t state_initialized = 0;
-    static uint8_t door_stage = 0;
-    static uint32_t timestamp = 0;
 
-    if(state_initialized == 0){
-        // State initialization
-        quarter_cycle_cw(); // Open doors
-        door_stage = 0;
-        state_initialized = 1;
-    }
-
-    if(door_stage == 0 && counter >= 588){
-        // Doors opened
-        Speed_Control(0); // Stop motor
-        counter = 0;
-        door_stage = 1;
-        timestamp = HAL_GetTick(); // Record time
-    }
-
-    if(door_stage == 1){
-        // Wait for person to pass (e.g., 5 seconds)
-        if(HAL_GetTick() - timestamp >= 5000){
-            quarter_cycle_acw(); // Close doors
-            door_stage = 2;
-        }
-    }
-
-    if(door_stage == 2 && counter >= 588){
-        // Doors closed
-        Speed_Control(0); // Stop motor
-        counter = 0;
-        door_stage = 0;
-        state_initialized = 0;
-        currentState = STATE_READY; // Transition back to Ready State
-    }
 }
 
 void closed_state(void){
-    static uint8_t state_initialized = 0;
-    static uint32_t timestamp = 0;
 
-    if(state_initialized == 0){
-        // Reset the cross animation
-        Cross_Animation(1); // Pass 1 to reset
-        timestamp = HAL_GetTick(); // Record time
-        state_initialized = 1;
-    }
-
-    // Call the Cross Animation function
-    Cross_Animation(0); // Pass 0 to continue animation
-
-    // Wait for some time (e.g., 3 seconds)
-    if(HAL_GetTick() - timestamp >= 3000){
-        // Clear cross
-        Cross_Animation(1); // Reset animation for next time
-        state_initialized = 0;
-        currentState = STATE_READY; // Transition back to Ready State
-    }
 }
 
 void overcapacity_state(void){
@@ -444,40 +326,13 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
-  WS28XX_Init(&ws, &htim3, 72, TIM_CHANNEL_1, 256);
-
-  // Start UART reception for RFID Reader (USART1)
-  HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
-
-  // Start UART reception for Additional UART (USART2)
-  HAL_UART_Receive_IT(&huart2, rxData, sizeof(rxData));
-
-  // Start UART reception for NOS response (USART3)
-  HAL_UART_Receive_IT(&huart3, &responseData, 1);
+  WS28XX_Init(&ws, &htim1, 72, TIM_CHANNEL_1, 256);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		switch (currentState)
-		{
-			case STATE_READY:
-				ready_state();
-				break;
-			case STATE_READING:
-				reading_state();
-				break;
-			case STATE_OPEN:
-				open_state();
-				break;
-			case STATE_CLOSED:
-				closed_state();
-				break;
-			// Leave other states empty for now
-			default:
-				break;
-		}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -526,52 +381,40 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 
+//RFID CALLBACK
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-    if (huart->Instance == USART1) { // Data received from USART1
-        // Process the received data
-        for (int i = 0; i < 12; i++) {
-            processedData[i] = rxData[i + 1]; // Skip the start byte
-        }
+	if (huart->Instance == USART1) { // Check if the interrupt is from USART1
+	        // Process the received data
+	        for (int i = 0; i < 12; i++) {
+	            processedData[i] = rxData[i + 1]; // Skip the first byte and take the next 12 bytes
+	        }
+	        processedData[12] = '\0'; // Add the null terminator at the end
 
-        uart_source = 1;
-        processedData[12] = uart_source + '0';
-        processedData[13] = '\0'; // Null-terminate the string
+	        sprintf(usermsg,"%s",processedData);
 
-        // Use sprintf to format usermsg with identification flag
-        sprintf(usermsg, "%s", processedData);
+	        flag_rev=1;
+	        v++;
+	    	// Re-enable UART receive interrupt for USART1 to receive the next set of data
+	    	HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
+	    }
 
-        flag_rev = 1; // Set flag to indicate data has been received
+	if (huart->Instance == USART3) { // Check if the interrupt is from USART1
+		HAL_UART_Receive_IT(&huart3, &responseData, 1);
 
-        // Re-enable UART reception for USART1
-        HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
-    }
-    else if (huart->Instance == USART2) { // Data received from USART2
-        // Process the received data
-        for (int i = 0; i < 12; i++) {
-            processedData[i] = rxData[i + 1]; // Skip the start byte
-        }
-        uart_source = 2;
-		processedData[12] = uart_source + '0';
-		processedData[13] = '\0'; // Null-terminate the string
-
-        // Use sprintf to format usermsg with identification flag
-        sprintf(usermsg, "%s", processedData);
-
-        flag_rev = 1; // Set flag to indicate data has been received
-
-        // Re-enable UART reception for USART2
-        HAL_UART_Receive_IT(&huart2, rxData, sizeof(rxData));
-    }
-    else if (huart->Instance == USART3) { // NOS Response (USART3)
-        if (responseData == 1) {
+        if (responseData == 1) { // If the response is true
             flagSuccess = 1;
-        } else if (responseData == 0) {
+        }
+        else if (responseData == 0) { // If the response is false
             flagFailure = 1;
         }
 
-        // Re-enable UART reception for USART3
-        HAL_UART_Receive_IT(&huart3, &responseData, 1);
-    }
+	}
+
+
+
+
+
+
 }
 /* USER CODE END 4 */
 
