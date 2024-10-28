@@ -82,6 +82,8 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+//LED MATRIX FUNCTIONS
 /* Function to calculate the correct LED index based on the zig-zag pattern */
 int Get_LED_Index(int row, int col) {
     if (row % 2 == 0) {
@@ -176,6 +178,8 @@ void Cross_Animation() {
     }
 }
 
+
+//LIMIT SWITCH FUNCTIONS
 void limit_switch(void){
 	if (HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_3) == GPIO_PIN_RESET)
 	{
@@ -190,6 +194,8 @@ void limit_switch(void){
 }
 
 
+
+//MOTOR CONTROL FUNCTIONS
 void Speed_Control(int a)
 {
 	__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_1, a);
@@ -237,6 +243,9 @@ void quarter_cycle_acw(void)
 	Speed_Control(1000);
 }
 
+
+
+//RFID FUNCTIONS
 void read_rfid(void){
 	if(flag_rev==1)
 		  {
@@ -246,6 +255,38 @@ void read_rfid(void){
 
 		  }
 		  HAL_Delay(1000);
+}
+
+
+
+//STATE FUNCTIONS
+
+void ready_state(void){
+
+}
+
+void reading_state(void){
+
+}
+
+void open_state(void){
+
+}
+
+void closed_state(void){
+
+}
+
+void overcapacity_state(void){
+
+}
+
+void sleep_state(void){
+
+}
+
+void emergency_state(void){
+
 }
 /* USER CODE END 0 */
 
@@ -339,6 +380,8 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+//RFID CALLBACK
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	if (huart->Instance == USART1) { // Check if the interrupt is from USART1
 	        // Process the received data
