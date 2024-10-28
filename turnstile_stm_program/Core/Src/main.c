@@ -27,6 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include "ws28xx.h"
 #include <string.h>
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -86,6 +87,8 @@ int bottomCross[] = {31, 24, 33, 38, 42, 45, 51, 52, 59, 60, 66, 69, 73, 78, 80,
 /* Other variables */
 volatile int counter = 0;
 volatile int rev = 0;
+volatile uint8_t door_movement_complete = 0; // Flag set by encoder function
+volatile int target_counter = 0;       // Target encoder count to stop motor
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -269,44 +272,49 @@ void Direction(int a)
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	if(GPIO_Pin == GPIO_PIN_6)
-	{
-		encoder1();
-	}
-	/* if(GPIO_Pin == GPIO_PIN_7)
-	{
-		encoder2();
-	}*/
+    if(GPIO_Pin == GPIO_PIN_6) // Replace with your encoder GPIO pin
+    {
+        encoder();
+    }
 }
 
-void encoder1(void)
+void encoder(void)
 {
-	counter++;
-	if(counter == 588)
-	{
-		Speed_Control(0);
-		counter = 0;
-	}
+    counter++;
+    if(counter >= target_counter)
+    {
+        Speed_Control(0); // Stop the motor
+        counter = 0;      // Reset counter for next operation
+        door_movement_complete = 1; // Indicate movement is complete
+    }
 }
-/* void encoder2(void)
+
+void quarter_cycle_open(int source)
 {
-	counter++;
-	if(counter == 588)
-	{
-		Speed_Control(0);
-		counter = 0;
-	}
+    if(source == 1){
+        Direction(0);
+    }
+    else{
+        Direction(1);
+    }
+    Speed_Control(1000); // Start motor
+}
+
+void quarter_cycle_closed(int source)
+{
+    if(source == 1){
+        Direction(1);
+    }
+    else{
+        Direction(0);
+    }
+    Speed_Control(1000); // Start motor
+}
+
+/*void quarter_cycle(int a){
+	Direction(a-1);
+	Speed_Control(1000);
 }*/
-void quarter_cycle_cw(void)
-{
-	Direction(0);
-	Speed_Control(1000);
-}
-void quarter_cycle_acw(void)
-{
-	Direction(1);
-	Speed_Control(1000);
-}
 
 //STATE FUNCTIONS
 
@@ -349,39 +357,48 @@ void reading_state(void){
 
 void open_state(void){
     static uint8_t state_initialized = 0;
-    static uint8_t door_stage = 0;
+    static uint8_t door_stage = 0; // 0: Opening, 1: Waiting, 2: Closing
     static uint32_t timestamp = 0;
 
     if(state_initialized == 0){
         // State initialization
-        quarter_cycle_cw(); // Open doors
-        door_stage = 0;
+        quarter_cycle_open(uart_source); // Start opening doors
+        target_counter = 588;            // Set target encoder counts for opening
+        door_movement_complete = 0;
+        door_stage = 0;                  // Start with opening stage
         state_initialized = 1;
     }
 
-    if(door_stage == 0 && counter >= 588){
-        // Doors opened
-        Speed_Control(0); // Stop motor
-        counter = 0;
-        door_stage = 1;
-        timestamp = HAL_GetTick(); // Record time
-    }
-
-    if(door_stage == 1){
-        // Wait for person to pass (e.g., 5 seconds)
-        if(HAL_GetTick() - timestamp >= 5000){
-            quarter_cycle_acw(); // Close doors
-            door_stage = 2;
+    if(door_stage == 0){
+        // Opening stage
+        if(door_movement_complete){
+            // Doors have opened
+            door_movement_complete = 0;  // Reset flag
+            timestamp = HAL_GetTick();   // Record time
+            door_stage = 1;              // Move to waiting stage
         }
     }
 
-    if(door_stage == 2 && counter >= 588){
-        // Doors closed
-        Speed_Control(0); // Stop motor
-        counter = 0;
-        door_stage = 0;
-        state_initialized = 0;
-        currentState = STATE_READY; // Transition back to Ready State
+    if(door_stage == 1){
+        // Waiting stage
+        if(HAL_GetTick() - timestamp >= 5000){
+            // Start closing doors after waiting
+            quarter_cycle_closed(uart_source);
+            target_counter = 588;        // Set target encoder counts for closing
+            door_movement_complete = 0;
+            door_stage = 2;              // Move to closing stage
+        }
+    }
+
+    if(door_stage == 2){
+        // Closing stage
+        if(door_movement_complete){
+            // Doors have closed
+            door_movement_complete = 0;  // Reset flag
+            door_stage = 0;              // Reset for next time
+            state_initialized = 0;       // Reset state
+            currentState = STATE_READY;  // Transition back to Ready State
+        }
     }
 }
 

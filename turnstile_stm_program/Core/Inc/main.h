@@ -74,8 +74,6 @@ void Error_Handler(void);
 #define LD2_GPIO_Port GPIOA
 #define Encoder1_Pin GPIO_PIN_6
 #define Encoder1_GPIO_Port GPIOC
-#define Encoder2_Pin GPIO_PIN_7
-#define Encoder2_GPIO_Port GPIOC
 #define Matrix_Pin GPIO_PIN_8
 #define Matrix_GPIO_Port GPIOA
 #define TMS_Pin GPIO_PIN_13
