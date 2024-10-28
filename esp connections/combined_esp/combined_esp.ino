@@ -15,7 +15,7 @@ const char* publish_topic = "turnstile_publish";
 const char* subscribe_topic = "turnstile_subscribe";
 
 // Define static port ID
-const char* portId = ""; // Set your port ID here
+const char* portId = "01A"; // Set your port ID here
 
 // Buffer to store incoming UART data
 char uart_data[256];
