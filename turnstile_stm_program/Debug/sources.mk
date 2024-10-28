@@ -25,4 +25,5 @@ SUBDIRS := \
 Core/Src \
 Core/Startup \
 Drivers/STM32F1xx_HAL_Driver/Src \
+Middlewares/Third_Party/NimaLTD_Driver/WS28XX \
 

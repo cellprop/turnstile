@@ -233,7 +233,7 @@ void Cross_Animation(uint8_t reset) {
 
 //LIMIT SWITCH FUNCTIONS
 void limit_switch(void){
-	if (HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_3) == GPIO_PIN_RESET)
+	if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_12) == GPIO_PIN_RESET)
 	{
 	  // If the limit switch is pressed, turn on the LED (PB7)
 	  //HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
@@ -269,13 +269,17 @@ void Direction(int a)
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	if(GPIO_Pin == GPIO_PIN_3)
+	if(GPIO_Pin == GPIO_PIN_6)
 	{
-		encoder();
+		encoder1();
 	}
+	/* if(GPIO_Pin == GPIO_PIN_7)
+	{
+		encoder2();
+	}*/
 }
 
-void encoder(void)
+void encoder1(void)
 {
 	counter++;
 	if(counter == 588)
@@ -284,6 +288,15 @@ void encoder(void)
 		counter = 0;
 	}
 }
+/* void encoder2(void)
+{
+	counter++;
+	if(counter == 588)
+	{
+		Speed_Control(0);
+		counter = 0;
+	}
+}*/
 void quarter_cycle_cw(void)
 {
 	Direction(0);

@@ -60,6 +60,8 @@ void Error_Handler(void);
 #define B1_Pin GPIO_PIN_13
 #define B1_GPIO_Port GPIOC
 #define B1_EXTI_IRQn EXTI15_10_IRQn
+#define Limit2_Pin GPIO_PIN_3
+#define Limit2_GPIO_Port GPIOC
 #define Motor_Input1_Pin GPIO_PIN_0
 #define Motor_Input1_GPIO_Port GPIOA
 #define Motor_Input2_Pin GPIO_PIN_1
@@ -70,12 +72,20 @@ void Error_Handler(void);
 #define USART_RX_GPIO_Port GPIOA
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
+#define Encoder1_Pin GPIO_PIN_6
+#define Encoder1_GPIO_Port GPIOC
+#define Encoder2_Pin GPIO_PIN_7
+#define Encoder2_GPIO_Port GPIOC
+#define Matrix_Pin GPIO_PIN_8
+#define Matrix_GPIO_Port GPIOA
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
+#define Limit1_Pin GPIO_PIN_4
+#define Limit1_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
