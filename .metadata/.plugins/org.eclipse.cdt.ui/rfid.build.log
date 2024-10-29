@@ -1,10 +1,10 @@
-15:26:44 **** Incremental Build of configuration Debug for project rfid ****
+10:54:05 **** Incremental Build of configuration Debug for project rfid ****
 make -j7 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: fatal error: cannot open Core/Src/main.su for writing: Permission denied
-compilation terminated.
-make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
-"make -j7 all" terminated with exit code 2. Build might be incomplete.
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11532	     92	   2100	  13724	   359c	rfid.elf
+Finished building: default.size.stdout
+ 
 
-15:26:45 Build Failed. 1 errors, 0 warnings. (took 630ms)
+10:54:05 Build Finished. 0 errors, 0 warnings. (took 236ms)
 

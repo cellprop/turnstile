@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;turnstile_stm_program/I-CUBE-WS28XX&apos;" deleteContents="false" description="Delete resource &apos;turnstile_stm_program/I-CUBE-WS28XX&apos;" element1="/turnstile_stm_program/I-CUBE-WS28XX" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1730121079451"/>
+</session>

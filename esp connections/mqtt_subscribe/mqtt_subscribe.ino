@@ -1,9 +1,9 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
-const char* ssid = "Cellprop";               // Replace with your Wi-Fi SSID
-const char* pass = "Cp#deco123";             // Replace with your Wi-Fi password
-const char* mqtt_server = "192.168.68.138";  // Replace with your MQTT server address
+const char* ssid = "nWO";               // Replace with your Wi-Fi SSID
+const char* pass = "Cp#super123";             // Replace with your Wi-Fi password
+const char* mqtt_server = "192.168.68.106";  // Replace with your MQTT server address
 
 WiFiClient espClient;
 PubSubClient client(espClient);

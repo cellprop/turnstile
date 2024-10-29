@@ -1,0 +1,73 @@
+2024-10-29 08:38:24,023 [INFO] WebApp:189 - Connection lost
+2024-10-29 09:27:55,943 [INFO] WebApp:186 - Connection restablished
+2024-10-29 09:57:53,203 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 553013056 Bytes (780140544)
+2024-10-29 09:57:53,527 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
+2024-10-29 09:57:53,527 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
+2024-10-29 09:57:53,527 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
+2024-10-29 09:57:53,527 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
+2024-10-29 09:57:53,527 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: DMA
+2024-10-29 09:57:53,527 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F1
+2024-10-29 09:57:53,527 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F1
+2024-10-29 09:57:53,527 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
+2024-10-29 09:57:53,527 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NimaLTD.I-CUBE-WS28XX.3.0.1
+2024-10-29 09:57:53,528 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
+2024-10-29 09:57:53,528 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
+2024-10-29 09:57:53,530 [INFO] CodeGenerator:807 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.12.1.202409122256//db/
+2024-10-29 09:57:53,659 [INFO] IP:3366 - RTE template : default_conf.ftl
+2024-10-29 09:57:53,671 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/MXTmpFiles/license.tmp_save
+2024-10-29 09:57:53,850 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/MXTmpFiles/license.tmp
+2024-10-29 09:57:53,933 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/gpio.c_save
+2024-10-29 09:57:54,261 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/gpio.c
+2024-10-29 09:57:54,275 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/gpio.h_save
+2024-10-29 09:57:54,440 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/gpio.h
+2024-10-29 09:57:55,185 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-10-29 09:57:55,207 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/dma.c_save
+2024-10-29 09:57:55,280 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/dma.c
+2024-10-29 09:57:55,282 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/dma.h_save
+2024-10-29 09:57:55,332 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/dma.h
+2024-10-29 09:57:55,333 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-10-29 09:57:55,335 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/I-CUBE-WS28XX/./NimaLTD.I-CUBE-WS28XX_conf.h_save
+2024-10-29 09:57:55,394 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/I-CUBE-WS28XX/./NimaLTD.I-CUBE-WS28XX_conf.h
+2024-10-29 09:57:55,398 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/tim.c_save
+2024-10-29 09:57:55,639 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/tim.c
+2024-10-29 09:57:55,642 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/tim.h_save
+2024-10-29 09:57:55,701 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/tim.h
+2024-10-29 09:57:55,707 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/usart.c_save
+2024-10-29 09:57:55,788 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/usart.c
+2024-10-29 09:57:55,790 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/usart.h_save
+2024-10-29 09:57:55,841 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/usart.h
+2024-10-29 09:57:55,853 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/stm32f1xx_it.c_save
+2024-10-29 09:57:56,031 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/stm32f1xx_it.c
+2024-10-29 09:57:56,033 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/stm32f1xx_it.h_save
+2024-10-29 09:57:56,090 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/stm32f1xx_it.h
+2024-10-29 09:57:56,100 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/stm32f1xx_hal_msp.c_save
+2024-10-29 09:57:56,178 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/stm32f1xx_hal_msp.c
+2024-10-29 09:57:56,180 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/MXTmpFiles/system.tmp_save
+2024-10-29 09:57:56,239 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/MXTmpFiles/system.tmp
+2024-10-29 09:57:56,247 [INFO] CodeEngine:311 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/stm32f1xx_hal_conf.h_save
+2024-10-29 09:57:56,308 [INFO] CodeEngine:335 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/stm32f1xx_hal_conf.h
+2024-10-29 09:57:56,368 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/main.h_save
+2024-10-29 09:57:56,447 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/main.h
+2024-10-29 09:57:56,449 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/main.c_save
+2024-10-29 09:57:56,577 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/main.c
+2024-10-29 09:57:57,130 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 65mS.
+2024-10-29 09:57:57,138 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-10-29 09:57:57,138 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-10-29 09:57:57,138 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-10-29 09:57:57,138 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-10-29 09:57:57,138 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-10-29 09:57:57,138 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-10-29 09:57:57,138 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-10-29 09:57:57,138 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-10-29 09:57:57,138 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-10-29 09:57:57,138 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-10-29 09:57:57,138 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-10-29 09:57:57,138 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-10-29 09:57:57,138 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-10-29 09:57:57,138 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-10-29 09:57:57,144 [INFO] ProjectBuilder:9026 - Time for Copy ThirdParty[1] : 2mS.
+2024-10-29 09:57:57,148 [INFO] ProjectBuilder:4828 - Project Generator version: 4.5.0-B34
+2024-10-29 09:57:57,253 [INFO] ConfigFileManager:1531 - The Die is : DIE410
+2024-10-29 09:57:59,164 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 2014mS.
+2024-10-29 09:57:59,171 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 3mS.
+2024-10-29 09:57:59,174 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
