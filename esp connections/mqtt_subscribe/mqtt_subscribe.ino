@@ -56,7 +56,7 @@ void reconnect() {
     if (client.connect("ESP8266Client")) {
       Serial.println("connected");
       // Subscribe to the "turnstile" topic after connecting
-      client.subscribe("turnstile_receive");
+      client.subscribe("turnstile_subscribe");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());

@@ -71,6 +71,7 @@ uint8_t uart_source = 0;   // Variable to identify UART source (1 for USART1, 2 
 uint8_t responseData;      // For NOS response
 uint8_t flagSuccess = 0;   // Flag to indicate if 'true' was received
 uint8_t flagFailure = 0;   // Flag to indicate if 'false' was received
+uint8_t intresponseData;
 
 /* Arrow LED indices */
 int arrow[] = {
@@ -88,7 +89,8 @@ int bottomCross[] = {31, 24, 33, 38, 42, 45, 51, 52, 59, 60, 66, 69, 73, 78, 80,
 volatile int counter = 0;
 volatile int rev = 0;
 volatile uint8_t door_movement_complete = 0; // Flag set by encoder function
-volatile int target_counter = 0;       // Target encoder count to stop motor
+volatile int target_counter = 588;       // Target encoder count to stop motor
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -273,7 +275,7 @@ void Direction(int a)
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-    if(GPIO_Pin == GPIO_PIN_6) // Replace with your encoder GPIO pin
+    if(GPIO_Pin == GPIO_PIN_2) // Replace with your encoder GPIO pin
     {
         encoder();
     }
@@ -282,11 +284,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 void encoder(void)
 {
     counter++;
-    if(counter >= target_counter)
+    if(counter == target_counter)
     {
         Speed_Control(0); // Stop the motor
         counter = 0;      // Reset counter for next operation
-        door_movement_complete = 1; // Indicate movement is complete
+        //door_movement_complete = 1; // Indicate movement is complete
     }
 }
 
@@ -346,61 +348,27 @@ void reading_state(void){
     HAL_Delay(1000); // Delay as needed
 
     // Check for authentication result
-    if(flagSuccess == 1){
+    /*if(flagSuccess == 1){
         flagSuccess = 0;
         currentState = STATE_OPEN; // Transition to Open State
     }
     else if(flagFailure == 1){
         flagFailure = 0;
         currentState = STATE_CLOSED; // Transition to Closed State
+    }*/
+    if(intresponseData == 1){
+    	currentState = STATE_OPEN;
+    }
+    else if(intresponseData == 2){
+    	currentState = STATE_OPEN;
     }
 }
 
 void open_state(void){
-    static uint8_t state_initialized = 0;
-    static uint8_t door_stage = 0; // 0: Opening, 1: Waiting, 2: Closing
-    static uint32_t timestamp = 0;
-
-    if(state_initialized == 0){
-        // State initialization
-        quarter_cycle_open(uart_source); // Start opening doors
-        target_counter = 588;            // Set target encoder counts for opening
-        door_movement_complete = 0;
-        door_stage = 0;                  // Start with opening stage
-        state_initialized = 1;
-    }
-
-    if(door_stage == 0){
-        // Opening stage
-        if(door_movement_complete){
-            // Doors have opened
-            door_movement_complete = 0;  // Reset flag
-            timestamp = HAL_GetTick();   // Record time
-            door_stage = 1;              // Move to waiting stage
-        }
-    }
-
-    if(door_stage == 1){
-        // Waiting stage
-        if(HAL_GetTick() - timestamp >= 5000){
-            // Start closing doors after waiting
-            quarter_cycle_closed(uart_source);
-            target_counter = 588;        // Set target encoder counts for closing
-            door_movement_complete = 0;
-            door_stage = 2;              // Move to closing stage
-        }
-    }
-
-    if(door_stage == 2){
-        // Closing stage
-        if(door_movement_complete){
-            // Doors have closed
-            door_movement_complete = 0;  // Reset flag
-            door_stage = 0;              // Reset for next time
-            state_initialized = 0;       // Reset state
-            currentState = STATE_READY;  // Transition back to Ready State
-        }
-    }
+	quarter_cycle_open(uart_source);
+	HAL_Delay(5000);
+	quarter_cycle_closed(uart_source);
+	currentState = STATE_READY;
 }
 
 void closed_state(void){
@@ -475,7 +443,12 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start(&htim4);
+  HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_1);
+  HAL_TIM_Base_Start(&htim3);
+  HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_1);
   WS28XX_Init(&ws, &htim3, 72, TIM_CHANNEL_1, 256);
+
 
   // Start UART reception for RFID Reader (USART1)
   HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
@@ -594,11 +567,13 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
         HAL_UART_Receive_IT(&huart2, rxData, sizeof(rxData));
     }
     else if (huart->Instance == USART3) { // NOS Response (USART3)
-        if (responseData == 1) {
+        //intresponseData = responseData - '0';
+        intresponseData = atoi(&responseData);
+    	/*if (intresponseData == 1) {
             flagSuccess = 1;
-        } else if (responseData == 0) {
+        } else if (intresponseData == 2) {
             flagFailure = 1;
-        }
+        }*/
 
         // Re-enable UART reception for USART3
         HAL_UART_Receive_IT(&huart3, &responseData, 1);

@@ -1,10 +1,10 @@
-10:54:05 **** Incremental Build of configuration Debug for project rfid ****
+17:56:18 **** Incremental Build of configuration Debug for project rfid ****
 make -j7 all 
 arm-none-eabi-size  rfid.elf 
    text	   data	    bss	    dec	    hex	filename
-  11532	     92	   2100	  13724	   359c	rfid.elf
+  11532	     92	   2148	  13772	   35cc	rfid.elf
 Finished building: default.size.stdout
  
 
-10:54:05 Build Finished. 0 errors, 0 warnings. (took 236ms)
+17:56:18 Build Finished. 0 errors, 0 warnings. (took 499ms)
 

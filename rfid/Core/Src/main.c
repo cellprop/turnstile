@@ -45,7 +45,7 @@
 
 /* USER CODE BEGIN PV */
 
-uint8_t rxData[14]; // Array to store received bytes
+uint8_t rxData[64]; // Array to store received bytes
 uint8_t processedData[13]; // Array to store data without start and end byte
 uint8_t flag = 0; // Flag to indicate data reception is complete
 uint8_t responseData;      // To store the boolean response (0 for false, 1 for true)

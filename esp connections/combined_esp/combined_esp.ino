@@ -6,6 +6,7 @@
 const char* ssid = "nWO";     // Replace with your Wi-Fi SSID
 const char* pass = "Cp#super123";  // Replace with your Wi-Fi password
 const char* mqtt_server = "192.168.68.106";  // Replace with your MQTT server address
+int recent;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -79,12 +80,13 @@ void setup_wifi() {
 
 // Function to reconnect to the MQTT broker
 void reconnect() {
-  // Loop until the client is connected
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
     if (client.connect("ESP8266Client")) {
       Serial.println("connected");
       client.subscribe(subscribe_topic);  // Subscribe to the topic
+      Serial.print("Subscribed to topic: ");
+      Serial.println(subscribe_topic);
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -124,6 +126,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   // Extract the message
   String message;
   for (int i = 0; i < length; i++) {
+    //Serial.print((char)payload[i]);
     message += (char)payload[i];
   }
   Serial.println(message);
@@ -132,9 +135,12 @@ void callback(char* topic, byte* payload, unsigned int length) {
   int received_value = message.toInt();
   if (received_value >= 1 && received_value <= 10) {
     transmitToUART(String(received_value).c_str());
-  } else {
-    Serial.println("Received message is not in the range 1-10. Ignoring.");
   }
+  else if (received_value > 10){
+    recent = received_value % 10;
+    transmitToUART(String(recent).c_str());    
+  } 
+
 }
 
 // Function to read data from UART

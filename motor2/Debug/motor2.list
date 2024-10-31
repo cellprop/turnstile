@@ -296,8 +296,6 @@ int main(void)
   HAL_TIM_Base_Start(&htim4);
  8000294:	4808      	ldr	r0, [pc, #32]	@ (80002b8 <main+0x3c>)
  8000296:	f001 fa15 	bl	80016c4 <HAL_TIM_Base_Start>
-
-  // Start PWM at Port-B pin#6
   HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_1);
  800029a:	2100      	movs	r1, #0
  800029c:	4806      	ldr	r0, [pc, #24]	@ (80002b8 <main+0x3c>)
