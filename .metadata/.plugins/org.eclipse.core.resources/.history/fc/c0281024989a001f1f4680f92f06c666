@@ -276,7 +276,7 @@ void Direction(int a)
 void encoder(void)
 {
     counter++;
-    if(counter == 570)
+    if(counter == 588)
     {
         Speed_Control(0); // Stop the motor
         counter = 0;      // Reset counter for next operation
@@ -372,7 +372,6 @@ void open_state(void){
 	quarter_cycle_open(uart_source);
 	HAL_Delay(5000);
 	quarter_cycle_closed(uart_source);
-	HAL_Delay(1000);
 	currentState = STATE_READY;
 }
 
@@ -553,7 +552,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 
         // Re-enable UART reception for USART1
         HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
-        //HAL_Delay(2000);
     }
     else if (huart->Instance == USART2) { // Data received from USART2
         // Process the received data

@@ -553,7 +553,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 
         // Re-enable UART reception for USART1
         HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
-        //HAL_Delay(2000);
+        HAL_Delay(2000);
     }
     else if (huart->Instance == USART2) { // Data received from USART2
         // Process the received data
