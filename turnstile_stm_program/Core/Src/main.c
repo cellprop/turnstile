@@ -484,6 +484,15 @@ int main(void)
 				closed_state();
 				break;
 			// Leave other states empty for now
+			case STATE_OVERCAPACITY:
+				overcapacity_state();
+				break;
+			case STATE_SLEEP:
+				sleep_state();
+				break;
+			case STATE_EMERGENCY:
+				emergency_state();
+				break;
 			default:
 				break;
 		}
