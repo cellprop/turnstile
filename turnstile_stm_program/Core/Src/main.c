@@ -575,11 +575,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
     else if (huart->Instance == USART3) { // NOS Response (USART3)
         //intresponseData = responseData - '0';
         intresponseData = atoi(&responseData);
-    	/*if (intresponseData == 1) {
-            flagSuccess = 1;
-        } else if (intresponseData == 2) {
-            flagFailure = 1;
-        }*/
+
 
         // Re-enable UART reception for USART3
         HAL_UART_Receive_IT(&huart3, &responseData, 1);

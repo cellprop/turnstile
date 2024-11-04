@@ -2035,7 +2035,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
  8000f90:	4926      	ldr	r1, [pc, #152]	@ (800102c <HAL_UART_RxCpltCallback+0xfc>)
  8000f92:	482c      	ldr	r0, [pc, #176]	@ (8001044 <HAL_UART_RxCpltCallback+0x114>)
  8000f94:	f002 ff87 	bl	8003ea6 <HAL_UART_Receive_IT>
-        }*/
+
 
         // Re-enable UART reception for USART3
         HAL_UART_Receive_IT(&huart3, &responseData, 1);

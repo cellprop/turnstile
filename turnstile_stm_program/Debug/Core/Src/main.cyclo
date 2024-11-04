@@ -24,4 +24,4 @@
 ../Core/Src/main.c:419:5:main	5
 ../Core/Src/main.c:501:6:SystemClock_Config	3
 ../Core/Src/main.c:538:6:HAL_UART_RxCpltCallback	6
-../Core/Src/main.c:594:6:Error_Handler	1
+../Core/Src/main.c:590:6:Error_Handler	1
