@@ -88,7 +88,7 @@ int bottomCross[] = {31, 24, 33, 38, 42, 45, 51, 52, 59, 60, 66, 69, 73, 78, 80,
 /* Other variables */
 volatile int counter = 0;
 volatile int rev = 0;
-volatile uint8_t door_movement_complete = 0; // Flag set by encoder function
+//volatile uint8_t door_movement_complete = 0; // Flag set by encoder function
 volatile int target_counter = 588;       // Target encoder count to stop motor
 
 /* USER CODE END PV */
@@ -273,14 +273,6 @@ void Direction(int a)
 	}
 }
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-    if(GPIO_Pin == GPIO_PIN_2) // Replace with your encoder GPIO pin
-    {
-        encoder();
-    }
-}
-
 void encoder(void)
 {
     counter++;
@@ -292,12 +284,20 @@ void encoder(void)
     }
 }
 
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+    if(GPIO_Pin == GPIO_PIN_2) // Replace with your encoder GPIO pin
+    {
+        encoder();
+    }
+}
+
 void quarter_cycle_open(int source)
 {
     if(source == 1){
         Direction(0);
     }
-    else{
+    else if(source == 2){
         Direction(1);
     }
     Speed_Control(1000); // Start motor
@@ -308,7 +308,7 @@ void quarter_cycle_closed(int source)
     if(source == 1){
         Direction(1);
     }
-    else{
+    else if(source == 2){
         Direction(0);
     }
     Speed_Control(1000); // Start motor
@@ -318,6 +318,9 @@ void quarter_cycle_closed(int source)
 	Direction(a-1);
 	Speed_Control(1000);
 }*/
+
+
+
 
 //STATE FUNCTIONS
 
