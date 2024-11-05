@@ -132,14 +132,12 @@ void Clear_Arrow(WS28XX_HandleTypeDef *ws) {
     WS28XX_Update(ws);
 }
 
-
-
 /* Function to shift the arrow forward */
 void Shift_Arrow() {
     for (int i = 0; i < 26; i++) {
-        arrow[i] += 8;
+        arrow[i] = arrow[i] + 8;
         if (arrow[i] >= 240) {
-            arrow[i] = arrow[i] % 240 + 16; // Ensure arrow stays within valid indices
+            arrow[i] = arrow[i] % (LED_ROWS * LED_COLS - 16);
         }
     }
 }
@@ -172,83 +170,33 @@ void Clear_Cross(WS28XX_HandleTypeDef *ws, int *cross) {
 }
 
 /* Function for arrow animation */
-void Arrow_Animation(uint8_t reset) {
-    static uint32_t lastUpdate = 0;
-    static uint8_t initialized = 0;
+void Arrow_Animation() {
+    Draw_Strips(&ws, COLOR_RGB565_CYAN, 255);
 
-    if (reset) {
-        initialized = 0;
-        lastUpdate = HAL_GetTick();
-        return;
-    }
-
-    // Initialize on first call
-    if (!initialized) {
-        Draw_Strips(&ws, COLOR_RGB565_CYAN, 255);
-        initialized = 1;
-    }
-
-    // Update animation based on DELAY_TIME
-    if (HAL_GetTick() - lastUpdate >= DELAY_TIME) {
-        lastUpdate = HAL_GetTick();
-
+    while (1) {
         Clear_Arrow(&ws);
         Shift_Arrow();
         Draw_Arrow(&ws, COLOR_RGB565_GREEN, 255);
+        HAL_Delay(DELAY_TIME);
     }
 }
 
 /* Function for cross animation */
-void Cross_Animation(uint8_t reset) {
-    static uint32_t lastUpdate = 0;
-    static uint8_t isOn = 0;
-    static uint8_t initialized = 0;
+void Cross_Animation() {
+    Draw_Strips(&ws, COLOR_RGB565_CYAN, 255);
 
-    if (reset) {
-        initialized = 0;
-        isOn = 0;
-        lastUpdate = HAL_GetTick();
-        return;
-    }
-
-    // Initialize on first call
-    if (!initialized) {
-        Draw_Strips(&ws, COLOR_RGB565_CYAN, 255);
-        initialized = 1;
-    }
-
-    // Toggle the cross based on BLINK_DELAY
-    if (HAL_GetTick() - lastUpdate >= BLINK_DELAY) {
-        lastUpdate = HAL_GetTick();
-
-        if (isOn) {
-            Clear_Cross(&ws, topCross);
-            Clear_Cross(&ws, middleCross);
-            Clear_Cross(&ws, bottomCross);
-            isOn = 0;
-        } else {
-            Draw_Cross(&ws, topCross, COLOR_RGB565_RED, 255);
-            Draw_Cross(&ws, middleCross, COLOR_RGB565_RED, 255);
-            Draw_Cross(&ws, bottomCross, COLOR_RGB565_RED, 255);
-            isOn = 1;
-        }
+    while (1) {
+        Draw_Cross(&ws, topCross, COLOR_RGB565_RED, 255);
+        Draw_Cross(&ws, middleCross, COLOR_RGB565_RED, 255);
+        Draw_Cross(&ws, bottomCross, COLOR_RGB565_RED, 255);
+        HAL_Delay(BLINK_DELAY);
+        Clear_Cross(&ws, topCross);
+        Clear_Cross(&ws, middleCross);
+        Clear_Cross(&ws, bottomCross);
+        HAL_Delay(BLINK_DELAY);
     }
 }
 
-
-//LIMIT SWITCH FUNCTIONS
-void limit_switch(void){
-	if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_12) == GPIO_PIN_RESET)
-	{
-	  // If the limit switch is pressed, turn on the LED (PB7)
-	  //HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
-	}
-	else
-	{
-	  // If the switch is not pressed, turn off the LED
-	  //HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
-	}
-}
 
 
 
@@ -286,11 +234,35 @@ void encoder(void)
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-    if(GPIO_Pin == GPIO_PIN_2) // Replace with your encoder GPIO pin
+    if(GPIO_Pin == GPIO_PIN_2)
     {
     	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7); // Toggle an LED on PB7 for visual feedback
     	encoder();
     }
+    if(GPIO_Pin == GPIO_PIN_10)
+	{
+		Speed_Control(0);
+		counter = 0;
+		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	}
+    if(GPIO_Pin == GPIO_PIN_11)
+	{
+		Speed_Control(0);
+		counter = 0;
+		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	}
+    if(GPIO_Pin == GPIO_PIN_14)
+	{
+		Speed_Control(0);
+		counter = 0;
+		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	}
+    if(GPIO_Pin == GPIO_PIN_15)
+	{
+		Speed_Control(0);
+		counter = 0;
+		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	}
 }
 
 void quarter_cycle_open(int source)
@@ -315,18 +287,12 @@ void quarter_cycle_closed(int source)
     Speed_Control(1000); // Start motor
 }
 
-/*void quarter_cycle(int a){
-	Direction(a-1);
-	Speed_Control(1000);
-}*/
-
-
 
 
 //STATE FUNCTIONS
 
 void ready_state(void){
-    static uint8_t state_initialized = 0;
+    /*static uint8_t state_initialized = 0;
 
     if(state_initialized == 0){
         // Reset the arrow animation
@@ -335,11 +301,13 @@ void ready_state(void){
     }
 
     // Call the Arrow Animation function
-    Arrow_Animation(0); // Continue animation
+    Arrow_Animation(0); // Continue animation*/
+	Clear_Arrow(&ws);
+	Draw_Arrow(&ws, COLOR_RGB565_GREEN, 255);
 
     // Check if data has been received
     if(flag_rev == 1){
-        state_initialized = 0; // Reset for next time
+        //state_initialized = 0; // Reset for next time
         currentState = STATE_READING; // Transition to Reading State
     }
 }
@@ -349,17 +317,10 @@ void reading_state(void){
         HAL_UART_Transmit_IT(&huart3, (uint8_t *)usermsg, strlen(usermsg));
         flag_rev = 0;
     }
+	Clear_Arrow(&ws);
+	Draw_Arrow(&ws, COLOR_RGB565_GREEN, 255);
     HAL_Delay(1000); // Delay as needed
 
-    // Check for authentication result
-    /*if(flagSuccess == 1){
-        flagSuccess = 0;
-        currentState = STATE_OPEN; // Transition to Open State
-    }
-    else if(flagFailure == 1){
-        flagFailure = 0;
-        currentState = STATE_CLOSED; // Transition to Closed State
-    }*/
     if(intresponseData == 1){
     	currentState = STATE_OPEN;
     }
@@ -374,6 +335,7 @@ void open_state(void){
 	quarter_cycle_closed(uart_source);
 	HAL_Delay(1000);
 	currentState = STATE_READY;
+	Arrow_Animation();
 }
 
 void closed_state(void){
@@ -450,8 +412,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start(&htim4);
   HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_1);
-  HAL_TIM_Base_Start(&htim3);
-  HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_1);
+  //HAL_TIM_Base_Start(&htim3);
+  //HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_1);
   WS28XX_Init(&ws, &htim3, 72, TIM_CHANNEL_1, 256);
 
 
