@@ -174,11 +174,6 @@ void quarter_cycle_closed(int source)
     Speed_Control(1000); // Start motor
 }
 
-void centre_align(void){
-	quarter_cycle_open(1);
-	quarter_cycle_open(1);
-	quarter_cycle_closed(1);
-}
 
 
 //STATE FUNCTIONS
@@ -225,7 +220,6 @@ void reading_state(void){
 
 void open_state(void){
 	quarter_cycle_open(uart_source);
-	//IR Sensor Code
 	HAL_Delay(5000);
 	quarter_cycle_closed(uart_source);
 	HAL_Delay(1000);
@@ -241,21 +235,15 @@ void closed_state(void){
 }
 
 void overcapacity_state(void){
-	//Display Code
-	Speed_Control(0);
-	currentState = STATE_READY;
+
 }
 
 void sleep_state(void){
-	//Shut off system code:
-	centre_align();
+
 }
 
 void emergency_state(void){
-	//Display Code
-	quarter_cycle_open(1);
-	quarter_cycle_open(1);
-	currentState = STATE_SLEEP;
+
 }
 /* USER CODE END 0 */
 
