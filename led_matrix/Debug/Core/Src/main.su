@@ -1,9 +1,0 @@
-../Core/Src/main.c:36:5:Get_LED_Index	16	static
-../Core/Src/main.c:47:6:Draw_Arrow	32	static
-../Core/Src/main.c:58:6:Clear_Arrow	24	static
-../Core/Src/main.c:68:6:Shift_Arrow	24	static
-../Core/Src/main.c:78:6:Draw_Strips	32	static
-../Core/Src/main.c:93:6:Update_Brightness	128	static
-../Core/Src/main.c:109:5:main	120	static
-../Core/Src/main.c:151:6:SystemClock_Config	72	static
-../Core/Src/main.c:185:6:Error_Handler	4	static,ignoring_inline_asm

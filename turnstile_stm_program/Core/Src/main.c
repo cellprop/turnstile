@@ -69,22 +69,7 @@ uint8_t flag_rev = 0;      // Flag to indicate data reception
 uint8_t uart_source = 0;   // Variable to identify UART source (1 for USART1, 2 for USART2)
 
 uint8_t responseData;      // For NOS response
-uint8_t flagSuccess = 0;   // Flag to indicate if 'true' was received
-uint8_t flagFailure = 0;   // Flag to indicate if 'false' was received
 uint8_t intresponseData;
-
-/* Arrow LED indices */
-int arrow[] = {
-    83, 84, 91, 92, 99, 100, 107, 108, 115, 116, 123, 124,
-    131, 132, 137, 138, 139, 140, 141, 142, 146, 147, 148, 149,
-    155, 156
-};
-
-/* "X" Cross LED Addresses */
-int topCross[] = {224, 231, 222, 217, 213, 210, 203, 204, 196, 195, 189, 186, 182, 177, 175, 168};
-int middleCross[] = {103, 96, 105, 110, 114, 117, 123, 124, 132, 131, 138, 141, 145, 150, 152, 159};
-int bottomCross[] = {31, 24, 33, 38, 42, 45, 51, 52, 59, 60, 66, 69, 73, 78, 80, 87};
-
 /* Other variables */
 volatile int counter = 0;
 volatile int rev = 0;
@@ -101,103 +86,6 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-//LED MATRIX FUNCTIONS
-/* Function to calculate the correct LED index based on the zig-zag pattern */
-int Get_LED_Index(int row, int col) {
-    if (row % 2 == 0) {
-        return (row * LED_COLS / 2) + col;
-    } else {
-        return (row * LED_COLS / 2) + (LED_COLS / 2 - 1 - col);
-    }
-}
-
-/* Function to draw the arrow */
-void Draw_Arrow(WS28XX_HandleTypeDef *ws, int color, int brightness) {
-    for (int i = 0; i < 26; i++) {
-        if (arrow[i] >= 16 && arrow[i] <= 239) {
-            WS28XX_SetPixel_RGBW_565(ws, arrow[i], color, brightness);
-        }
-    }
-    WS28XX_Update(ws);
-}
-
-/* Function to clear the arrow */
-void Clear_Arrow(WS28XX_HandleTypeDef *ws) {
-    for (int i = 0; i < 26; i++) {
-        if (arrow[i] >= 16 && arrow[i] <= 239) {
-            WS28XX_SetPixel_RGBW_565(ws, arrow[i], COLOR_RGB565_BLACK, 0);
-        }
-    }
-    WS28XX_Update(ws);
-}
-
-/* Function to shift the arrow forward */
-void Shift_Arrow() {
-    for (int i = 0; i < 26; i++) {
-        arrow[i] = arrow[i] + 8;
-        if (arrow[i] >= 240) {
-            arrow[i] = arrow[i] % (LED_ROWS * LED_COLS - 16);
-        }
-    }
-}
-
-/* Function to draw the strips */
-void Draw_Strips(WS28XX_HandleTypeDef *ws, int color, int brightness) {
-    for (int i = 240; i <= 255; i++) {
-        WS28XX_SetPixel_RGBW_565(ws, i, color, brightness);
-    }
-    for (int i = 0; i <= 15; i++) {
-        WS28XX_SetPixel_RGBW_565(ws, i, color, brightness);
-    }
-    WS28XX_Update(ws);
-}
-
-/* Function to draw the "X" shapes */
-void Draw_Cross(WS28XX_HandleTypeDef *ws, int *cross, int color, int brightness) {
-    for (int i = 0; i < 16; i++) {
-        WS28XX_SetPixel_RGBW_565(ws, cross[i], color, brightness);
-    }
-    WS28XX_Update(ws);
-}
-
-/* Function to clear the "X" shapes */
-void Clear_Cross(WS28XX_HandleTypeDef *ws, int *cross) {
-    for (int i = 0; i < 16; i++) {
-        WS28XX_SetPixel_RGBW_565(ws, cross[i], COLOR_RGB565_BLACK, 0);
-    }
-    WS28XX_Update(ws);
-}
-
-/* Function for arrow animation */
-void Arrow_Animation() {
-    Draw_Strips(&ws, COLOR_RGB565_CYAN, 255);
-
-    while (1) {
-        Clear_Arrow(&ws);
-        Shift_Arrow();
-        Draw_Arrow(&ws, COLOR_RGB565_GREEN, 255);
-        HAL_Delay(DELAY_TIME);
-    }
-}
-
-/* Function for cross animation */
-void Cross_Animation() {
-    Draw_Strips(&ws, COLOR_RGB565_CYAN, 255);
-
-    while (1) {
-        Draw_Cross(&ws, topCross, COLOR_RGB565_RED, 255);
-        Draw_Cross(&ws, middleCross, COLOR_RGB565_RED, 255);
-        Draw_Cross(&ws, bottomCross, COLOR_RGB565_RED, 255);
-        HAL_Delay(BLINK_DELAY);
-        Clear_Cross(&ws, topCross);
-        Clear_Cross(&ws, middleCross);
-        Clear_Cross(&ws, bottomCross);
-        HAL_Delay(BLINK_DELAY);
-    }
-}
-
-
 
 
 //MOTOR CONTROL FUNCTIONS
@@ -228,7 +116,6 @@ void encoder(void)
     {
         Speed_Control(0); // Stop the motor
         counter = 0;      // Reset counter for next operation
-        //door_movement_complete = 1; // Indicate movement is complete
     }
 }
 
@@ -292,40 +179,42 @@ void quarter_cycle_closed(int source)
 //STATE FUNCTIONS
 
 void ready_state(void){
-    /*static uint8_t state_initialized = 0;
-
-    if(state_initialized == 0){
-        // Reset the arrow animation
-        Arrow_Animation(1); // Reset animation
-        state_initialized = 1;
-    }
-
-    // Call the Arrow Animation function
-    Arrow_Animation(0); // Continue animation*/
-	Clear_Arrow(&ws);
-	Draw_Arrow(&ws, COLOR_RGB565_GREEN, 255);
-
+	//Display Code
     // Check if data has been received
     if(flag_rev == 1){
-        //state_initialized = 0; // Reset for next time
         currentState = STATE_READING; // Transition to Reading State
     }
 }
 
 void reading_state(void){
+	//Display Code
     if(flag_rev == 1){
         HAL_UART_Transmit_IT(&huart3, (uint8_t *)usermsg, strlen(usermsg));
         flag_rev = 0;
     }
-	Clear_Arrow(&ws);
-	Draw_Arrow(&ws, COLOR_RGB565_GREEN, 255);
     HAL_Delay(1000); // Delay as needed
 
-    if(intresponseData == 1){
+    //NOS Potential Responses Setup
+    switch(intresponseData){
+
+    case 0:
+    	currentState = STATE_READY;
+    	break;
+    case 1:
     	currentState = STATE_OPEN;
-    }
-    else if(intresponseData == 2){
-    	currentState = STATE_OPEN;
+    	break;
+    case 2:
+    	currentState = STATE_CLOSED;
+    	break;
+    case 3:
+    	currentState = STATE_EMERGENCY;
+    	break;
+    case 4:
+    	currentState = STATE_SLEEP;
+    	break;
+    case 5:
+    	currentState = STATE_OVERCAPACITY;
+		break;
     }
 }
 
@@ -335,30 +224,14 @@ void open_state(void){
 	quarter_cycle_closed(uart_source);
 	HAL_Delay(1000);
 	currentState = STATE_READY;
-	Arrow_Animation();
+
 }
 
 void closed_state(void){
-    static uint8_t state_initialized = 0;
-    static uint32_t timestamp = 0;
+	//Display Code
+	HAL_Delay(3000);
+	currentState = STATE_READY;
 
-    if(state_initialized == 0){
-        // Reset the cross animation
-        Cross_Animation(1); // Pass 1 to reset
-        timestamp = HAL_GetTick(); // Record time
-        state_initialized = 1;
-    }
-
-    // Call the Cross Animation function
-    Cross_Animation(0); // Pass 0 to continue animation
-
-    // Wait for some time (e.g., 3 seconds)
-    if(HAL_GetTick() - timestamp >= 3000){
-        // Clear cross
-        Cross_Animation(1); // Reset animation for next time
-        state_initialized = 0;
-        currentState = STATE_READY; // Transition back to Ready State
-    }
 }
 
 void overcapacity_state(void){
@@ -412,8 +285,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start(&htim4);
   HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_1);
-  //HAL_TIM_Base_Start(&htim3);
-  //HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_1);
   WS28XX_Init(&ws, &htim3, 72, TIM_CHANNEL_1, 256);
 
 
@@ -451,7 +322,7 @@ int main(void)
 				break;
 			case STATE_SLEEP:
 				sleep_state();
-				break;
+				//break;
 			case STATE_EMERGENCY:
 				emergency_state();
 				break;

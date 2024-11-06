@@ -1,8 +1,10 @@
-encoder_value
-a
-counter
-rev
+intresponseData
+responseData
+uart_source
+flag_rev
 rxData
 processedData
 usermsg
-SystemState
+currentState
+counter
+source

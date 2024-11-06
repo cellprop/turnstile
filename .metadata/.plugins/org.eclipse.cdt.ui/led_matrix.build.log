@@ -1,10 +1,19 @@
-15:25:15 **** Incremental Build of configuration Debug for project led_matrix ****
+12:03:37 **** Incremental Build of configuration Debug for project led_matrix ****
 make -j7 all 
-arm-none-eabi-size  led_matrix.elf 
-   text	   data	    bss	    dec	    hex	filename
-  14208	     12	   8708	  22928	   5990	led_matrix.elf
-Finished building: default.size.stdout
- 
+arm-none-eabi-gcc "../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.d" -MT"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c:6:10: fatal error: ws28xx.h: No such file or directory
+    6 | #include "ws28xx.h"
+      |          ^~~~~~~~~~
+compilation terminated.
+make: *** [Middlewares/Third_Party/NimaLTD_Driver/WS28XX/subdir.mk:19: Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c:24:10: fatal error: ws28xx.h: No such file or directory
+   24 | #include "ws28xx.h"
+      |          ^~~~~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
 
-15:25:16 Build Finished. 0 errors, 0 warnings. (took 1s.71ms)
+12:03:38 Build Failed. 5 errors, 0 warnings. (took 1s.47ms)
 

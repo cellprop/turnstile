@@ -1,9 +1,9 @@
-15:25:18 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+12:14:45 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
 make -j7 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
-../Core/Src/main.c:548:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
-  548 |         intresponseData = atoi(&responseData);
+../Core/Src/main.c:419:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  419 |         intresponseData = atoi(&responseData);
       |                           ^~~~
 arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: turnstile_stm_program.elf
@@ -11,11 +11,11 @@ Finished building target: turnstile_stm_program.elf
 arm-none-eabi-size  turnstile_stm_program.elf 
 arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
    text	   data	    bss	    dec	    hex	filename
-  22972	    388	   9324	  32684	   7fac	turnstile_stm_program.elf
+  21400	     92	   9316	  30808	   7858	turnstile_stm_program.elf
 Finished building: default.size.stdout
  
 Finished building: turnstile_stm_program.list
  
 
-15:25:19 Build Finished. 0 errors, 1 warnings. (took 945ms)
+12:14:46 Build Finished. 0 errors, 1 warnings. (took 888ms)
 

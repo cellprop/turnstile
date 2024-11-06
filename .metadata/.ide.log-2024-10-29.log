@@ -2402,3 +2402,8 @@ java.lang.NullPointerException: Cannot invoke "javax.swing.JTextField.getText()"
 2024-11-05 15:30:08,391 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 1839mS.
 2024-11-05 15:30:08,392 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
 2024-11-05 15:30:08,394 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
+2024-11-05 16:05:38,220 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,480x255,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-11-05 16:34:10,692 [INFO] WebApp:189 - Connection lost
+2024-11-05 18:15:36,138 [INFO] WebApp:186 - Connection restablished
+2024-11-05 19:00:59,915 [INFO] WebApp:189 - Connection lost
+2024-11-05 19:05:10,756 [INFO] WebApp:186 - Connection restablished

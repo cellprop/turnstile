@@ -1767,3 +1767,505 @@ Finished building: default.size.stdout
  
 Finished building: turnstile_stm_program.list
  
+15:33:21 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.d" -MT"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
+arm-none-eabi-gcc "../Core/Src/dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dma.d" -MT"Core/Src/dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/dma.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:548:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  548 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/usart.o"
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_program.elf
+ 
+arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
+   text	   data	    bss	    dec	    hex	filename
+  22972	    388	   9324	  32684	   7fac	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_stm_program.list
+ 
+15:35:17 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-size  turnstile_stm_program.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22972	    388	   9324	  32684	   7fac	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+15:38:00 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-size  turnstile_stm_program.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22972	    388	   9324	  32684	   7fac	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+15:48:31 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:548:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  548 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_program.elf
+ 
+arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
+   text	   data	    bss	    dec	    hex	filename
+  22988	    388	   9324	  32700	   7fbc	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_stm_program.list
+ 
+15:50:08 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'ready_state':
+../Core/Src/main.c:300:9: error: 'state_initialized' undeclared (first use in this function)
+  300 |         state_initialized = 0; // Reset for next time
+      |         ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:300:9: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:538:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  538 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+15:51:47 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:537:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  537 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_program.elf
+ 
+arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
+   text	   data	    bss	    dec	    hex	filename
+  22956	    388	   9324	  32668	   7f9c	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_stm_program.list
+ 
+16:03:41 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-size  turnstile_stm_program.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22956	    388	   9324	  32668	   7f9c	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+16:06:21 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-size  turnstile_stm_program.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22956	    388	   9324	  32668	   7f9c	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+16:08:08 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:538:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  538 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_program.elf
+ 
+arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
+   text	   data	    bss	    dec	    hex	filename
+  22956	    388	   9324	  32668	   7f9c	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_stm_program.list
+ 
+16:10:35 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:537:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  537 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_program.elf
+ 
+arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
+   text	   data	    bss	    dec	    hex	filename
+  22784	    388	   9324	  32496	   7ef0	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_stm_program.list
+ 
+16:17:38 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-size  turnstile_stm_program.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22784	    388	   9324	  32496	   7ef0	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+17:19:28 **** Incremental Build of configuration Debug for project led_matrix ****
+make -j7 all 
+arm-none-eabi-size  led_matrix.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14208	     12	   8708	  22928	   5990	led_matrix.elf
+Finished building: default.size.stdout
+ 
+17:19:31 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+17:19:32 **** Incremental Build of configuration Debug for project limit_switch2 ****
+make -j7 all 
+arm-none-eabi-size  limit_switch2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5656	     12	   1644	   7312	   1c90	limit_switch2.elf
+Finished building: default.size.stdout
+ 
+17:19:33 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+17:19:33 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11532	     92	   2148	  13772	   35cc	rfid.elf
+Finished building: default.size.stdout
+ 
+17:19:34 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:537:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  537 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_program.elf
+ 
+arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
+   text	   data	    bss	    dec	    hex	filename
+  22784	    388	   9324	  32496	   7ef0	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_stm_program.list
+ 
+10:17:17 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-size  turnstile_stm_program.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22784	    388	   9324	  32496	   7ef0	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+10:17:22 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-size  turnstile_stm_program.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22784	    388	   9324	  32496	   7ef0	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+11:44:31 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:549:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  549 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_program.elf
+ 
+arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
+   text	   data	    bss	    dec	    hex	filename
+  22824	    388	   9324	  32536	   7f18	turnstile_stm_program.elf
+Finished building: turnstile_stm_program.list
+Finished building: default.size.stdout
+ 
+ 
+11:45:19 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:549:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  549 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_program.elf
+ 
+arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
+   text	   data	    bss	    dec	    hex	filename
+  22824	    388	   9324	  32536	   7f18	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_stm_program.list
+ 
+11:46:27 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:552:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  552 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_program.elf
+ 
+arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
+   text	   data	    bss	    dec	    hex	filename
+  22836	    388	   9324	  32548	   7f24	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_stm_program.list
+ 
+11:47:55 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:552:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  552 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_program.elf
+ 
+arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
+   text	   data	    bss	    dec	    hex	filename
+  22460	    196	   9324	  31980	   7cec	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_stm_program.list
+ 
+12:02:22 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Draw_Arrow':
+../Core/Src/main.c:120:13: error: 'arrow' undeclared (first use in this function)
+  120 |         if (arrow[i] >= 16 && arrow[i] <= 239) {
+      |             ^~~~~
+../Core/Src/main.c:120:13: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'Clear_Arrow':
+../Core/Src/main.c:130:13: error: 'arrow' undeclared (first use in this function)
+  130 |         if (arrow[i] >= 16 && arrow[i] <= 239) {
+      |             ^~~~~
+../Core/Src/main.c: In function 'Shift_Arrow':
+../Core/Src/main.c:140:9: error: 'arrow' undeclared (first use in this function)
+  140 |         arrow[i] = arrow[i] + 8;
+      |         ^~~~~
+../Core/Src/main.c: In function 'Cross_Animation':
+../Core/Src/main.c:191:25: error: 'topCross' undeclared (first use in this function)
+  191 |         Draw_Cross(&ws, topCross, COLOR_RGB565_RED, 255);
+      |                         ^~~~~~~~
+../Core/Src/main.c:192:25: error: 'middleCross' undeclared (first use in this function)
+  192 |         Draw_Cross(&ws, middleCross, COLOR_RGB565_RED, 255);
+      |                         ^~~~~~~~~~~
+../Core/Src/main.c:193:25: error: 'bottomCross' undeclared (first use in this function)
+  193 |         Draw_Cross(&ws, bottomCross, COLOR_RGB565_RED, 255);
+      |                         ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:555:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  555 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+12:03:13 **** Incremental Build of configuration Debug for project led_matrix ****
+make -j7 all 
+arm-none-eabi-gcc "../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.d" -MT"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c:6:10: fatal error: ws28xx.h: No such file or directory
+    6 | #include "ws28xx.h"
+      |          ^~~~~~~~~~
+compilation terminated.
+make: *** [Middlewares/Third_Party/NimaLTD_Driver/WS28XX/subdir.mk:19: Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c:24:10: fatal error: ws28xx.h: No such file or directory
+   24 | #include "ws28xx.h"
+      |          ^~~~~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+12:03:15 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+12:03:15 **** Incremental Build of configuration Debug for project limit_switch2 ****
+make -j7 all 
+arm-none-eabi-size  limit_switch2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5656	     12	   1644	   7312	   1c90	limit_switch2.elf
+Finished building: default.size.stdout
+ 
+12:03:16 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+12:03:17 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11532	     92	   2148	  13772	   35cc	rfid.elf
+Finished building: default.size.stdout
+ 
+12:03:17 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'reading_state':
+../Core/Src/main.c:313:9: warning: implicit declaration of function 'Clear_Arrow' [-Wimplicit-function-declaration]
+  313 |         Clear_Arrow(&ws);
+      |         ^~~~~~~~~~~
+../Core/Src/main.c:314:9: warning: implicit declaration of function 'Draw_Arrow' [-Wimplicit-function-declaration]
+  314 |         Draw_Arrow(&ws, COLOR_RGB565_GREEN, 255);
+      |         ^~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:557:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  557 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.0.200.202406191456/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: ./Core/Src/main.o: in function `reading_state':
+/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Debug/../Core/Src/main.c:313: undefined reference to `Clear_Arrow'
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.0.200.202406191456/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Debug/../Core/Src/main.c:314: undefined reference to `Draw_Arrow'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:65: turnstile_stm_program.elf] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+12:03:37 **** Incremental Build of configuration Debug for project led_matrix ****
+make -j7 all 
+arm-none-eabi-gcc "../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.d" -MT"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c:6:10: fatal error: ws28xx.h: No such file or directory
+    6 | #include "ws28xx.h"
+      |          ^~~~~~~~~~
+compilation terminated.
+make: *** [Middlewares/Third_Party/NimaLTD_Driver/WS28XX/subdir.mk:19: Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c:24:10: fatal error: ws28xx.h: No such file or directory
+   24 | #include "ws28xx.h"
+      |          ^~~~~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+12:03:38 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+12:03:39 **** Incremental Build of configuration Debug for project limit_switch2 ****
+make -j7 all 
+arm-none-eabi-size  limit_switch2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5656	     12	   1644	   7312	   1c90	limit_switch2.elf
+Finished building: default.size.stdout
+ 
+12:03:39 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+12:03:39 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11532	     92	   2148	  13772	   35cc	rfid.elf
+Finished building: default.size.stdout
+ 
+12:03:40 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:557:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  557 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_program.elf
+ 
+arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
+   text	   data	    bss	    dec	    hex	filename
+  21440	     92	   9324	  30856	   7888	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_stm_program.list
+ 
+12:03:47 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-size  turnstile_stm_program.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21440	     92	   9324	  30856	   7888	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+12:04:56 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:557:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  557 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_program.elf
+ 
+arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
+   text	   data	    bss	    dec	    hex	filename
+  21448	     92	   9324	  30864	   7890	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_stm_program.list
+ 
+12:14:45 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:419:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  419 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_program.elf
+ 
+arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
+   text	   data	    bss	    dec	    hex	filename
+  21400	     92	   9316	  30808	   7858	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_stm_program.list
+ 
