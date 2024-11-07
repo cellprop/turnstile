@@ -51,8 +51,7 @@ uint32_t last_pulse_received_time3 = 0;  // Time for last pulse reception
 uint32_t last_pulse_received_time4 = 0;  // Time for last pulse reception
 uint32_t last_pulse_received_time5 = 0;  // Time for last pulse reception
 uint32_t last_pulse_received_time6 = 0;  // Time for last pulse reception
-
-volatile int flag = 0;
+volatile int ir_flag = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -173,11 +172,12 @@ int main(void)
 
       if (object_present)
       {
-          flag = 1;
+          ir_flag = 1;
       }
       else
       {
-          flag = 0;
+          ir_flag = 0;
+          HAL_Delay(2000);
       }
     /* USER CODE END WHILE */
 

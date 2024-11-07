@@ -49,6 +49,8 @@ typedef enum {
 #define LED_COLS 32
 #define DELAY_TIME 50
 #define BLINK_DELAY 500
+#define OBJECT_DETECTION_TIMEOUT 500  // Timeout period for object detection (in ms)
+#define PULSE_INTERVAL 100            // Interval for pulse transmission (in ms)
 
 /* USER CODE END PD */
 
@@ -75,7 +77,13 @@ volatile int counter = 0;
 volatile int rev = 0;
 //volatile uint8_t door_movement_complete = 0; // Flag set by encoder function
 volatile int target_counter = 588;       // Target encoder count to stop motor
-
+uint32_t last_pulse_received_time1 = 0;  // Time for last pulse reception
+uint32_t last_pulse_received_time2 = 0;  // Time for last pulse reception
+uint32_t last_pulse_received_time3 = 0;  // Time for last pulse reception
+uint32_t last_pulse_received_time4 = 0;  // Time for last pulse reception
+uint32_t last_pulse_received_time5 = 0;  // Time for last pulse reception
+uint32_t last_pulse_received_time6 = 0;  // Time for last pulse reception
+volatile int ir_flag = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -86,6 +94,45 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+// IR FUNCTIONS
+int CheckObjectDetection(void)
+{
+    static uint32_t last_pulse_time = 0;  // Static variable to remember last pulse transmission time
+    // 1. Generate a pulse every 100 ms
+    if (HAL_GetTick() - last_pulse_time >= PULSE_INTERVAL)
+    {
+        last_pulse_time = HAL_GetTick();
+        HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0); // Toggle PC0 to generate pulse
+    }
+
+    // 2. Check for absence of pulses over an extended period for object detection
+    if (HAL_GetTick() - last_pulse_received_time1 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    if (HAL_GetTick() - last_pulse_received_time2 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    if (HAL_GetTick() - last_pulse_received_time3 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    if (HAL_GetTick() - last_pulse_received_time4 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    if (HAL_GetTick() - last_pulse_received_time5 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    if (HAL_GetTick() - last_pulse_received_time6 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    return 0;
+
+}
 
 
 //MOTOR CONTROL FUNCTIONS
@@ -150,6 +197,30 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		counter = 0;
 		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 	}
+    if (GPIO_Pin == GPIO_PIN_1)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time1 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_3)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time2 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_4)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time3 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_5)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time4 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_6)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time5 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_7)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time6 = HAL_GetTick();  // Update last received time on pulse
+    }
 }
 
 void quarter_cycle_open(int source)
@@ -225,8 +296,21 @@ void reading_state(void){
 
 void open_state(void){
 	quarter_cycle_open(uart_source);
-	//IR Sensor Code
-	HAL_Delay(5000);
+	HAL_Delay(1000);
+	while (ir_flag==1)
+	  {
+		  int object_present = CheckObjectDetection();
+
+		  if (object_present)
+		  {
+			  ir_flag = 1;
+		  }
+		  else
+		  {
+			  ir_flag = 0;
+			  HAL_Delay(2000);
+		  }
+	//HAL_Delay(5000);
 	quarter_cycle_closed(uart_source);
 	HAL_Delay(1000);
 	currentState = STATE_READY;
