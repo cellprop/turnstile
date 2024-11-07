@@ -1,7 +1,7 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=macosx
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:led_matrix Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:limit_switch Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:limit_switch2,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:motor2,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:rfid Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:turnstile_stm_program Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:limit_switch Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:motor2,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:rfid Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:led_matrix Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:limit_switch2,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:turnstile_stm_program Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ir_sensor Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:led_matrix\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:led_matrix\ Debug/activeLaunchTarget=null\:---
