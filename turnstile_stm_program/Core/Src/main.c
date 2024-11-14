@@ -75,7 +75,6 @@ uint8_t intresponseData;
 /* Other variables */
 volatile int counter = 0;
 volatile int rev = 0;
-//volatile uint8_t door_movement_complete = 0; // Flag set by encoder function
 volatile int target_counter = 588;       // Target encoder count to stop motor
 uint32_t last_pulse_received_time1 = 0;  // Time for last pulse reception
 uint32_t last_pulse_received_time2 = 0;  // Time for last pulse reception
@@ -177,25 +176,21 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	{
 		Speed_Control(0);
 		counter = 0;
-		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 	}
     if(GPIO_Pin == GPIO_PIN_11)
 	{
 		Speed_Control(0);
 		counter = 0;
-		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 	}
     if(GPIO_Pin == GPIO_PIN_14)
 	{
 		Speed_Control(0);
 		counter = 0;
-		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 	}
     if(GPIO_Pin == GPIO_PIN_15)
 	{
 		Speed_Control(0);
 		counter = 0;
-		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 	}
     if (GPIO_Pin == GPIO_PIN_1)  // Check if interrupt is on the correct pin
     {
@@ -310,11 +305,10 @@ void open_state(void){
 			  ir_flag = 0;
 			  HAL_Delay(2000);
 		  }
-	//HAL_Delay(5000);
+	  }
 	quarter_cycle_closed(uart_source);
 	HAL_Delay(1000);
 	currentState = STATE_READY;
-
 }
 
 void closed_state(void){
@@ -492,7 +486,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 
         // Re-enable UART reception for USART1
         HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
-        //HAL_Delay(2000);
     }
     else if (huart->Instance == USART2) { // Data received from USART2
         // Process the received data

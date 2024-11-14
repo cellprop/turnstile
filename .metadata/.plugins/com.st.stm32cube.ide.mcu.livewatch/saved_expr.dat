@@ -8,3 +8,7 @@ usermsg
 currentState
 counter
 source
+pulse_received
+pulse_state
+ir1
+flag
