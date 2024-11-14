@@ -179,57 +179,69 @@ void Clear_All_Animations(WS28XX_HandleTypeDef *ws) {
 }
 
 /* Function 1: Arrow on first strip, Cross on second strip */
-void Animation_Mode_1(WS28XX_HandleTypeDef *ws) {
-	Clear_Arrow(ws, arrow_first_strip);
-    Shift_Arrow_FirstStrip(arrow_first_strip);  // Confine within the first strip
-    Draw_Arrow(ws, arrow_first_strip, COLOR_RGB565_GREEN);
+void Animation_Mode_1(WS28XX_HandleTypeDef *ws, int x) {
+    while(x){
+    	Clear_Arrow(ws, arrow_first_strip);
+        Shift_Arrow_FirstStrip(arrow_first_strip);  // Confine within the first strip
+        Draw_Arrow(ws, arrow_first_strip, COLOR_RGB565_GREEN);
 
-    if (cross_state) {
-        Draw_Cross(ws, topCross_second_strip, middleCross_second_strip, bottomCross_second_strip, COLOR_RGB565_RED);
-    } else {
-        Clear_Cross(ws, topCross_second_strip, middleCross_second_strip, bottomCross_second_strip);
+        if (cross_state) {
+            Draw_Cross(ws, topCross_second_strip, middleCross_second_strip, bottomCross_second_strip, COLOR_RGB565_RED);
+        } else {
+            Clear_Cross(ws, topCross_second_strip, middleCross_second_strip, bottomCross_second_strip);
+        }
+        cross_state = !cross_state;
+        HAL_Delay(DELAY_TIME);
     }
-    cross_state = !cross_state;
-    HAL_Delay(DELAY_TIME);
+
 }
 
 /* Function 2: Cross on first strip, Arrow on second strip */
-void Animation_Mode_2(WS28XX_HandleTypeDef *ws) {
-    // Cross animation on the first strip
-    if (cross_state) {
-        Draw_Cross(ws, topCross_first_strip, middleCross_first_strip, bottomCross_first_strip, COLOR_RGB565_RED);
-    } else {
-        Clear_Cross(ws, topCross_first_strip, middleCross_first_strip, bottomCross_first_strip);
-    }
-    cross_state = !cross_state;
+void Animation_Mode_2(WS28XX_HandleTypeDef *ws, int x) {
+	while(x){
+	    // Cross animation on the first strip
+	    if (cross_state) {
+	        Draw_Cross(ws, topCross_first_strip, middleCross_first_strip, bottomCross_first_strip, COLOR_RGB565_RED);
+	    } else {
+	        Clear_Cross(ws, topCross_first_strip, middleCross_first_strip, bottomCross_first_strip);
+	    }
+	    cross_state = !cross_state;
 
-    // Arrow animation on the second strip
-    Clear_Arrow(ws, arrow_second_strip);       // Clear previous arrow position on the second strip
-    Shift_Arrow_SecondStrip(arrow_second_strip);  // Shift the arrow within the second strip only
-    Draw_Arrow(ws, arrow_second_strip, COLOR_RGB565_GREEN);  // Draw the arrow on the second strip
+	    // Arrow animation on the second strip
+	    Clear_Arrow(ws, arrow_second_strip);       // Clear previous arrow position on the second strip
+	    Shift_Arrow_SecondStrip(arrow_second_strip);  // Shift the arrow within the second strip only
+	    Draw_Arrow(ws, arrow_second_strip, COLOR_RGB565_GREEN);  // Draw the arrow on the second strip
+	}
+
 }
 
 /* Function 3: Arrow animation on both strips */
-void Animation_Mode_3(WS28XX_HandleTypeDef *ws) {
-    Clear_Arrow(ws, arrow_first_strip);
-    Shift_Arrow_FirstStrip(arrow_first_strip);  // Shift within the first strip
-    Draw_Arrow(ws, arrow_first_strip, COLOR_RGB565_GREEN);
+void Animation_Mode_3(WS28XX_HandleTypeDef *ws, int x) {
+	while(x){
+	    Clear_Arrow(ws, arrow_first_strip);
+	    Shift_Arrow_FirstStrip(arrow_first_strip);  // Shift within the first strip
+	    Draw_Arrow(ws, arrow_first_strip, COLOR_RGB565_GREEN);
 
-    Clear_Arrow(ws, arrow_second_strip);
-    Shift_Arrow_SecondStrip(arrow_second_strip);  // Shift within the second strip
-    Draw_Arrow(ws, arrow_second_strip, COLOR_RGB565_GREEN);
+	    Clear_Arrow(ws, arrow_second_strip);
+	    Shift_Arrow_SecondStrip(arrow_second_strip);  // Shift within the second strip
+	    Draw_Arrow(ws, arrow_second_strip, COLOR_RGB565_GREEN);
+	}
+
 }
 
 /* Function 4: Cross animation on both strips */
-void Animation_Mode_4(WS28XX_HandleTypeDef *ws) {
-    if (cross_state) {
-        Draw_Cross(ws, topCross_first_strip, middleCross_first_strip, bottomCross_first_strip, COLOR_RGB565_RED);
-        Draw_Cross(ws, topCross_second_strip, middleCross_second_strip, bottomCross_second_strip, COLOR_RGB565_RED);
-    } else {
-        Clear_Cross(ws, topCross_first_strip, middleCross_first_strip, bottomCross_first_strip);
-        Clear_Cross(ws, topCross_second_strip, middleCross_second_strip, bottomCross_second_strip);
-    }
-    cross_state = !cross_state;
+void Animation_Mode_4(WS28XX_HandleTypeDef *ws, int x) {
+	while(x){
+	    if (cross_state) {
+	        Draw_Cross(ws, topCross_first_strip, middleCross_first_strip, bottomCross_first_strip, COLOR_RGB565_RED);
+	        Draw_Cross(ws, topCross_second_strip, middleCross_second_strip, bottomCross_second_strip, COLOR_RGB565_RED);
+	    } else {
+	        Clear_Cross(ws, topCross_first_strip, middleCross_first_strip, bottomCross_first_strip);
+	        Clear_Cross(ws, topCross_second_strip, middleCross_second_strip, bottomCross_second_strip);
+	    }
+	    cross_state = !cross_state;
+	}
+
 }
 
 // IR FUNCTIONS
@@ -391,11 +403,6 @@ void centre_align(void){
 void ready_state(void){
 	//Display Code
     // Check if data has been received
-	Clear_All_Animations();
-	while(flag == 0){
-		Animation_Mode_3();
-		HAL_Delay(DELAY_TIME);
-	}
     if(flag_rev == 1){
         currentState = STATE_READING; // Transition to Reading State
     }
@@ -434,7 +441,6 @@ void reading_state(void){
 }
 
 void open_state(void){
-	Clear_All_Animations();
 	quarter_cycle_open(uart_source);
 	HAL_Delay(1000);
 	while (ir_flag==1)
@@ -448,32 +454,17 @@ void open_state(void){
 		  else
 		  {
 			  ir_flag = 0;
-
-		  }
-		  if(uart_source = 1){
-			  Animation_Mode_1();
-			  HAL_Delay(DELAY_TIME);
-		  }
-		  else if(uart_source = 2){
-			  Animation_Mode_2();
-			  HAL_Delay(DELAY_TIME);
+			  HAL_Delay(2000);
 		  }
 	  }
-	HAL_Delay(2000);
 	quarter_cycle_closed(uart_source);
-	//HAL_Delay(1000);
+	HAL_Delay(1000);
 	currentState = STATE_READY;
 }
 
 void closed_state(void){
 	//Display Code
-	Clear_All_Animations();
-	uint32_t start_time = HAL_GetTick();  // Capture the starting tick count (in milliseconds)
-
-	while ((HAL_GetTick() - start_time) < 2000) {  // 2000 ms = 2 seconds
-		Animation_Mode_4();
-		HAL_Delay(DELAY_TIME);
-	}
+	HAL_Delay(3000);
 	currentState = STATE_READY;
 
 }

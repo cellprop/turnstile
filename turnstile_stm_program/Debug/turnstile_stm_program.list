@@ -21,31 +21,31 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   8 .data         0000005c  20000000  0800571c  00007000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          00001f10  2000005c  08005778  0000705c  2**2
+  9 .bss          00003a10  2000005c  08005778  0000705c  2**2
                   ALLOC
- 10 ._user_heap_stack 00000604  20001f6c  08005778  00007f6c  2**0
+ 10 ._user_heap_stack 00000604  20003a6c  08005778  00007a6c  2**0
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  0000705c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000d848  00000000  00000000  00007085  2**0
+ 12 .debug_info   0000dc0e  00000000  00000000  00007085  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 000025cc  00000000  00000000  000148cd  2**0
+ 13 .debug_abbrev 000025db  00000000  00000000  00014c93  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000d90  00000000  00000000  00016ea0  2**3
+ 14 .debug_aranges 00000de8  00000000  00000000  00017270  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_rnglists 00000a8e  00000000  00000000  00017c30  2**0
+ 15 .debug_rnglists 00000ad4  00000000  00000000  00018058  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00018780  00000000  00000000  000186be  2**0
+ 16 .debug_macro  00018774  00000000  00000000  00018b2c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00010070  00000000  00000000  00030e3e  2**0
+ 17 .debug_line   000102f1  00000000  00000000  000312a0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0008b86f  00000000  00000000  00040eae  2**0
+ 18 .debug_str    0008b9f0  00000000  00000000  00041591  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  000cc71d  2**0
+ 19 .comment      00000043  00000000  00000000  000ccf81  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00003d6c  00000000  00000000  000cc760  2**2
+ 20 .debug_frame  00003f00  00000000  00000000  000ccfc4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000075  00000000  00000000  000d04cc  2**0
+ 21 .debug_line_str 00000075  00000000  00000000  000d0ec4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -805,8 +805,8 @@ void MX_GPIO_Init(void)
 
 08000818 <CheckObjectDetection>:
 
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
+}
+
 // IR FUNCTIONS
 int CheckObjectDetection(void)
 {
@@ -919,14 +919,14 @@ int CheckObjectDetection(void)
 }
  80008c4:	4618      	mov	r0, r3
  80008c6:	bd80      	pop	{r7, pc}
- 80008c8:	20001be0 	.word	0x20001be0
+ 80008c8:	200036e0 	.word	0x200036e0
  80008cc:	40011000 	.word	0x40011000
- 80008d0:	20001bc4 	.word	0x20001bc4
- 80008d4:	20001bc8 	.word	0x20001bc8
- 80008d8:	20001bcc 	.word	0x20001bcc
- 80008dc:	20001bd0 	.word	0x20001bd0
- 80008e0:	20001bd4 	.word	0x20001bd4
- 80008e4:	20001bd8 	.word	0x20001bd8
+ 80008d0:	200036c4 	.word	0x200036c4
+ 80008d4:	200036c8 	.word	0x200036c8
+ 80008d8:	200036cc 	.word	0x200036cc
+ 80008dc:	200036d0 	.word	0x200036d0
+ 80008e0:	200036d4 	.word	0x200036d4
+ 80008e4:	200036d8 	.word	0x200036d8
 
 080008e8 <Speed_Control>:
 
@@ -950,7 +950,7 @@ void Speed_Control(int a)
  80008fe:	bc80      	pop	{r7}
  8000900:	4770      	bx	lr
  8000902:	bf00      	nop
- 8000904:	20001c78 	.word	0x20001c78
+ 8000904:	20003778 	.word	0x20003778
 
 08000908 <Direction>:
 
@@ -1031,7 +1031,7 @@ void encoder(void)
  800097e:	bf00      	nop
  8000980:	bd80      	pop	{r7, pc}
  8000982:	bf00      	nop
- 8000984:	20001bc0 	.word	0x20001bc0
+ 8000984:	200036c0 	.word	0x200036c0
 
 08000988 <HAL_GPIO_EXTI_Callback>:
 
@@ -1178,13 +1178,13 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
  8000a58:	46bd      	mov	sp, r7
  8000a5a:	bd80      	pop	{r7, pc}
  8000a5c:	40010c00 	.word	0x40010c00
- 8000a60:	20001bc0 	.word	0x20001bc0
- 8000a64:	20001bc4 	.word	0x20001bc4
- 8000a68:	20001bc8 	.word	0x20001bc8
- 8000a6c:	20001bcc 	.word	0x20001bcc
- 8000a70:	20001bd0 	.word	0x20001bd0
- 8000a74:	20001bd4 	.word	0x20001bd4
- 8000a78:	20001bd8 	.word	0x20001bd8
+ 8000a60:	200036c0 	.word	0x200036c0
+ 8000a64:	200036c4 	.word	0x200036c4
+ 8000a68:	200036c8 	.word	0x200036c8
+ 8000a6c:	200036cc 	.word	0x200036cc
+ 8000a70:	200036d0 	.word	0x200036d0
+ 8000a74:	200036d4 	.word	0x200036d4
+ 8000a78:	200036d8 	.word	0x200036d8
 
 08000a7c <quarter_cycle_open>:
 
@@ -1299,8 +1299,8 @@ void ready_state(void){
  8000b12:	bc80      	pop	{r7}
  8000b14:	4770      	bx	lr
  8000b16:	bf00      	nop
- 8000b18:	20001bba 	.word	0x20001bba
- 8000b1c:	20001b88 	.word	0x20001b88
+ 8000b18:	200036ba 	.word	0x200036ba
+ 8000b1c:	20003688 	.word	0x20003688
 
 08000b20 <reading_state>:
 
@@ -1392,11 +1392,11 @@ void reading_state(void){
 }
  8000ba4:	bf00      	nop
  8000ba6:	bd80      	pop	{r7, pc}
- 8000ba8:	20001bba 	.word	0x20001bba
- 8000bac:	20001bac 	.word	0x20001bac
- 8000bb0:	20001dd8 	.word	0x20001dd8
- 8000bb4:	20001bbd 	.word	0x20001bbd
- 8000bb8:	20001b88 	.word	0x20001b88
+ 8000ba8:	200036ba 	.word	0x200036ba
+ 8000bac:	200036ac 	.word	0x200036ac
+ 8000bb0:	200038d8 	.word	0x200038d8
+ 8000bb4:	200036bd 	.word	0x200036bd
+ 8000bb8:	20003688 	.word	0x20003688
 
 08000bbc <open_state>:
 
@@ -1463,9 +1463,9 @@ void open_state(void){
  8000c1a:	3708      	adds	r7, #8
  8000c1c:	46bd      	mov	sp, r7
  8000c1e:	bd80      	pop	{r7, pc}
- 8000c20:	20001bbb 	.word	0x20001bbb
- 8000c24:	20001bdc 	.word	0x20001bdc
- 8000c28:	20001b88 	.word	0x20001b88
+ 8000c20:	200036bb 	.word	0x200036bb
+ 8000c24:	200036dc 	.word	0x200036dc
+ 8000c28:	20003688 	.word	0x20003688
 
 08000c2c <closed_state>:
 
@@ -1485,7 +1485,7 @@ void closed_state(void){
  8000c3e:	bf00      	nop
  8000c40:	bd80      	pop	{r7, pc}
  8000c42:	bf00      	nop
- 8000c44:	20001b88 	.word	0x20001b88
+ 8000c44:	20003688 	.word	0x20003688
 
 08000c48 <overcapacity_state>:
 
@@ -1503,7 +1503,7 @@ void overcapacity_state(void){
 }
  8000c58:	bf00      	nop
  8000c5a:	bd80      	pop	{r7, pc}
- 8000c5c:	20001b88 	.word	0x20001b88
+ 8000c5c:	20003688 	.word	0x20003688
 
 08000c60 <sleep_state>:
 
@@ -1537,7 +1537,7 @@ void emergency_state(void){
  8000c82:	bf00      	nop
  8000c84:	bd80      	pop	{r7, pc}
  8000c86:	bf00      	nop
- 8000c88:	20001b88 	.word	0x20001b88
+ 8000c88:	20003688 	.word	0x20003688
 
 08000c8c <main>:
 /**
@@ -1592,8 +1592,8 @@ int main(void)
  8000cc0:	2100      	movs	r1, #0
  8000cc2:	4823      	ldr	r0, [pc, #140]	@ (8000d50 <main+0xc4>)
  8000cc4:	f002 f910 	bl	8002ee8 <HAL_TIM_PWM_Start>
-  WS28XX_Init(&ws, &htim3, 72, TIM_CHANNEL_1, 256);
- 8000cc8:	f44f 7380 	mov.w	r3, #256	@ 0x100
+  WS28XX_Init(&ws, &htim3, 72, TIM_CHANNEL_1, LED_TOTAL);
+ 8000cc8:	f44f 7300 	mov.w	r3, #512	@ 0x200
  8000ccc:	9300      	str	r3, [sp, #0]
  8000cce:	2300      	movs	r3, #0
  8000cd0:	2248      	movs	r2, #72	@ 0x48
@@ -1683,15 +1683,15 @@ int main(void)
  8000d4c:	bf00      	nop
 		switch (currentState)
  8000d4e:	e7d3      	b.n	8000cf8 <main+0x6c>
- 8000d50:	20001c78 	.word	0x20001c78
- 8000d54:	20001c30 	.word	0x20001c30
+ 8000d50:	20003778 	.word	0x20003778
+ 8000d54:	20003730 	.word	0x20003730
  8000d58:	20000078 	.word	0x20000078
- 8000d5c:	20001b8c 	.word	0x20001b8c
- 8000d60:	20001d48 	.word	0x20001d48
- 8000d64:	20001d90 	.word	0x20001d90
- 8000d68:	20001bbc 	.word	0x20001bbc
- 8000d6c:	20001dd8 	.word	0x20001dd8
- 8000d70:	20001b88 	.word	0x20001b88
+ 8000d5c:	2000368c 	.word	0x2000368c
+ 8000d60:	20003848 	.word	0x20003848
+ 8000d64:	20003890 	.word	0x20003890
+ 8000d68:	200036bc 	.word	0x200036bc
+ 8000d6c:	200038d8 	.word	0x200038d8
+ 8000d70:	20003688 	.word	0x20003688
 
 08000d74 <SystemClock_Config>:
 /**
@@ -1955,19 +1955,19 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
  8000ef4:	bd80      	pop	{r7, pc}
  8000ef6:	bf00      	nop
  8000ef8:	40013800 	.word	0x40013800
- 8000efc:	20001b8c 	.word	0x20001b8c
- 8000f00:	20001b9c 	.word	0x20001b9c
- 8000f04:	20001bbb 	.word	0x20001bbb
+ 8000efc:	2000368c 	.word	0x2000368c
+ 8000f00:	2000369c 	.word	0x2000369c
+ 8000f04:	200036bb 	.word	0x200036bb
  8000f08:	080055a8 	.word	0x080055a8
- 8000f0c:	20001bac 	.word	0x20001bac
- 8000f10:	20001bba 	.word	0x20001bba
- 8000f14:	20001d48 	.word	0x20001d48
+ 8000f0c:	200036ac 	.word	0x200036ac
+ 8000f10:	200036ba 	.word	0x200036ba
+ 8000f14:	20003848 	.word	0x20003848
  8000f18:	40004400 	.word	0x40004400
- 8000f1c:	20001d90 	.word	0x20001d90
+ 8000f1c:	20003890 	.word	0x20003890
  8000f20:	40004800 	.word	0x40004800
- 8000f24:	20001bbc 	.word	0x20001bbc
- 8000f28:	20001bbd 	.word	0x20001bbd
- 8000f2c:	20001dd8 	.word	0x20001dd8
+ 8000f24:	200036bc 	.word	0x200036bc
+ 8000f28:	200036bd 	.word	0x200036bd
+ 8000f2c:	200038d8 	.word	0x200038d8
 
 08000f30 <Error_Handler>:
 /**
@@ -2269,7 +2269,7 @@ void DMA1_Channel5_IRQHandler(void)
  8001012:	bf00      	nop
  8001014:	bd80      	pop	{r7, pc}
  8001016:	bf00      	nop
- 8001018:	20001cc0 	.word	0x20001cc0
+ 8001018:	200037c0 	.word	0x200037c0
 
 0800101c <DMA1_Channel6_IRQHandler>:
 
@@ -2293,7 +2293,7 @@ void DMA1_Channel6_IRQHandler(void)
  8001026:	bf00      	nop
  8001028:	bd80      	pop	{r7, pc}
  800102a:	bf00      	nop
- 800102c:	20001d04 	.word	0x20001d04
+ 800102c:	20003804 	.word	0x20003804
 
 08001030 <USART1_IRQHandler>:
 
@@ -2317,7 +2317,7 @@ void USART1_IRQHandler(void)
  800103a:	bf00      	nop
  800103c:	bd80      	pop	{r7, pc}
  800103e:	bf00      	nop
- 8001040:	20001d48 	.word	0x20001d48
+ 8001040:	20003848 	.word	0x20003848
 
 08001044 <USART2_IRQHandler>:
 
@@ -2341,7 +2341,7 @@ void USART2_IRQHandler(void)
  800104e:	bf00      	nop
  8001050:	bd80      	pop	{r7, pc}
  8001052:	bf00      	nop
- 8001054:	20001d90 	.word	0x20001d90
+ 8001054:	20003890 	.word	0x20003890
 
 08001058 <USART3_IRQHandler>:
 
@@ -2365,7 +2365,7 @@ void USART3_IRQHandler(void)
  8001062:	bf00      	nop
  8001064:	bd80      	pop	{r7, pc}
  8001066:	bf00      	nop
- 8001068:	20001dd8 	.word	0x20001dd8
+ 8001068:	200038d8 	.word	0x200038d8
 
 0800106c <EXTI15_10_IRQHandler>:
 
@@ -2479,8 +2479,8 @@ void *_sbrk(ptrdiff_t incr)
  80010f6:	bd80      	pop	{r7, pc}
  80010f8:	20005000 	.word	0x20005000
  80010fc:	00000400 	.word	0x00000400
- 8001100:	20001be4 	.word	0x20001be4
- 8001104:	20001f70 	.word	0x20001f70
+ 8001100:	200036e4 	.word	0x200036e4
+ 8001104:	20003a70 	.word	0x20003a70
 
 08001108 <SystemInit>:
   * @note   This function should be used only after reset.
@@ -2658,7 +2658,7 @@ void MX_TIM2_Init(void)
  80011f6:	46bd      	mov	sp, r7
  80011f8:	bd80      	pop	{r7, pc}
  80011fa:	bf00      	nop
- 80011fc:	20001be8 	.word	0x20001be8
+ 80011fc:	200036e8 	.word	0x200036e8
 
 08001200 <MX_TIM3_Init>:
 /* TIM3 init function */
@@ -2812,7 +2812,7 @@ void MX_TIM3_Init(void)
  80012de:	3738      	adds	r7, #56	@ 0x38
  80012e0:	46bd      	mov	sp, r7
  80012e2:	bd80      	pop	{r7, pc}
- 80012e4:	20001c30 	.word	0x20001c30
+ 80012e4:	20003730 	.word	0x20003730
  80012e8:	40000400 	.word	0x40000400
 
 080012ec <MX_TIM4_Init>:
@@ -2967,7 +2967,7 @@ void MX_TIM4_Init(void)
  80013ca:	3738      	adds	r7, #56	@ 0x38
  80013cc:	46bd      	mov	sp, r7
  80013ce:	bd80      	pop	{r7, pc}
- 80013d0:	20001c78 	.word	0x20001c78
+ 80013d0:	20003778 	.word	0x20003778
  80013d4:	40000800 	.word	0x40000800
 
 080013d8 <HAL_TIM_Base_MspInit>:
@@ -3157,10 +3157,10 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
  80014f8:	bd80      	pop	{r7, pc}
  80014fa:	bf00      	nop
  80014fc:	40021000 	.word	0x40021000
- 8001500:	20001cc0 	.word	0x20001cc0
+ 8001500:	200037c0 	.word	0x200037c0
  8001504:	40020058 	.word	0x40020058
  8001508:	40000400 	.word	0x40000400
- 800150c:	20001d04 	.word	0x20001d04
+ 800150c:	20003804 	.word	0x20003804
  8001510:	4002006c 	.word	0x4002006c
  8001514:	40000800 	.word	0x40000800
 
@@ -3362,7 +3362,7 @@ void MX_USART1_UART_Init(void)
  8001642:	bf00      	nop
  8001644:	bd80      	pop	{r7, pc}
  8001646:	bf00      	nop
- 8001648:	20001d48 	.word	0x20001d48
+ 8001648:	20003848 	.word	0x20003848
  800164c:	40013800 	.word	0x40013800
 
 08001650 <MX_USART2_UART_Init>:
@@ -3427,7 +3427,7 @@ void MX_USART2_UART_Init(void)
  8001696:	bf00      	nop
  8001698:	bd80      	pop	{r7, pc}
  800169a:	bf00      	nop
- 800169c:	20001d90 	.word	0x20001d90
+ 800169c:	20003890 	.word	0x20003890
  80016a0:	40004400 	.word	0x40004400
 
 080016a4 <MX_USART3_UART_Init>:
@@ -3492,7 +3492,7 @@ void MX_USART3_UART_Init(void)
  80016ea:	bf00      	nop
  80016ec:	bd80      	pop	{r7, pc}
  80016ee:	bf00      	nop
- 80016f0:	20001dd8 	.word	0x20001dd8
+ 80016f0:	200038d8 	.word	0x200038d8
  80016f4:	40004800 	.word	0x40004800
 
 080016f8 <HAL_UART_MspInit>:
@@ -3807,7 +3807,7 @@ LoopFillZerobss:
   ldr r2, =_sbss
  80018d0:	2000005c 	.word	0x2000005c
   ldr r4, =_ebss
- 80018d4:	20001f6c 	.word	0x20001f6c
+ 80018d4:	20003a6c 	.word	0x20003a6c
 
 080018d8 <ADC1_2_IRQHandler>:
  * @retval : None
@@ -3955,7 +3955,7 @@ __weak void HAL_IncTick(void)
  8001980:	bc80      	pop	{r7}
  8001982:	4770      	bx	lr
  8001984:	20000008 	.word	0x20000008
- 8001988:	20001e20 	.word	0x20001e20
+ 8001988:	20003920 	.word	0x20003920
 
 0800198c <HAL_GetTick>:
   * @note  This function is declared as __weak to be overwritten in case of other
@@ -3974,7 +3974,7 @@ __weak uint32_t HAL_GetTick(void)
  8001996:	46bd      	mov	sp, r7
  8001998:	bc80      	pop	{r7}
  800199a:	4770      	bx	lr
- 800199c:	20001e20 	.word	0x20001e20
+ 800199c:	20003920 	.word	0x20003920
 
 080019a0 <HAL_Delay>:
   *       implementations in user file.
@@ -12614,7 +12614,7 @@ bool WS28XX_Init(WS28XX_HandleTypeDef *hLed, TIM_HandleTypeDef *hTim,
     }
     if (Pixel > WS28XX_PIXEL_MAX)
  8004a16:	8c3b      	ldrh	r3, [r7, #32]
- 8004a18:	f5b3 7f80 	cmp.w	r3, #256	@ 0x100
+ 8004a18:	f5b3 7f00 	cmp.w	r3, #512	@ 0x200
  8004a1c:	d874      	bhi.n	8004b08 <WS28XX_Init+0x118>
     {
       break;
@@ -12703,14 +12703,14 @@ bool WS28XX_Init(WS28XX_HandleTypeDef *hLed, TIM_HandleTypeDef *hTim,
     memset(hLed->Pixel, 0, sizeof(hLed->Pixel));
  8004aca:	68fb      	ldr	r3, [r7, #12]
  8004acc:	330c      	adds	r3, #12
- 8004ace:	f44f 7240 	mov.w	r2, #768	@ 0x300
+ 8004ace:	f44f 62c0 	mov.w	r2, #1536	@ 0x600
  8004ad2:	2100      	movs	r1, #0
  8004ad4:	4618      	mov	r0, r3
  8004ad6:	f000 f8cb 	bl	8004c70 <memset>
     memset(hLed->Buffer, 0, sizeof(hLed->Buffer));
  8004ada:	68fb      	ldr	r3, [r7, #12]
- 8004adc:	f503 7343 	add.w	r3, r3, #780	@ 0x30c
- 8004ae0:	f641 0204 	movw	r2, #6148	@ 0x1804
+ 8004adc:	f203 630c 	addw	r3, r3, #1548	@ 0x60c
+ 8004ae0:	f243 0204 	movw	r2, #12292	@ 0x3004
  8004ae4:	2100      	movs	r1, #0
  8004ae6:	4618      	mov	r0, r3
  8004ae8:	f000 f8c2 	bl	8004c70 <memset>
@@ -12721,7 +12721,7 @@ bool WS28XX_Init(WS28XX_HandleTypeDef *hLed, TIM_HandleTypeDef *hTim,
  8004af2:	791b      	ldrb	r3, [r3, #4]
  8004af4:	4619      	mov	r1, r3
  8004af6:	68fb      	ldr	r3, [r7, #12]
- 8004af8:	f503 7243 	add.w	r2, r3, #780	@ 0x30c
+ 8004af8:	f203 620c 	addw	r2, r3, #1548	@ 0x60c
  8004afc:	8c3b      	ldrh	r3, [r7, #32]
  8004afe:	f7fe fa95 	bl	800302c <HAL_TIM_PWM_Start_DMA>
     answer = true;
@@ -13251,7 +13251,7 @@ bool WS28XX_Init(WS28XX_HandleTypeDef *hLed, TIM_HandleTypeDef *hTim,
  8004fc2:	d1f2      	bne.n	8004faa <sbrk_aligned+0x22>
  8004fc4:	e7ef      	b.n	8004fa6 <sbrk_aligned+0x1e>
  8004fc6:	bf00      	nop
- 8004fc8:	20001f60 	.word	0x20001f60
+ 8004fc8:	20003a60 	.word	0x20003a60
 
 08004fcc <_malloc_r>:
  8004fcc:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -13361,7 +13361,7 @@ bool WS28XX_Init(WS28XX_HandleTypeDef *hLed, TIM_HandleTypeDef *hTim,
  80050c2:	6005      	str	r5, [r0, #0]
  80050c4:	e7d6      	b.n	8005074 <_malloc_r+0xa8>
  80050c6:	bf00      	nop
- 80050c8:	20001f64 	.word	0x20001f64
+ 80050c8:	20003a64 	.word	0x20003a64
 
 080050cc <_printf_common>:
  80050cc:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -13700,13 +13700,13 @@ bool WS28XX_Init(WS28XX_HandleTypeDef *hLed, TIM_HandleTypeDef *hTim,
  80053f0:	4801      	ldr	r0, [pc, #4]	@ (80053f8 <__malloc_lock+0x8>)
  80053f2:	f7ff bc6f 	b.w	8004cd4 <__retarget_lock_acquire_recursive>
  80053f6:	bf00      	nop
- 80053f8:	20001f5c 	.word	0x20001f5c
+ 80053f8:	20003a5c 	.word	0x20003a5c
 
 080053fc <__malloc_unlock>:
  80053fc:	4801      	ldr	r0, [pc, #4]	@ (8005404 <__malloc_unlock+0x8>)
  80053fe:	f7ff bc6a 	b.w	8004cd6 <__retarget_lock_release_recursive>
  8005402:	bf00      	nop
- 8005404:	20001f5c 	.word	0x20001f5c
+ 8005404:	20003a5c 	.word	0x20003a5c
 
 08005408 <_realloc_r>:
  8005408:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
@@ -13783,7 +13783,7 @@ bool WS28XX_Init(WS28XX_HandleTypeDef *hLed, TIM_HandleTypeDef *hTim,
  80054ae:	b103      	cbz	r3, 80054b2 <_sbrk_r+0x1a>
  80054b0:	6023      	str	r3, [r4, #0]
  80054b2:	bd38      	pop	{r3, r4, r5, pc}
- 80054b4:	20001f68 	.word	0x20001f68
+ 80054b4:	20003a68 	.word	0x20003a68
 
 080054b8 <memchr>:
  80054b8:	4603      	mov	r3, r0
@@ -13881,7 +13881,7 @@ bool WS28XX_Init(WS28XX_HandleTypeDef *hLed, TIM_HandleTypeDef *hTim,
  8005576:	6054      	str	r4, [r2, #4]
  8005578:	e7cb      	b.n	8005512 <_free_r+0x22>
  800557a:	bd38      	pop	{r3, r4, r5, pc}
- 800557c:	20001f64 	.word	0x20001f64
+ 800557c:	20003a64 	.word	0x20003a64
 
 08005580 <_malloc_usable_size_r>:
  8005580:	f851 3c04 	ldr.w	r3, [r1, #-4]
