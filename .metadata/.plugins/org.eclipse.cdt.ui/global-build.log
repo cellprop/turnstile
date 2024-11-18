@@ -5000,3 +5000,617 @@ Finished building: default.size.stdout
  
 Finished building: turnstile_stm_program.list
  
+10:33:04 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6100	     12	   1676	   7788	   1e6c	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+10:33:06 **** Incremental Build of configuration Debug for project led_matrix ****
+make -j7 all 
+arm-none-eabi-gcc "../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.d" -MT"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c: fatal error: cannot open Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.su for writing: Permission denied
+../Core/Src/main.c: fatal error: cannot open Core/Src/main.su for writing: Permission denied
+compilation terminated.
+compilation terminated.
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Middlewares/Third_Party/NimaLTD_Driver/WS28XX/subdir.mk:19: Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+10:33:07 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+10:33:07 **** Incremental Build of configuration Debug for project limit_switch2 ****
+make -j7 all 
+arm-none-eabi-size  limit_switch2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5656	     12	   1644	   7312	   1c90	limit_switch2.elf
+Finished building: default.size.stdout
+ 
+10:33:08 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+10:33:08 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11532	     92	   2148	  13772	   35cc	rfid.elf
+Finished building: default.size.stdout
+ 
+10:33:09 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'ready_state':
+../Core/Src/main.c:394:9: error: too few arguments to function 'Clear_All_Animations'
+  394 |         Clear_All_Animations();
+      |         ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:174:6: note: declared here
+  174 | void Clear_All_Animations(WS28XX_HandleTypeDef *ws) {
+      |      ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:395:15: error: 'flag' undeclared (first use in this function)
+  395 |         while(flag == 0){
+      |               ^~~~
+../Core/Src/main.c:395:15: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:396:17: error: too few arguments to function 'Animation_Mode_3'
+  396 |                 Animation_Mode_3();
+      |                 ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:213:6: note: declared here
+  213 | void Animation_Mode_3(WS28XX_HandleTypeDef *ws) {
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'open_state':
+../Core/Src/main.c:437:9: error: too few arguments to function 'Clear_All_Animations'
+  437 |         Clear_All_Animations();
+      |         ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:174:6: note: declared here
+  174 | void Clear_All_Animations(WS28XX_HandleTypeDef *ws) {
+      |      ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:455:14: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  455 |           if(uart_source = 1){
+      |              ^~~~~~~~~~~
+../Core/Src/main.c:456:19: error: too few arguments to function 'Animation_Mode_1'
+  456 |                   Animation_Mode_1();
+      |                   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:182:6: note: declared here
+  182 | void Animation_Mode_1(WS28XX_HandleTypeDef *ws) {
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:459:19: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  459 |           else if(uart_source = 2){
+      |                   ^~~~~~~~~~~
+../Core/Src/main.c:460:19: error: too few arguments to function 'Animation_Mode_2'
+  460 |                   Animation_Mode_2();
+      |                   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:197:6: note: declared here
+  197 | void Animation_Mode_2(WS28XX_HandleTypeDef *ws) {
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'closed_state':
+../Core/Src/main.c:471:9: error: too few arguments to function 'Clear_All_Animations'
+  471 |         Clear_All_Animations();
+      |         ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:174:6: note: declared here
+  174 | void Clear_All_Animations(WS28XX_HandleTypeDef *ws) {
+      |      ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:475:17: error: too few arguments to function 'Animation_Mode_4'
+  475 |                 Animation_Mode_4();
+      |                 ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:224:6: note: declared here
+  224 | void Animation_Mode_4(WS28XX_HandleTypeDef *ws) {
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:670:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  670 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:692:1: fatal error: opening dependency file Core/Src/main.d: Permission denied
+  692 | }
+      | ^
+compilation terminated.
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+10:35:47 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6100	     12	   1676	   7788	   1e6c	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+10:35:48 **** Incremental Build of configuration Debug for project led_matrix ****
+make -j7 all 
+arm-none-eabi-gcc "../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.d" -MT"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: fatal error: cannot open Core/Src/main.su for writing: Permission denied
+../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c: fatal error: cannot open Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.su for writing: Permission denied
+compilation terminated.
+compilation terminated.
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Middlewares/Third_Party/NimaLTD_Driver/WS28XX/subdir.mk:19: Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+10:35:49 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+10:35:49 **** Incremental Build of configuration Debug for project limit_switch2 ****
+make -j7 all 
+arm-none-eabi-size  limit_switch2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5656	     12	   1644	   7312	   1c90	limit_switch2.elf
+Finished building: default.size.stdout
+ 
+10:35:50 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+10:35:50 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11532	     92	   2148	  13772	   35cc	rfid.elf
+Finished building: default.size.stdout
+ 
+10:35:51 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'ready_state':
+../Core/Src/main.c:395:15: error: 'flag' undeclared (first use in this function)
+  395 |         while(flag == 0){
+      |               ^~~~
+../Core/Src/main.c:395:15: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'open_state':
+../Core/Src/main.c:437:9: error: too few arguments to function 'Clear_All_Animations'
+  437 |         Clear_All_Animations();
+      |         ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:174:6: note: declared here
+  174 | void Clear_All_Animations(WS28XX_HandleTypeDef *ws) {
+      |      ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:455:14: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  455 |           if(uart_source = 1){
+      |              ^~~~~~~~~~~
+../Core/Src/main.c:456:19: error: too few arguments to function 'Animation_Mode_1'
+  456 |                   Animation_Mode_1();
+      |                   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:182:6: note: declared here
+  182 | void Animation_Mode_1(WS28XX_HandleTypeDef *ws) {
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:459:19: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  459 |           else if(uart_source = 2){
+      |                   ^~~~~~~~~~~
+../Core/Src/main.c:460:19: error: too few arguments to function 'Animation_Mode_2'
+  460 |                   Animation_Mode_2();
+      |                   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:197:6: note: declared here
+  197 | void Animation_Mode_2(WS28XX_HandleTypeDef *ws) {
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'closed_state':
+../Core/Src/main.c:471:9: error: too few arguments to function 'Clear_All_Animations'
+  471 |         Clear_All_Animations();
+      |         ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:174:6: note: declared here
+  174 | void Clear_All_Animations(WS28XX_HandleTypeDef *ws) {
+      |      ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:475:17: error: too few arguments to function 'Animation_Mode_4'
+  475 |                 Animation_Mode_4();
+      |                 ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:224:6: note: declared here
+  224 | void Animation_Mode_4(WS28XX_HandleTypeDef *ws) {
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:670:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  670 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:692:1: fatal error: opening dependency file Core/Src/main.d: Permission denied
+  692 | }
+      | ^
+compilation terminated.
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+10:36:55 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6100	     12	   1676	   7788	   1e6c	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+10:36:56 **** Incremental Build of configuration Debug for project led_matrix ****
+make -j7 all 
+arm-none-eabi-gcc "../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.d" -MT"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c: fatal error: cannot open Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.su for writing: Permission denied
+../Core/Src/main.c: fatal error: cannot open Core/Src/main.su for writing: Permission denied
+compilation terminated.
+compilation terminated.
+make: *** [Middlewares/Third_Party/NimaLTD_Driver/WS28XX/subdir.mk:19: Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+10:36:56 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+10:36:57 **** Incremental Build of configuration Debug for project limit_switch2 ****
+make -j7 all 
+arm-none-eabi-size  limit_switch2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5656	     12	   1644	   7312	   1c90	limit_switch2.elf
+Finished building: default.size.stdout
+ 
+10:36:57 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+10:36:58 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11532	     92	   2148	  13772	   35cc	rfid.elf
+Finished building: default.size.stdout
+ 
+10:36:58 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'ready_state':
+../Core/Src/main.c:395:15: error: 'flag' undeclared (first use in this function)
+  395 |         while(flag == 0){
+      |               ^~~~
+../Core/Src/main.c:395:15: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:670:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  670 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:692:1: fatal error: opening dependency file Core/Src/main.d: Permission denied
+  692 | }
+      | ^
+compilation terminated.
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+10:37:23 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6100	     12	   1676	   7788	   1e6c	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+10:37:23 **** Incremental Build of configuration Debug for project led_matrix ****
+make -j7 all 
+arm-none-eabi-gcc "../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.d" -MT"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: fatal error: cannot open Core/Src/main.su for writing: Permission denied
+../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c: fatal error: cannot open Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.su for writing: Permission denied
+compilation terminated.
+compilation terminated.
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Middlewares/Third_Party/NimaLTD_Driver/WS28XX/subdir.mk:19: Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+10:37:24 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+10:37:24 **** Incremental Build of configuration Debug for project limit_switch2 ****
+make -j7 all 
+arm-none-eabi-size  limit_switch2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5656	     12	   1644	   7312	   1c90	limit_switch2.elf
+Finished building: default.size.stdout
+ 
+10:37:26 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+10:37:26 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11532	     92	   2148	  13772	   35cc	rfid.elf
+Finished building: default.size.stdout
+ 
+10:37:27 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:670:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  670 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:692:1: fatal error: opening dependency file Core/Src/main.d: Permission denied
+  692 | }
+      | ^
+compilation terminated.
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+10:45:03 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6100	     12	   1676	   7788	   1e6c	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+10:45:04 **** Incremental Build of configuration Debug for project led_matrix ****
+make -j7 all 
+arm-none-eabi-gcc "../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.d" -MT"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c: fatal error: cannot open Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.su for writing: Permission denied
+../Core/Src/main.c: fatal error: cannot open Core/Src/main.su for writing: Permission denied
+compilation terminated.
+compilation terminated.
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Middlewares/Third_Party/NimaLTD_Driver/WS28XX/subdir.mk:19: Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+10:45:05 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+10:45:05 **** Incremental Build of configuration Debug for project limit_switch2 ****
+make -j7 all 
+arm-none-eabi-size  limit_switch2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5656	     12	   1644	   7312	   1c90	limit_switch2.elf
+Finished building: default.size.stdout
+ 
+10:45:07 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+10:45:07 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11532	     92	   2148	  13772	   35cc	rfid.elf
+Finished building: default.size.stdout
+ 
+10:45:08 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Animation_Mode_4':
+../Core/Src/main.c:228:13: error: unknown type name 'no'
+  228 |     } else {no
+      |             ^~
+../Core/Src/main.c:229:9: warning: parameter names (without types) in function declaration
+  229 |         Clear_Cross(ws, topCross_first_strip, middleCross_first_strip, bottomCross_first_strip);
+      |         ^~~~~~~~~~~
+../Core/Src/main.c:229:9: error: conflicting types for 'Clear_Cross'; have 'int()'
+../Core/Src/main.c:164:6: note: previous definition of 'Clear_Cross' with type 'void(WS28XX_HandleTypeDef *, int *, int *, int *)'
+  164 | void Clear_Cross(WS28XX_HandleTypeDef *ws, int *top, int *middle, int *bottom) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:670:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  670 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+../Core/Src/main.c: In function 'Error_Handler':
+../Core/Src/main.c:690:3: error: expected declaration or statement at end of input
+  690 |   }
+      |   ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:690:3: fatal error: opening dependency file Core/Src/main.d: Permission denied
+compilation terminated.
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+10:45:18 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6100	     12	   1676	   7788	   1e6c	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+10:45:19 **** Incremental Build of configuration Debug for project led_matrix ****
+make -j7 all 
+arm-none-eabi-gcc "../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.d" -MT"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: fatal error: cannot open Core/Src/main.su for writing: Permission denied
+../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c: fatal error: cannot open Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.su for writing: Permission denied
+compilation terminated.
+compilation terminated.
+make: *** [Middlewares/Third_Party/NimaLTD_Driver/WS28XX/subdir.mk:19: Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+10:45:19 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+10:45:20 **** Incremental Build of configuration Debug for project limit_switch2 ****
+make -j7 all 
+arm-none-eabi-size  limit_switch2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5656	     12	   1644	   7312	   1c90	limit_switch2.elf
+Finished building: default.size.stdout
+ 
+10:45:20 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+10:45:20 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11532	     92	   2148	  13772	   35cc	rfid.elf
+Finished building: default.size.stdout
+ 
+10:45:21 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:670:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  670 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+../Core/Src/main.c: In function 'Error_Handler':
+../Core/Src/main.c:690:3: error: expected declaration or statement at end of input
+  690 |   }
+      |   ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:690:3: fatal error: opening dependency file Core/Src/main.d: Permission denied
+compilation terminated.
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+10:45:56 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6100	     12	   1676	   7788	   1e6c	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+10:45:57 **** Incremental Build of configuration Debug for project led_matrix ****
+make -j7 all 
+arm-none-eabi-gcc "../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.d" -MT"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c: fatal error: cannot open Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.su for writing: Permission denied
+../Core/Src/main.c: fatal error: cannot open Core/Src/main.su for writing: Permission denied
+compilation terminated.
+compilation terminated.
+make: *** [Middlewares/Third_Party/NimaLTD_Driver/WS28XX/subdir.mk:19: Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+10:45:57 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+10:45:58 **** Incremental Build of configuration Debug for project limit_switch2 ****
+make -j7 all 
+arm-none-eabi-size  limit_switch2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5656	     12	   1644	   7312	   1c90	limit_switch2.elf
+Finished building: default.size.stdout
+ 
+10:45:58 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+10:45:58 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11532	     92	   2148	  13772	   35cc	rfid.elf
+Finished building: default.size.stdout
+ 
+10:45:59 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:670:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  670 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:692:1: fatal error: opening dependency file Core/Src/main.d: Permission denied
+  692 | }
+      | ^
+compilation terminated.
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+10:47:43 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6100	     12	   1676	   7788	   1e6c	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+10:47:46 **** Incremental Build of configuration Debug for project led_matrix ****
+make -j7 all 
+arm-none-eabi-gcc "../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.d" -MT"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c:6:10: fatal error: ws28xx.h: No such file or directory
+    6 | #include "ws28xx.h"
+      |          ^~~~~~~~~~
+compilation terminated.
+make: *** [Middlewares/Third_Party/NimaLTD_Driver/WS28XX/subdir.mk:19: Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c:24:10: fatal error: ws28xx.h: No such file or directory
+   24 | #include "ws28xx.h"
+      |          ^~~~~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+10:47:48 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+10:47:49 **** Incremental Build of configuration Debug for project limit_switch2 ****
+make -j7 all 
+arm-none-eabi-size  limit_switch2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5656	     12	   1644	   7312	   1c90	limit_switch2.elf
+Finished building: default.size.stdout
+ 
+10:47:52 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     12	   1716	  11164	   2b9c	motor2.elf
+Finished building: default.size.stdout
+ 
+10:47:54 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11532	     92	   2148	  13772	   35cc	rfid.elf
+Finished building: default.size.stdout
+ 
+10:47:55 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:670:27: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  670 |         intresponseData = atoi(&responseData);
+      |                           ^~~~
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_program.elf
+ 
+arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
+   text	   data	    bss	    dec	    hex	filename
+  24376	    692	  16404	  41472	   a200	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_stm_program.list
+ 

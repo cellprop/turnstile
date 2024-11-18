@@ -391,9 +391,9 @@ void centre_align(void){
 void ready_state(void){
 	//Display Code
     // Check if data has been received
-	Clear_All_Animations();
-	while(flag == 0){
-		Animation_Mode_3();
+	Clear_All_Animations(&ws);
+	while(flag_rev == 0){
+		Animation_Mode_3(&ws);
 		HAL_Delay(DELAY_TIME);
 	}
     if(flag_rev == 1){
@@ -434,7 +434,7 @@ void reading_state(void){
 }
 
 void open_state(void){
-	Clear_All_Animations();
+	Clear_All_Animations(&ws);
 	quarter_cycle_open(uart_source);
 	HAL_Delay(1000);
 	while (ir_flag==1)
@@ -450,16 +450,17 @@ void open_state(void){
 			  ir_flag = 0;
 
 		  }
-		  if(uart_source = 1){
-			  Animation_Mode_1();
-			  HAL_Delay(DELAY_TIME);
-		  }
-		  else if(uart_source = 2){
-			  Animation_Mode_2();
-			  HAL_Delay(DELAY_TIME);
-		  }
+
 	  }
-	HAL_Delay(2000);
+	  if(uart_source == 1){
+		  Animation_Mode_1(&ws);
+		  HAL_Delay(DELAY_TIME);
+	  }
+	  else if(uart_source == 2){
+		  Animation_Mode_2(&ws);
+		  HAL_Delay(DELAY_TIME);
+	  }
+	HAL_Delay(1000);
 	quarter_cycle_closed(uart_source);
 	//HAL_Delay(1000);
 	currentState = STATE_READY;
@@ -467,11 +468,11 @@ void open_state(void){
 
 void closed_state(void){
 	//Display Code
-	Clear_All_Animations();
+	Clear_All_Animations(&ws);
 	uint32_t start_time = HAL_GetTick();  // Capture the starting tick count (in milliseconds)
 
 	while ((HAL_GetTick() - start_time) < 2000) {  // 2000 ms = 2 seconds
-		Animation_Mode_4();
+		Animation_Mode_4(&ws);
 		HAL_Delay(DELAY_TIME);
 	}
 	currentState = STATE_READY;
