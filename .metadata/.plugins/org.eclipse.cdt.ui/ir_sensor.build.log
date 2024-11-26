@@ -1,4 +1,4 @@
-10:47:43 **** Incremental Build of configuration Debug for project ir_sensor ****
+14:38:15 **** Incremental Build of configuration Debug for project ir_sensor ****
 make -j7 all 
 arm-none-eabi-size  ir_sensor.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size  ir_sensor.elf
 Finished building: default.size.stdout
  
 
-10:47:43 Build Finished. 0 errors, 0 warnings. (took 363ms)
+14:38:16 Build Finished. 0 errors, 0 warnings. (took 1s.33ms)
 

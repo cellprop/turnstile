@@ -45,7 +45,7 @@ typedef enum {
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define LED_TOTAL 512
+#define LED_TOTAL 590
 #define DELAY_TIME 100  // Delay for animation steps
 #define OBJECT_DETECTION_TIMEOUT 500  // Timeout period for object detection (in ms)
 #define PULSE_INTERVAL 100            // Interval for pulse transmission (in ms)
@@ -94,28 +94,36 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN 0 */
 
 //LED MATRIX FUNCTIONS
-/* Arrow shape LED indices for both strips */
-int arrow_first_strip[] = {
+/* Arrow shape indices for entry and exit matrices */
+int arrow_entry_matrix[] = {
     83, 84, 91, 92, 99, 100, 107, 108, 115, 116, 123, 124,
     131, 132, 137, 138, 139, 140, 141, 142, 146, 147, 148, 149,
     155, 156
 };
 
-int arrow_second_strip[] = {
-    339, 340, 347, 348, 355, 356, 363, 364, 371, 372, 379, 380,
-    387, 388, 393, 394, 395, 396, 397, 398, 402, 403, 404, 405,
-    411, 412
+int arrow_exit_matrix[] = {
+    334, 335, 342, 343, 350, 351, 358, 359, 366, 367, 374, 375,
+    382, 383, 388, 389, 390, 391, 392, 393, 397, 398, 399, 400,
+    406, 407
 };
 
-/* Cross shape LED indices for both strips */
-int topCross_first_strip[] = {224, 231, 222, 217, 213, 210, 203, 204, 196, 195, 189, 186, 182, 177, 175, 168};
-int middleCross_first_strip[] = {103, 96, 105, 110, 114, 117, 123, 124, 132, 131, 138, 141, 145, 150, 152, 159};
-int bottomCross_first_strip[] = {31, 24, 33, 38, 42, 45, 51, 52, 59, 60, 66, 69, 73, 78, 80, 87};
+/* Cross shape indices for entry and exit matrices */
+int topCross_entry_matrix[] = {224, 231, 222, 217, 213, 210, 203, 204, 196, 195, 189, 186, 182, 177, 175, 168};
+int middleCross_entry_matrix[] = {103, 96, 105, 110, 114, 117, 123, 124, 132, 131, 138, 141, 145, 150, 152, 159};
+int bottomCross_entry_matrix[] = {31, 24, 33, 38, 42, 45, 51, 52, 59, 60, 66, 69, 73, 78, 80, 87};
 
-int topCross_second_strip[] = {480, 487, 478, 473, 469, 466, 459, 460, 452, 451, 445, 442, 438, 433, 431, 424};
-int middleCross_second_strip[] = {359, 352, 361, 366, 370, 373, 379, 380, 388, 387, 394, 397, 401, 406, 408, 415};
-int bottomCross_second_strip[] = {287, 280, 289, 294, 298, 301, 307, 308, 315, 316, 322, 325, 329, 334, 336, 343};
+int topCross_exit_matrix[] = {486, 493, 484, 479, 475, 472, 465, 466, 458, 457, 451, 448, 444, 439, 437, 430};
+int middleCross_exit_matrix[] = {359, 352, 361, 366, 370, 373, 379, 380, 388, 387, 394, 397, 401, 406, 408, 415};
+int bottomCross_exit_matrix[] = {287, 280, 289, 294, 298, 301, 307, 308, 315, 316, 322, 325, 329, 334, 336, 343};
 
+/* Strips and RFID indices */
+int entryStrip[] = {256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274};
+int exitStrip[] = {315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333};
+
+int entryRFID[] = {275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294};
+int exitRFID[] = {295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314};
+
+int swingBarrierStrip[] = {};
 /* Function to draw the arrow on a specified strip */
 void Draw_Arrow(WS28XX_HandleTypeDef *ws, int *arrow, int color) {
     for (int i = 0; i < 26; i++) {
@@ -132,21 +140,21 @@ void Clear_Arrow(WS28XX_HandleTypeDef *ws, int *arrow) {
 }
 
 /* Function to shift the arrow forward by one row, limited to the first strip */
-void Shift_Arrow_FirstStrip(int *arrow) {
+void Shift_Arrow_EntryMatrix(int *arrow) {
     for (int i = 0; i < 26; i++) {
         arrow[i] += 8;
-        if (arrow[i] >= 256) {  // Wrap around if out of bounds in the first strip (0–255)
+        if (arrow[i] >= 256) {  // Wrap around if out of bounds in the entry matrix (0–255)
             arrow[i] = arrow[i] % 256;
         }
     }
 }
 
 /* Function to shift the arrow forward by one row, limited to the second strip */
-void Shift_Arrow_SecondStrip(int *arrow) {
+void Shift_Arrow_ExitMatrix(int *arrow) {
     for (int i = 0; i < 26; i++) {
-        arrow[i] += 8;
-        if (arrow[i] >= 512) {  // Wrap around if out of bounds in the second strip (256–511)
-            arrow[i] = 256 + (arrow[i] % 256);
+        arrow[i] += 8;  // Move forward by 8 (to the next row)
+        if (arrow[i] >= 590) {  // Wrap around if the index exceeds the maximum address (589)
+            arrow[i] = 334 + ((arrow[i] - 334) % 256);  // Rebase to 0, wrap, and re-add the base offset
         }
     }
 }
@@ -172,66 +180,63 @@ void Clear_Cross(WS28XX_HandleTypeDef *ws, int *top, int *middle, int *bottom) {
 
 /* Function to clear all animations on both strips */
 void Clear_All_Animations(WS28XX_HandleTypeDef *ws) {
-    Clear_Arrow(ws, arrow_first_strip);
-    Clear_Arrow(ws, arrow_second_strip);
-    Clear_Cross(ws, topCross_first_strip, middleCross_first_strip, bottomCross_first_strip);
-    Clear_Cross(ws, topCross_second_strip, middleCross_second_strip, bottomCross_second_strip);
+    Clear_Arrow(ws, arrow_entry_matrix);
+    Clear_Arrow(ws, arrow_exit_matrix);
+    Clear_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix);
+    Clear_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix);
 }
 
 /* Function 1: Arrow on first strip, Cross on second strip */
-void Animation_Mode_1(WS28XX_HandleTypeDef *ws) {
-	Clear_Arrow(ws, arrow_first_strip);
-    Shift_Arrow_FirstStrip(arrow_first_strip);  // Confine within the first strip
-    Draw_Arrow(ws, arrow_first_strip, COLOR_RGB565_GREEN);
+void Entry_Granted_Animation(WS28XX_HandleTypeDef *ws) {
+    Clear_Arrow(ws, arrow_entry_matrix);
+    Shift_Arrow_EntryMatrix(arrow_entry_matrix);
+    Draw_Arrow(ws, arrow_entry_matrix, COLOR_RGB565_GREEN);
 
     if (cross_state) {
-        Draw_Cross(ws, topCross_second_strip, middleCross_second_strip, bottomCross_second_strip, COLOR_RGB565_RED);
+        Draw_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix, COLOR_RGB565_RED);
     } else {
-        Clear_Cross(ws, topCross_second_strip, middleCross_second_strip, bottomCross_second_strip);
+        Clear_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix);
     }
     cross_state = !cross_state;
     HAL_Delay(DELAY_TIME);
 }
 
 /* Function 2: Cross on first strip, Arrow on second strip */
-void Animation_Mode_2(WS28XX_HandleTypeDef *ws) {
-    // Cross animation on the first strip
+void Exit_Granted_Animation(WS28XX_HandleTypeDef *ws) {
     if (cross_state) {
-        Draw_Cross(ws, topCross_first_strip, middleCross_first_strip, bottomCross_first_strip, COLOR_RGB565_RED);
+        Draw_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix, COLOR_RGB565_RED);
     } else {
-        Clear_Cross(ws, topCross_first_strip, middleCross_first_strip, bottomCross_first_strip);
+        Clear_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix);
     }
     cross_state = !cross_state;
 
-    // Arrow animation on the second strip
-    Clear_Arrow(ws, arrow_second_strip);       // Clear previous arrow position on the second strip
-    Shift_Arrow_SecondStrip(arrow_second_strip);  // Shift the arrow within the second strip only
-    Draw_Arrow(ws, arrow_second_strip, COLOR_RGB565_GREEN);  // Draw the arrow on the second strip
+    Clear_Arrow(ws, arrow_exit_matrix);
+    Shift_Arrow_ExitMatrix(arrow_exit_matrix);
+    Draw_Arrow(ws, arrow_exit_matrix, COLOR_RGB565_GREEN);
 }
 
 /* Function 3: Arrow animation on both strips */
-void Animation_Mode_3(WS28XX_HandleTypeDef *ws) {
-    Clear_Arrow(ws, arrow_first_strip);
-    Shift_Arrow_FirstStrip(arrow_first_strip);  // Shift within the first strip
-    Draw_Arrow(ws, arrow_first_strip, COLOR_RGB565_GREEN);
-
-    Clear_Arrow(ws, arrow_second_strip);
-    Shift_Arrow_SecondStrip(arrow_second_strip);  // Shift within the second strip
-    Draw_Arrow(ws, arrow_second_strip, COLOR_RGB565_GREEN);
-}
-
-/* Function 4: Cross animation on both strips */
-void Animation_Mode_4(WS28XX_HandleTypeDef *ws) {
+void Ready_State_Animation(WS28XX_HandleTypeDef *ws) {
     if (cross_state) {
-        Draw_Cross(ws, topCross_first_strip, middleCross_first_strip, bottomCross_first_strip, COLOR_RGB565_RED);
-        Draw_Cross(ws, topCross_second_strip, middleCross_second_strip, bottomCross_second_strip, COLOR_RGB565_RED);
+        Draw_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix, COLOR_RGB565_RED);
+        Draw_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix, COLOR_RGB565_RED);
     } else {
-        Clear_Cross(ws, topCross_first_strip, middleCross_first_strip, bottomCross_first_strip);
-        Clear_Cross(ws, topCross_second_strip, middleCross_second_strip, bottomCross_second_strip);
+        Clear_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix);
+        Clear_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix);
     }
     cross_state = !cross_state;
 }
 
+/* Function 4: Cross animation on both strips */
+void Access_Denied_Animation(WS28XX_HandleTypeDef *ws) {
+    Clear_Arrow(ws, arrow_entry_matrix);
+    Shift_Arrow_EntryMatrix(arrow_entry_matrix);
+    Draw_Arrow(ws, arrow_entry_matrix, COLOR_RGB565_GREEN);
+
+    Clear_Arrow(ws, arrow_exit_matrix);
+    Shift_Arrow_ExitMatrix(arrow_exit_matrix);
+    Draw_Arrow(ws, arrow_exit_matrix, COLOR_RGB565_GREEN);
+}
 // IR FUNCTIONS
 int CheckObjectDetection(void)
 {
@@ -388,16 +393,14 @@ void centre_align(void){
 
 //STATE FUNCTIONS
 
-void ready_state(void){
-	//Display Code
-    // Check if data has been received
-	Clear_All_Animations(&ws);
-	while(flag_rev == 0){
-		Animation_Mode_3(&ws);
-		HAL_Delay(DELAY_TIME);
-	}
-    if(flag_rev == 1){
-        currentState = STATE_READING; // Transition to Reading State
+void ready_state(void) {
+    Clear_All_Animations(&ws);
+    while (flag_rev == 0) {
+        Ready_State_Animation(&ws);
+        HAL_Delay(DELAY_TIME);
+    }
+    if (flag_rev == 1) {
+        currentState = STATE_READING;
     }
 }
 
@@ -433,50 +436,42 @@ void reading_state(void){
     }
 }
 
-void open_state(void){
-	Clear_All_Animations(&ws);
-	quarter_cycle_open(uart_source);
-	HAL_Delay(1000);
-	while (ir_flag==1)
-	  {
-		  int object_present = CheckObjectDetection();
+void open_state(void) {
+    Clear_All_Animations(&ws);
+    quarter_cycle_open(uart_source);
+    HAL_Delay(1000);
+    while (ir_flag == 1) {
+        int object_present = CheckObjectDetection();
 
-		  if (object_present)
-		  {
-			  ir_flag = 1;
-		  }
-		  else
-		  {
-			  ir_flag = 0;
+        if (object_present) {
+            ir_flag = 1;
+        } else {
+            ir_flag = 0;
+        }
 
-		  }
+        if (uart_source == 1) {
+            Entry_Granted_Animation(&ws);
+            HAL_Delay(DELAY_TIME);
+        } else if (uart_source == 2) {
+            Exit_Granted_Animation(&ws);
+            HAL_Delay(DELAY_TIME);
+        }
+    }
 
-	  }
-	  if(uart_source == 1){
-		  Animation_Mode_1(&ws);
-		  HAL_Delay(DELAY_TIME);
-	  }
-	  else if(uart_source == 2){
-		  Animation_Mode_2(&ws);
-		  HAL_Delay(DELAY_TIME);
-	  }
-	HAL_Delay(1000);
-	quarter_cycle_closed(uart_source);
-	//HAL_Delay(1000);
-	currentState = STATE_READY;
+    HAL_Delay(1000);
+    quarter_cycle_closed(uart_source);
+    currentState = STATE_READY;
 }
 
-void closed_state(void){
-	//Display Code
-	Clear_All_Animations(&ws);
-	uint32_t start_time = HAL_GetTick();  // Capture the starting tick count (in milliseconds)
+void closed_state(void) {
+    Clear_All_Animations(&ws);
+    uint32_t start_time = HAL_GetTick();
 
-	while ((HAL_GetTick() - start_time) < 2000) {  // 2000 ms = 2 seconds
-		Animation_Mode_4(&ws);
-		HAL_Delay(DELAY_TIME);
-	}
-	currentState = STATE_READY;
-
+    while ((HAL_GetTick() - start_time) < 2000) {
+        Access_Denied_Animation(&ws);
+        HAL_Delay(DELAY_TIME);
+    }
+    currentState = STATE_READY;
 }
 
 void overcapacity_state(void){

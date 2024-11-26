@@ -1,14 +1,2 @@
 intresponseData
 responseData
-uart_source
-flag_rev
-rxData
-processedData
-usermsg
-currentState
-counter
-source
-pulse_received
-pulse_state
-ir1
-flag

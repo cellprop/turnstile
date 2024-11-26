@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;led_matrix/Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx&apos; to &apos;ws28xx.h&apos;" description="Rename resource &apos;ws28xx&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx" name="ws28xx.h" stamp="1732601720124" updateReferences="true"/>
+</session>

@@ -1,4 +1,4 @@
-10:47:52 **** Incremental Build of configuration Debug for project motor2 ****
+14:38:18 **** Incremental Build of configuration Debug for project motor2 ****
 make -j7 all 
 arm-none-eabi-size  motor2.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size  motor2.elf
 Finished building: default.size.stdout
  
 
-10:47:52 Build Finished. 0 errors, 0 warnings. (took 362ms)
+14:38:18 Build Finished. 0 errors, 0 warnings. (took 245ms)
 

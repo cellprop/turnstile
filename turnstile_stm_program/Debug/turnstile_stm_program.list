@@ -37,11 +37,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00018774  00000000  00000000  00018d4c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   000102f9  00000000  00000000  000314c0  2**0
+ 17 .debug_line   000102f7  00000000  00000000  000314c0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0008b9fb  00000000  00000000  000417b9  2**0
+ 18 .debug_str    0008b9fb  00000000  00000000  000417b7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  000cd1b4  2**0
+ 19 .comment      00000043  00000000  00000000  000cd1b2  2**0
                   CONTENTS, READONLY
  20 .debug_frame  00003f04  00000000  00000000  000cd1f8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -2079,7 +2079,7 @@ void open_state(void){
  8001072:	f44f 707a 	mov.w	r0, #1000	@ 0x3e8
  8001076:	f000 ff0f 	bl	8001e98 <HAL_Delay>
 	while (ir_flag==1)
- 800107a:	e00c      	b.n	8001096 <open_state+0x3a>
+ 800107a:	e021      	b.n	80010c0 <open_state+0x64>
 	  {
 		  int object_present = CheckObjectDetection();
  800107c:	f7ff fe0e 	bl	8000c9c <CheckObjectDetection>
@@ -2102,40 +2102,41 @@ void open_state(void){
  8001090:	4b17      	ldr	r3, [pc, #92]	@ (80010f0 <open_state+0x94>)
  8001092:	2200      	movs	r2, #0
  8001094:	601a      	str	r2, [r3, #0]
-	while (ir_flag==1)
- 8001096:	4b16      	ldr	r3, [pc, #88]	@ (80010f0 <open_state+0x94>)
- 8001098:	681b      	ldr	r3, [r3, #0]
- 800109a:	2b01      	cmp	r3, #1
- 800109c:	d0ee      	beq.n	800107c <open_state+0x20>
-
 		  }
 
+          if(uart_source == 1){
+ 8001096:	4b15      	ldr	r3, [pc, #84]	@ (80010ec <open_state+0x90>)
+ 8001098:	781b      	ldrb	r3, [r3, #0]
+ 800109a:	2b01      	cmp	r3, #1
+ 800109c:	d106      	bne.n	80010ac <open_state+0x50>
+            Animation_Mode_1(&ws);
+ 800109e:	4812      	ldr	r0, [pc, #72]	@ (80010e8 <open_state+0x8c>)
+ 80010a0:	f7ff fd14 	bl	8000acc <Animation_Mode_1>
+            HAL_Delay(DELAY_TIME);
+ 80010a4:	2064      	movs	r0, #100	@ 0x64
+ 80010a6:	f000 fef7 	bl	8001e98 <HAL_Delay>
+ 80010aa:	e009      	b.n	80010c0 <open_state+0x64>
+          }
+          else if(uart_source == 2){
+ 80010ac:	4b0f      	ldr	r3, [pc, #60]	@ (80010ec <open_state+0x90>)
+ 80010ae:	781b      	ldrb	r3, [r3, #0]
+ 80010b0:	2b02      	cmp	r3, #2
+ 80010b2:	d105      	bne.n	80010c0 <open_state+0x64>
+            Animation_Mode_2(&ws);
+ 80010b4:	480c      	ldr	r0, [pc, #48]	@ (80010e8 <open_state+0x8c>)
+ 80010b6:	f7ff fd49 	bl	8000b4c <Animation_Mode_2>
+            HAL_Delay(DELAY_TIME);
+ 80010ba:	2064      	movs	r0, #100	@ 0x64
+ 80010bc:	f000 feec 	bl	8001e98 <HAL_Delay>
+	while (ir_flag==1)
+ 80010c0:	4b0b      	ldr	r3, [pc, #44]	@ (80010f0 <open_state+0x94>)
+ 80010c2:	681b      	ldr	r3, [r3, #0]
+ 80010c4:	2b01      	cmp	r3, #1
+ 80010c6:	d0d9      	beq.n	800107c <open_state+0x20>
+          }
+
 	  }
-	  if(uart_source == 1){
- 800109e:	4b13      	ldr	r3, [pc, #76]	@ (80010ec <open_state+0x90>)
- 80010a0:	781b      	ldrb	r3, [r3, #0]
- 80010a2:	2b01      	cmp	r3, #1
- 80010a4:	d106      	bne.n	80010b4 <open_state+0x58>
-		  Animation_Mode_1(&ws);
- 80010a6:	4810      	ldr	r0, [pc, #64]	@ (80010e8 <open_state+0x8c>)
- 80010a8:	f7ff fd10 	bl	8000acc <Animation_Mode_1>
-		  HAL_Delay(DELAY_TIME);
- 80010ac:	2064      	movs	r0, #100	@ 0x64
- 80010ae:	f000 fef3 	bl	8001e98 <HAL_Delay>
- 80010b2:	e009      	b.n	80010c8 <open_state+0x6c>
-	  }
-	  else if(uart_source == 2){
- 80010b4:	4b0d      	ldr	r3, [pc, #52]	@ (80010ec <open_state+0x90>)
- 80010b6:	781b      	ldrb	r3, [r3, #0]
- 80010b8:	2b02      	cmp	r3, #2
- 80010ba:	d105      	bne.n	80010c8 <open_state+0x6c>
-		  Animation_Mode_2(&ws);
- 80010bc:	480a      	ldr	r0, [pc, #40]	@ (80010e8 <open_state+0x8c>)
- 80010be:	f7ff fd45 	bl	8000b4c <Animation_Mode_2>
-		  HAL_Delay(DELAY_TIME);
- 80010c2:	2064      	movs	r0, #100	@ 0x64
- 80010c4:	f000 fee8 	bl	8001e98 <HAL_Delay>
-	  }
+
 	HAL_Delay(1000);
  80010c8:	f44f 707a 	mov.w	r0, #1000	@ 0x3e8
  80010cc:	f000 fee4 	bl	8001e98 <HAL_Delay>
