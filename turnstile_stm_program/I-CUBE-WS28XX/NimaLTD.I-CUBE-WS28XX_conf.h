@@ -37,7 +37,7 @@
 	MiddleWare fileName : NimaLTD.I-CUBE-WS28XX_conf.h
 */
 /*---------- WS28XX_PIXEL_MAX  -----------*/
-#define WS28XX_PIXEL_MAX      668
+#define WS28XX_PIXEL_MAX      578
 
 /*---------- WS28XX_PULSE_LENGTH_NS  -----------*/
 #define WS28XX_PULSE_LENGTH_NS      1250

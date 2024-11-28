@@ -45,7 +45,7 @@ typedef enum {
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define LED_TOTAL 590
+#define LED_TOTAL 578  // Total number of LEDs after adjustments
 #define DELAY_TIME 100  // Delay for animation steps
 #define OBJECT_DETECTION_TIMEOUT 500  // Timeout period for object detection (in ms)
 #define PULSE_INTERVAL 100            // Interval for pulse transmission (in ms)
@@ -102,9 +102,9 @@ int arrow_entry_matrix[] = {
 };
 
 int arrow_exit_matrix[] = {
-    334, 335, 342, 343, 350, 351, 358, 359, 366, 367, 374, 375,
-    382, 383, 388, 389, 390, 391, 392, 393, 397, 398, 399, 400,
-    406, 407
+    322, 323, 330, 331, 338, 339, 346, 347, 354, 355, 362, 363,
+    370, 371, 376, 377, 378, 379, 380, 381, 385, 386, 387, 388,
+    394, 395
 };
 
 /* Cross shape indices for entry and exit matrices */
@@ -112,9 +112,9 @@ int topCross_entry_matrix[] = {224, 231, 222, 217, 213, 210, 203, 204, 196, 195,
 int middleCross_entry_matrix[] = {103, 96, 105, 110, 114, 117, 123, 124, 132, 131, 138, 141, 145, 150, 152, 159};
 int bottomCross_entry_matrix[] = {31, 24, 33, 38, 42, 45, 51, 52, 59, 60, 66, 69, 73, 78, 80, 87};
 
-int topCross_exit_matrix[] = {486, 493, 484, 479, 475, 472, 465, 466, 458, 457, 451, 448, 444, 439, 437, 430};
-int middleCross_exit_matrix[] = {359, 352, 361, 366, 370, 373, 379, 380, 388, 387, 394, 397, 401, 406, 408, 415};
-int bottomCross_exit_matrix[] = {287, 280, 289, 294, 298, 301, 307, 308, 315, 316, 322, 325, 329, 334, 336, 343};
+int topCross_exit_matrix[] = {474, 481, 472, 467, 463, 460, 453, 454, 446, 445, 439, 436, 432, 427, 425, 418};
+int middleCross_exit_matrix[] = {343, 336, 345, 350, 354, 357, 363, 364, 372, 371, 378, 381, 385, 390, 392, 399};
+int bottomCross_exit_matrix[] = {271, 264, 273, 278, 282, 285, 291, 292, 299, 300, 306, 309, 313, 318, 320, 327};
 
 /* Strips and RFID indices */
 int entryStrip[] = {256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274};
@@ -153,8 +153,8 @@ void Shift_Arrow_EntryMatrix(int *arrow) {
 void Shift_Arrow_ExitMatrix(int *arrow) {
     for (int i = 0; i < 26; i++) {
         arrow[i] += 8;  // Move forward by 8 (to the next row)
-        if (arrow[i] >= 590) {  // Wrap around if the index exceeds the maximum address (589)
-            arrow[i] = 334 + ((arrow[i] - 334) % 256);  // Rebase to 0, wrap, and re-add the base offset
+        if (arrow[i] >= 578) {  // Wrap around if the index exceeds the maximum address (577)
+            arrow[i] = 322 + ((arrow[i] - 322) % 256);  // Rebase to 0, wrap, and re-add the base offset
         }
     }
 }

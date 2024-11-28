@@ -1,0 +1,704 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2024 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+#include "dma.h"
+#include "tim.h"
+#include "usart.h"
+#include "gpio.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "ws28xx.h"
+#include <string.h>
+#include <stdio.h>
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+typedef enum {
+    STATE_READY,
+    STATE_READING,
+    STATE_OPEN,
+    STATE_CLOSED,
+    STATE_OVERCAPACITY,
+    STATE_SLEEP,
+    STATE_EMERGENCY
+} SystemState;
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+#define LED_TOTAL 590
+#define DELAY_TIME 100  // Delay for animation steps
+#define OBJECT_DETECTION_TIMEOUT 500  // Timeout period for object detection (in ms)
+#define PULSE_INTERVAL 100            // Interval for pulse transmission (in ms)
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+
+/* USER CODE BEGIN PV */
+WS28XX_HandleTypeDef ws;
+int cross_state = 1;      // State variable for blinking cross animation
+int brightness = 40;     // Global brightness level (40-255)
+SystemState currentState = STATE_READY; // Initialize to Ready State
+uint8_t rxData[14];        // Single buffer for USART1 and USART2
+char processedData[14]; // Buffer to store processed data
+char usermsg[14];          // Message to send
+uint8_t flag_rev = 0;      // Flag to indicate data reception
+uint8_t uart_source = 0;   // Variable to identify UART source (1 for USART1, 2 for USART2)
+
+uint8_t responseData;      // For NOS response
+uint8_t intresponseData;
+/* Other variables */
+volatile int counter = 0;
+volatile int rev = 0;
+volatile int target_counter = 588;       // Target encoder count to stop motor
+uint32_t last_pulse_received_time1 = 0;  // Time for last pulse reception
+uint32_t last_pulse_received_time2 = 0;  // Time for last pulse reception
+uint32_t last_pulse_received_time3 = 0;  // Time for last pulse reception
+uint32_t last_pulse_received_time4 = 0;  // Time for last pulse reception
+uint32_t last_pulse_received_time5 = 0;  // Time for last pulse reception
+uint32_t last_pulse_received_time6 = 0;  // Time for last pulse reception
+volatile int ir_flag = 0;
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+//LED MATRIX FUNCTIONS
+/* Arrow shape indices for entry and exit matrices */
+int arrow_entry_matrix[] = {
+    83, 84, 91, 92, 99, 100, 107, 108, 115, 116, 123, 124,
+    131, 132, 137, 138, 139, 140, 141, 142, 146, 147, 148, 149,
+    155, 156
+};
+
+int arrow_exit_matrix[] = {
+    334, 335, 342, 343, 350, 351, 358, 359, 366, 367, 374, 375,
+    382, 383, 388, 389, 390, 391, 392, 393, 397, 398, 399, 400,
+    406, 407
+};
+
+/* Cross shape indices for entry and exit matrices */
+int topCross_entry_matrix[] = {224, 231, 222, 217, 213, 210, 203, 204, 196, 195, 189, 186, 182, 177, 175, 168};
+int middleCross_entry_matrix[] = {103, 96, 105, 110, 114, 117, 123, 124, 132, 131, 138, 141, 145, 150, 152, 159};
+int bottomCross_entry_matrix[] = {31, 24, 33, 38, 42, 45, 51, 52, 59, 60, 66, 69, 73, 78, 80, 87};
+
+int topCross_exit_matrix[] = {486, 493, 484, 479, 475, 472, 465, 466, 458, 457, 451, 448, 444, 439, 437, 430};
+int middleCross_exit_matrix[] = {359, 352, 361, 366, 370, 373, 379, 380, 388, 387, 394, 397, 401, 406, 408, 415};
+int bottomCross_exit_matrix[] = {287, 280, 289, 294, 298, 301, 307, 308, 315, 316, 322, 325, 329, 334, 336, 343};
+
+/* Strips and RFID indices */
+int entryStrip[] = {256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274};
+int exitStrip[] = {315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333};
+
+int entryRFID[] = {275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294};
+int exitRFID[] = {295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314};
+
+int swingBarrierStrip[] = {};
+/* Function to draw the arrow on a specified strip */
+void Draw_Arrow(WS28XX_HandleTypeDef *ws, int *arrow, int color) {
+    for (int i = 0; i < 26; i++) {
+        WS28XX_SetPixel_RGBW_565(ws, arrow[i], color, brightness);
+    }
+    WS28XX_Update(ws);
+}
+
+void Clear_Arrow(WS28XX_HandleTypeDef *ws, int *arrow) {
+    for (int i = 0; i < 26; i++) {
+        WS28XX_SetPixel_RGBW_565(ws, arrow[i], COLOR_RGB565_BLACK, 0);
+    }
+    WS28XX_Update(ws);
+}
+
+/* Function to shift the arrow forward by one row, limited to the first strip */
+void Shift_Arrow_EntryMatrix(int *arrow) {
+    for (int i = 0; i < 26; i++) {
+        arrow[i] += 8;
+        if (arrow[i] >= 256) {  // Wrap around if out of bounds in the entry matrix (0–255)
+            arrow[i] = arrow[i] % 256;
+        }
+    }
+}
+
+/* Function to shift the arrow forward by one row, limited to the second strip */
+void Shift_Arrow_ExitMatrix(int *arrow) {
+    for (int i = 0; i < 26; i++) {
+        arrow[i] += 8;  // Move forward by 8 (to the next row)
+        if (arrow[i] >= 590) {  // Wrap around if the index exceeds the maximum address (589)
+            arrow[i] = 334 + ((arrow[i] - 334) % 256);  // Rebase to 0, wrap, and re-add the base offset
+        }
+    }
+}
+
+/* Function to animate the cross pattern */
+void Draw_Cross(WS28XX_HandleTypeDef *ws, int *top, int *middle, int *bottom, int color) {
+    for (int i = 0; i < 16; i++) {
+        WS28XX_SetPixel_RGBW_565(ws, top[i], color, brightness);
+        WS28XX_SetPixel_RGBW_565(ws, middle[i], color, brightness);
+        WS28XX_SetPixel_RGBW_565(ws, bottom[i], color, brightness);
+    }
+    WS28XX_Update(ws);
+}
+
+void Clear_Cross(WS28XX_HandleTypeDef *ws, int *top, int *middle, int *bottom) {
+    for (int i = 0; i < 16; i++) {
+        WS28XX_SetPixel_RGBW_565(ws, top[i], COLOR_RGB565_BLACK, 0);
+        WS28XX_SetPixel_RGBW_565(ws, middle[i], COLOR_RGB565_BLACK, 0);
+        WS28XX_SetPixel_RGBW_565(ws, bottom[i], COLOR_RGB565_BLACK, 0);
+    }
+    WS28XX_Update(ws);
+}
+
+/* Function to clear all animations on both strips */
+void Clear_All_Animations(WS28XX_HandleTypeDef *ws) {
+    Clear_Arrow(ws, arrow_entry_matrix);
+    Clear_Arrow(ws, arrow_exit_matrix);
+    Clear_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix);
+    Clear_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix);
+}
+
+/* Function 1: Arrow on first strip, Cross on second strip */
+void Entry_Granted_Animation(WS28XX_HandleTypeDef *ws) {
+    Clear_Arrow(ws, arrow_entry_matrix);
+    Shift_Arrow_EntryMatrix(arrow_entry_matrix);
+    Draw_Arrow(ws, arrow_entry_matrix, COLOR_RGB565_GREEN);
+
+    if (cross_state) {
+        Draw_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix, COLOR_RGB565_RED);
+    } else {
+        Clear_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix);
+    }
+    cross_state = !cross_state;
+    HAL_Delay(DELAY_TIME);
+}
+
+/* Function 2: Cross on first strip, Arrow on second strip */
+void Exit_Granted_Animation(WS28XX_HandleTypeDef *ws) {
+    if (cross_state) {
+        Draw_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix, COLOR_RGB565_RED);
+    } else {
+        Clear_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix);
+    }
+    cross_state = !cross_state;
+
+    Clear_Arrow(ws, arrow_exit_matrix);
+    Shift_Arrow_ExitMatrix(arrow_exit_matrix);
+    Draw_Arrow(ws, arrow_exit_matrix, COLOR_RGB565_GREEN);
+}
+
+/* Function 3: Arrow animation on both strips */
+void Ready_State_Animation(WS28XX_HandleTypeDef *ws) {
+    if (cross_state) {
+        Draw_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix, COLOR_RGB565_RED);
+        Draw_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix, COLOR_RGB565_RED);
+    } else {
+        Clear_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix);
+        Clear_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix);
+    }
+    cross_state = !cross_state;
+}
+
+/* Function 4: Cross animation on both strips */
+void Access_Denied_Animation(WS28XX_HandleTypeDef *ws) {
+    Clear_Arrow(ws, arrow_entry_matrix);
+    Shift_Arrow_EntryMatrix(arrow_entry_matrix);
+    Draw_Arrow(ws, arrow_entry_matrix, COLOR_RGB565_GREEN);
+
+    Clear_Arrow(ws, arrow_exit_matrix);
+    Shift_Arrow_ExitMatrix(arrow_exit_matrix);
+    Draw_Arrow(ws, arrow_exit_matrix, COLOR_RGB565_GREEN);
+}
+// IR FUNCTIONS
+int CheckObjectDetection(void)
+{
+    static uint32_t last_pulse_time = 0;  // Static variable to remember last pulse transmission time
+    // 1. Generate a pulse every 100 ms
+    if (HAL_GetTick() - last_pulse_time >= PULSE_INTERVAL)
+    {
+        last_pulse_time = HAL_GetTick();
+        HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0); // Toggle PC0 to generate pulse
+    }
+
+    // 2. Check for absence of pulses over an extended period for object detection
+    if (HAL_GetTick() - last_pulse_received_time1 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    if (HAL_GetTick() - last_pulse_received_time2 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    if (HAL_GetTick() - last_pulse_received_time3 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    if (HAL_GetTick() - last_pulse_received_time4 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    if (HAL_GetTick() - last_pulse_received_time5 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    if (HAL_GetTick() - last_pulse_received_time6 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    return 0;
+
+}
+
+
+//MOTOR CONTROL FUNCTIONS
+void Speed_Control(int a)
+{
+	__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_1, a);
+}
+
+void Direction(int a)
+{
+	if(a==1)
+	{
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_RESET);
+
+	}
+	if(a==0)
+	{
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_SET);
+	}
+}
+
+void encoder(void)
+{
+    counter++;
+    if(counter == 570)
+    {
+        Speed_Control(0); // Stop the motor
+        counter = 0;      // Reset counter for next operation
+    }
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+    if(GPIO_Pin == GPIO_PIN_2)
+    {
+    	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7); // Toggle an LED on PB7 for visual feedback
+    	encoder();
+    }
+    if(GPIO_Pin == GPIO_PIN_10)
+	{
+		Speed_Control(0);
+		counter = 0;
+	}
+    if(GPIO_Pin == GPIO_PIN_11)
+	{
+		Speed_Control(0);
+		counter = 0;
+	}
+    if(GPIO_Pin == GPIO_PIN_14)
+	{
+		Speed_Control(0);
+		counter = 0;
+	}
+    if(GPIO_Pin == GPIO_PIN_15)
+	{
+		Speed_Control(0);
+		counter = 0;
+	}
+    if (GPIO_Pin == GPIO_PIN_1)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time1 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_3)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time2 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_4)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time3 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_5)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time4 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_6)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time5 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_7)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time6 = HAL_GetTick();  // Update last received time on pulse
+    }
+}
+
+void quarter_cycle_open(int source)
+{
+    if(source == 1){
+        Direction(0);
+    }
+    else if(source == 2){
+        Direction(1);
+    }
+    Speed_Control(1000); // Start motor
+}
+
+void quarter_cycle_closed(int source)
+{
+    if(source == 1){
+        Direction(1);
+    }
+    else if(source == 2){
+        Direction(0);
+    }
+    Speed_Control(1000); // Start motor
+}
+
+void centre_align(void){
+	quarter_cycle_open(1);
+	quarter_cycle_open(1);
+	quarter_cycle_closed(1);
+}
+
+
+//STATE FUNCTIONS
+
+void ready_state(void) {
+    Clear_All_Animations(&ws);
+    while (flag_rev == 0) {
+        Ready_State_Animation(&ws);
+        HAL_Delay(DELAY_TIME);
+    }
+    if (flag_rev == 1) {
+        currentState = STATE_READING;
+    }
+}
+
+void reading_state(void){
+	//Display Code
+    if(flag_rev == 1){
+        HAL_UART_Transmit_IT(&huart3, (uint8_t *)usermsg, strlen(usermsg));
+        flag_rev = 0;
+    }
+    HAL_Delay(1000); // Delay as needed
+
+    //NOS Potential Responses Setup
+    switch(intresponseData){
+
+    case 0:
+    	currentState = STATE_READY;
+    	break;
+    case 1:
+    	currentState = STATE_OPEN;
+    	break;
+    case 2:
+    	currentState = STATE_CLOSED;
+    	break;
+    case 3:
+    	currentState = STATE_EMERGENCY;
+    	break;
+    case 4:
+    	currentState = STATE_SLEEP;
+    	break;
+    case 5:
+    	currentState = STATE_OVERCAPACITY;
+		break;
+    }
+}
+
+void open_state(void) {
+    Clear_All_Animations(&ws);
+    quarter_cycle_open(uart_source);
+    HAL_Delay(1000);
+    while (ir_flag == 1) {
+        int object_present = CheckObjectDetection();
+
+        if (object_present) {
+            ir_flag = 1;
+        } else {
+            ir_flag = 0;
+        }
+
+        if (uart_source == 1) {
+            Entry_Granted_Animation(&ws);
+            HAL_Delay(DELAY_TIME);
+        } else if (uart_source == 2) {
+            Exit_Granted_Animation(&ws);
+            HAL_Delay(DELAY_TIME);
+        }
+    }
+
+    HAL_Delay(1000);
+    quarter_cycle_closed(uart_source);
+    currentState = STATE_READY;
+}
+
+void closed_state(void) {
+    Clear_All_Animations(&ws);
+    uint32_t start_time = HAL_GetTick();
+
+    while ((HAL_GetTick() - start_time) < 2000) {
+        Access_Denied_Animation(&ws);
+        HAL_Delay(DELAY_TIME);
+    }
+    currentState = STATE_READY;
+}
+
+void overcapacity_state(void){
+	//Display Code
+	Speed_Control(0);
+	currentState = STATE_READY;
+}
+
+void sleep_state(void){
+	//Shut off system code:
+	centre_align();
+}
+
+void emergency_state(void){
+	//Display Code
+	quarter_cycle_open(1);
+	quarter_cycle_open(1);
+	currentState = STATE_SLEEP;
+}
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_USART2_UART_Init();
+  MX_TIM3_Init();
+  MX_TIM4_Init();
+  MX_USART1_UART_Init();
+  MX_USART3_UART_Init();
+  MX_TIM2_Init();
+  /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start(&htim4);
+  HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_1);
+  WS28XX_Init(&ws, &htim3, 72, TIM_CHANNEL_1, LED_TOTAL);
+
+
+  // Start UART reception for RFID Reader (USART1)
+  HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
+
+  // Start UART reception for Additional UART (USART2)
+  HAL_UART_Receive_IT(&huart2, rxData, sizeof(rxData));
+
+  // Start UART reception for NOS response (USART3)
+  HAL_UART_Receive_IT(&huart3, &responseData, 1);
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+		switch (currentState)
+		{
+			case STATE_READY:
+				ready_state();
+				break;
+			case STATE_READING:
+				reading_state();
+				break;
+			case STATE_OPEN:
+				open_state();
+				break;
+			case STATE_CLOSED:
+				closed_state();
+				break;
+			// Leave other states empty for now
+			case STATE_OVERCAPACITY:
+				overcapacity_state();
+				break;
+			case STATE_SLEEP:
+				sleep_state();
+				//break;
+			case STATE_EMERGENCY:
+				emergency_state();
+				break;
+			default:
+				break;
+		}
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+  }
+  /* USER CODE END 3 */
+}
+
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
+  RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/* USER CODE BEGIN 4 */
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+    if (huart->Instance == USART1) { // Data received from USART1
+        // Process the received data
+        for (int i = 0; i < 12; i++) {
+            processedData[i] = rxData[i + 1]; // Skip the start byte
+        }
+
+        uart_source = 1;
+        processedData[12] = uart_source + '0';
+        processedData[13] = '\0'; // Null-terminate the string
+
+        // Use sprintf to format usermsg with identification flag
+        sprintf(usermsg, "%s", processedData);
+
+        flag_rev = 1; // Set flag to indicate data has been received
+
+        // Re-enable UART reception for USART1
+        HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
+    }
+    else if (huart->Instance == USART2) { // Data received from USART2
+        // Process the received data
+        for (int i = 0; i < 12; i++) {
+            processedData[i] = rxData[i + 1]; // Skip the start byte
+        }
+        uart_source = 2;
+		processedData[12] = uart_source + '0';
+		processedData[13] = '\0'; // Null-terminate the string
+
+        // Use sprintf to format usermsg with identification flag
+        sprintf(usermsg, "%s", processedData);
+
+        flag_rev = 1; // Set flag to indicate data has been received
+
+        // Re-enable UART reception for USART2
+        HAL_UART_Receive_IT(&huart2, rxData, sizeof(rxData));
+    }
+    else if (huart->Instance == USART3) { // NOS Response (USART3)
+        //intresponseData = responseData - '0';
+        intresponseData = atoi(&responseData);
+
+
+        // Re-enable UART reception for USART3
+        HAL_UART_Receive_IT(&huart3, &responseData, 1);
+    }
+}
+/* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  {
+  }
+  /* USER CODE END Error_Handler_Debug */
+}
+
+#ifdef  USE_FULL_ASSERT
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */
