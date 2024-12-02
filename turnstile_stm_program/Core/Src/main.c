@@ -69,7 +69,7 @@ char usermsg[14];          // Message to send
 uint8_t flag_rev = 0;      // Flag to indicate data reception
 uint8_t uart_source = 0;   // Variable to identify UART source (1 for USART1, 2 for USART2)
 
-uint8_t responseData;      // For NOS response
+uint8_t responseData[2];      // For NOS response
 uint8_t intresponseData;
 /* Other variables */
 volatile int counter = 0;
@@ -82,6 +82,9 @@ uint32_t last_pulse_received_time4 = 0;  // Time for last pulse reception
 uint32_t last_pulse_received_time5 = 0;  // Time for last pulse reception
 uint32_t last_pulse_received_time6 = 0;  // Time for last pulse reception
 volatile int ir_flag = 0;
+
+#define TURNSTILE_ID 1  // Set manually to 1 for one Nucleo, and 2 for the other
+uint8_t receivedTurnstileID = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -660,13 +663,20 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
         // Re-enable UART reception for USART2
         HAL_UART_Receive_IT(&huart2, rxData, sizeof(rxData));
     }
-    else if (huart->Instance == USART3) { // NOS Response (USART3)
-        //intresponseData = responseData - '0';
-        intresponseData = atoi(&responseData);
+    else if (huart->Instance == USART3) {  // USART3 Interrupt
+        char receivedCommandChar = responseData[0];  // First character is the command
+        char receivedTurnstileIDChar = responseData[1];  // Second character is the Turnstile ID
 
+        int receivedCommand = receivedCommandChar - '0';  // Convert Command to integer
+        int receivedTurnstileID = receivedTurnstileIDChar - '0';  // Convert ID to integer
 
-        // Re-enable UART reception for USART3
-        HAL_UART_Receive_IT(&huart3, &responseData, 1);
+        if (receivedTurnstileID == TURNSTILE_ID) {  // Process only if ID matches
+            intresponseData = receivedCommand;  // Store the command
+            // Add your logic here to handle the command
+        }
+
+        // Re-enable UART reception
+        HAL_UART_Receive_IT(&huart3, responseData, 2);  // Expect 2 bytes: CMD, ID
     }
 }
 /* USER CODE END 4 */

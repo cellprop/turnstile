@@ -1,0 +1,113 @@
+2024-11-28 08:43:13,606 [INFO] WebApp:189 - Connection lost
+2024-11-28 09:22:49,231 [INFO] WebApp:186 - Connection restablished
+2024-11-28 14:18:03,768 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 376476368 Bytes (594542592)
+2024-11-28 14:18:05,018 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 452857232 Bytes (594542592)
+2024-11-28 14:18:05,745 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
+2024-11-28 14:18:05,745 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
+2024-11-28 14:18:05,745 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
+2024-11-28 14:18:05,745 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
+2024-11-28 14:18:05,745 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: DMA
+2024-11-28 14:18:05,745 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F1
+2024-11-28 14:18:05,745 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F1
+2024-11-28 14:18:05,745 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F1
+2024-11-28 14:18:05,745 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
+2024-11-28 14:18:05,745 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NimaLTD.I-CUBE-WS28XX.3.0.1
+2024-11-28 14:18:05,746 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
+2024-11-28 14:18:05,746 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
+2024-11-28 14:18:05,753 [INFO] CodeGenerator:807 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.12.1.202409122256//db/
+2024-11-28 14:18:05,967 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-11-28 14:18:05,971 [INFO] Argument:327 - 	 sub Args: 
+2024-11-28 14:18:05,971 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel5
+2024-11-28 14:18:05,971 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel5
+2024-11-28 14:18:05,971 [INFO] Argument:325 - Argument : Initvalue: null
+2024-11-28 14:18:05,971 [INFO] Argument:327 - 	 sub Args: 
+2024-11-28 14:18:05,971 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2024-11-28 14:18:05,971 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2024-11-28 14:18:05,971 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-11-28 14:18:05,971 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-11-28 14:18:05,971 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-11-28 14:18:05,971 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-11-28 14:18:05,971 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-11-28 14:18:05,971 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-11-28 14:18:05,971 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2024-11-28 14:18:05,972 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2024-11-28 14:18:05,972 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
+2024-11-28 14:18:05,972 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
+2024-11-28 14:18:05,972 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-11-28 14:18:05,972 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-11-28 14:18:05,972 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-11-28 14:18:05,972 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-11-28 14:18:05,972 [INFO] Argument:325 - Argument : Statevalue: null
+2024-11-28 14:18:05,972 [INFO] Argument:335 - Argument : Statevalue: null
+2024-11-28 14:18:05,972 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-11-28 14:18:05,972 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-11-28 14:18:05,972 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-11-28 14:18:05,972 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-11-28 14:18:05,972 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-11-28 14:18:05,972 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-11-28 14:18:05,972 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-11-28 14:18:05,972 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-11-28 14:18:05,972 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-11-28 14:18:05,972 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-11-28 14:18:06,147 [INFO] IP:3366 - RTE template : default_conf.ftl
+2024-11-28 14:18:06,166 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/MXTmpFiles/license.tmp_save
+2024-11-28 14:18:06,367 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/MXTmpFiles/license.tmp
+2024-11-28 14:18:06,461 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/gpio.c_save
+2024-11-28 14:18:06,587 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/gpio.c
+2024-11-28 14:18:06,590 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/gpio.h_save
+2024-11-28 14:18:06,653 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/gpio.h
+2024-11-28 14:18:07,343 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-11-28 14:18:07,368 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/dma.c_save
+2024-11-28 14:18:07,430 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/dma.c
+2024-11-28 14:18:07,431 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/dma.h_save
+2024-11-28 14:18:07,478 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/dma.h
+2024-11-28 14:18:07,479 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-11-28 14:18:07,482 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/I-CUBE-WS28XX/./NimaLTD.I-CUBE-WS28XX_conf.h_save
+2024-11-28 14:18:07,543 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/I-CUBE-WS28XX/./NimaLTD.I-CUBE-WS28XX_conf.h
+2024-11-28 14:18:07,550 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/tim.c_save
+2024-11-28 14:18:07,686 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/tim.c
+2024-11-28 14:18:07,690 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/tim.h_save
+2024-11-28 14:18:07,736 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/tim.h
+2024-11-28 14:18:07,739 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/usart.c_save
+2024-11-28 14:18:07,830 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/usart.c
+2024-11-28 14:18:07,833 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/usart.h_save
+2024-11-28 14:18:07,934 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/usart.h
+2024-11-28 14:18:07,983 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/stm32f1xx_it.c_save
+2024-11-28 14:18:08,208 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/stm32f1xx_it.c
+2024-11-28 14:18:08,220 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/stm32f1xx_it.h_save
+2024-11-28 14:18:08,282 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/stm32f1xx_it.h
+2024-11-28 14:18:08,349 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/stm32f1xx_hal_msp.c_save
+2024-11-28 14:18:08,466 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/stm32f1xx_hal_msp.c
+2024-11-28 14:18:08,477 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/MXTmpFiles/system.tmp_save
+2024-11-28 14:18:08,558 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/MXTmpFiles/system.tmp
+2024-11-28 14:18:08,570 [INFO] CodeEngine:311 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/stm32f1xx_hal_conf.h_save
+2024-11-28 14:18:08,834 [INFO] CodeEngine:335 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/stm32f1xx_hal_conf.h
+2024-11-28 14:18:08,951 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/main.h_save
+2024-11-28 14:18:09,119 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Inc/main.h
+2024-11-28 14:18:09,123 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/main.c_save
+2024-11-28 14:18:09,254 [INFO] CodeEngine:279 - Generated code: /Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Core/Src/main.c
+2024-11-28 14:18:09,666 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 61mS.
+2024-11-28 14:18:09,675 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-11-28 14:18:09,675 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-11-28 14:18:09,675 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-11-28 14:18:09,675 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-11-28 14:18:09,676 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-11-28 14:18:09,676 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-11-28 14:18:09,676 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-11-28 14:18:09,676 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-11-28 14:18:09,676 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-11-28 14:18:09,676 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-11-28 14:18:09,676 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-11-28 14:18:09,676 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-11-28 14:18:09,676 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-11-28 14:18:09,676 [ERROR] Middleware:2969 - Invalid RefComponent list
+2024-11-28 14:18:09,682 [INFO] ProjectBuilder:9026 - Time for Copy ThirdParty[1] : 4mS.
+2024-11-28 14:18:09,687 [INFO] ProjectBuilder:4828 - Project Generator version: 4.5.0-B34
+2024-11-28 14:18:09,810 [INFO] ConfigFileManager:1531 - The Die is : DIE410
+2024-11-28 14:18:12,447 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 2751mS.
+2024-11-28 14:18:12,454 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
+2024-11-28 14:18:12,456 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
+2024-11-28 17:02:39,990 [INFO] WebApp:189 - Connection lost
+2024-11-28 17:02:43,508 [INFO] WebApp:186 - Connection restablished
+2024-11-28 18:44:03,086 [INFO] WebApp:189 - Connection lost
+2024-11-28 19:27:13,836 [INFO] WebApp:186 - Connection restablished
