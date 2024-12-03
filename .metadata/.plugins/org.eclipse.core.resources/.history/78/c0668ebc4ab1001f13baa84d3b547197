@@ -89,7 +89,6 @@ uint8_t receivedTurnstileID = 0;
 
 #define NUM_SENSORS 6
 uint32_t last_pulse_received_time[NUM_SENSORS] = {0};
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -313,10 +312,10 @@ int CheckObjectDetection(void) {
         HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0); // Generate pulse
     }
 
-    // Check for timeout on all sensors
+    // Check for timeouts on all sensors
     for (int i = 0; i < NUM_SENSORS; i++) {
         if (HAL_GetTick() - last_pulse_received_time[i] >= OBJECT_DETECTION_TIMEOUT) {
-            return 1;  // Object detected (timeout)
+            return 1;  // Object detected
         }
     }
 
@@ -357,46 +356,54 @@ void encoder(void)
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-    // Handle different GPIO interrupts using a switch-case structure
-    switch (GPIO_Pin) {
-        // Pulse detection pins
-        case GPIO_PIN_1:
-            last_pulse_received_time[0] = HAL_GetTick(); // Update timestamp for sensor 0
-            break;
-        case GPIO_PIN_3:
-            last_pulse_received_time[1] = HAL_GetTick(); // Update timestamp for sensor 1
-            break;
-        case GPIO_PIN_4:
-            last_pulse_received_time[2] = HAL_GetTick(); // Update timestamp for sensor 2
-            break;
-        case GPIO_PIN_5:
-            last_pulse_received_time[3] = HAL_GetTick(); // Update timestamp for sensor 3
-            break;
-        case GPIO_PIN_6:
-            last_pulse_received_time[4] = HAL_GetTick(); // Update timestamp for sensor 4
-            break;
-        case GPIO_PIN_7:
-            last_pulse_received_time[5] = HAL_GetTick(); // Update timestamp for sensor 5
-            break;
-
-        // Encoder logic or visual feedback
-        case GPIO_PIN_2:
-            HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7); // Toggle an LED on PB7 for feedback
-            encoder();
-            break;
-
-        // Motor stop logic
-        case GPIO_PIN_10:
-        case GPIO_PIN_11:
-        case GPIO_PIN_14:
-        case GPIO_PIN_15:
-            Speed_Control(0);
-            counter = 0; // Reset the counter
-            break;
-
-        // Default case (no action required)
-        default:
-            break;
+    if(GPIO_Pin == GPIO_PIN_2)
+    {
+    	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7); // Toggle an LED on PB7 for visual feedback
+    	encoder();
+    }
+    if(GPIO_Pin == GPIO_PIN_10)
+	{
+		Speed_Control(0);
+		counter = 0;
+	}
+    if(GPIO_Pin == GPIO_PIN_11)
+	{
+		Speed_Control(0);
+		counter = 0;
+	}
+    if(GPIO_Pin == GPIO_PIN_14)
+	{
+		Speed_Control(0);
+		counter = 0;
+	}
+    if(GPIO_Pin == GPIO_PIN_15)
+	{
+		Speed_Control(0);
+		counter = 0;
+	}
+    if (GPIO_Pin == GPIO_PIN_1)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time1 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_3)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time2 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_4)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time3 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_5)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time4 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_6)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time5 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_7)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time6 = HAL_GetTick();  // Update last received time on pulse
     }
 }
 

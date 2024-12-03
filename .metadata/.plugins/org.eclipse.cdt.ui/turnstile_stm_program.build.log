@@ -1,9 +1,174 @@
-11:28:20 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+13:18:54 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
 make -j7 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Clear_All_Animations':
+../Core/Src/main.c:225:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  225 |     Led_Strip(&ws, entryStrip, entryStripSize, "off");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:226:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  226 |     Led_Strip(&ws, entryRFID, entryRFIDSize, "off");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:227:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  227 |     Led_Strip(&ws, exitStrip, exitStripSize, "off");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:228:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  228 |     Led_Strip(&ws, exitRFID, exitRFIDSize, "off");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c: In function 'Entry_Granted_Animation':
+../Core/Src/main.c:237:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  237 |     Led_Strip(&ws, entryStrip, entryStripSize, "green");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:238:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  238 |     Led_Strip(&ws, entryRFID, entryRFIDSize, "green");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:239:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  239 |     Led_Strip(&ws, exitStrip, exitStripSize, "red");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:240:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  240 |     Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c: In function 'Exit_Granted_Animation':
+../Core/Src/main.c:261:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  261 |     Led_Strip(&ws, entryStrip, entryStripSize, "red");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:262:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  262 |     Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:263:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  263 |     Led_Strip(&ws, exitStrip, exitStripSize, "green");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:264:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  264 |     Led_Strip(&ws, exitRFID, exitRFIDSize, "green");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c: In function 'Ready_State_Animation':
+../Core/Src/main.c:274:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  274 |     Led_Strip(&ws, entryStrip, entryStripSize, "blue");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:275:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  275 |     Led_Strip(&ws, entryRFID, entryRFIDSize, "blue");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:276:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  276 |     Led_Strip(&ws, exitStrip, exitStripSize, "blue");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:277:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  277 |     Led_Strip(&ws, exitRFID, exitRFIDSize, "blue");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c: In function 'Access_Denied_Animation':
+../Core/Src/main.c:299:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  299 |     Led_Strip(&ws, entryStrip, entryStripSize, "red");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:300:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  300 |     Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:301:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  301 |     Led_Strip(&ws, exitStrip, exitStripSize, "red");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:302:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  302 |     Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:175:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  175 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:582:32: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
-  582 |   HAL_UART_Receive_IT(&huart3, &responseData, 1);
+../Core/Src/main.c:585:32: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+  585 |   HAL_UART_Receive_IT(&huart3, &responseData, 1);
       |                                ^~~~~~~~~~~~~
       |                                |
       |                                uint8_t (*)[2] {aka unsigned char (*)[2]}
@@ -20,11 +185,11 @@ Finished building target: turnstile_stm_program.elf
 arm-none-eabi-size  turnstile_stm_program.elf 
 arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
    text	   data	    bss	    dec	    hex	filename
-  23904	    692	  18188	  42784	   a720	turnstile_stm_program.elf
+  24508	   1004	  18188	  43700	   aab4	turnstile_stm_program.elf
 Finished building: default.size.stdout
  
 Finished building: turnstile_stm_program.list
  
 
-11:28:20 Build Finished. 0 errors, 1 warnings. (took 769ms)
+13:18:55 Build Finished. 0 errors, 21 warnings. (took 853ms)
 

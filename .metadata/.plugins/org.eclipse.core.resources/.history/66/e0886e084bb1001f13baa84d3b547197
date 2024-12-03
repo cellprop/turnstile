@@ -172,7 +172,7 @@ void Shift_Arrow_ExitMatrix(int *arrow) {
     }
 }
 
-void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+void Led_Strip(WS28XX_HandleTypeDef *ws, int strip, int strip_size, char *color) {
     uint16_t selected_color; // Variable to hold the selected color value
 
     // Determine the color based on the input string

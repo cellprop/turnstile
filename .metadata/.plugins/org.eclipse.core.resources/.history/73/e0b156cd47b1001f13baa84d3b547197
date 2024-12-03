@@ -86,10 +86,6 @@ volatile int ir_flag = 0;
 #define TURNSTILE_ID 1  // Set manually to 1 for one Nucleo, and 2 for the other
 uint8_t receivedTurnstileID = 0;
 
-
-#define NUM_SENSORS 6
-uint32_t last_pulse_received_time[NUM_SENSORS] = {0};
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -131,12 +127,12 @@ int exitStrip[] = {315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 3
 int entryRFID[] = {275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294};
 int exitRFID[] = {295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314};
 
-int swingBarrierStrip[] = {};//Left empty till confirmation
+int swingBarrierStrip[] = {};
 
-const int entryStripSize = sizeof(entryStrip) / sizeof(entryStrip[0]);
+/*const int entryStripSize = sizeof(entryStrip) / sizeof(entryStrip[0]);
 const int exitStripSize = sizeof(exitStrip) / sizeof(exitStrip[0]);
 const int entryRFIDSize = sizeof(entryRFID) / sizeof(entryRFID[0]);
-const int exitRFIDSize = sizeof(exitRFID) / sizeof(exitRFID[0]);
+const int exitRFIDSize = sizeof(exitRFID) / sizeof(exitRFID[0]);*/
 /* Function to draw the arrow on a specified strip */
 void Draw_Arrow(WS28XX_HandleTypeDef *ws, int *arrow, int color) {
     for (int i = 0; i < 26; i++) {
@@ -222,10 +218,10 @@ void Clear_All_Animations(WS28XX_HandleTypeDef *ws) {
     Clear_Arrow(ws, arrow_exit_matrix);
     Clear_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix);
     Clear_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix);
-    Led_Strip(&ws, entryStrip, entryStripSize, "off");
-    Led_Strip(&ws, entryRFID, entryRFIDSize, "off");
-    Led_Strip(&ws, exitStrip, exitStripSize, "off");
-    Led_Strip(&ws, exitRFID, exitRFIDSize, "off");
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "off");
+    Led_Strip(&ws, entryRFID, sizeof(entryRFID) / sizeof(entryStrip[0]), "off");
+    Led_Strip(&ws, exitStrip, sizeof(exitStrip) / sizeof(entryStrip[0]), "off");
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "off");
 }
 
 
@@ -234,10 +230,10 @@ void Entry_Granted_Animation(WS28XX_HandleTypeDef *ws) {
     Shift_Arrow_EntryMatrix(arrow_entry_matrix);
     Draw_Arrow(ws, arrow_entry_matrix, COLOR_RGB565_GREEN);
 
-    Led_Strip(&ws, entryStrip, entryStripSize, "green");
-    Led_Strip(&ws, entryRFID, entryRFIDSize, "green");
-    Led_Strip(&ws, exitStrip, exitStripSize, "red");
-    Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "green");
+    Led_Strip(&ws, entryRFID, sizeof(entryRFID) / sizeof(entryStrip[0]), "green");
+    Led_Strip(&ws, exitStrip, sizeof(exitStrip) / sizeof(entryStrip[0]), "red");
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "red");
 
     if (cross_state) {
         Draw_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix, COLOR_RGB565_RED);
@@ -258,10 +254,10 @@ void Exit_Granted_Animation(WS28XX_HandleTypeDef *ws) {
     }
     cross_state = !cross_state;
 
-    Led_Strip(&ws, entryStrip, entryStripSize, "red");
-    Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
-    Led_Strip(&ws, exitStrip, exitStripSize, "green");
-    Led_Strip(&ws, exitRFID, exitRFIDSize, "green");
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "red");
+    Led_Strip(&ws, entryRFID, sizeof(entryRFID) / sizeof(entryStrip[0]), "red");
+    Led_Strip(&ws, exitStrip, sizeof(exitStrip) / sizeof(entryStrip[0]), "green");
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "green");
 
     Clear_Arrow(ws, arrow_exit_matrix);
     Shift_Arrow_ExitMatrix(arrow_exit_matrix);
@@ -271,10 +267,10 @@ void Exit_Granted_Animation(WS28XX_HandleTypeDef *ws) {
 /* Function 3: Arrow animation on both strips */
 void Ready_State_Animation(WS28XX_HandleTypeDef *ws) {
 
-    Led_Strip(&ws, entryStrip, entryStripSize, "blue");
-    Led_Strip(&ws, entryRFID, entryRFIDSize, "blue");
-    Led_Strip(&ws, exitStrip, exitStripSize, "blue");
-    Led_Strip(&ws, exitRFID, exitRFIDSize, "blue");
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "blue");
+    Led_Strip(&ws, entryRFID, sizeof(entryRFID) / sizeof(entryStrip[0]), "blue");
+    Led_Strip(&ws, exitStrip, sizeof(exitStrip) / sizeof(entryStrip[0]), "blue");
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "blue");
 
     Clear_Arrow(ws, arrow_entry_matrix);
     Shift_Arrow_EntryMatrix(arrow_entry_matrix);
@@ -296,31 +292,51 @@ void Access_Denied_Animation(WS28XX_HandleTypeDef *ws) {
     }
     cross_state = !cross_state;
 
-    Led_Strip(&ws, entryStrip, entryStripSize, "red");
-    Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
-    Led_Strip(&ws, exitStrip, exitStripSize, "red");
-    Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "red");
+    Led_Strip(&ws, entryRFID, sizeof(entryRFID) / sizeof(entryStrip[0]), "red");
+    Led_Strip(&ws, exitStrip, sizeof(exitStrip) / sizeof(entryStrip[0]), "red");
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "red");
 }
 
 
 // IR FUNCTIONS
-int CheckObjectDetection(void) {
-    static uint32_t last_pulse_time = 0;
-
-    // Generate a pulse every 100 ms
-    if (HAL_GetTick() - last_pulse_time >= PULSE_INTERVAL) {
+int CheckObjectDetection(void)
+{
+    static uint32_t last_pulse_time = 0;  // Static variable to remember last pulse transmission time
+    // 1. Generate a pulse every 100 ms
+    if (HAL_GetTick() - last_pulse_time >= PULSE_INTERVAL)
+    {
         last_pulse_time = HAL_GetTick();
-        HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0); // Generate pulse
+        HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0); // Toggle PC0 to generate pulse
     }
 
-    // Check for timeout on all sensors
-    for (int i = 0; i < NUM_SENSORS; i++) {
-        if (HAL_GetTick() - last_pulse_received_time[i] >= OBJECT_DETECTION_TIMEOUT) {
-            return 1;  // Object detected (timeout)
-        }
+    // 2. Check for absence of pulses over an extended period for object detection
+    if (HAL_GetTick() - last_pulse_received_time1 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
     }
+    if (HAL_GetTick() - last_pulse_received_time2 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    if (HAL_GetTick() - last_pulse_received_time3 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    if (HAL_GetTick() - last_pulse_received_time4 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    if (HAL_GetTick() - last_pulse_received_time5 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    if (HAL_GetTick() - last_pulse_received_time6 >= OBJECT_DETECTION_TIMEOUT)
+    {
+        return 1;  // Object detected: no pulse received in timeout period
+    }
+    return 0;
 
-    return 0;  // No object detected
 }
 
 
@@ -357,46 +373,54 @@ void encoder(void)
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-    // Handle different GPIO interrupts using a switch-case structure
-    switch (GPIO_Pin) {
-        // Pulse detection pins
-        case GPIO_PIN_1:
-            last_pulse_received_time[0] = HAL_GetTick(); // Update timestamp for sensor 0
-            break;
-        case GPIO_PIN_3:
-            last_pulse_received_time[1] = HAL_GetTick(); // Update timestamp for sensor 1
-            break;
-        case GPIO_PIN_4:
-            last_pulse_received_time[2] = HAL_GetTick(); // Update timestamp for sensor 2
-            break;
-        case GPIO_PIN_5:
-            last_pulse_received_time[3] = HAL_GetTick(); // Update timestamp for sensor 3
-            break;
-        case GPIO_PIN_6:
-            last_pulse_received_time[4] = HAL_GetTick(); // Update timestamp for sensor 4
-            break;
-        case GPIO_PIN_7:
-            last_pulse_received_time[5] = HAL_GetTick(); // Update timestamp for sensor 5
-            break;
-
-        // Encoder logic or visual feedback
-        case GPIO_PIN_2:
-            HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7); // Toggle an LED on PB7 for feedback
-            encoder();
-            break;
-
-        // Motor stop logic
-        case GPIO_PIN_10:
-        case GPIO_PIN_11:
-        case GPIO_PIN_14:
-        case GPIO_PIN_15:
-            Speed_Control(0);
-            counter = 0; // Reset the counter
-            break;
-
-        // Default case (no action required)
-        default:
-            break;
+    if(GPIO_Pin == GPIO_PIN_2)
+    {
+    	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7); // Toggle an LED on PB7 for visual feedback
+    	encoder();
+    }
+    if(GPIO_Pin == GPIO_PIN_10)
+	{
+		Speed_Control(0);
+		counter = 0;
+	}
+    if(GPIO_Pin == GPIO_PIN_11)
+	{
+		Speed_Control(0);
+		counter = 0;
+	}
+    if(GPIO_Pin == GPIO_PIN_14)
+	{
+		Speed_Control(0);
+		counter = 0;
+	}
+    if(GPIO_Pin == GPIO_PIN_15)
+	{
+		Speed_Control(0);
+		counter = 0;
+	}
+    if (GPIO_Pin == GPIO_PIN_1)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time1 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_3)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time2 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_4)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time3 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_5)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time4 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_6)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time5 = HAL_GetTick();  // Update last received time on pulse
+    }
+    if (GPIO_Pin == GPIO_PIN_7)  // Check if interrupt is on the correct pin
+    {
+        last_pulse_received_time6 = HAL_GetTick();  // Update last received time on pulse
     }
 }
 
@@ -609,7 +633,7 @@ int main(void)
 				break;
 			case STATE_SLEEP:
 				sleep_state();
-				break;
+				//break;
 			case STATE_EMERGENCY:
 				emergency_state();
 				break;
