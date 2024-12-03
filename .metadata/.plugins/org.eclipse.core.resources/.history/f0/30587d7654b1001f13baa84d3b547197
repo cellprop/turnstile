@@ -509,19 +509,14 @@ void open_state(void) {
 }
 
 void closed_state(void) {
-    static uint32_t start_time = 0;
+    Clear_All_Animations(&ws);
+    uint32_t start_time = HAL_GetTick();
 
-    if (start_time == 0) {
-        start_time = HAL_GetTick();
-        Clear_All_Animations(&ws);
-    }
-
-    if (HAL_GetTick() - start_time < 2000) {
+    while ((HAL_GetTick() - start_time) < 2000) {
         Access_Denied_Animation(&ws);
-    } else {
-        currentState = STATE_READY;
-        start_time = 0; // Reset for the next execution
+        //HAL_Delay(DELAY_TIME);
     }
+    currentState = STATE_READY;
 }
 
 void sleep_state(void) {
