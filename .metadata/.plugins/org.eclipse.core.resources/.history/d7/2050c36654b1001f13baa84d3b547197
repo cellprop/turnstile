@@ -509,19 +509,14 @@ void open_state(void) {
 }
 
 void closed_state(void) {
-    static uint32_t start_time = 0;
+    Clear_All_Animations(&ws);
+    uint32_t start_time = HAL_GetTick();
 
-    if (start_time == 0) {
-        start_time = HAL_GetTick();
-        Clear_All_Animations(&ws);
-    }
-
-    if (HAL_GetTick() - start_time < 2000) {
+    while ((HAL_GetTick() - start_time) < 2000) {
         Access_Denied_Animation(&ws);
-    } else {
-        currentState = STATE_READY;
-        start_time = 0; // Reset for the next execution
+        //HAL_Delay(DELAY_TIME);
     }
+    currentState = STATE_READY;
 }
 
 void sleep_state(void) {
@@ -765,21 +760,24 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-	__disable_irq();
-	uint32_t error_start_time = HAL_GetTick();
+  __disable_irq();
 
-	while (1) {
-		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);  // Blink an LED for error indication
-		HAL_Delay(500);
 
-		char error_msg[64];
-		snprintf(error_msg, sizeof(error_msg), "Error occurred in state: %d\n", currentState);
-		HAL_UART_Transmit(&huart3, (uint8_t *)error_msg, strlen(error_msg), HAL_MAX_DELAY);
+  // Blink an LED to indicate error
+  while (1) {
+      HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
+      HAL_Delay(500);
 
-		if (HAL_GetTick() - error_start_time > 10000) {  // Reset after 10 seconds
-			HAL_NVIC_SystemReset();
-		}
-	}
+      // Send debugging information via UART
+      const char *error_msg = "Error occurred!\n";
+      HAL_UART_Transmit(&huart3, (uint8_t *)error_msg, strlen(error_msg), HAL_MAX_DELAY);
+
+      // Reset the system after 10 seconds
+      static uint32_t error_start_time = HAL_GetTick();
+      if (HAL_GetTick() - error_start_time > 10000) {
+          HAL_NVIC_SystemReset();
+      }
+  }
   /* USER CODE END Error_Handler_Debug */
 }
 
