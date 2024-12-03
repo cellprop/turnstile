@@ -796,21 +796,10 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-    __disable_irq();
-    uint32_t error_start_time = HAL_GetTick();
-
-    while (1) {
-        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);  // Indicate error
-        HAL_Delay(500);
-
-        char error_msg[128];
-        snprintf(error_msg, sizeof(error_msg), "Error in state: %d, time: %lu\n", currentState, HAL_GetTick());
-        HAL_UART_Transmit(&huart3, (uint8_t *)error_msg, strlen(error_msg), HAL_MAX_DELAY);
-
-        if (HAL_GetTick() - error_start_time > 10000) {  // Reset system after prolonged error
-            HAL_NVIC_SystemReset();
-        }
-    }
+  __disable_irq();
+  while (1)
+  {
+  }
   /* USER CODE END Error_Handler_Debug */
 }
 
