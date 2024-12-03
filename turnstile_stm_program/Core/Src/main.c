@@ -85,6 +85,7 @@ volatile int ir_flag = 0;
 
 #define TURNSTILE_ID 1  // Set manually to 1 for one Nucleo, and 2 for the other
 uint8_t receivedTurnstileID = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -127,6 +128,11 @@ int entryRFID[] = {275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 2
 int exitRFID[] = {295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314};
 
 int swingBarrierStrip[] = {};
+
+/*const int entryStripSize = sizeof(entryStrip) / sizeof(entryStrip[0]);
+const int exitStripSize = sizeof(exitStrip) / sizeof(exitStrip[0]);
+const int entryRFIDSize = sizeof(entryRFID) / sizeof(entryRFID[0]);
+const int exitRFIDSize = sizeof(exitRFID) / sizeof(exitRFID[0]);*/
 /* Function to draw the arrow on a specified strip */
 void Draw_Arrow(WS28XX_HandleTypeDef *ws, int *arrow, int color) {
     for (int i = 0; i < 26; i++) {
@@ -162,6 +168,31 @@ void Shift_Arrow_ExitMatrix(int *arrow) {
     }
 }
 
+void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+    uint16_t selected_color; // Variable to hold the selected color value
+
+    // Determine the color based on the input string
+    if (strcmp(color, "red") == 0) {
+        selected_color = COLOR_RGB565_RED;
+    } else if (strcmp(color, "blue") == 0) {
+        selected_color = COLOR_RGB565_BLUE;
+    } else if (strcmp(color, "green") == 0) {
+        selected_color = COLOR_RGB565_GREEN;
+    } else if (strcmp(color, "off") == 0) {
+        selected_color = COLOR_RGB565_BLACK;
+    } else {
+        return; // Invalid color; do nothing
+    }
+
+    // Set the color for each LED in the strip
+    for (int i = 0; i < strip_size; i++) {
+        WS28XX_SetPixel_RGBW_565(ws, strip[i], selected_color, (strcmp(color, "off") == 0) ? 0 : brightness);
+    }
+
+    // Update the LED strip
+    WS28XX_Update(ws);
+}
+
 /* Function to animate the cross pattern */
 void Draw_Cross(WS28XX_HandleTypeDef *ws, int *top, int *middle, int *bottom, int color) {
     for (int i = 0; i < 16; i++) {
@@ -189,11 +220,16 @@ void Clear_All_Animations(WS28XX_HandleTypeDef *ws) {
     Clear_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix);
 }
 
-/* Function 1: Arrow on first strip, Cross on second strip */
+
 void Entry_Granted_Animation(WS28XX_HandleTypeDef *ws) {
     Clear_Arrow(ws, arrow_entry_matrix);
     Shift_Arrow_EntryMatrix(arrow_entry_matrix);
     Draw_Arrow(ws, arrow_entry_matrix, COLOR_RGB565_GREEN);
+
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "green");
+    Led_Strip(&ws, entryRFID, sizeof(entryRFID) / sizeof(entryStrip[0]), "green");
+    Led_Strip(&ws, exitStrip, sizeof(exitStrip) / sizeof(entryStrip[0]), "red");
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "red");
 
     if (cross_state) {
         Draw_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix, COLOR_RGB565_RED);
@@ -204,14 +240,20 @@ void Entry_Granted_Animation(WS28XX_HandleTypeDef *ws) {
     HAL_Delay(DELAY_TIME);
 }
 
-/* Function 2: Cross on first strip, Arrow on second strip */
+
 void Exit_Granted_Animation(WS28XX_HandleTypeDef *ws) {
+
     if (cross_state) {
         Draw_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix, COLOR_RGB565_RED);
     } else {
         Clear_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix);
     }
     cross_state = !cross_state;
+
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "red");
+    Led_Strip(&ws, entryRFID, sizeof(entryRFID) / sizeof(entryStrip[0]), "red");
+    Led_Strip(&ws, exitStrip, sizeof(exitStrip) / sizeof(entryStrip[0]), "green");
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "green");
 
     Clear_Arrow(ws, arrow_exit_matrix);
     Shift_Arrow_ExitMatrix(arrow_exit_matrix);
@@ -220,18 +262,12 @@ void Exit_Granted_Animation(WS28XX_HandleTypeDef *ws) {
 
 /* Function 3: Arrow animation on both strips */
 void Ready_State_Animation(WS28XX_HandleTypeDef *ws) {
-    if (cross_state) {
-        Draw_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix, COLOR_RGB565_RED);
-        Draw_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix, COLOR_RGB565_RED);
-    } else {
-        Clear_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix);
-        Clear_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix);
-    }
-    cross_state = !cross_state;
-}
 
-/* Function 4: Cross animation on both strips */
-void Access_Denied_Animation(WS28XX_HandleTypeDef *ws) {
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "blue");
+    Led_Strip(&ws, entryRFID, sizeof(entryRFID) / sizeof(entryStrip[0]), "blue");
+    Led_Strip(&ws, exitStrip, sizeof(exitStrip) / sizeof(entryStrip[0]), "blue");
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "blue");
+
     Clear_Arrow(ws, arrow_entry_matrix);
     Shift_Arrow_EntryMatrix(arrow_entry_matrix);
     Draw_Arrow(ws, arrow_entry_matrix, COLOR_RGB565_GREEN);
@@ -240,6 +276,25 @@ void Access_Denied_Animation(WS28XX_HandleTypeDef *ws) {
     Shift_Arrow_ExitMatrix(arrow_exit_matrix);
     Draw_Arrow(ws, arrow_exit_matrix, COLOR_RGB565_GREEN);
 }
+
+/* Function 4: Cross animation on both strips */
+void Access_Denied_Animation(WS28XX_HandleTypeDef *ws) {
+    if (cross_state) {
+        Draw_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix, COLOR_RGB565_RED);
+        Draw_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix, COLOR_RGB565_RED);
+    } else {
+        Clear_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix);
+        Clear_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix);
+    }
+    cross_state = !cross_state;
+
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "red");
+    Led_Strip(&ws, entryRFID, sizeof(entryRFID) / sizeof(entryStrip[0]), "red");
+    Led_Strip(&ws, exitStrip, sizeof(exitStrip) / sizeof(entryStrip[0]), "red");
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "red");
+}
+
+
 // IR FUNCTIONS
 int CheckObjectDetection(void)
 {
@@ -398,6 +453,7 @@ void centre_align(void){
 
 void ready_state(void) {
     Clear_All_Animations(&ws);
+
     while (flag_rev == 0) {
         Ready_State_Animation(&ws);
         HAL_Delay(DELAY_TIME);
@@ -441,6 +497,7 @@ void reading_state(void){
 
 void open_state(void) {
     Clear_All_Animations(&ws);
+
     quarter_cycle_open(uart_source);
     HAL_Delay(1000);
     while (ir_flag == 1) {

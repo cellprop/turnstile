@@ -1,4 +1,4 @@
-15:31:23 **** Incremental Build of configuration Debug for project limit_switch2 ****
+11:28:19 **** Incremental Build of configuration Debug for project limit_switch2 ****
 make -j7 all 
 arm-none-eabi-size  limit_switch2.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size  limit_switch2.elf
 Finished building: default.size.stdout
  
 
-15:31:23 Build Finished. 0 errors, 0 warnings. (took 547ms)
+11:28:19 Build Finished. 0 errors, 0 warnings. (took 375ms)
 
