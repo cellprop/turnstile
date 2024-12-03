@@ -218,6 +218,10 @@ void Clear_All_Animations(WS28XX_HandleTypeDef *ws) {
     Clear_Arrow(ws, arrow_exit_matrix);
     Clear_Cross(ws, topCross_entry_matrix, middleCross_entry_matrix, bottomCross_entry_matrix);
     Clear_Cross(ws, topCross_exit_matrix, middleCross_exit_matrix, bottomCross_exit_matrix);
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "off");
+    Led_Strip(&ws, entryRFID, sizeof(entryRFID) / sizeof(entryStrip[0]), "off");
+    Led_Strip(&ws, exitStrip, sizeof(exitStrip) / sizeof(entryStrip[0]), "off");
+    Led_Strip(&ws, entryStrip, sizeof(entryStrip) / sizeof(entryStrip[0]), "off");
 }
 
 
