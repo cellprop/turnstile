@@ -405,32 +405,63 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
     }
 }
 
-void quarter_cycle_open(int source)
-{
-    if(source == 1){
-        Direction(0);
+void quarter_cycle_open(int source) {
+    uint32_t start_time = HAL_GetTick();  // Record the start time
+    counter = 0;  // Reset the counter at the beginning of the operation
+
+    // Set motor direction based on the source
+    if (source == 1) {
+        Direction(0);  // Set direction for source 1
+    } else if (source == 2) {
+        Direction(1);  // Set direction for source 2
     }
-    else if(source == 2){
-        Direction(1);
+
+    Speed_Control(1000);  // Start the motor with speed 1000
+
+    // Monitor encoder or timeout
+    while (1) {
+        // Check if encoder threshold is reached
+        if (counter >= ENCODER_THRESHOLD) {
+            break;  // Exit the loop when the threshold is reached
+        }
+
+        // Check for timeout (3 seconds in this example)
+        if (HAL_GetTick() - start_time > 3000) {
+            break;  // Exit the loop if timeout occurs
+        }
     }
-    Speed_Control(1000); // Start motor
+
+    Speed_Control(0);  // Stop the motor
+    counter = 0;       // Reset the counter after the operation
 }
 
-void quarter_cycle_closed(int source)
-{
-    if(source == 1){
-        Direction(1);
-    }
-    else if(source == 2){
-        Direction(0);
-    }
-    Speed_Control(1000); // Start motor
-}
+void quarter_cycle_closed(int source) {
+    uint32_t start_time = HAL_GetTick();  // Record the start time
 
-void centre_align(void){
-	quarter_cycle_open(1);
-	quarter_cycle_open(1);
-	quarter_cycle_closed(1);
+    // Set motor direction based on the source
+    if (source == 1) {
+        Direction(1);  // Set direction for source 1
+    } else if (source == 2) {
+        Direction(0);  // Set direction for source 2
+    }
+
+    Speed_Control(1000);  // Start the motor with speed 1000
+
+    // Monitor encoder or timeout
+    while (1) {
+        // Check if encoder threshold is reached
+        if (counter >= ENCODER_THRESHOLD) {
+            break;  // Exit the loop when the threshold is reached
+        }
+
+        // Check for timeout (3 seconds in this example)
+        if (HAL_GetTick() - start_time > 3000) {
+            break;  // Exit the loop if timeout occurs
+        }
+    }
+
+    Speed_Control(0);  // Stop the motor
+    counter = 0;       // Reset the counter for the next operation
 }
 
 
@@ -765,21 +796,21 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-	__disable_irq();
-	uint32_t error_start_time = HAL_GetTick();
+    __disable_irq();
+    uint32_t error_start_time = HAL_GetTick();
 
-	while (1) {
-		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);  // Blink an LED for error indication
-		HAL_Delay(500);
+    while (1) {
+        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);  // Indicate error
+        HAL_Delay(500);
 
-		char error_msg[64];
-		snprintf(error_msg, sizeof(error_msg), "Error occurred in state: %d\n", currentState);
-		HAL_UART_Transmit(&huart3, (uint8_t *)error_msg, strlen(error_msg), HAL_MAX_DELAY);
+        char error_msg[128];
+        snprintf(error_msg, sizeof(error_msg), "Error in state: %d, time: %lu\n", currentState, HAL_GetTick());
+        HAL_UART_Transmit(&huart3, (uint8_t *)error_msg, strlen(error_msg), HAL_MAX_DELAY);
 
-		if (HAL_GetTick() - error_start_time > 10000) {  // Reset after 10 seconds
-			HAL_NVIC_SystemReset();
-		}
-	}
+        if (HAL_GetTick() - error_start_time > 10000) {  // Reset system after prolonged error
+            HAL_NVIC_SystemReset();
+        }
+    }
   /* USER CODE END Error_Handler_Debug */
 }
 
