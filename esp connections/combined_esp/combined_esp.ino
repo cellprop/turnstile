@@ -1,76 +1,73 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
+#include <SoftwareSerial.h>
 
-// Replace with your network and MQTT server details
-const char* ssid = "nWO";     // Replace with your Wi-Fi SSID
-const char* pass = "Cp#super123";  // Replace with your Wi-Fi password
-const char* mqtt_server = "192.168.68.106";  // Replace with your MQTT server address
-int recent;
+// Wi-Fi and MQTT settings
+const char* ssid = "nWO";                // Wi-Fi SSID
+const char* pass = "Cp#super123";        // Wi-Fi Password
+const char* mqtt_server = "192.168.68.106";
+const int mqtt_port = 1884;
 
-WiFiClient espClient;
-PubSubClient client(espClient);
-
-// Define topics for publishing and subscribing
+// Topics
 const char* publish_topic = "turnstile_publish";
 const char* subscribe_topic = "turnstile_subscribe";
 
-// Define static port ID
-const char* portId = "P01A"; // Set your port ID here
+// GPIO for SoftwareSerial
+#define UART1_RX_PIN 5  // D1
+#define UART1_TX_PIN 4  // D2
 
-// Buffer to store incoming UART data
-char uart_data[256];
-bool uart_data_received = false;
+SoftwareSerial uart1(UART1_RX_PIN, UART1_TX_PIN);  // RX, TX for second UART
+WiFiClient espClient;
+PubSubClient client(espClient);
+
+const char* portId = "P01A";  // Static port ID
+#define BAUD_RATE 9600
+
+// UART Buffers
+char uart1_buffer[256];
+char uart0_buffer[256];
+bool uart1_data_received = false;
+bool uart0_data_received = false;
 
 // Function prototypes
 void setup_wifi();
 void reconnect();
-void publishMessage(const char* rfid, int entry);
+void publishMessage(int uart_id, const char* command, const char* turnstile_id);
 void callback(char* topic, byte* payload, unsigned int length);
-void readFromUART();
-void transmitToUART(const char* message);
+void processUART(SoftwareSerial &uart, char* buffer, bool &data_flag, int uart_id);
+void sendToUART(SoftwareSerial &uart, const char* message);
 String getTimestamp();
 
 void setup() {
-  Serial.begin(9600);  // Initialize UART communication
+  Serial.begin(BAUD_RATE);  // Initialize UART0
+  uart1.begin(BAUD_RATE);   // Initialize UART1
   setup_wifi();
-  client.setServer(mqtt_server, 1884);
+
+  client.setServer(mqtt_server, mqtt_port);
   client.setCallback(callback);
 }
 
 void loop() {
-  // Step 1: Wait for data via UART
-  readFromUART();
-
-  // Step 2: If data is received, handle the MQTT actions
-  if (uart_data_received) {
-    // Ensure the client is connected to the MQTT broker
-    if (!client.connected()) {
-      reconnect();
-    }
-
-    // Extract RFID and entry value from uart_data
-    String rfid = String(uart_data).substring(0, 12); // First 12 characters
-    int entry = String(uart_data[12]).toInt(); // 13th character
-
-    // Publish the received data as JSON
-    publishMessage(rfid.c_str(), entry);
-
-    // Listen for incoming MQTT messages (handled by callback)
-    client.loop();
-
-    // Reset the UART data received flag after processing
-    uart_data_received = false;
+  if (!client.connected()) {
+    reconnect();
   }
+  client.loop();
+
+  // Process UART0
+  processUART(Serial, uart0_buffer, uart0_data_received, 0);
+
+  // Process UART1
+  processUART(uart1, uart1_buffer, uart1_data_received, 1);
 }
 
-// Function to connect to Wi-Fi
+// Connect to Wi-Fi
 void setup_wifi() {
   delay(10);
-  Serial.println("Connecting to ");
+  Serial.print("Connecting to Wi-Fi: ");
   Serial.println(ssid);
-
   WiFi.begin(ssid, pass);
+
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
@@ -78,96 +75,105 @@ void setup_wifi() {
   Serial.println("\nWiFi connected");
 }
 
-// Function to reconnect to the MQTT broker
+// Reconnect to MQTT broker
 void reconnect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
     if (client.connect("ESP8266Client")) {
       Serial.println("connected");
-      client.subscribe(subscribe_topic);  // Subscribe to the topic
-      Serial.print("Subscribed to topic: ");
-      Serial.println(subscribe_topic);
+      client.subscribe(subscribe_topic);
     } else {
-      Serial.print("failed, rc=");
+      Serial.print("Failed, rc=");
       Serial.print(client.state());
-      Serial.println(" try again in 5 seconds");
-      delay(5000);  // Wait 5 seconds before retrying
+      Serial.println(" retrying in 5 seconds...");
+      delay(5000);
     }
   }
 }
 
-// Function to publish JSON message to the MQTT topic
-void publishMessage(const char* rfid, int entry) {
+// Publish message to MQTT
+void publishMessage(int uart_id, const char* command, const char* turnstile_id) {
   if (client.connected()) {
-    // Create JSON document
     StaticJsonDocument<200> doc;
-    doc["RFID"] = rfid;
+    doc["UART_ID"] = uart_id;
+    doc["Command"] = command;
+    doc["TurnstileID"] = turnstile_id;
     doc["timeStamp"] = getTimestamp();
-    doc["entry"] = entry;
     doc["portId"] = portId;
 
-    // Serialize JSON to string
     char jsonBuffer[256];
     serializeJson(doc, jsonBuffer);
-
-    // Publish JSON message
     client.publish(publish_topic, jsonBuffer);
-    Serial.print("Message published: ");
+
+    Serial.print("Published to MQTT: ");
     Serial.println(jsonBuffer);
   }
 }
 
-// Callback function to handle incoming messages
+// MQTT callback function
 void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print("Message arrived [");
   Serial.print(topic);
   Serial.print("] ");
 
-  // Extract the message
   String message;
-  for (int i = 0; i < length; i++) {
-    //Serial.print((char)payload[i]);
+  for (unsigned int i = 0; i < length; i++) {
     message += (char)payload[i];
   }
   Serial.println(message);
 
-  // Step 4: Transmit the received numerical value (1-10) back via UART
+  // Process message (assume it's a command)
   int received_value = message.toInt();
   if (received_value >= 1 && received_value <= 10) {
-    transmitToUART(String(received_value).c_str());
+    sendToUART(Serial, String(received_value).c_str());
+    sendToUART(uart1, String(received_value).c_str());
+  } else if (received_value > 10) {
+    int recent = received_value % 10;
+    sendToUART(Serial, String(recent).c_str());
+    sendToUART(uart1, String(recent).c_str());
   }
-  else if (received_value > 10){
-    recent = received_value % 10;
-    transmitToUART(String(recent).c_str());    
-  } 
-
 }
 
-// Function to read data from UART
-void readFromUART() {
-  if (Serial.available() >= 13) { // Check if we have at least 13 characters
+// Process UART input
+void processUART(SoftwareSerial &uart, char* buffer, bool &data_flag, int uart_id) {
+  if (uart.available() >= 2) {  // Minimum data length for command + turnstile ID
     int index = 0;
-    while (Serial.available() > 0 && index < 13) {
-      uart_data[index++] = Serial.read();
-      delay(10);  // Add a small delay for stability
+    while (uart.available() > 0 && index < sizeof(buffer) - 1) {
+      buffer[index++] = uart.read();
+      delay(10);  // Stabilize input
     }
-    uart_data[index] = '\0';  // Null-terminate the string
-    uart_data_received = true;
-    Serial.print("Data received via UART: ");
-    Serial.println(uart_data);
+    buffer[index] = '\0';
+    data_flag = true;
+
+    Serial.print("Data received on UART");
+    Serial.print(uart_id);
+    Serial.print(": ");
+    Serial.println(buffer);
+
+    // Split command and ID
+    if (index >= 2) {
+      String command = String(buffer[0]);
+      String turnstile_id = String(buffer[1]);
+
+      // Validate data
+      if (command.isAlnum() && turnstile_id.isAlnum()) {
+        publishMessage(uart_id, command.c_str(), turnstile_id.c_str());
+      } else {
+        Serial.print("Invalid data on UART");
+        Serial.println(uart_id);
+      }
+    }
   }
 }
 
-// Function to transmit data via UART
-void transmitToUART(const char* message) {
-  Serial.print("Sending back via UART: ");
+// Send data via UART
+void sendToUART(SoftwareSerial &uart, const char* message) {
+  Serial.print("Sending to UART: ");
   Serial.println(message);
-  Serial.write(message);  // Send the message over UART as raw data
+  uart.write(message);
 }
 
-// Function to get a timestamp in the format "YYYY-MM-DD HH:MM:SS"
+// Get current timestamp
 String getTimestamp() {
-  // Example timestamp (replace with RTC or NTP server as needed)
-  String timestamp = "2024-10-24 12:34:56"; // Use a method to get real-time data if needed
-  return timestamp;
+  return "2024-12-04 12:00:00";  // Replace with RTC or NTP logic
 }
