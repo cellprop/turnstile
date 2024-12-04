@@ -77,9 +77,9 @@ def on_message(client, userdata, msg):
 # Function to publish MQTT messages
 def publish_message(client, uart_id, command, turnstile_id):
     payload = {
-        "UART_ID": uart_id,
-        "Command": command,
-        "TurnstileID": turnstile_id,
+        "RFID": uart_id,
+        "entry": command,
+        "turnstileID": turnstile_id,
         "timeStamp": get_timestamp(),
         "portId": PORT_ID
     }

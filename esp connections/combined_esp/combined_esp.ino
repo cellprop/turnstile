@@ -95,9 +95,9 @@ void reconnect() {
 void publishMessage(int uart_id, const char* command, const char* turnstile_id) {
   if (client.connected()) {
     StaticJsonDocument<200> doc;
-    doc["UART_ID"] = uart_id;
-    doc["Command"] = command;
-    doc["TurnstileID"] = turnstile_id;
+    doc["RFID"] = uart_id;
+    doc["entry"] = command;
+    doc["turnstileID"] = turnstile_id;
     doc["timeStamp"] = getTimestamp();
     doc["portId"] = portId;
 
