@@ -336,13 +336,15 @@ int CheckObjectDetection(void) {
     }
 
     // Check for timeout on all sensors
+    ir_flag = 0; // Assume no object is present initially
     for (int i = 0; i < NUM_SENSORS; i++) {
         if (HAL_GetTick() - last_pulse_received_time[i] >= OBJECT_DETECTION_TIMEOUT) {
-            return 1;  // Object detected (timeout)
+            ir_flag = 1;  // Object detected, set the flag
+            break;        // No need to check further if one sensor times out
         }
     }
 
-    return 0;  // No object detected
+    return ir_flag; // Return the state of the IR flag
 }
 
 
@@ -427,7 +429,7 @@ void quarter_cycle_open(int source) {
 
     if (counter != 0) {  // If the counter is not reset, stop the motor manually
         Speed_Control(0);  // Safety stop
-        Report_Error("Timeout: Encoder failed to stop motor");
+        //Report_Error("Timeout: Encoder failed to stop motor");
     }
 }
 
@@ -453,7 +455,7 @@ void quarter_cycle_closed(int source) {
 
     if (counter != 0) {  // If the counter is not reset, stop the motor manually
         Speed_Control(0);  // Safety stop
-        Report_Error("Timeout: Encoder failed to stop motor");
+        //Report_Error("Timeout: Encoder failed to stop motor");
     }
 }
 
@@ -511,23 +513,30 @@ void open_state(void) {
         step = 1;
     }
 
-    if (step == 1 && HAL_GetTick() - start_time >= 1000) {
-        start_time = HAL_GetTick();
-        if (CheckObjectDetection()) {
+    if (step == 1 && HAL_GetTick() - start_time >= 2000) {
+        // Step 1: Wait for 2 seconds after opening
+        step = 2;
+    }
+
+    if (step == 2) {
+        // Step 2: Wait until no object is detected
+        while (CheckObjectDetection()) {
+            // Show animations while waiting for the area to clear
             if (uart_source == 1) {
                 Entry_Granted_Animation(&ws);
             } else if (uart_source == 2) {
                 Exit_Granted_Animation(&ws);
             }
-        } else {
-            step = 2;
         }
+
+        // No object detected, proceed to close the doors
+        step = 3;
     }
 
-    if (step == 2 && HAL_GetTick() - start_time >= 1000) {
+    if (step == 3) {
         quarter_cycle_closed(uart_source);
         currentState = STATE_READY;
-        step = 0; // Reset step
+        step = 0; // Reset step for the next cycle
     }
 }
 

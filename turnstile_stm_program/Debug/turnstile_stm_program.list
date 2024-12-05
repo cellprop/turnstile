@@ -21,9 +21,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   8 .data         000003ec  20000000  08006488  00008000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          00004134  200003ec  08006874  000083ec  2**2
+  9 .bss          00004138  200003ec  08006874  000083ec  2**2
                   ALLOC
- 10 ._user_heap_stack 00000600  20004520  08006874  00008520  2**0
+ 10 ._user_heap_stack 00000604  20004524  08006874  00008524  2**0
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  000083ec  2**0
                   CONTENTS, READONLY
@@ -37,15 +37,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00018989  00000000  00000000  0001aaf3  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00010d32  00000000  00000000  0003347c  2**0
+ 17 .debug_line   00010d2b  00000000  00000000  0003347c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0008bfe4  00000000  00000000  000441ae  2**0
+ 18 .debug_str    0008bfe4  00000000  00000000  000441a7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  000d0192  2**0
+ 19 .comment      00000043  00000000  00000000  000d018b  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00004198  00000000  00000000  000d01d8  2**2
+ 20 .debug_frame  00004198  00000000  00000000  000d01d0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000075  00000000  00000000  000d4370  2**0
+ 21 .debug_line_str 00000075  00000000  00000000  000d4368  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1466,7 +1466,7 @@ void Entry_Granted_Animation(WS28XX_HandleTypeDef *ws) {
  8000ca2:	3708      	adds	r7, #8
  8000ca4:	46bd      	mov	sp, r7
  8000ca6:	bd80      	pop	{r7, pc}
- 8000ca8:	20004164 	.word	0x20004164
+ 8000ca8:	20004168 	.word	0x20004168
  8000cac:	20000008 	.word	0x20000008
  8000cb0:	080062dc 	.word	0x080062dc
  8000cb4:	20000258 	.word	0x20000258
@@ -1582,7 +1582,7 @@ void Exit_Granted_Animation(WS28XX_HandleTypeDef *ws) {
  8000d86:	3708      	adds	r7, #8
  8000d88:	46bd      	mov	sp, r7
  8000d8a:	bd80      	pop	{r7, pc}
- 8000d8c:	20004168 	.word	0x20004168
+ 8000d8c:	2000416c 	.word	0x2000416c
  8000d90:	20000000 	.word	0x20000000
  8000d94:	20000158 	.word	0x20000158
  8000d98:	20000118 	.word	0x20000118
@@ -1680,7 +1680,7 @@ void Ready_State_Animation(WS28XX_HandleTypeDef *ws) {
  8000e4e:	46bd      	mov	sp, r7
  8000e50:	bd80      	pop	{r7, pc}
  8000e52:	bf00      	nop
- 8000e54:	2000416c 	.word	0x2000416c
+ 8000e54:	20004170 	.word	0x20004170
  8000e58:	080062d4 	.word	0x080062d4
  8000e5c:	20000258 	.word	0x20000258
  8000e60:	200002f0 	.word	0x200002f0
@@ -1791,7 +1791,7 @@ void Access_Denied_Animation(WS28XX_HandleTypeDef *ws) {
  8000f22:	3708      	adds	r7, #8
  8000f24:	46bd      	mov	sp, r7
  8000f26:	bd80      	pop	{r7, pc}
- 8000f28:	20004170 	.word	0x20004170
+ 8000f28:	20004174 	.word	0x20004174
  8000f2c:	20000000 	.word	0x20000000
  8000f30:	20000158 	.word	0x20000158
  8000f34:	20000118 	.word	0x20000118
@@ -1819,7 +1819,7 @@ int CheckObjectDetection(void) {
     if (HAL_GetTick() - last_pulse_time >= PULSE_INTERVAL) {
  8000f62:	f001 f9cd 	bl	8002300 <HAL_GetTick>
  8000f66:	4602      	mov	r2, r0
- 8000f68:	4b14      	ldr	r3, [pc, #80]	@ (8000fbc <CheckObjectDetection+0x60>)
+ 8000f68:	4b17      	ldr	r3, [pc, #92]	@ (8000fc8 <CheckObjectDetection+0x6c>)
  8000f6a:	681b      	ldr	r3, [r3, #0]
  8000f6c:	1ad3      	subs	r3, r2, r3
  8000f6e:	2b63      	cmp	r3, #99	@ 0x63
@@ -1827,682 +1827,686 @@ int CheckObjectDetection(void) {
         last_pulse_time = HAL_GetTick();
  8000f72:	f001 f9c5 	bl	8002300 <HAL_GetTick>
  8000f76:	4603      	mov	r3, r0
- 8000f78:	4a10      	ldr	r2, [pc, #64]	@ (8000fbc <CheckObjectDetection+0x60>)
+ 8000f78:	4a13      	ldr	r2, [pc, #76]	@ (8000fc8 <CheckObjectDetection+0x6c>)
  8000f7a:	6013      	str	r3, [r2, #0]
         HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0); // Generate pulse
  8000f7c:	2101      	movs	r1, #1
- 8000f7e:	4810      	ldr	r0, [pc, #64]	@ (8000fc0 <CheckObjectDetection+0x64>)
+ 8000f7e:	4813      	ldr	r0, [pc, #76]	@ (8000fcc <CheckObjectDetection+0x70>)
  8000f80:	f001 ff52 	bl	8002e28 <HAL_GPIO_TogglePin>
     }
 
     // Check for timeout on all sensors
+    ir_flag = 0; // Assume no object is present initially
+ 8000f84:	4b12      	ldr	r3, [pc, #72]	@ (8000fd0 <CheckObjectDetection+0x74>)
+ 8000f86:	2200      	movs	r2, #0
+ 8000f88:	601a      	str	r2, [r3, #0]
     for (int i = 0; i < NUM_SENSORS; i++) {
- 8000f84:	2300      	movs	r3, #0
- 8000f86:	607b      	str	r3, [r7, #4]
- 8000f88:	e00f      	b.n	8000faa <CheckObjectDetection+0x4e>
+ 8000f8a:	2300      	movs	r3, #0
+ 8000f8c:	607b      	str	r3, [r7, #4]
+ 8000f8e:	e011      	b.n	8000fb4 <CheckObjectDetection+0x58>
         if (HAL_GetTick() - last_pulse_received_time[i] >= OBJECT_DETECTION_TIMEOUT) {
- 8000f8a:	f001 f9b9 	bl	8002300 <HAL_GetTick>
- 8000f8e:	4602      	mov	r2, r0
- 8000f90:	490c      	ldr	r1, [pc, #48]	@ (8000fc4 <CheckObjectDetection+0x68>)
- 8000f92:	687b      	ldr	r3, [r7, #4]
- 8000f94:	f851 3023 	ldr.w	r3, [r1, r3, lsl #2]
- 8000f98:	1ad3      	subs	r3, r2, r3
- 8000f9a:	f5b3 7ffa 	cmp.w	r3, #500	@ 0x1f4
- 8000f9e:	d301      	bcc.n	8000fa4 <CheckObjectDetection+0x48>
-            return 1;  // Object detected (timeout)
- 8000fa0:	2301      	movs	r3, #1
- 8000fa2:	e006      	b.n	8000fb2 <CheckObjectDetection+0x56>
+ 8000f90:	f001 f9b6 	bl	8002300 <HAL_GetTick>
+ 8000f94:	4602      	mov	r2, r0
+ 8000f96:	490f      	ldr	r1, [pc, #60]	@ (8000fd4 <CheckObjectDetection+0x78>)
+ 8000f98:	687b      	ldr	r3, [r7, #4]
+ 8000f9a:	f851 3023 	ldr.w	r3, [r1, r3, lsl #2]
+ 8000f9e:	1ad3      	subs	r3, r2, r3
+ 8000fa0:	f5b3 7ffa 	cmp.w	r3, #500	@ 0x1f4
+ 8000fa4:	d303      	bcc.n	8000fae <CheckObjectDetection+0x52>
+            ir_flag = 1;  // Object detected, set the flag
+ 8000fa6:	4b0a      	ldr	r3, [pc, #40]	@ (8000fd0 <CheckObjectDetection+0x74>)
+ 8000fa8:	2201      	movs	r2, #1
+ 8000faa:	601a      	str	r2, [r3, #0]
+            break;        // No need to check further if one sensor times out
+ 8000fac:	e005      	b.n	8000fba <CheckObjectDetection+0x5e>
     for (int i = 0; i < NUM_SENSORS; i++) {
- 8000fa4:	687b      	ldr	r3, [r7, #4]
- 8000fa6:	3301      	adds	r3, #1
- 8000fa8:	607b      	str	r3, [r7, #4]
- 8000faa:	687b      	ldr	r3, [r7, #4]
- 8000fac:	2b05      	cmp	r3, #5
- 8000fae:	ddec      	ble.n	8000f8a <CheckObjectDetection+0x2e>
+ 8000fae:	687b      	ldr	r3, [r7, #4]
+ 8000fb0:	3301      	adds	r3, #1
+ 8000fb2:	607b      	str	r3, [r7, #4]
+ 8000fb4:	687b      	ldr	r3, [r7, #4]
+ 8000fb6:	2b05      	cmp	r3, #5
+ 8000fb8:	ddea      	ble.n	8000f90 <CheckObjectDetection+0x34>
         }
     }
 
-    return 0;  // No object detected
- 8000fb0:	2300      	movs	r3, #0
+    return ir_flag; // Return the state of the IR flag
+ 8000fba:	4b05      	ldr	r3, [pc, #20]	@ (8000fd0 <CheckObjectDetection+0x74>)
+ 8000fbc:	681b      	ldr	r3, [r3, #0]
 }
- 8000fb2:	4618      	mov	r0, r3
- 8000fb4:	3708      	adds	r7, #8
- 8000fb6:	46bd      	mov	sp, r7
- 8000fb8:	bd80      	pop	{r7, pc}
- 8000fba:	bf00      	nop
- 8000fbc:	20004174 	.word	0x20004174
- 8000fc0:	40011000 	.word	0x40011000
- 8000fc4:	2000414c 	.word	0x2000414c
+ 8000fbe:	4618      	mov	r0, r3
+ 8000fc0:	3708      	adds	r7, #8
+ 8000fc2:	46bd      	mov	sp, r7
+ 8000fc4:	bd80      	pop	{r7, pc}
+ 8000fc6:	bf00      	nop
+ 8000fc8:	20004178 	.word	0x20004178
+ 8000fcc:	40011000 	.word	0x40011000
+ 8000fd0:	2000414c 	.word	0x2000414c
+ 8000fd4:	20004150 	.word	0x20004150
 
-08000fc8 <Speed_Control>:
+08000fd8 <Speed_Control>:
 
 
 //MOTOR CONTROL FUNCTIONS
 void Speed_Control(int a)
 {
- 8000fc8:	b480      	push	{r7}
- 8000fca:	b083      	sub	sp, #12
- 8000fcc:	af00      	add	r7, sp, #0
- 8000fce:	6078      	str	r0, [r7, #4]
+ 8000fd8:	b480      	push	{r7}
+ 8000fda:	b083      	sub	sp, #12
+ 8000fdc:	af00      	add	r7, sp, #0
+ 8000fde:	6078      	str	r0, [r7, #4]
 	__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_1, a);
- 8000fd0:	4b04      	ldr	r3, [pc, #16]	@ (8000fe4 <Speed_Control+0x1c>)
- 8000fd2:	681b      	ldr	r3, [r3, #0]
- 8000fd4:	687a      	ldr	r2, [r7, #4]
- 8000fd6:	635a      	str	r2, [r3, #52]	@ 0x34
+ 8000fe0:	4b04      	ldr	r3, [pc, #16]	@ (8000ff4 <Speed_Control+0x1c>)
+ 8000fe2:	681b      	ldr	r3, [r3, #0]
+ 8000fe4:	687a      	ldr	r2, [r7, #4]
+ 8000fe6:	635a      	str	r2, [r3, #52]	@ 0x34
 }
- 8000fd8:	bf00      	nop
- 8000fda:	370c      	adds	r7, #12
- 8000fdc:	46bd      	mov	sp, r7
- 8000fde:	bc80      	pop	{r7}
- 8000fe0:	4770      	bx	lr
- 8000fe2:	bf00      	nop
- 8000fe4:	2000422c 	.word	0x2000422c
+ 8000fe8:	bf00      	nop
+ 8000fea:	370c      	adds	r7, #12
+ 8000fec:	46bd      	mov	sp, r7
+ 8000fee:	bc80      	pop	{r7}
+ 8000ff0:	4770      	bx	lr
+ 8000ff2:	bf00      	nop
+ 8000ff4:	20004230 	.word	0x20004230
 
-08000fe8 <Direction>:
+08000ff8 <Direction>:
 
 void Direction(int a)
 {
- 8000fe8:	b580      	push	{r7, lr}
- 8000fea:	b082      	sub	sp, #8
- 8000fec:	af00      	add	r7, sp, #0
- 8000fee:	6078      	str	r0, [r7, #4]
+ 8000ff8:	b580      	push	{r7, lr}
+ 8000ffa:	b082      	sub	sp, #8
+ 8000ffc:	af00      	add	r7, sp, #0
+ 8000ffe:	6078      	str	r0, [r7, #4]
 	if(a==1)
- 8000ff0:	687b      	ldr	r3, [r7, #4]
- 8000ff2:	2b01      	cmp	r3, #1
- 8000ff4:	d10b      	bne.n	800100e <Direction+0x26>
+ 8001000:	687b      	ldr	r3, [r7, #4]
+ 8001002:	2b01      	cmp	r3, #1
+ 8001004:	d10b      	bne.n	800101e <Direction+0x26>
 	{
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_SET);
- 8000ff6:	2201      	movs	r2, #1
- 8000ff8:	f44f 7180 	mov.w	r1, #256	@ 0x100
- 8000ffc:	480d      	ldr	r0, [pc, #52]	@ (8001034 <Direction+0x4c>)
- 8000ffe:	f001 fefb 	bl	8002df8 <HAL_GPIO_WritePin>
+ 8001006:	2201      	movs	r2, #1
+ 8001008:	f44f 7180 	mov.w	r1, #256	@ 0x100
+ 800100c:	480d      	ldr	r0, [pc, #52]	@ (8001044 <Direction+0x4c>)
+ 800100e:	f001 fef3 	bl	8002df8 <HAL_GPIO_WritePin>
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_RESET);
- 8001002:	2200      	movs	r2, #0
- 8001004:	f44f 7100 	mov.w	r1, #512	@ 0x200
- 8001008:	480a      	ldr	r0, [pc, #40]	@ (8001034 <Direction+0x4c>)
- 800100a:	f001 fef5 	bl	8002df8 <HAL_GPIO_WritePin>
+ 8001012:	2200      	movs	r2, #0
+ 8001014:	f44f 7100 	mov.w	r1, #512	@ 0x200
+ 8001018:	480a      	ldr	r0, [pc, #40]	@ (8001044 <Direction+0x4c>)
+ 800101a:	f001 feed 	bl	8002df8 <HAL_GPIO_WritePin>
 
 	}
 	if(a==0)
- 800100e:	687b      	ldr	r3, [r7, #4]
- 8001010:	2b00      	cmp	r3, #0
- 8001012:	d10b      	bne.n	800102c <Direction+0x44>
+ 800101e:	687b      	ldr	r3, [r7, #4]
+ 8001020:	2b00      	cmp	r3, #0
+ 8001022:	d10b      	bne.n	800103c <Direction+0x44>
 	{
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_RESET);
- 8001014:	2200      	movs	r2, #0
- 8001016:	f44f 7180 	mov.w	r1, #256	@ 0x100
- 800101a:	4806      	ldr	r0, [pc, #24]	@ (8001034 <Direction+0x4c>)
- 800101c:	f001 feec 	bl	8002df8 <HAL_GPIO_WritePin>
+ 8001024:	2200      	movs	r2, #0
+ 8001026:	f44f 7180 	mov.w	r1, #256	@ 0x100
+ 800102a:	4806      	ldr	r0, [pc, #24]	@ (8001044 <Direction+0x4c>)
+ 800102c:	f001 fee4 	bl	8002df8 <HAL_GPIO_WritePin>
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_SET);
- 8001020:	2201      	movs	r2, #1
- 8001022:	f44f 7100 	mov.w	r1, #512	@ 0x200
- 8001026:	4803      	ldr	r0, [pc, #12]	@ (8001034 <Direction+0x4c>)
- 8001028:	f001 fee6 	bl	8002df8 <HAL_GPIO_WritePin>
+ 8001030:	2201      	movs	r2, #1
+ 8001032:	f44f 7100 	mov.w	r1, #512	@ 0x200
+ 8001036:	4803      	ldr	r0, [pc, #12]	@ (8001044 <Direction+0x4c>)
+ 8001038:	f001 fede 	bl	8002df8 <HAL_GPIO_WritePin>
 	}
 }
- 800102c:	bf00      	nop
- 800102e:	3708      	adds	r7, #8
- 8001030:	46bd      	mov	sp, r7
- 8001032:	bd80      	pop	{r7, pc}
- 8001034:	40011000 	.word	0x40011000
+ 800103c:	bf00      	nop
+ 800103e:	3708      	adds	r7, #8
+ 8001040:	46bd      	mov	sp, r7
+ 8001042:	bd80      	pop	{r7, pc}
+ 8001044:	40011000 	.word	0x40011000
 
-08001038 <encoder>:
+08001048 <encoder>:
 
 void encoder(void) {
- 8001038:	b580      	push	{r7, lr}
- 800103a:	af00      	add	r7, sp, #0
+ 8001048:	b580      	push	{r7, lr}
+ 800104a:	af00      	add	r7, sp, #0
     counter++;
- 800103c:	4b09      	ldr	r3, [pc, #36]	@ (8001064 <encoder+0x2c>)
- 800103e:	681b      	ldr	r3, [r3, #0]
- 8001040:	3301      	adds	r3, #1
- 8001042:	4a08      	ldr	r2, [pc, #32]	@ (8001064 <encoder+0x2c>)
- 8001044:	6013      	str	r3, [r2, #0]
+ 800104c:	4b09      	ldr	r3, [pc, #36]	@ (8001074 <encoder+0x2c>)
+ 800104e:	681b      	ldr	r3, [r3, #0]
+ 8001050:	3301      	adds	r3, #1
+ 8001052:	4a08      	ldr	r2, [pc, #32]	@ (8001074 <encoder+0x2c>)
+ 8001054:	6013      	str	r3, [r2, #0]
     if (counter == ENCODER_THRESHOLD) {
- 8001046:	4b07      	ldr	r3, [pc, #28]	@ (8001064 <encoder+0x2c>)
- 8001048:	681b      	ldr	r3, [r3, #0]
- 800104a:	f240 223a 	movw	r2, #570	@ 0x23a
- 800104e:	4293      	cmp	r3, r2
- 8001050:	d105      	bne.n	800105e <encoder+0x26>
+ 8001056:	4b07      	ldr	r3, [pc, #28]	@ (8001074 <encoder+0x2c>)
+ 8001058:	681b      	ldr	r3, [r3, #0]
+ 800105a:	f240 223a 	movw	r2, #570	@ 0x23a
+ 800105e:	4293      	cmp	r3, r2
+ 8001060:	d105      	bne.n	800106e <encoder+0x26>
         Speed_Control(0); // Stop the motor
- 8001052:	2000      	movs	r0, #0
- 8001054:	f7ff ffb8 	bl	8000fc8 <Speed_Control>
+ 8001062:	2000      	movs	r0, #0
+ 8001064:	f7ff ffb8 	bl	8000fd8 <Speed_Control>
         counter = 0;      // Reset counter for next operation
- 8001058:	4b02      	ldr	r3, [pc, #8]	@ (8001064 <encoder+0x2c>)
- 800105a:	2200      	movs	r2, #0
- 800105c:	601a      	str	r2, [r3, #0]
+ 8001068:	4b02      	ldr	r3, [pc, #8]	@ (8001074 <encoder+0x2c>)
+ 800106a:	2200      	movs	r2, #0
+ 800106c:	601a      	str	r2, [r3, #0]
     }
 }
- 800105e:	bf00      	nop
- 8001060:	bd80      	pop	{r7, pc}
- 8001062:	bf00      	nop
- 8001064:	20004148 	.word	0x20004148
+ 800106e:	bf00      	nop
+ 8001070:	bd80      	pop	{r7, pc}
+ 8001072:	bf00      	nop
+ 8001074:	20004148 	.word	0x20004148
 
-08001068 <HAL_GPIO_EXTI_Callback>:
+08001078 <HAL_GPIO_EXTI_Callback>:
 
 const uint16_t pulse_pins[NUM_SENSORS] = {GPIO_PIN_1, GPIO_PIN_3, GPIO_PIN_4, GPIO_PIN_5, GPIO_PIN_6, GPIO_PIN_7};
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
- 8001068:	b580      	push	{r7, lr}
- 800106a:	b084      	sub	sp, #16
- 800106c:	af00      	add	r7, sp, #0
- 800106e:	4603      	mov	r3, r0
- 8001070:	80fb      	strh	r3, [r7, #6]
+ 8001078:	b580      	push	{r7, lr}
+ 800107a:	b084      	sub	sp, #16
+ 800107c:	af00      	add	r7, sp, #0
+ 800107e:	4603      	mov	r3, r0
+ 8001080:	80fb      	strh	r3, [r7, #6]
     for (int i = 0; i < NUM_SENSORS; i++) {
- 8001072:	2300      	movs	r3, #0
- 8001074:	60fb      	str	r3, [r7, #12]
- 8001076:	e011      	b.n	800109c <HAL_GPIO_EXTI_Callback+0x34>
+ 8001082:	2300      	movs	r3, #0
+ 8001084:	60fb      	str	r3, [r7, #12]
+ 8001086:	e011      	b.n	80010ac <HAL_GPIO_EXTI_Callback+0x34>
         if (GPIO_Pin == pulse_pins[i]) {
- 8001078:	4a1f      	ldr	r2, [pc, #124]	@ (80010f8 <HAL_GPIO_EXTI_Callback+0x90>)
- 800107a:	68fb      	ldr	r3, [r7, #12]
- 800107c:	f832 3013 	ldrh.w	r3, [r2, r3, lsl #1]
- 8001080:	88fa      	ldrh	r2, [r7, #6]
- 8001082:	429a      	cmp	r2, r3
- 8001084:	d107      	bne.n	8001096 <HAL_GPIO_EXTI_Callback+0x2e>
+ 8001088:	4a1f      	ldr	r2, [pc, #124]	@ (8001108 <HAL_GPIO_EXTI_Callback+0x90>)
+ 800108a:	68fb      	ldr	r3, [r7, #12]
+ 800108c:	f832 3013 	ldrh.w	r3, [r2, r3, lsl #1]
+ 8001090:	88fa      	ldrh	r2, [r7, #6]
+ 8001092:	429a      	cmp	r2, r3
+ 8001094:	d107      	bne.n	80010a6 <HAL_GPIO_EXTI_Callback+0x2e>
             last_pulse_received_time[i] = HAL_GetTick();
- 8001086:	f001 f93b 	bl	8002300 <HAL_GetTick>
- 800108a:	4602      	mov	r2, r0
- 800108c:	491b      	ldr	r1, [pc, #108]	@ (80010fc <HAL_GPIO_EXTI_Callback+0x94>)
- 800108e:	68fb      	ldr	r3, [r7, #12]
- 8001090:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
+ 8001096:	f001 f933 	bl	8002300 <HAL_GetTick>
+ 800109a:	4602      	mov	r2, r0
+ 800109c:	491b      	ldr	r1, [pc, #108]	@ (800110c <HAL_GPIO_EXTI_Callback+0x94>)
+ 800109e:	68fb      	ldr	r3, [r7, #12]
+ 80010a0:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
             return; // Exit after updating the correct sensor
- 8001094:	e02d      	b.n	80010f2 <HAL_GPIO_EXTI_Callback+0x8a>
+ 80010a4:	e02d      	b.n	8001102 <HAL_GPIO_EXTI_Callback+0x8a>
     for (int i = 0; i < NUM_SENSORS; i++) {
- 8001096:	68fb      	ldr	r3, [r7, #12]
- 8001098:	3301      	adds	r3, #1
- 800109a:	60fb      	str	r3, [r7, #12]
- 800109c:	68fb      	ldr	r3, [r7, #12]
- 800109e:	2b05      	cmp	r3, #5
- 80010a0:	ddea      	ble.n	8001078 <HAL_GPIO_EXTI_Callback+0x10>
+ 80010a6:	68fb      	ldr	r3, [r7, #12]
+ 80010a8:	3301      	adds	r3, #1
+ 80010aa:	60fb      	str	r3, [r7, #12]
+ 80010ac:	68fb      	ldr	r3, [r7, #12]
+ 80010ae:	2b05      	cmp	r3, #5
+ 80010b0:	ddea      	ble.n	8001088 <HAL_GPIO_EXTI_Callback+0x10>
         }
     }
 
     // Handle encoder feedback or motor stop
     switch (GPIO_Pin) {
- 80010a2:	88fb      	ldrh	r3, [r7, #6]
- 80010a4:	f5b3 4f00 	cmp.w	r3, #32768	@ 0x8000
- 80010a8:	d01b      	beq.n	80010e2 <HAL_GPIO_EXTI_Callback+0x7a>
- 80010aa:	f5b3 4f00 	cmp.w	r3, #32768	@ 0x8000
- 80010ae:	dc1f      	bgt.n	80010f0 <HAL_GPIO_EXTI_Callback+0x88>
- 80010b0:	f5b3 4f80 	cmp.w	r3, #16384	@ 0x4000
- 80010b4:	d015      	beq.n	80010e2 <HAL_GPIO_EXTI_Callback+0x7a>
- 80010b6:	f5b3 4f80 	cmp.w	r3, #16384	@ 0x4000
- 80010ba:	dc19      	bgt.n	80010f0 <HAL_GPIO_EXTI_Callback+0x88>
- 80010bc:	f5b3 6f00 	cmp.w	r3, #2048	@ 0x800
- 80010c0:	d00f      	beq.n	80010e2 <HAL_GPIO_EXTI_Callback+0x7a>
- 80010c2:	f5b3 6f00 	cmp.w	r3, #2048	@ 0x800
- 80010c6:	dc13      	bgt.n	80010f0 <HAL_GPIO_EXTI_Callback+0x88>
- 80010c8:	2b04      	cmp	r3, #4
- 80010ca:	d003      	beq.n	80010d4 <HAL_GPIO_EXTI_Callback+0x6c>
- 80010cc:	f5b3 6f80 	cmp.w	r3, #1024	@ 0x400
- 80010d0:	d007      	beq.n	80010e2 <HAL_GPIO_EXTI_Callback+0x7a>
+ 80010b2:	88fb      	ldrh	r3, [r7, #6]
+ 80010b4:	f5b3 4f00 	cmp.w	r3, #32768	@ 0x8000
+ 80010b8:	d01b      	beq.n	80010f2 <HAL_GPIO_EXTI_Callback+0x7a>
+ 80010ba:	f5b3 4f00 	cmp.w	r3, #32768	@ 0x8000
+ 80010be:	dc1f      	bgt.n	8001100 <HAL_GPIO_EXTI_Callback+0x88>
+ 80010c0:	f5b3 4f80 	cmp.w	r3, #16384	@ 0x4000
+ 80010c4:	d015      	beq.n	80010f2 <HAL_GPIO_EXTI_Callback+0x7a>
+ 80010c6:	f5b3 4f80 	cmp.w	r3, #16384	@ 0x4000
+ 80010ca:	dc19      	bgt.n	8001100 <HAL_GPIO_EXTI_Callback+0x88>
+ 80010cc:	f5b3 6f00 	cmp.w	r3, #2048	@ 0x800
+ 80010d0:	d00f      	beq.n	80010f2 <HAL_GPIO_EXTI_Callback+0x7a>
+ 80010d2:	f5b3 6f00 	cmp.w	r3, #2048	@ 0x800
+ 80010d6:	dc13      	bgt.n	8001100 <HAL_GPIO_EXTI_Callback+0x88>
+ 80010d8:	2b04      	cmp	r3, #4
+ 80010da:	d003      	beq.n	80010e4 <HAL_GPIO_EXTI_Callback+0x6c>
+ 80010dc:	f5b3 6f80 	cmp.w	r3, #1024	@ 0x400
+ 80010e0:	d007      	beq.n	80010f2 <HAL_GPIO_EXTI_Callback+0x7a>
             Speed_Control(0);
             counter = 0;
             break;
 
         default:
             break;
- 80010d2:	e00d      	b.n	80010f0 <HAL_GPIO_EXTI_Callback+0x88>
+ 80010e2:	e00d      	b.n	8001100 <HAL_GPIO_EXTI_Callback+0x88>
             HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
- 80010d4:	2180      	movs	r1, #128	@ 0x80
- 80010d6:	480a      	ldr	r0, [pc, #40]	@ (8001100 <HAL_GPIO_EXTI_Callback+0x98>)
- 80010d8:	f001 fea6 	bl	8002e28 <HAL_GPIO_TogglePin>
+ 80010e4:	2180      	movs	r1, #128	@ 0x80
+ 80010e6:	480a      	ldr	r0, [pc, #40]	@ (8001110 <HAL_GPIO_EXTI_Callback+0x98>)
+ 80010e8:	f001 fe9e 	bl	8002e28 <HAL_GPIO_TogglePin>
             encoder();
- 80010dc:	f7ff ffac 	bl	8001038 <encoder>
+ 80010ec:	f7ff ffac 	bl	8001048 <encoder>
             break;
- 80010e0:	e007      	b.n	80010f2 <HAL_GPIO_EXTI_Callback+0x8a>
+ 80010f0:	e007      	b.n	8001102 <HAL_GPIO_EXTI_Callback+0x8a>
             Speed_Control(0);
- 80010e2:	2000      	movs	r0, #0
- 80010e4:	f7ff ff70 	bl	8000fc8 <Speed_Control>
+ 80010f2:	2000      	movs	r0, #0
+ 80010f4:	f7ff ff70 	bl	8000fd8 <Speed_Control>
             counter = 0;
- 80010e8:	4b06      	ldr	r3, [pc, #24]	@ (8001104 <HAL_GPIO_EXTI_Callback+0x9c>)
- 80010ea:	2200      	movs	r2, #0
- 80010ec:	601a      	str	r2, [r3, #0]
+ 80010f8:	4b06      	ldr	r3, [pc, #24]	@ (8001114 <HAL_GPIO_EXTI_Callback+0x9c>)
+ 80010fa:	2200      	movs	r2, #0
+ 80010fc:	601a      	str	r2, [r3, #0]
             break;
- 80010ee:	e000      	b.n	80010f2 <HAL_GPIO_EXTI_Callback+0x8a>
+ 80010fe:	e000      	b.n	8001102 <HAL_GPIO_EXTI_Callback+0x8a>
             break;
- 80010f0:	bf00      	nop
+ 8001100:	bf00      	nop
     }
 }
- 80010f2:	3710      	adds	r7, #16
- 80010f4:	46bd      	mov	sp, r7
- 80010f6:	bd80      	pop	{r7, pc}
- 80010f8:	0800630c 	.word	0x0800630c
- 80010fc:	2000414c 	.word	0x2000414c
- 8001100:	40010c00 	.word	0x40010c00
- 8001104:	20004148 	.word	0x20004148
+ 8001102:	3710      	adds	r7, #16
+ 8001104:	46bd      	mov	sp, r7
+ 8001106:	bd80      	pop	{r7, pc}
+ 8001108:	0800630c 	.word	0x0800630c
+ 800110c:	20004150 	.word	0x20004150
+ 8001110:	40010c00 	.word	0x40010c00
+ 8001114:	20004148 	.word	0x20004148
 
-08001108 <quarter_cycle_open>:
+08001118 <quarter_cycle_open>:
 
 void quarter_cycle_open(int source) {
- 8001108:	b580      	push	{r7, lr}
- 800110a:	b084      	sub	sp, #16
- 800110c:	af00      	add	r7, sp, #0
- 800110e:	6078      	str	r0, [r7, #4]
+ 8001118:	b580      	push	{r7, lr}
+ 800111a:	b084      	sub	sp, #16
+ 800111c:	af00      	add	r7, sp, #0
+ 800111e:	6078      	str	r0, [r7, #4]
     uint32_t start_time = HAL_GetTick();  // Record the start time
- 8001110:	f001 f8f6 	bl	8002300 <HAL_GetTick>
- 8001114:	60f8      	str	r0, [r7, #12]
-    counter = 0;  // Reset the counter at the beginning of the operation
- 8001116:	4b18      	ldr	r3, [pc, #96]	@ (8001178 <quarter_cycle_open+0x70>)
- 8001118:	2200      	movs	r2, #0
- 800111a:	601a      	str	r2, [r3, #0]
+ 8001120:	f001 f8ee 	bl	8002300 <HAL_GetTick>
+ 8001124:	60f8      	str	r0, [r7, #12]
+    counter = 0;  // Reset the counter at the start of the operation
+ 8001126:	4b17      	ldr	r3, [pc, #92]	@ (8001184 <quarter_cycle_open+0x6c>)
+ 8001128:	2200      	movs	r2, #0
+ 800112a:	601a      	str	r2, [r3, #0]
 
     // Set motor direction based on the source
     if (source == 1) {
- 800111c:	687b      	ldr	r3, [r7, #4]
- 800111e:	2b01      	cmp	r3, #1
- 8001120:	d103      	bne.n	800112a <quarter_cycle_open+0x22>
-        Direction(0);  // Set direction for source 1
- 8001122:	2000      	movs	r0, #0
- 8001124:	f7ff ff60 	bl	8000fe8 <Direction>
- 8001128:	e005      	b.n	8001136 <quarter_cycle_open+0x2e>
+ 800112c:	687b      	ldr	r3, [r7, #4]
+ 800112e:	2b01      	cmp	r3, #1
+ 8001130:	d103      	bne.n	800113a <quarter_cycle_open+0x22>
+        Direction(0);  // Direction for source 1
+ 8001132:	2000      	movs	r0, #0
+ 8001134:	f7ff ff60 	bl	8000ff8 <Direction>
+ 8001138:	e005      	b.n	8001146 <quarter_cycle_open+0x2e>
     } else if (source == 2) {
- 800112a:	687b      	ldr	r3, [r7, #4]
- 800112c:	2b02      	cmp	r3, #2
- 800112e:	d102      	bne.n	8001136 <quarter_cycle_open+0x2e>
-        Direction(1);  // Set direction for source 2
- 8001130:	2001      	movs	r0, #1
- 8001132:	f7ff ff59 	bl	8000fe8 <Direction>
+ 800113a:	687b      	ldr	r3, [r7, #4]
+ 800113c:	2b02      	cmp	r3, #2
+ 800113e:	d102      	bne.n	8001146 <quarter_cycle_open+0x2e>
+        Direction(1);  // Direction for source 2
+ 8001140:	2001      	movs	r0, #1
+ 8001142:	f7ff ff59 	bl	8000ff8 <Direction>
     }
 
-    Speed_Control(1000);  // Start the motor with speed 1000
- 8001136:	f44f 707a 	mov.w	r0, #1000	@ 0x3e8
- 800113a:	f7ff ff45 	bl	8000fc8 <Speed_Control>
+    Speed_Control(1000);  // Start the motor
+ 8001146:	f44f 707a 	mov.w	r0, #1000	@ 0x3e8
+ 800114a:	f7ff ff45 	bl	8000fd8 <Speed_Control>
 
-    // Monitor encoder or timeout
-    while (1) {
-        // Check if encoder threshold is reached
-        if (counter >= ENCODER_THRESHOLD) {
- 800113e:	4b0e      	ldr	r3, [pc, #56]	@ (8001178 <quarter_cycle_open+0x70>)
- 8001140:	681b      	ldr	r3, [r3, #0]
- 8001142:	f240 2239 	movw	r2, #569	@ 0x239
- 8001146:	4293      	cmp	r3, r2
- 8001148:	dc09      	bgt.n	800115e <quarter_cycle_open+0x56>
-            break;  // Exit the loop when the threshold is reached
-        }
-
-        // Check for timeout (3 seconds in this example)
-        if (HAL_GetTick() - start_time > 3000) {
- 800114a:	f001 f8d9 	bl	8002300 <HAL_GetTick>
- 800114e:	4602      	mov	r2, r0
- 8001150:	68fb      	ldr	r3, [r7, #12]
- 8001152:	1ad3      	subs	r3, r2, r3
- 8001154:	f640 32b8 	movw	r2, #3000	@ 0xbb8
- 8001158:	4293      	cmp	r3, r2
- 800115a:	d802      	bhi.n	8001162 <quarter_cycle_open+0x5a>
-        if (counter >= ENCODER_THRESHOLD) {
- 800115c:	e7ef      	b.n	800113e <quarter_cycle_open+0x36>
-            break;  // Exit the loop when the threshold is reached
- 800115e:	bf00      	nop
- 8001160:	e000      	b.n	8001164 <quarter_cycle_open+0x5c>
-            break;  // Exit the loop if timeout occurs
- 8001162:	bf00      	nop
+    // Wait for the encoder interrupt to stop the motor or timeout
+    while (HAL_GetTick() - start_time <= 3000) {
+ 800114e:	e003      	b.n	8001158 <quarter_cycle_open+0x40>
+        if (counter == 0) {  // If encoder reset counter, motor has stopped
+ 8001150:	4b0c      	ldr	r3, [pc, #48]	@ (8001184 <quarter_cycle_open+0x6c>)
+ 8001152:	681b      	ldr	r3, [r3, #0]
+ 8001154:	2b00      	cmp	r3, #0
+ 8001156:	d009      	beq.n	800116c <quarter_cycle_open+0x54>
+    while (HAL_GetTick() - start_time <= 3000) {
+ 8001158:	f001 f8d2 	bl	8002300 <HAL_GetTick>
+ 800115c:	4602      	mov	r2, r0
+ 800115e:	68fb      	ldr	r3, [r7, #12]
+ 8001160:	1ad3      	subs	r3, r2, r3
+ 8001162:	f640 32b8 	movw	r2, #3000	@ 0xbb8
+ 8001166:	4293      	cmp	r3, r2
+ 8001168:	d9f2      	bls.n	8001150 <quarter_cycle_open+0x38>
+ 800116a:	e000      	b.n	800116e <quarter_cycle_open+0x56>
+            break;
+ 800116c:	bf00      	nop
         }
     }
 
-    Speed_Control(0);  // Stop the motor
- 8001164:	2000      	movs	r0, #0
- 8001166:	f7ff ff2f 	bl	8000fc8 <Speed_Control>
-    counter = 0;       // Reset the counter after the operation
- 800116a:	4b03      	ldr	r3, [pc, #12]	@ (8001178 <quarter_cycle_open+0x70>)
- 800116c:	2200      	movs	r2, #0
- 800116e:	601a      	str	r2, [r3, #0]
+    if (counter != 0) {  // If the counter is not reset, stop the motor manually
+ 800116e:	4b05      	ldr	r3, [pc, #20]	@ (8001184 <quarter_cycle_open+0x6c>)
+ 8001170:	681b      	ldr	r3, [r3, #0]
+ 8001172:	2b00      	cmp	r3, #0
+ 8001174:	d002      	beq.n	800117c <quarter_cycle_open+0x64>
+        Speed_Control(0);  // Safety stop
+ 8001176:	2000      	movs	r0, #0
+ 8001178:	f7ff ff2e 	bl	8000fd8 <Speed_Control>
+        //Report_Error("Timeout: Encoder failed to stop motor");
+    }
 }
- 8001170:	bf00      	nop
- 8001172:	3710      	adds	r7, #16
- 8001174:	46bd      	mov	sp, r7
- 8001176:	bd80      	pop	{r7, pc}
- 8001178:	20004148 	.word	0x20004148
+ 800117c:	bf00      	nop
+ 800117e:	3710      	adds	r7, #16
+ 8001180:	46bd      	mov	sp, r7
+ 8001182:	bd80      	pop	{r7, pc}
+ 8001184:	20004148 	.word	0x20004148
 
-0800117c <quarter_cycle_closed>:
+08001188 <quarter_cycle_closed>:
 
 void quarter_cycle_closed(int source) {
- 800117c:	b580      	push	{r7, lr}
- 800117e:	b084      	sub	sp, #16
- 8001180:	af00      	add	r7, sp, #0
- 8001182:	6078      	str	r0, [r7, #4]
+ 8001188:	b580      	push	{r7, lr}
+ 800118a:	b084      	sub	sp, #16
+ 800118c:	af00      	add	r7, sp, #0
+ 800118e:	6078      	str	r0, [r7, #4]
     uint32_t start_time = HAL_GetTick();  // Record the start time
- 8001184:	f001 f8bc 	bl	8002300 <HAL_GetTick>
- 8001188:	60f8      	str	r0, [r7, #12]
+ 8001190:	f001 f8b6 	bl	8002300 <HAL_GetTick>
+ 8001194:	60f8      	str	r0, [r7, #12]
+    counter = 0;  // Reset the counter at the start of the operation
+ 8001196:	4b17      	ldr	r3, [pc, #92]	@ (80011f4 <quarter_cycle_closed+0x6c>)
+ 8001198:	2200      	movs	r2, #0
+ 800119a:	601a      	str	r2, [r3, #0]
 
     // Set motor direction based on the source
     if (source == 1) {
- 800118a:	687b      	ldr	r3, [r7, #4]
- 800118c:	2b01      	cmp	r3, #1
- 800118e:	d103      	bne.n	8001198 <quarter_cycle_closed+0x1c>
-        Direction(1);  // Set direction for source 1
- 8001190:	2001      	movs	r0, #1
- 8001192:	f7ff ff29 	bl	8000fe8 <Direction>
- 8001196:	e005      	b.n	80011a4 <quarter_cycle_closed+0x28>
+ 800119c:	687b      	ldr	r3, [r7, #4]
+ 800119e:	2b01      	cmp	r3, #1
+ 80011a0:	d103      	bne.n	80011aa <quarter_cycle_closed+0x22>
+        Direction(1);  // Direction for source 1
+ 80011a2:	2001      	movs	r0, #1
+ 80011a4:	f7ff ff28 	bl	8000ff8 <Direction>
+ 80011a8:	e005      	b.n	80011b6 <quarter_cycle_closed+0x2e>
     } else if (source == 2) {
- 8001198:	687b      	ldr	r3, [r7, #4]
- 800119a:	2b02      	cmp	r3, #2
- 800119c:	d102      	bne.n	80011a4 <quarter_cycle_closed+0x28>
-        Direction(0);  // Set direction for source 2
- 800119e:	2000      	movs	r0, #0
- 80011a0:	f7ff ff22 	bl	8000fe8 <Direction>
+ 80011aa:	687b      	ldr	r3, [r7, #4]
+ 80011ac:	2b02      	cmp	r3, #2
+ 80011ae:	d102      	bne.n	80011b6 <quarter_cycle_closed+0x2e>
+        Direction(0);  // Direction for source 2
+ 80011b0:	2000      	movs	r0, #0
+ 80011b2:	f7ff ff21 	bl	8000ff8 <Direction>
     }
 
-    Speed_Control(1000);  // Start the motor with speed 1000
- 80011a4:	f44f 707a 	mov.w	r0, #1000	@ 0x3e8
- 80011a8:	f7ff ff0e 	bl	8000fc8 <Speed_Control>
+    Speed_Control(1000);  // Start the motor
+ 80011b6:	f44f 707a 	mov.w	r0, #1000	@ 0x3e8
+ 80011ba:	f7ff ff0d 	bl	8000fd8 <Speed_Control>
 
-    // Monitor encoder or timeout
-    while (1) {
-        // Check if encoder threshold is reached
-        if (counter >= ENCODER_THRESHOLD) {
- 80011ac:	4b0e      	ldr	r3, [pc, #56]	@ (80011e8 <quarter_cycle_closed+0x6c>)
- 80011ae:	681b      	ldr	r3, [r3, #0]
- 80011b0:	f240 2239 	movw	r2, #569	@ 0x239
- 80011b4:	4293      	cmp	r3, r2
- 80011b6:	dc09      	bgt.n	80011cc <quarter_cycle_closed+0x50>
-            break;  // Exit the loop when the threshold is reached
-        }
-
-        // Check for timeout (3 seconds in this example)
-        if (HAL_GetTick() - start_time > 3000) {
- 80011b8:	f001 f8a2 	bl	8002300 <HAL_GetTick>
- 80011bc:	4602      	mov	r2, r0
- 80011be:	68fb      	ldr	r3, [r7, #12]
- 80011c0:	1ad3      	subs	r3, r2, r3
- 80011c2:	f640 32b8 	movw	r2, #3000	@ 0xbb8
- 80011c6:	4293      	cmp	r3, r2
- 80011c8:	d802      	bhi.n	80011d0 <quarter_cycle_closed+0x54>
-        if (counter >= ENCODER_THRESHOLD) {
- 80011ca:	e7ef      	b.n	80011ac <quarter_cycle_closed+0x30>
-            break;  // Exit the loop when the threshold is reached
- 80011cc:	bf00      	nop
- 80011ce:	e000      	b.n	80011d2 <quarter_cycle_closed+0x56>
-            break;  // Exit the loop if timeout occurs
- 80011d0:	bf00      	nop
+    // Wait for the encoder interrupt to stop the motor or timeout
+    while (HAL_GetTick() - start_time <= 3000) {
+ 80011be:	e003      	b.n	80011c8 <quarter_cycle_closed+0x40>
+        if (counter == 0) {  // If encoder reset counter, motor has stopped
+ 80011c0:	4b0c      	ldr	r3, [pc, #48]	@ (80011f4 <quarter_cycle_closed+0x6c>)
+ 80011c2:	681b      	ldr	r3, [r3, #0]
+ 80011c4:	2b00      	cmp	r3, #0
+ 80011c6:	d009      	beq.n	80011dc <quarter_cycle_closed+0x54>
+    while (HAL_GetTick() - start_time <= 3000) {
+ 80011c8:	f001 f89a 	bl	8002300 <HAL_GetTick>
+ 80011cc:	4602      	mov	r2, r0
+ 80011ce:	68fb      	ldr	r3, [r7, #12]
+ 80011d0:	1ad3      	subs	r3, r2, r3
+ 80011d2:	f640 32b8 	movw	r2, #3000	@ 0xbb8
+ 80011d6:	4293      	cmp	r3, r2
+ 80011d8:	d9f2      	bls.n	80011c0 <quarter_cycle_closed+0x38>
+ 80011da:	e000      	b.n	80011de <quarter_cycle_closed+0x56>
+            break;
+ 80011dc:	bf00      	nop
         }
     }
 
-    Speed_Control(0);  // Stop the motor
- 80011d2:	2000      	movs	r0, #0
- 80011d4:	f7ff fef8 	bl	8000fc8 <Speed_Control>
-    counter = 0;       // Reset the counter for the next operation
- 80011d8:	4b03      	ldr	r3, [pc, #12]	@ (80011e8 <quarter_cycle_closed+0x6c>)
- 80011da:	2200      	movs	r2, #0
- 80011dc:	601a      	str	r2, [r3, #0]
+    if (counter != 0) {  // If the counter is not reset, stop the motor manually
+ 80011de:	4b05      	ldr	r3, [pc, #20]	@ (80011f4 <quarter_cycle_closed+0x6c>)
+ 80011e0:	681b      	ldr	r3, [r3, #0]
+ 80011e2:	2b00      	cmp	r3, #0
+ 80011e4:	d002      	beq.n	80011ec <quarter_cycle_closed+0x64>
+        Speed_Control(0);  // Safety stop
+ 80011e6:	2000      	movs	r0, #0
+ 80011e8:	f7ff fef6 	bl	8000fd8 <Speed_Control>
+        //Report_Error("Timeout: Encoder failed to stop motor");
+    }
 }
- 80011de:	bf00      	nop
- 80011e0:	3710      	adds	r7, #16
- 80011e2:	46bd      	mov	sp, r7
- 80011e4:	bd80      	pop	{r7, pc}
- 80011e6:	bf00      	nop
- 80011e8:	20004148 	.word	0x20004148
+ 80011ec:	bf00      	nop
+ 80011ee:	3710      	adds	r7, #16
+ 80011f0:	46bd      	mov	sp, r7
+ 80011f2:	bd80      	pop	{r7, pc}
+ 80011f4:	20004148 	.word	0x20004148
 
-080011ec <ready_state>:
-
+080011f8 <ready_state>:
 
 //STATE FUNCTIONS
 
 void ready_state(void) {
- 80011ec:	b580      	push	{r7, lr}
- 80011ee:	af00      	add	r7, sp, #0
+ 80011f8:	b580      	push	{r7, lr}
+ 80011fa:	af00      	add	r7, sp, #0
     static uint32_t last_update_time = 0;
 
     if (HAL_GetTick() - last_update_time >= DELAY_TIME) {
- 80011f0:	f001 f886 	bl	8002300 <HAL_GetTick>
- 80011f4:	4602      	mov	r2, r0
- 80011f6:	4b0b      	ldr	r3, [pc, #44]	@ (8001224 <ready_state+0x38>)
- 80011f8:	681b      	ldr	r3, [r3, #0]
- 80011fa:	1ad3      	subs	r3, r2, r3
- 80011fc:	2b63      	cmp	r3, #99	@ 0x63
- 80011fe:	d90e      	bls.n	800121e <ready_state+0x32>
+ 80011fc:	f001 f880 	bl	8002300 <HAL_GetTick>
+ 8001200:	4602      	mov	r2, r0
+ 8001202:	4b0b      	ldr	r3, [pc, #44]	@ (8001230 <ready_state+0x38>)
+ 8001204:	681b      	ldr	r3, [r3, #0]
+ 8001206:	1ad3      	subs	r3, r2, r3
+ 8001208:	2b63      	cmp	r3, #99	@ 0x63
+ 800120a:	d90e      	bls.n	800122a <ready_state+0x32>
         last_update_time = HAL_GetTick();
- 8001200:	f001 f87e 	bl	8002300 <HAL_GetTick>
- 8001204:	4603      	mov	r3, r0
- 8001206:	4a07      	ldr	r2, [pc, #28]	@ (8001224 <ready_state+0x38>)
- 8001208:	6013      	str	r3, [r2, #0]
+ 800120c:	f001 f878 	bl	8002300 <HAL_GetTick>
+ 8001210:	4603      	mov	r3, r0
+ 8001212:	4a07      	ldr	r2, [pc, #28]	@ (8001230 <ready_state+0x38>)
+ 8001214:	6013      	str	r3, [r2, #0]
         Ready_State_Animation(&ws);
- 800120a:	4807      	ldr	r0, [pc, #28]	@ (8001228 <ready_state+0x3c>)
- 800120c:	f7ff fdd6 	bl	8000dbc <Ready_State_Animation>
+ 8001216:	4807      	ldr	r0, [pc, #28]	@ (8001234 <ready_state+0x3c>)
+ 8001218:	f7ff fdd0 	bl	8000dbc <Ready_State_Animation>
 
         if (flag_rev == 1) {
- 8001210:	4b06      	ldr	r3, [pc, #24]	@ (800122c <ready_state+0x40>)
- 8001212:	781b      	ldrb	r3, [r3, #0]
- 8001214:	2b01      	cmp	r3, #1
- 8001216:	d102      	bne.n	800121e <ready_state+0x32>
+ 800121c:	4b06      	ldr	r3, [pc, #24]	@ (8001238 <ready_state+0x40>)
+ 800121e:	781b      	ldrb	r3, [r3, #0]
+ 8001220:	2b01      	cmp	r3, #1
+ 8001222:	d102      	bne.n	800122a <ready_state+0x32>
             currentState = STATE_READING;
- 8001218:	4b05      	ldr	r3, [pc, #20]	@ (8001230 <ready_state+0x44>)
- 800121a:	2201      	movs	r2, #1
- 800121c:	701a      	strb	r2, [r3, #0]
+ 8001224:	4b05      	ldr	r3, [pc, #20]	@ (800123c <ready_state+0x44>)
+ 8001226:	2201      	movs	r2, #1
+ 8001228:	701a      	strb	r2, [r3, #0]
         }
     }
 }
- 800121e:	bf00      	nop
- 8001220:	bd80      	pop	{r7, pc}
- 8001222:	bf00      	nop
- 8001224:	20004178 	.word	0x20004178
- 8001228:	20000408 	.word	0x20000408
- 800122c:	20004142 	.word	0x20004142
- 8001230:	20004110 	.word	0x20004110
+ 800122a:	bf00      	nop
+ 800122c:	bd80      	pop	{r7, pc}
+ 800122e:	bf00      	nop
+ 8001230:	2000417c 	.word	0x2000417c
+ 8001234:	20000408 	.word	0x20000408
+ 8001238:	20004142 	.word	0x20004142
+ 800123c:	20004110 	.word	0x20004110
 
-08001234 <reading_state>:
+08001240 <reading_state>:
 
 void reading_state(void) {
- 8001234:	b580      	push	{r7, lr}
- 8001236:	af00      	add	r7, sp, #0
+ 8001240:	b580      	push	{r7, lr}
+ 8001242:	af00      	add	r7, sp, #0
     static uint32_t start_time = 0;
 
     if (start_time == 0) {  // Initialize timer on first call
- 8001238:	4b29      	ldr	r3, [pc, #164]	@ (80012e0 <reading_state+0xac>)
- 800123a:	681b      	ldr	r3, [r3, #0]
- 800123c:	2b00      	cmp	r3, #0
- 800123e:	d104      	bne.n	800124a <reading_state+0x16>
+ 8001244:	4b29      	ldr	r3, [pc, #164]	@ (80012ec <reading_state+0xac>)
+ 8001246:	681b      	ldr	r3, [r3, #0]
+ 8001248:	2b00      	cmp	r3, #0
+ 800124a:	d104      	bne.n	8001256 <reading_state+0x16>
         start_time = HAL_GetTick();
- 8001240:	f001 f85e 	bl	8002300 <HAL_GetTick>
- 8001244:	4603      	mov	r3, r0
- 8001246:	4a26      	ldr	r2, [pc, #152]	@ (80012e0 <reading_state+0xac>)
- 8001248:	6013      	str	r3, [r2, #0]
+ 800124c:	f001 f858 	bl	8002300 <HAL_GetTick>
+ 8001250:	4603      	mov	r3, r0
+ 8001252:	4a26      	ldr	r2, [pc, #152]	@ (80012ec <reading_state+0xac>)
+ 8001254:	6013      	str	r3, [r2, #0]
     }
 
     if (HAL_GetTick() - start_time >= 1000) {
- 800124a:	f001 f859 	bl	8002300 <HAL_GetTick>
- 800124e:	4602      	mov	r2, r0
- 8001250:	4b23      	ldr	r3, [pc, #140]	@ (80012e0 <reading_state+0xac>)
- 8001252:	681b      	ldr	r3, [r3, #0]
- 8001254:	1ad3      	subs	r3, r2, r3
- 8001256:	f5b3 7f7a 	cmp.w	r3, #1000	@ 0x3e8
- 800125a:	d33e      	bcc.n	80012da <reading_state+0xa6>
+ 8001256:	f001 f853 	bl	8002300 <HAL_GetTick>
+ 800125a:	4602      	mov	r2, r0
+ 800125c:	4b23      	ldr	r3, [pc, #140]	@ (80012ec <reading_state+0xac>)
+ 800125e:	681b      	ldr	r3, [r3, #0]
+ 8001260:	1ad3      	subs	r3, r2, r3
+ 8001262:	f5b3 7f7a 	cmp.w	r3, #1000	@ 0x3e8
+ 8001266:	d33e      	bcc.n	80012e6 <reading_state+0xa6>
         // Execute logic after 1 second delay
         if (flag_rev == 1) {
- 800125c:	4b21      	ldr	r3, [pc, #132]	@ (80012e4 <reading_state+0xb0>)
- 800125e:	781b      	ldrb	r3, [r3, #0]
- 8001260:	2b01      	cmp	r3, #1
- 8001262:	d10c      	bne.n	800127e <reading_state+0x4a>
+ 8001268:	4b21      	ldr	r3, [pc, #132]	@ (80012f0 <reading_state+0xb0>)
+ 800126a:	781b      	ldrb	r3, [r3, #0]
+ 800126c:	2b01      	cmp	r3, #1
+ 800126e:	d10c      	bne.n	800128a <reading_state+0x4a>
             HAL_UART_Transmit_IT(&huart3, (uint8_t *)usermsg, strlen(usermsg));
- 8001264:	4820      	ldr	r0, [pc, #128]	@ (80012e8 <reading_state+0xb4>)
- 8001266:	f7fe ff71 	bl	800014c <strlen>
- 800126a:	4603      	mov	r3, r0
- 800126c:	b29b      	uxth	r3, r3
- 800126e:	461a      	mov	r2, r3
- 8001270:	491d      	ldr	r1, [pc, #116]	@ (80012e8 <reading_state+0xb4>)
- 8001272:	481e      	ldr	r0, [pc, #120]	@ (80012ec <reading_state+0xb8>)
- 8001274:	f003 fbcb 	bl	8004a0e <HAL_UART_Transmit_IT>
+ 8001270:	4820      	ldr	r0, [pc, #128]	@ (80012f4 <reading_state+0xb4>)
+ 8001272:	f7fe ff6b 	bl	800014c <strlen>
+ 8001276:	4603      	mov	r3, r0
+ 8001278:	b29b      	uxth	r3, r3
+ 800127a:	461a      	mov	r2, r3
+ 800127c:	491d      	ldr	r1, [pc, #116]	@ (80012f4 <reading_state+0xb4>)
+ 800127e:	481e      	ldr	r0, [pc, #120]	@ (80012f8 <reading_state+0xb8>)
+ 8001280:	f003 fbc5 	bl	8004a0e <HAL_UART_Transmit_IT>
             flag_rev = 0;
- 8001278:	4b1a      	ldr	r3, [pc, #104]	@ (80012e4 <reading_state+0xb0>)
- 800127a:	2200      	movs	r2, #0
- 800127c:	701a      	strb	r2, [r3, #0]
+ 8001284:	4b1a      	ldr	r3, [pc, #104]	@ (80012f0 <reading_state+0xb0>)
+ 8001286:	2200      	movs	r2, #0
+ 8001288:	701a      	strb	r2, [r3, #0]
         }
 
         // NOS Potential Responses Setup
         switch (intresponseData) {
- 800127e:	4b1c      	ldr	r3, [pc, #112]	@ (80012f0 <reading_state+0xbc>)
- 8001280:	781b      	ldrb	r3, [r3, #0]
- 8001282:	2b05      	cmp	r3, #5
- 8001284:	d826      	bhi.n	80012d4 <reading_state+0xa0>
- 8001286:	a201      	add	r2, pc, #4	@ (adr r2, 800128c <reading_state+0x58>)
- 8001288:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
- 800128c:	080012a5 	.word	0x080012a5
- 8001290:	080012ad 	.word	0x080012ad
- 8001294:	080012b5 	.word	0x080012b5
- 8001298:	080012bd 	.word	0x080012bd
- 800129c:	080012c5 	.word	0x080012c5
- 80012a0:	080012cd 	.word	0x080012cd
+ 800128a:	4b1c      	ldr	r3, [pc, #112]	@ (80012fc <reading_state+0xbc>)
+ 800128c:	781b      	ldrb	r3, [r3, #0]
+ 800128e:	2b05      	cmp	r3, #5
+ 8001290:	d826      	bhi.n	80012e0 <reading_state+0xa0>
+ 8001292:	a201      	add	r2, pc, #4	@ (adr r2, 8001298 <reading_state+0x58>)
+ 8001294:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
+ 8001298:	080012b1 	.word	0x080012b1
+ 800129c:	080012b9 	.word	0x080012b9
+ 80012a0:	080012c1 	.word	0x080012c1
+ 80012a4:	080012c9 	.word	0x080012c9
+ 80012a8:	080012d1 	.word	0x080012d1
+ 80012ac:	080012d9 	.word	0x080012d9
             case 0: currentState = STATE_READY; break;
- 80012a4:	4b13      	ldr	r3, [pc, #76]	@ (80012f4 <reading_state+0xc0>)
- 80012a6:	2200      	movs	r2, #0
- 80012a8:	701a      	strb	r2, [r3, #0]
- 80012aa:	e013      	b.n	80012d4 <reading_state+0xa0>
+ 80012b0:	4b13      	ldr	r3, [pc, #76]	@ (8001300 <reading_state+0xc0>)
+ 80012b2:	2200      	movs	r2, #0
+ 80012b4:	701a      	strb	r2, [r3, #0]
+ 80012b6:	e013      	b.n	80012e0 <reading_state+0xa0>
             case 1: currentState = STATE_OPEN; break;
- 80012ac:	4b11      	ldr	r3, [pc, #68]	@ (80012f4 <reading_state+0xc0>)
- 80012ae:	2202      	movs	r2, #2
- 80012b0:	701a      	strb	r2, [r3, #0]
- 80012b2:	e00f      	b.n	80012d4 <reading_state+0xa0>
+ 80012b8:	4b11      	ldr	r3, [pc, #68]	@ (8001300 <reading_state+0xc0>)
+ 80012ba:	2202      	movs	r2, #2
+ 80012bc:	701a      	strb	r2, [r3, #0]
+ 80012be:	e00f      	b.n	80012e0 <reading_state+0xa0>
             case 2: currentState = STATE_CLOSED; break;
- 80012b4:	4b0f      	ldr	r3, [pc, #60]	@ (80012f4 <reading_state+0xc0>)
- 80012b6:	2203      	movs	r2, #3
- 80012b8:	701a      	strb	r2, [r3, #0]
- 80012ba:	e00b      	b.n	80012d4 <reading_state+0xa0>
+ 80012c0:	4b0f      	ldr	r3, [pc, #60]	@ (8001300 <reading_state+0xc0>)
+ 80012c2:	2203      	movs	r2, #3
+ 80012c4:	701a      	strb	r2, [r3, #0]
+ 80012c6:	e00b      	b.n	80012e0 <reading_state+0xa0>
             case 3: currentState = STATE_EMERGENCY; break;
- 80012bc:	4b0d      	ldr	r3, [pc, #52]	@ (80012f4 <reading_state+0xc0>)
- 80012be:	2206      	movs	r2, #6
- 80012c0:	701a      	strb	r2, [r3, #0]
- 80012c2:	e007      	b.n	80012d4 <reading_state+0xa0>
+ 80012c8:	4b0d      	ldr	r3, [pc, #52]	@ (8001300 <reading_state+0xc0>)
+ 80012ca:	2206      	movs	r2, #6
+ 80012cc:	701a      	strb	r2, [r3, #0]
+ 80012ce:	e007      	b.n	80012e0 <reading_state+0xa0>
             case 4: currentState = STATE_SLEEP; break;
- 80012c4:	4b0b      	ldr	r3, [pc, #44]	@ (80012f4 <reading_state+0xc0>)
- 80012c6:	2205      	movs	r2, #5
- 80012c8:	701a      	strb	r2, [r3, #0]
- 80012ca:	e003      	b.n	80012d4 <reading_state+0xa0>
+ 80012d0:	4b0b      	ldr	r3, [pc, #44]	@ (8001300 <reading_state+0xc0>)
+ 80012d2:	2205      	movs	r2, #5
+ 80012d4:	701a      	strb	r2, [r3, #0]
+ 80012d6:	e003      	b.n	80012e0 <reading_state+0xa0>
             case 5: currentState = STATE_OVERCAPACITY; break;
- 80012cc:	4b09      	ldr	r3, [pc, #36]	@ (80012f4 <reading_state+0xc0>)
- 80012ce:	2204      	movs	r2, #4
- 80012d0:	701a      	strb	r2, [r3, #0]
- 80012d2:	bf00      	nop
+ 80012d8:	4b09      	ldr	r3, [pc, #36]	@ (8001300 <reading_state+0xc0>)
+ 80012da:	2204      	movs	r2, #4
+ 80012dc:	701a      	strb	r2, [r3, #0]
+ 80012de:	bf00      	nop
         }
 
         start_time = 0;  // Reset timer
- 80012d4:	4b02      	ldr	r3, [pc, #8]	@ (80012e0 <reading_state+0xac>)
- 80012d6:	2200      	movs	r2, #0
- 80012d8:	601a      	str	r2, [r3, #0]
+ 80012e0:	4b02      	ldr	r3, [pc, #8]	@ (80012ec <reading_state+0xac>)
+ 80012e2:	2200      	movs	r2, #0
+ 80012e4:	601a      	str	r2, [r3, #0]
     }
 }
- 80012da:	bf00      	nop
- 80012dc:	bd80      	pop	{r7, pc}
- 80012de:	bf00      	nop
- 80012e0:	2000417c 	.word	0x2000417c
- 80012e4:	20004142 	.word	0x20004142
- 80012e8:	20004134 	.word	0x20004134
- 80012ec:	2000438c 	.word	0x2000438c
- 80012f0:	20004146 	.word	0x20004146
- 80012f4:	20004110 	.word	0x20004110
+ 80012e6:	bf00      	nop
+ 80012e8:	bd80      	pop	{r7, pc}
+ 80012ea:	bf00      	nop
+ 80012ec:	20004180 	.word	0x20004180
+ 80012f0:	20004142 	.word	0x20004142
+ 80012f4:	20004134 	.word	0x20004134
+ 80012f8:	20004390 	.word	0x20004390
+ 80012fc:	20004146 	.word	0x20004146
+ 8001300:	20004110 	.word	0x20004110
 
-080012f8 <open_state>:
+08001304 <open_state>:
 
 void open_state(void) {
- 80012f8:	b580      	push	{r7, lr}
- 80012fa:	af00      	add	r7, sp, #0
+ 8001304:	b580      	push	{r7, lr}
+ 8001306:	af00      	add	r7, sp, #0
     static uint32_t start_time = 0;
     static int step = 0;
 
     if (step == 0) {
- 80012fc:	4b2b      	ldr	r3, [pc, #172]	@ (80013ac <open_state+0xb4>)
- 80012fe:	681b      	ldr	r3, [r3, #0]
- 8001300:	2b00      	cmp	r3, #0
- 8001302:	d10f      	bne.n	8001324 <open_state+0x2c>
+ 8001308:	4b28      	ldr	r3, [pc, #160]	@ (80013ac <open_state+0xa8>)
+ 800130a:	681b      	ldr	r3, [r3, #0]
+ 800130c:	2b00      	cmp	r3, #0
+ 800130e:	d10f      	bne.n	8001330 <open_state+0x2c>
         Clear_All_Animations(&ws);
- 8001304:	482a      	ldr	r0, [pc, #168]	@ (80013b0 <open_state+0xb8>)
- 8001306:	f7ff fc25 	bl	8000b54 <Clear_All_Animations>
+ 8001310:	4827      	ldr	r0, [pc, #156]	@ (80013b0 <open_state+0xac>)
+ 8001312:	f7ff fc1f 	bl	8000b54 <Clear_All_Animations>
         quarter_cycle_open(uart_source);
- 800130a:	4b2a      	ldr	r3, [pc, #168]	@ (80013b4 <open_state+0xbc>)
- 800130c:	781b      	ldrb	r3, [r3, #0]
- 800130e:	4618      	mov	r0, r3
- 8001310:	f7ff fefa 	bl	8001108 <quarter_cycle_open>
+ 8001316:	4b27      	ldr	r3, [pc, #156]	@ (80013b4 <open_state+0xb0>)
+ 8001318:	781b      	ldrb	r3, [r3, #0]
+ 800131a:	4618      	mov	r0, r3
+ 800131c:	f7ff fefc 	bl	8001118 <quarter_cycle_open>
         start_time = HAL_GetTick();
- 8001314:	f000 fff4 	bl	8002300 <HAL_GetTick>
- 8001318:	4603      	mov	r3, r0
- 800131a:	4a27      	ldr	r2, [pc, #156]	@ (80013b8 <open_state+0xc0>)
- 800131c:	6013      	str	r3, [r2, #0]
+ 8001320:	f000 ffee 	bl	8002300 <HAL_GetTick>
+ 8001324:	4603      	mov	r3, r0
+ 8001326:	4a24      	ldr	r2, [pc, #144]	@ (80013b8 <open_state+0xb4>)
+ 8001328:	6013      	str	r3, [r2, #0]
         step = 1;
- 800131e:	4b23      	ldr	r3, [pc, #140]	@ (80013ac <open_state+0xb4>)
- 8001320:	2201      	movs	r2, #1
- 8001322:	601a      	str	r2, [r3, #0]
+ 800132a:	4b20      	ldr	r3, [pc, #128]	@ (80013ac <open_state+0xa8>)
+ 800132c:	2201      	movs	r2, #1
+ 800132e:	601a      	str	r2, [r3, #0]
     }
 
-    if (step == 1 && HAL_GetTick() - start_time >= 1000) {
- 8001324:	4b21      	ldr	r3, [pc, #132]	@ (80013ac <open_state+0xb4>)
- 8001326:	681b      	ldr	r3, [r3, #0]
- 8001328:	2b01      	cmp	r3, #1
- 800132a:	d125      	bne.n	8001378 <open_state+0x80>
- 800132c:	f000 ffe8 	bl	8002300 <HAL_GetTick>
- 8001330:	4602      	mov	r2, r0
- 8001332:	4b21      	ldr	r3, [pc, #132]	@ (80013b8 <open_state+0xc0>)
- 8001334:	681b      	ldr	r3, [r3, #0]
- 8001336:	1ad3      	subs	r3, r2, r3
- 8001338:	f5b3 7f7a 	cmp.w	r3, #1000	@ 0x3e8
- 800133c:	d31c      	bcc.n	8001378 <open_state+0x80>
-        start_time = HAL_GetTick();
- 800133e:	f000 ffdf 	bl	8002300 <HAL_GetTick>
- 8001342:	4603      	mov	r3, r0
- 8001344:	4a1c      	ldr	r2, [pc, #112]	@ (80013b8 <open_state+0xc0>)
- 8001346:	6013      	str	r3, [r2, #0]
-        if (CheckObjectDetection()) {
- 8001348:	f7ff fe08 	bl	8000f5c <CheckObjectDetection>
- 800134c:	4603      	mov	r3, r0
- 800134e:	2b00      	cmp	r3, #0
- 8001350:	d00f      	beq.n	8001372 <open_state+0x7a>
+    if (step == 1 && HAL_GetTick() - start_time >= 2000) {
+ 8001330:	4b1e      	ldr	r3, [pc, #120]	@ (80013ac <open_state+0xa8>)
+ 8001332:	681b      	ldr	r3, [r3, #0]
+ 8001334:	2b01      	cmp	r3, #1
+ 8001336:	d10b      	bne.n	8001350 <open_state+0x4c>
+ 8001338:	f000 ffe2 	bl	8002300 <HAL_GetTick>
+ 800133c:	4602      	mov	r2, r0
+ 800133e:	4b1e      	ldr	r3, [pc, #120]	@ (80013b8 <open_state+0xb4>)
+ 8001340:	681b      	ldr	r3, [r3, #0]
+ 8001342:	1ad3      	subs	r3, r2, r3
+ 8001344:	f5b3 6ffa 	cmp.w	r3, #2000	@ 0x7d0
+ 8001348:	d302      	bcc.n	8001350 <open_state+0x4c>
+        // Step 1: Wait for 2 seconds after opening
+        step = 2;
+ 800134a:	4b18      	ldr	r3, [pc, #96]	@ (80013ac <open_state+0xa8>)
+ 800134c:	2202      	movs	r2, #2
+ 800134e:	601a      	str	r2, [r3, #0]
+    }
+
+    if (step == 2) {
+ 8001350:	4b16      	ldr	r3, [pc, #88]	@ (80013ac <open_state+0xa8>)
+ 8001352:	681b      	ldr	r3, [r3, #0]
+ 8001354:	2b02      	cmp	r3, #2
+ 8001356:	d117      	bne.n	8001388 <open_state+0x84>
+        // Step 2: Wait until no object is detected
+        while (CheckObjectDetection()) {
+ 8001358:	e00e      	b.n	8001378 <open_state+0x74>
+            // Show animations while waiting for the area to clear
             if (uart_source == 1) {
- 8001352:	4b18      	ldr	r3, [pc, #96]	@ (80013b4 <open_state+0xbc>)
- 8001354:	781b      	ldrb	r3, [r3, #0]
- 8001356:	2b01      	cmp	r3, #1
- 8001358:	d103      	bne.n	8001362 <open_state+0x6a>
+ 800135a:	4b16      	ldr	r3, [pc, #88]	@ (80013b4 <open_state+0xb0>)
+ 800135c:	781b      	ldrb	r3, [r3, #0]
+ 800135e:	2b01      	cmp	r3, #1
+ 8001360:	d103      	bne.n	800136a <open_state+0x66>
                 Entry_Granted_Animation(&ws);
- 800135a:	4815      	ldr	r0, [pc, #84]	@ (80013b0 <open_state+0xb8>)
- 800135c:	f7ff fc4a 	bl	8000bf4 <Entry_Granted_Animation>
- 8001360:	e00a      	b.n	8001378 <open_state+0x80>
+ 8001362:	4813      	ldr	r0, [pc, #76]	@ (80013b0 <open_state+0xac>)
+ 8001364:	f7ff fc46 	bl	8000bf4 <Entry_Granted_Animation>
+ 8001368:	e006      	b.n	8001378 <open_state+0x74>
             } else if (uart_source == 2) {
- 8001362:	4b14      	ldr	r3, [pc, #80]	@ (80013b4 <open_state+0xbc>)
- 8001364:	781b      	ldrb	r3, [r3, #0]
- 8001366:	2b02      	cmp	r3, #2
- 8001368:	d106      	bne.n	8001378 <open_state+0x80>
+ 800136a:	4b12      	ldr	r3, [pc, #72]	@ (80013b4 <open_state+0xb0>)
+ 800136c:	781b      	ldrb	r3, [r3, #0]
+ 800136e:	2b02      	cmp	r3, #2
+ 8001370:	d102      	bne.n	8001378 <open_state+0x74>
                 Exit_Granted_Animation(&ws);
- 800136a:	4811      	ldr	r0, [pc, #68]	@ (80013b0 <open_state+0xb8>)
- 800136c:	f7ff fcb4 	bl	8000cd8 <Exit_Granted_Animation>
- 8001370:	e002      	b.n	8001378 <open_state+0x80>
+ 8001372:	480f      	ldr	r0, [pc, #60]	@ (80013b0 <open_state+0xac>)
+ 8001374:	f7ff fcb0 	bl	8000cd8 <Exit_Granted_Animation>
+        while (CheckObjectDetection()) {
+ 8001378:	f7ff fdf0 	bl	8000f5c <CheckObjectDetection>
+ 800137c:	4603      	mov	r3, r0
+ 800137e:	2b00      	cmp	r3, #0
+ 8001380:	d1eb      	bne.n	800135a <open_state+0x56>
             }
-        } else {
-            step = 2;
- 8001372:	4b0e      	ldr	r3, [pc, #56]	@ (80013ac <open_state+0xb4>)
- 8001374:	2202      	movs	r2, #2
- 8001376:	601a      	str	r2, [r3, #0]
         }
+
+        // No object detected, proceed to close the doors
+        step = 3;
+ 8001382:	4b0a      	ldr	r3, [pc, #40]	@ (80013ac <open_state+0xa8>)
+ 8001384:	2203      	movs	r2, #3
+ 8001386:	601a      	str	r2, [r3, #0]
     }
 
-    if (step == 2 && HAL_GetTick() - start_time >= 1000) {
- 8001378:	4b0c      	ldr	r3, [pc, #48]	@ (80013ac <open_state+0xb4>)
- 800137a:	681b      	ldr	r3, [r3, #0]
- 800137c:	2b02      	cmp	r3, #2
- 800137e:	d113      	bne.n	80013a8 <open_state+0xb0>
- 8001380:	f000 ffbe 	bl	8002300 <HAL_GetTick>
- 8001384:	4602      	mov	r2, r0
- 8001386:	4b0c      	ldr	r3, [pc, #48]	@ (80013b8 <open_state+0xc0>)
- 8001388:	681b      	ldr	r3, [r3, #0]
- 800138a:	1ad3      	subs	r3, r2, r3
- 800138c:	f5b3 7f7a 	cmp.w	r3, #1000	@ 0x3e8
- 8001390:	d30a      	bcc.n	80013a8 <open_state+0xb0>
+    if (step == 3) {
+ 8001388:	4b08      	ldr	r3, [pc, #32]	@ (80013ac <open_state+0xa8>)
+ 800138a:	681b      	ldr	r3, [r3, #0]
+ 800138c:	2b03      	cmp	r3, #3
+ 800138e:	d10a      	bne.n	80013a6 <open_state+0xa2>
         quarter_cycle_closed(uart_source);
- 8001392:	4b08      	ldr	r3, [pc, #32]	@ (80013b4 <open_state+0xbc>)
- 8001394:	781b      	ldrb	r3, [r3, #0]
- 8001396:	4618      	mov	r0, r3
- 8001398:	f7ff fef0 	bl	800117c <quarter_cycle_closed>
+ 8001390:	4b08      	ldr	r3, [pc, #32]	@ (80013b4 <open_state+0xb0>)
+ 8001392:	781b      	ldrb	r3, [r3, #0]
+ 8001394:	4618      	mov	r0, r3
+ 8001396:	f7ff fef7 	bl	8001188 <quarter_cycle_closed>
         currentState = STATE_READY;
- 800139c:	4b07      	ldr	r3, [pc, #28]	@ (80013bc <open_state+0xc4>)
- 800139e:	2200      	movs	r2, #0
- 80013a0:	701a      	strb	r2, [r3, #0]
-        step = 0; // Reset step
- 80013a2:	4b02      	ldr	r3, [pc, #8]	@ (80013ac <open_state+0xb4>)
- 80013a4:	2200      	movs	r2, #0
- 80013a6:	601a      	str	r2, [r3, #0]
+ 800139a:	4b08      	ldr	r3, [pc, #32]	@ (80013bc <open_state+0xb8>)
+ 800139c:	2200      	movs	r2, #0
+ 800139e:	701a      	strb	r2, [r3, #0]
+        step = 0; // Reset step for the next cycle
+ 80013a0:	4b02      	ldr	r3, [pc, #8]	@ (80013ac <open_state+0xa8>)
+ 80013a2:	2200      	movs	r2, #0
+ 80013a4:	601a      	str	r2, [r3, #0]
     }
 }
- 80013a8:	bf00      	nop
- 80013aa:	bd80      	pop	{r7, pc}
- 80013ac:	20004180 	.word	0x20004180
+ 80013a6:	bf00      	nop
+ 80013a8:	bd80      	pop	{r7, pc}
+ 80013aa:	bf00      	nop
+ 80013ac:	20004184 	.word	0x20004184
  80013b0:	20000408 	.word	0x20000408
  80013b4:	20004143 	.word	0x20004143
- 80013b8:	20004184 	.word	0x20004184
+ 80013b8:	20004188 	.word	0x20004188
  80013bc:	20004110 	.word	0x20004110
 
 080013c0 <closed_state>:
@@ -2556,7 +2560,7 @@ void closed_state(void) {
  8001402:	bf00      	nop
  8001404:	bd80      	pop	{r7, pc}
  8001406:	bf00      	nop
- 8001408:	20004188 	.word	0x20004188
+ 8001408:	2000418c 	.word	0x2000418c
  800140c:	20000408 	.word	0x20000408
  8001410:	20004110 	.word	0x20004110
 
@@ -2650,7 +2654,7 @@ void overcapacity_state(void) {
  80014a2:	bf00      	nop
  80014a4:	bd80      	pop	{r7, pc}
  80014a6:	bf00      	nop
- 80014a8:	2000418c 	.word	0x2000418c
+ 80014a8:	20004190 	.word	0x20004190
  80014ac:	080062d0 	.word	0x080062d0
  80014b0:	20000258 	.word	0x20000258
  80014b4:	20000408 	.word	0x20000408
@@ -2731,10 +2735,10 @@ void emergency_state(void) {
  8001530:	e00b      	b.n	800154a <emergency_state+0x8a>
         quarter_cycle_open(1);
  8001532:	2001      	movs	r0, #1
- 8001534:	f7ff fde8 	bl	8001108 <quarter_cycle_open>
+ 8001534:	f7ff fdf0 	bl	8001118 <quarter_cycle_open>
         quarter_cycle_open(1);
  8001538:	2001      	movs	r0, #1
- 800153a:	f7ff fde5 	bl	8001108 <quarter_cycle_open>
+ 800153a:	f7ff fded 	bl	8001118 <quarter_cycle_open>
         currentState = STATE_SLEEP;
  800153e:	4b0b      	ldr	r3, [pc, #44]	@ (800156c <emergency_state+0xac>)
  8001540:	2205      	movs	r2, #5
@@ -2747,8 +2751,8 @@ void emergency_state(void) {
  800154a:	bf00      	nop
  800154c:	bd80      	pop	{r7, pc}
  800154e:	bf00      	nop
- 8001550:	20004190 	.word	0x20004190
- 8001554:	20004194 	.word	0x20004194
+ 8001550:	20004194 	.word	0x20004194
+ 8001554:	20004198 	.word	0x20004198
  8001558:	080062d0 	.word	0x080062d0
  800155c:	20000258 	.word	0x20000258
  8001560:	20000408 	.word	0x20000408
@@ -2862,17 +2866,17 @@ int main(void)
 		{
 			case STATE_READY:
 				ready_state();
- 8001608:	f7ff fdf0 	bl	80011ec <ready_state>
+ 8001608:	f7ff fdf6 	bl	80011f8 <ready_state>
 				break;
  800160c:	e012      	b.n	8001634 <main+0xc4>
 			case STATE_READING:
 				reading_state();
- 800160e:	f7ff fe11 	bl	8001234 <reading_state>
+ 800160e:	f7ff fe17 	bl	8001240 <reading_state>
 				break;
  8001612:	e00f      	b.n	8001634 <main+0xc4>
 			case STATE_OPEN:
 				open_state();
- 8001614:	f7ff fe70 	bl	80012f8 <open_state>
+ 8001614:	f7ff fe76 	bl	8001304 <open_state>
 				break;
  8001618:	e00c      	b.n	8001634 <main+0xc4>
 			case STATE_CLOSED:
@@ -2902,14 +2906,14 @@ int main(void)
 		switch (currentState)
  8001634:	e7d2      	b.n	80015dc <main+0x6c>
  8001636:	bf00      	nop
- 8001638:	2000422c 	.word	0x2000422c
- 800163c:	200041e4 	.word	0x200041e4
+ 8001638:	20004230 	.word	0x20004230
+ 800163c:	200041e8 	.word	0x200041e8
  8001640:	20000408 	.word	0x20000408
  8001644:	20004114 	.word	0x20004114
- 8001648:	200042fc 	.word	0x200042fc
- 800164c:	20004344 	.word	0x20004344
+ 8001648:	20004300 	.word	0x20004300
+ 800164c:	20004348 	.word	0x20004348
  8001650:	20004144 	.word	0x20004144
- 8001654:	2000438c 	.word	0x2000438c
+ 8001654:	20004390 	.word	0x20004390
  8001658:	20004110 	.word	0x20004110
 
 0800165c <SystemClock_Config>:
@@ -3198,13 +3202,13 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
  8001808:	080062e8 	.word	0x080062e8
  800180c:	20004134 	.word	0x20004134
  8001810:	20004142 	.word	0x20004142
- 8001814:	200042fc 	.word	0x200042fc
+ 8001814:	20004300 	.word	0x20004300
  8001818:	40004400 	.word	0x40004400
- 800181c:	20004344 	.word	0x20004344
+ 800181c:	20004348 	.word	0x20004348
  8001820:	40004800 	.word	0x40004800
  8001824:	20004144 	.word	0x20004144
  8001828:	20004146 	.word	0x20004146
- 800182c:	2000438c 	.word	0x2000438c
+ 800182c:	20004390 	.word	0x20004390
 
 08001830 <Error_Handler>:
 /**
@@ -3281,7 +3285,7 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  80018a0:	40010c00 	.word	0x40010c00
  80018a4:	20004110 	.word	0x20004110
  80018a8:	080062ec 	.word	0x080062ec
- 80018ac:	2000438c 	.word	0x2000438c
+ 80018ac:	20004390 	.word	0x20004390
 
 080018b0 <HAL_MspInit>:
 /* USER CODE END 0 */
@@ -3558,7 +3562,7 @@ void DMA1_Channel5_IRQHandler(void)
  8001986:	bf00      	nop
  8001988:	bd80      	pop	{r7, pc}
  800198a:	bf00      	nop
- 800198c:	20004274 	.word	0x20004274
+ 800198c:	20004278 	.word	0x20004278
 
 08001990 <DMA1_Channel6_IRQHandler>:
 
@@ -3582,7 +3586,7 @@ void DMA1_Channel6_IRQHandler(void)
  800199a:	bf00      	nop
  800199c:	bd80      	pop	{r7, pc}
  800199e:	bf00      	nop
- 80019a0:	200042b8 	.word	0x200042b8
+ 80019a0:	200042bc 	.word	0x200042bc
 
 080019a4 <USART1_IRQHandler>:
 
@@ -3606,7 +3610,7 @@ void USART1_IRQHandler(void)
  80019ae:	bf00      	nop
  80019b0:	bd80      	pop	{r7, pc}
  80019b2:	bf00      	nop
- 80019b4:	200042fc 	.word	0x200042fc
+ 80019b4:	20004300 	.word	0x20004300
 
 080019b8 <USART2_IRQHandler>:
 
@@ -3630,7 +3634,7 @@ void USART2_IRQHandler(void)
  80019c2:	bf00      	nop
  80019c4:	bd80      	pop	{r7, pc}
  80019c6:	bf00      	nop
- 80019c8:	20004344 	.word	0x20004344
+ 80019c8:	20004348 	.word	0x20004348
 
 080019cc <USART3_IRQHandler>:
 
@@ -3654,7 +3658,7 @@ void USART3_IRQHandler(void)
  80019d6:	bf00      	nop
  80019d8:	bd80      	pop	{r7, pc}
  80019da:	bf00      	nop
- 80019dc:	2000438c 	.word	0x2000438c
+ 80019dc:	20004390 	.word	0x20004390
 
 080019e0 <EXTI15_10_IRQHandler>:
 
@@ -3768,8 +3772,8 @@ void *_sbrk(ptrdiff_t incr)
  8001a6a:	bd80      	pop	{r7, pc}
  8001a6c:	20005000 	.word	0x20005000
  8001a70:	00000400 	.word	0x00000400
- 8001a74:	20004198 	.word	0x20004198
- 8001a78:	20004520 	.word	0x20004520
+ 8001a74:	2000419c 	.word	0x2000419c
+ 8001a78:	20004528 	.word	0x20004528
 
 08001a7c <SystemInit>:
   * @note   This function should be used only after reset.
@@ -3947,7 +3951,7 @@ void MX_TIM2_Init(void)
  8001b6a:	46bd      	mov	sp, r7
  8001b6c:	bd80      	pop	{r7, pc}
  8001b6e:	bf00      	nop
- 8001b70:	2000419c 	.word	0x2000419c
+ 8001b70:	200041a0 	.word	0x200041a0
 
 08001b74 <MX_TIM3_Init>:
 /* TIM3 init function */
@@ -4101,7 +4105,7 @@ void MX_TIM3_Init(void)
  8001c52:	3738      	adds	r7, #56	@ 0x38
  8001c54:	46bd      	mov	sp, r7
  8001c56:	bd80      	pop	{r7, pc}
- 8001c58:	200041e4 	.word	0x200041e4
+ 8001c58:	200041e8 	.word	0x200041e8
  8001c5c:	40000400 	.word	0x40000400
 
 08001c60 <MX_TIM4_Init>:
@@ -4256,7 +4260,7 @@ void MX_TIM4_Init(void)
  8001d3e:	3738      	adds	r7, #56	@ 0x38
  8001d40:	46bd      	mov	sp, r7
  8001d42:	bd80      	pop	{r7, pc}
- 8001d44:	2000422c 	.word	0x2000422c
+ 8001d44:	20004230 	.word	0x20004230
  8001d48:	40000800 	.word	0x40000800
 
 08001d4c <HAL_TIM_Base_MspInit>:
@@ -4446,10 +4450,10 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
  8001e6c:	bd80      	pop	{r7, pc}
  8001e6e:	bf00      	nop
  8001e70:	40021000 	.word	0x40021000
- 8001e74:	20004274 	.word	0x20004274
+ 8001e74:	20004278 	.word	0x20004278
  8001e78:	40020058 	.word	0x40020058
  8001e7c:	40000400 	.word	0x40000400
- 8001e80:	200042b8 	.word	0x200042b8
+ 8001e80:	200042bc 	.word	0x200042bc
  8001e84:	4002006c 	.word	0x4002006c
  8001e88:	40000800 	.word	0x40000800
 
@@ -4651,7 +4655,7 @@ void MX_USART1_UART_Init(void)
  8001fb6:	bf00      	nop
  8001fb8:	bd80      	pop	{r7, pc}
  8001fba:	bf00      	nop
- 8001fbc:	200042fc 	.word	0x200042fc
+ 8001fbc:	20004300 	.word	0x20004300
  8001fc0:	40013800 	.word	0x40013800
 
 08001fc4 <MX_USART2_UART_Init>:
@@ -4716,7 +4720,7 @@ void MX_USART2_UART_Init(void)
  800200a:	bf00      	nop
  800200c:	bd80      	pop	{r7, pc}
  800200e:	bf00      	nop
- 8002010:	20004344 	.word	0x20004344
+ 8002010:	20004348 	.word	0x20004348
  8002014:	40004400 	.word	0x40004400
 
 08002018 <MX_USART3_UART_Init>:
@@ -4781,7 +4785,7 @@ void MX_USART3_UART_Init(void)
  800205e:	bf00      	nop
  8002060:	bd80      	pop	{r7, pc}
  8002062:	bf00      	nop
- 8002064:	2000438c 	.word	0x2000438c
+ 8002064:	20004390 	.word	0x20004390
  8002068:	40004800 	.word	0x40004800
 
 0800206c <HAL_UART_MspInit>:
@@ -5096,7 +5100,7 @@ LoopFillZerobss:
   ldr r2, =_sbss
  8002244:	200003ec 	.word	0x200003ec
   ldr r4, =_ebss
- 8002248:	20004520 	.word	0x20004520
+ 8002248:	20004524 	.word	0x20004524
 
 0800224c <ADC1_2_IRQHandler>:
  * @retval : None
@@ -5244,7 +5248,7 @@ __weak void HAL_IncTick(void)
  80022f4:	bc80      	pop	{r7}
  80022f6:	4770      	bx	lr
  80022f8:	20000398 	.word	0x20000398
- 80022fc:	200043d4 	.word	0x200043d4
+ 80022fc:	200043d8 	.word	0x200043d8
 
 08002300 <HAL_GetTick>:
   * @note  This function is declared as __weak to be overwritten in case of other
@@ -5263,7 +5267,7 @@ __weak uint32_t HAL_GetTick(void)
  800230a:	46bd      	mov	sp, r7
  800230c:	bc80      	pop	{r7}
  800230e:	4770      	bx	lr
- 8002310:	200043d4 	.word	0x200043d4
+ 8002310:	200043d8 	.word	0x200043d8
 
 08002314 <HAL_Delay>:
   *       implementations in user file.
@@ -7262,7 +7266,7 @@ void HAL_GPIO_EXTI_IRQHandler(uint16_t GPIO_Pin)
     HAL_GPIO_EXTI_Callback(GPIO_Pin);
  8002e78:	88fb      	ldrh	r3, [r7, #6]
  8002e7a:	4618      	mov	r0, r3
- 8002e7c:	f7fe f8f4 	bl	8001068 <HAL_GPIO_EXTI_Callback>
+ 8002e7c:	f7fe f8fc 	bl	8001078 <HAL_GPIO_EXTI_Callback>
   }
 }
  8002e80:	bf00      	nop
@@ -15288,7 +15292,7 @@ bool WS28XX_Update(WS28XX_HandleTypeDef *hLed)
  8005cea:	d1f2      	bne.n	8005cd2 <sbrk_aligned+0x22>
  8005cec:	e7ef      	b.n	8005cce <sbrk_aligned+0x1e>
  8005cee:	bf00      	nop
- 8005cf0:	20004514 	.word	0x20004514
+ 8005cf0:	20004518 	.word	0x20004518
 
 08005cf4 <_malloc_r>:
  8005cf4:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -15398,7 +15402,7 @@ bool WS28XX_Update(WS28XX_HandleTypeDef *hLed)
  8005dea:	6005      	str	r5, [r0, #0]
  8005dec:	e7d6      	b.n	8005d9c <_malloc_r+0xa8>
  8005dee:	bf00      	nop
- 8005df0:	20004518 	.word	0x20004518
+ 8005df0:	2000451c 	.word	0x2000451c
 
 08005df4 <_printf_common>:
  8005df4:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -15737,13 +15741,13 @@ bool WS28XX_Update(WS28XX_HandleTypeDef *hLed)
  8006118:	4801      	ldr	r0, [pc, #4]	@ (8006120 <__malloc_lock+0x8>)
  800611a:	f7ff bc6f 	b.w	80059fc <__retarget_lock_acquire_recursive>
  800611e:	bf00      	nop
- 8006120:	20004510 	.word	0x20004510
+ 8006120:	20004514 	.word	0x20004514
 
 08006124 <__malloc_unlock>:
  8006124:	4801      	ldr	r0, [pc, #4]	@ (800612c <__malloc_unlock+0x8>)
  8006126:	f7ff bc6a 	b.w	80059fe <__retarget_lock_release_recursive>
  800612a:	bf00      	nop
- 800612c:	20004510 	.word	0x20004510
+ 800612c:	20004514 	.word	0x20004514
 
 08006130 <_realloc_r>:
  8006130:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
@@ -15820,7 +15824,7 @@ bool WS28XX_Update(WS28XX_HandleTypeDef *hLed)
  80061d6:	b103      	cbz	r3, 80061da <_sbrk_r+0x1a>
  80061d8:	6023      	str	r3, [r4, #0]
  80061da:	bd38      	pop	{r3, r4, r5, pc}
- 80061dc:	2000451c 	.word	0x2000451c
+ 80061dc:	20004520 	.word	0x20004520
 
 080061e0 <memchr>:
  80061e0:	4603      	mov	r3, r0
@@ -15918,7 +15922,7 @@ bool WS28XX_Update(WS28XX_HandleTypeDef *hLed)
  800629e:	6054      	str	r4, [r2, #4]
  80062a0:	e7cb      	b.n	800623a <_free_r+0x22>
  80062a2:	bd38      	pop	{r3, r4, r5, pc}
- 80062a4:	20004518 	.word	0x20004518
+ 80062a4:	2000451c 	.word	0x2000451c
 
 080062a8 <_malloc_usable_size_r>:
  80062a8:	f851 3c04 	ldr.w	r3, [r1, #-4]

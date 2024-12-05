@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file           : main.c
-  * @brief          : Main program body
+  * @brief          : Test program for IR sensor alignment
   ******************************************************************************
   * @attention
   *
@@ -18,8 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "usart.h"
 #include "gpio.h"
+#include "usart.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -35,6 +35,7 @@
 /* USER CODE BEGIN PD */
 #define OBJECT_DETECTION_TIMEOUT 500  // Timeout period for object detection (in ms)
 #define PULSE_INTERVAL 100            // Interval for pulse transmission (in ms)
+#define NUM_SENSORS 6                 // Number of sensors
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -43,15 +44,11 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-
 /* USER CODE BEGIN PV */
-uint32_t last_pulse_received_time1 = 0;  // Time for last pulse reception
-uint32_t last_pulse_received_time2 = 0;  // Time for last pulse reception
-uint32_t last_pulse_received_time3 = 0;  // Time for last pulse reception
-uint32_t last_pulse_received_time4 = 0;  // Time for last pulse reception
-uint32_t last_pulse_received_time5 = 0;  // Time for last pulse reception
-uint32_t last_pulse_received_time6 = 0;  // Time for last pulse reception
-volatile int ir_flag = 0;
+uint32_t last_pulse_received_time[NUM_SENSORS] = {0}; // Tracks the last pulse time for each sensor
+volatile int ir_flag = 0; // Flag to indicate object detection
+const uint16_t pulse_pins[NUM_SENSORS] = {GPIO_PIN_1, GPIO_PIN_3, GPIO_PIN_4, GPIO_PIN_5, GPIO_PIN_6, GPIO_PIN_7};
+uint32_t interrupt_counters[NUM_SENSORS] = {0}; // Tracks the number of interrupts for each sensor
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -62,72 +59,46 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-int CheckObjectDetection(void)
-{
-    static uint32_t last_pulse_time = 0;  // Static variable to remember last pulse transmission time
-    // 1. Generate a pulse every 100 ms
-    if (HAL_GetTick() - last_pulse_time >= PULSE_INTERVAL)
-    {
+
+/**
+ * @brief Function to check object detection using IR sensors.
+ * @retval int - Returns 1 if an object is detected, 0 otherwise.
+ */
+int CheckObjectDetection(void) {
+    static uint32_t last_pulse_time = 0;
+
+    // Generate a pulse every PULSE_INTERVAL (100 ms)
+    if (HAL_GetTick() - last_pulse_time >= PULSE_INTERVAL) {
         last_pulse_time = HAL_GetTick();
-        HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0); // Toggle PC0 to generate pulse
+        HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0); // Generate a pulse on GPIOC PIN_0
     }
 
-    // 2. Check for absence of pulses over an extended period for object detection
-    if (HAL_GetTick() - last_pulse_received_time1 >= OBJECT_DETECTION_TIMEOUT)
-    {
-        return 1;  // Object detected: no pulse received in timeout period
+    // Check if any sensor has timed out
+    ir_flag = 0; // Assume no object is present
+    for (int i = 0; i < NUM_SENSORS; i++) {
+        if (HAL_GetTick() - last_pulse_received_time[i] >= OBJECT_DETECTION_TIMEOUT) {
+            ir_flag = 1;  // Object detected
+            break;        // No need to check further if one sensor times out
+        }
     }
-    if (HAL_GetTick() - last_pulse_received_time2 >= OBJECT_DETECTION_TIMEOUT)
-    {
-        return 1;  // Object detected: no pulse received in timeout period
-    }
-    if (HAL_GetTick() - last_pulse_received_time3 >= OBJECT_DETECTION_TIMEOUT)
-    {
-        return 1;  // Object detected: no pulse received in timeout period
-    }
-    if (HAL_GetTick() - last_pulse_received_time4 >= OBJECT_DETECTION_TIMEOUT)
-    {
-        return 1;  // Object detected: no pulse received in timeout period
-    }
-    if (HAL_GetTick() - last_pulse_received_time5 >= OBJECT_DETECTION_TIMEOUT)
-    {
-        return 1;  // Object detected: no pulse received in timeout period
-    }
-    if (HAL_GetTick() - last_pulse_received_time6 >= OBJECT_DETECTION_TIMEOUT)
-    {
-        return 1;  // Object detected: no pulse received in timeout period
-    }
-    return 0;
 
+    return ir_flag; // Return detection flag
 }
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-    if (GPIO_Pin == GPIO_PIN_1)  // Check if interrupt is on the correct pin
-    {
-        last_pulse_received_time1 = HAL_GetTick();  // Update last received time on pulse
-    }
-    if (GPIO_Pin == GPIO_PIN_3)  // Check if interrupt is on the correct pin
-    {
-        last_pulse_received_time2 = HAL_GetTick();  // Update last received time on pulse
-    }
-    if (GPIO_Pin == GPIO_PIN_4)  // Check if interrupt is on the correct pin
-    {
-        last_pulse_received_time3 = HAL_GetTick();  // Update last received time on pulse
-    }
-    if (GPIO_Pin == GPIO_PIN_5)  // Check if interrupt is on the correct pin
-    {
-        last_pulse_received_time4 = HAL_GetTick();  // Update last received time on pulse
-    }
-    if (GPIO_Pin == GPIO_PIN_6)  // Check if interrupt is on the correct pin
-    {
-        last_pulse_received_time5 = HAL_GetTick();  // Update last received time on pulse
-    }
-    if (GPIO_Pin == GPIO_PIN_7)  // Check if interrupt is on the correct pin
-    {
-        last_pulse_received_time6 = HAL_GetTick();  // Update last received time on pulse
-    }
 
+/**
+ * @brief GPIO EXTI Callback function for handling sensor interrupts.
+ * @param GPIO_Pin - Pin number that triggered the interrupt.
+ */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+    for (int i = 0; i < NUM_SENSORS; i++) {
+        if (GPIO_Pin == pulse_pins[i]) {
+            last_pulse_received_time[i] = HAL_GetTick(); // Update the pulse received time
+            interrupt_counters[i]++; // Increment the interrupt counter for the corresponding sensor
+            return; // Exit once the correct sensor is updated
+        }
+    }
 }
+
 /* USER CODE END 0 */
 
 /**
@@ -136,7 +107,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   */
 int main(void)
 {
-
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -153,15 +123,12 @@ int main(void)
   /* Configure the system clock */
   SystemClock_Config();
 
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
-
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USART2_UART_Init();
-  /* USER CODE BEGIN 2 */
+  MX_USART2_UART_Init(); // Initialize UART for debugging
 
+  /* USER CODE BEGIN 2 */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET); // Ensure PC0 starts low
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -170,15 +137,14 @@ int main(void)
   {
       int object_present = CheckObjectDetection();
 
-      if (object_present)
-      {
-          ir_flag = 1;
+      // Provide feedback based on object detection
+      if (object_present) {
+          HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET); // Turn on LED (PB7) if object detected
+      } else {
+          HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET); // Turn off LED if no object detected
       }
-      else
-      {
-          ir_flag = 0;
-          HAL_Delay(2000);
-      }
+
+      HAL_Delay(200); // Delay for ease of observation
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -204,59 +170,34 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI_DIV2;
   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL16;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
     Error_Handler();
   }
 
   /** Initializes the CPU, AHB and APB buses clocks
   */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK
+                              | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
-  {
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK) {
     Error_Handler();
   }
 }
 
 /* USER CODE BEGIN 4 */
 
+/**
+ * @brief Error Handler function to toggle an LED in case of failure.
+ */
+void Error_Handler(void) {
+    while (1) {
+        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7); // Indicate error on LED
+        HAL_Delay(500); // Blink every 500 ms
+    }
+}
 
 /* USER CODE END 4 */
-
-/**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
-void Error_Handler(void)
-{
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
-  /* USER CODE END Error_Handler_Debug */
-}
-
-#ifdef  USE_FULL_ASSERT
-/**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
-void assert_failed(uint8_t *file, uint32_t line)
-{
-  /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-  /* USER CODE END 6 */
-}
-#endif /* USE_FULL_ASSERT */
