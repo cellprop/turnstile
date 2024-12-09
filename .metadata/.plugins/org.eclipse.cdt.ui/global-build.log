@@ -1,196 +1,4 @@
-14:40:20 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
-make -j7 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'Clear_All_Animations':
-../Core/Src/main.c:226:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  226 |     Led_Strip(&ws, entryStrip, entryStripSize, "off");
-      |               ^~~
-      |               |
-      |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:227:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  227 |     Led_Strip(&ws, entryRFID, entryRFIDSize, "off");
-      |               ^~~
-      |               |
-      |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:228:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  228 |     Led_Strip(&ws, exitStrip, exitStripSize, "off");
-      |               ^~~
-      |               |
-      |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:229:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  229 |     Led_Strip(&ws, exitRFID, exitRFIDSize, "off");
-      |               ^~~
-      |               |
-      |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c: In function 'Entry_Granted_Animation':
-../Core/Src/main.c:243:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  243 |         Led_Strip(&ws, entryStrip, entryStripSize, "green");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:244:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  244 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "green");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:245:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  245 |         Led_Strip(&ws, exitStrip, exitStripSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:246:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  246 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c: In function 'Exit_Granted_Animation':
-../Core/Src/main.c:271:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  271 |         Led_Strip(&ws, entryStrip, entryStripSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:272:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  272 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:273:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  273 |         Led_Strip(&ws, exitStrip, exitStripSize, "green");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:274:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  274 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "green");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c: In function 'Ready_State_Animation':
-../Core/Src/main.c:289:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  289 |         Led_Strip(&ws, entryStrip, entryStripSize, "blue");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:290:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  290 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "blue");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:291:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  291 |         Led_Strip(&ws, exitStrip, exitStripSize, "blue");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:292:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  292 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "blue");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c: In function 'Access_Denied_Animation':
-../Core/Src/main.c:320:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  320 |         Led_Strip(&ws, entryStrip, entryStripSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:321:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  321 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:322:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  322 |         Led_Strip(&ws, exitStrip, exitStripSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:323:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  323 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:655:32: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
-  655 |   HAL_UART_Receive_IT(&huart3, &responseData, 2);
-      |                                ^~~~~~~~~~~~~
-      |                                |
-      |                                uint8_t (*)[2] {aka unsigned char (*)[2]}
-In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
-                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:752:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[2]' {aka 'unsigned char (*)[2]'}
-  752 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
-      |                                                                  ~~~~~~~~~^~~~~
-arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: turnstile_stm_program.elf
- 
-arm-none-eabi-size  turnstile_stm_program.elf 
-arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
-   text	   data	    bss	    dec	    hex	filename
-  25736	   1004	  18228	  44968	   afa8	turnstile_stm_program.elf
-Finished building: default.size.stdout
- 
-Finished building: turnstile_stm_program.list
- 
-12:30:00 **** Incremental Build of configuration Debug for project ir_sensor ****
+13:01:32 **** Incremental Build of configuration Debug for project ir_sensor ****
 make -j7 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "ir_sensor.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/ir_sensor/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ir_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -204,479 +12,396 @@ Finished building: default.size.stdout
  
 Finished building: ir_sensor.list
  
-12:30:02 **** Incremental Build of configuration Debug for project led_matrix ****
-make -j7 all 
-arm-none-eabi-size  led_matrix.elf 
-   text	   data	    bss	    dec	    hex	filename
-  14208	     12	   8708	  22928	   5990	led_matrix.elf
-Finished building: default.size.stdout
- 
-12:30:03 **** Incremental Build of configuration Debug for project limit_switch ****
-make -j7 all 
-arm-none-eabi-size  limit_switch.elf 
-   text	   data	    bss	    dec	    hex	filename
-  12812	     12	   2892	  15716	   3d64	limit_switch.elf
-Finished building: default.size.stdout
- 
-12:30:04 **** Incremental Build of configuration Debug for project limit_switch2 ****
-make -j7 all 
-arm-none-eabi-size  limit_switch2.elf 
-   text	   data	    bss	    dec	    hex	filename
-   5656	     12	   1644	   7312	   1c90	limit_switch2.elf
-Finished building: default.size.stdout
- 
-12:30:04 **** Incremental Build of configuration Debug for project motor2 ****
-make -j7 all 
-arm-none-eabi-size  motor2.elf 
-   text	   data	    bss	    dec	    hex	filename
-   9436	     12	   1716	  11164	   2b9c	motor2.elf
-Finished building: default.size.stdout
- 
-12:30:05 **** Incremental Build of configuration Debug for project rfid ****
-make -j7 all 
-arm-none-eabi-size  rfid.elf 
-   text	   data	    bss	    dec	    hex	filename
-  11532	     92	   2148	  13772	   35cc	rfid.elf
-Finished building: default.size.stdout
- 
-12:30:05 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
-make -j7 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'Clear_All_Animations':
-../Core/Src/main.c:226:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  226 |     Led_Strip(&ws, entryStrip, entryStripSize, "off");
-      |               ^~~
-      |               |
-      |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:227:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  227 |     Led_Strip(&ws, entryRFID, entryRFIDSize, "off");
-      |               ^~~
-      |               |
-      |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:228:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  228 |     Led_Strip(&ws, exitStrip, exitStripSize, "off");
-      |               ^~~
-      |               |
-      |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:229:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  229 |     Led_Strip(&ws, exitRFID, exitRFIDSize, "off");
-      |               ^~~
-      |               |
-      |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c: In function 'Entry_Granted_Animation':
-../Core/Src/main.c:243:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  243 |         Led_Strip(&ws, entryStrip, entryStripSize, "green");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:244:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  244 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "green");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:245:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  245 |         Led_Strip(&ws, exitStrip, exitStripSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:246:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  246 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c: In function 'Exit_Granted_Animation':
-../Core/Src/main.c:271:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  271 |         Led_Strip(&ws, entryStrip, entryStripSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:272:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  272 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:273:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  273 |         Led_Strip(&ws, exitStrip, exitStripSize, "green");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:274:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  274 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "green");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c: In function 'Ready_State_Animation':
-../Core/Src/main.c:289:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  289 |         Led_Strip(&ws, entryStrip, entryStripSize, "blue");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:290:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  290 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "blue");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:291:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  291 |         Led_Strip(&ws, exitStrip, exitStripSize, "blue");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:292:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  292 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "blue");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c: In function 'Access_Denied_Animation':
-../Core/Src/main.c:320:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  320 |         Led_Strip(&ws, entryStrip, entryStripSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:321:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  321 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:322:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  322 |         Led_Strip(&ws, exitStrip, exitStripSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:323:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  323 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c: In function 'quarter_cycle_open':
-../Core/Src/main.c:432:9: warning: implicit declaration of function 'Report_Error' [-Wimplicit-function-declaration]
-  432 |         Report_Error("Timeout: Encoder failed to stop motor");
-      |         ^~~~~~~~~~~~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:656:32: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
-  656 |   HAL_UART_Receive_IT(&huart3, &responseData, 2);
-      |                                ^~~~~~~~~~~~~
-      |                                |
-      |                                uint8_t (*)[2] {aka unsigned char (*)[2]}
-In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
-                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:752:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[2]' {aka 'unsigned char (*)[2]'}
-  752 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
-      |                                                                  ~~~~~~~~~^~~~~
-arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.0.200.202406191456/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: ./Core/Src/main.o: in function `quarter_cycle_open':
-/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Debug/../Core/Src/main.c:432: undefined reference to `Report_Error'
-/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.0.200.202406191456/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: ./Core/Src/main.o: in function `quarter_cycle_closed':
-/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/Debug/../Core/Src/main.c:458: undefined reference to `Report_Error'
-collect2: error: ld returned 1 exit status
-make: *** [makefile:65: turnstile_stm_program.elf] Error 1
-"make -j7 all" terminated with exit code 2. Build might be incomplete.
-12:30:07 **** Incremental Build of configuration Debug for project uart_test ****
-make -j7 all 
-arm-none-eabi-size  uart_test.elf 
-   text	   data	    bss	    dec	    hex	filename
-   9000	     92	   2060	  11152	   2b90	uart_test.elf
-Finished building: default.size.stdout
- 
-12:32:16 **** Incremental Build of configuration Debug for project ir_sensor ****
+14:18:16 **** Incremental Build of configuration Debug for project ir_sensor ****
 make -j7 all 
 arm-none-eabi-size  ir_sensor.elf 
    text	   data	    bss	    dec	    hex	filename
    6020	     12	   1700	   7732	   1e34	ir_sensor.elf
 Finished building: default.size.stdout
  
-12:32:17 **** Incremental Build of configuration Debug for project led_matrix ****
+14:27:08 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ir_sensor.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/ir_sensor/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ir_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ir_sensor.elf
+ 
+arm-none-eabi-size  ir_sensor.elf 
+arm-none-eabi-objdump -h -S ir_sensor.elf  > "ir_sensor.list"
+Finished building: ir_sensor.list
+   text	   data	    bss	    dec	    hex	filename
+   6020	     12	   1700	   7732	   1e34	ir_sensor.elf
+ 
+Finished building: default.size.stdout
+ 
+14:29:00 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ir_sensor.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/ir_sensor/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ir_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ir_sensor.elf
+ 
+arm-none-eabi-size  ir_sensor.elf 
+arm-none-eabi-objdump -h -S ir_sensor.elf  > "ir_sensor.list"
+Finished building: ir_sensor.list
+ 
+   text	   data	    bss	    dec	    hex	filename
+   6020	     12	   1700	   7732	   1e34	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+14:47:46 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:100:12: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  100 |         if(GPIO_Pin = GPIO_PIN_1){
+      |            ^~~~~~~~
+../Core/Src/main.c:103:12: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  103 |         if(GPIO_Pin = GPIO_PIN_3){
+      |            ^~~~~~~~
+../Core/Src/main.c:106:12: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  106 |         if(GPIO_Pin = GPIO_PIN_4){
+      |            ^~~~~~~~
+../Core/Src/main.c:109:12: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  109 |         if(GPIO_Pin = GPIO_PIN_5){
+      |            ^~~~~~~~
+../Core/Src/main.c:112:12: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  112 |         if(GPIO_Pin = GPIO_PIN_6){
+      |            ^~~~~~~~
+../Core/Src/main.c:115:12: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  115 |         if(GPIO_Pin = GPIO_PIN_7){
+      |            ^~~~~~~~
+arm-none-eabi-gcc -o "ir_sensor.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/ir_sensor/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ir_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ir_sensor.elf
+ 
+arm-none-eabi-size  ir_sensor.elf 
+arm-none-eabi-objdump -h -S ir_sensor.elf  > "ir_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+   6020	     12	   1700	   7732	   1e34	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ir_sensor.list
+ 
+14:48:04 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6020	     12	   1700	   7732	   1e34	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+14:55:02 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/usart.o"
+../Core/Src/main.c:235:6: error: redefinition of 'Error_Handler'
+  235 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:222:6: note: previous definition of 'Error_Handler' with type 'void(void)'
+  222 | void Error_Handler(void) {
+      |      ^~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+14:56:53 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ir_sensor.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/ir_sensor/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ir_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ir_sensor.elf
+ 
+arm-none-eabi-size  ir_sensor.elf 
+arm-none-eabi-objdump -h -S ir_sensor.elf  > "ir_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+   6136	     12	   1700	   7848	   1ea8	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ir_sensor.list
+ 
+14:56:55 **** Incremental Build of configuration Debug for project led_matrix ****
 make -j7 all 
 arm-none-eabi-size  led_matrix.elf 
    text	   data	    bss	    dec	    hex	filename
   14208	     12	   8708	  22928	   5990	led_matrix.elf
 Finished building: default.size.stdout
  
-12:32:18 **** Incremental Build of configuration Debug for project limit_switch ****
+14:56:55 **** Incremental Build of configuration Debug for project limit_switch ****
 make -j7 all 
 arm-none-eabi-size  limit_switch.elf 
    text	   data	    bss	    dec	    hex	filename
   12812	     12	   2892	  15716	   3d64	limit_switch.elf
 Finished building: default.size.stdout
  
-12:32:18 **** Incremental Build of configuration Debug for project limit_switch2 ****
+14:56:56 **** Incremental Build of configuration Debug for project limit_switch2 ****
 make -j7 all 
 arm-none-eabi-size  limit_switch2.elf 
    text	   data	    bss	    dec	    hex	filename
    5656	     12	   1644	   7312	   1c90	limit_switch2.elf
 Finished building: default.size.stdout
  
-12:32:19 **** Incremental Build of configuration Debug for project motor2 ****
+14:56:58 **** Incremental Build of configuration Debug for project motor2 ****
 make -j7 all 
 arm-none-eabi-size  motor2.elf 
    text	   data	    bss	    dec	    hex	filename
    9436	     12	   1716	  11164	   2b9c	motor2.elf
 Finished building: default.size.stdout
  
-12:32:19 **** Incremental Build of configuration Debug for project rfid ****
+14:56:58 **** Incremental Build of configuration Debug for project rfid ****
 make -j7 all 
 arm-none-eabi-size  rfid.elf 
    text	   data	    bss	    dec	    hex	filename
   11532	     92	   2148	  13772	   35cc	rfid.elf
 Finished building: default.size.stdout
  
-12:32:20 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+14:56:59 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
 make -j7 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'Clear_All_Animations':
-../Core/Src/main.c:226:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  226 |     Led_Strip(&ws, entryStrip, entryStripSize, "off");
-      |               ^~~
-      |               |
-      |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:227:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  227 |     Led_Strip(&ws, entryRFID, entryRFIDSize, "off");
-      |               ^~~
-      |               |
-      |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:228:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  228 |     Led_Strip(&ws, exitStrip, exitStripSize, "off");
-      |               ^~~
-      |               |
-      |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:229:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  229 |     Led_Strip(&ws, exitRFID, exitRFIDSize, "off");
-      |               ^~~
-      |               |
-      |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c: In function 'Entry_Granted_Animation':
-../Core/Src/main.c:243:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  243 |         Led_Strip(&ws, entryStrip, entryStripSize, "green");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:244:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  244 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "green");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:245:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  245 |         Led_Strip(&ws, exitStrip, exitStripSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:246:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  246 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c: In function 'Exit_Granted_Animation':
-../Core/Src/main.c:271:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  271 |         Led_Strip(&ws, entryStrip, entryStripSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:272:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  272 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:273:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  273 |         Led_Strip(&ws, exitStrip, exitStripSize, "green");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:274:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  274 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "green");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c: In function 'Ready_State_Animation':
-../Core/Src/main.c:289:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  289 |         Led_Strip(&ws, entryStrip, entryStripSize, "blue");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:290:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  290 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "blue");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:291:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  291 |         Led_Strip(&ws, exitStrip, exitStripSize, "blue");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:292:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  292 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "blue");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c: In function 'Access_Denied_Animation':
-../Core/Src/main.c:320:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  320 |         Led_Strip(&ws, entryStrip, entryStripSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:321:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  321 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:322:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  322 |         Led_Strip(&ws, exitStrip, exitStripSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:323:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  323 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:176:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  176 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:656:32: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
-  656 |   HAL_UART_Receive_IT(&huart3, &responseData, 2);
-      |                                ^~~~~~~~~~~~~
-      |                                |
-      |                                uint8_t (*)[2] {aka unsigned char (*)[2]}
-In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
-                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:752:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[2]' {aka 'unsigned char (*)[2]'}
-  752 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
-      |                                                                  ~~~~~~~~~^~~~~
-arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: turnstile_stm_program.elf
- 
 arm-none-eabi-size  turnstile_stm_program.elf 
-arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
    text	   data	    bss	    dec	    hex	filename
   25736	   1004	  18236	  44976	   afb0	turnstile_stm_program.elf
 Finished building: default.size.stdout
  
-Finished building: turnstile_stm_program.list
- 
-12:32:22 **** Incremental Build of configuration Debug for project uart_test ****
+14:56:59 **** Incremental Build of configuration Debug for project uart_test ****
 make -j7 all 
 arm-none-eabi-size  uart_test.elf 
    text	   data	    bss	    dec	    hex	filename
    9000	     92	   2060	  11152	   2b90	uart_test.elf
+Finished building: default.size.stdout
+ 
+14:57:28 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6136	     12	   1700	   7848	   1ea8	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+14:58:31 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6136	     12	   1700	   7848	   1ea8	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+15:05:37 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6136	     12	   1700	   7848	   1ea8	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+15:16:02 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'CheckObjectDetection':
+../Core/Src/main.c:85:29: error: 'last_pulse_received_time_1' undeclared (first use in this function); did you mean 'last_pulse_received_time1'?
+   85 |         if (HAL_GetTick() - last_pulse_received_time_1 >= OBJECT_DETECTION_TIMEOUT) {
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                             last_pulse_received_time1
+../Core/Src/main.c:85:29: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:87:17: error: break statement not within loop or switch
+   87 |                 break;        // No need to check further if one sensor times out
+      |                 ^~~~~
+../Core/Src/main.c:89:29: error: 'last_pulse_received_time_2' undeclared (first use in this function); did you mean 'last_pulse_received_time2'?
+   89 |         if (HAL_GetTick() - last_pulse_received_time_2 >= OBJECT_DETECTION_TIMEOUT) {
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                             last_pulse_received_time2
+../Core/Src/main.c:91:17: error: break statement not within loop or switch
+   91 |                 break;        // No need to check further if one sensor times out
+      |                 ^~~~~
+../Core/Src/main.c:93:29: error: 'last_pulse_received_time_3' undeclared (first use in this function); did you mean 'last_pulse_received_time3'?
+   93 |         if (HAL_GetTick() - last_pulse_received_time_3 >= OBJECT_DETECTION_TIMEOUT) {
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                             last_pulse_received_time3
+../Core/Src/main.c:95:17: error: break statement not within loop or switch
+   95 |                 break;        // No need to check further if one sensor times out
+      |                 ^~~~~
+../Core/Src/main.c:97:29: error: 'last_pulse_received_time_4' undeclared (first use in this function); did you mean 'last_pulse_received_time4'?
+   97 |         if (HAL_GetTick() - last_pulse_received_time_4 >= OBJECT_DETECTION_TIMEOUT) {
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                             last_pulse_received_time4
+../Core/Src/main.c:99:17: error: break statement not within loop or switch
+   99 |                 break;        // No need to check further if one sensor times out
+      |                 ^~~~~
+../Core/Src/main.c:101:29: error: 'last_pulse_received_time_5' undeclared (first use in this function); did you mean 'last_pulse_received_time5'?
+  101 |         if (HAL_GetTick() - last_pulse_received_time_5 >= OBJECT_DETECTION_TIMEOUT) {
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                             last_pulse_received_time5
+../Core/Src/main.c:103:17: error: break statement not within loop or switch
+  103 |                 break;        // No need to check further if one sensor times out
+      |                 ^~~~~
+../Core/Src/main.c:105:29: error: 'last_pulse_received_time_6' undeclared (first use in this function); did you mean 'last_pulse_received_time6'?
+  105 |         if (HAL_GetTick() - last_pulse_received_time_6 >= OBJECT_DETECTION_TIMEOUT) {
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                             last_pulse_received_time6
+../Core/Src/main.c:107:17: error: break statement not within loop or switch
+  107 |                 break;        // No need to check further if one sensor times out
+      |                 ^~~~~
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:125:17: error: 'last_pulse_received_time_1' undeclared (first use in this function); did you mean 'last_pulse_received_time1'?
+  125 |                 last_pulse_received_time_1 = HAL_GetTick();
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                 last_pulse_received_time1
+../Core/Src/main.c:128:17: error: 'last_pulse_received_time_2' undeclared (first use in this function); did you mean 'last_pulse_received_time2'?
+  128 |                 last_pulse_received_time_2 = HAL_GetTick();
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                 last_pulse_received_time2
+../Core/Src/main.c:131:17: error: 'last_pulse_received_time_3' undeclared (first use in this function); did you mean 'last_pulse_received_time3'?
+  131 |                 last_pulse_received_time_3 = HAL_GetTick();
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                 last_pulse_received_time3
+../Core/Src/main.c:134:17: error: 'last_pulse_received_time_4' undeclared (first use in this function); did you mean 'last_pulse_received_time4'?
+  134 |                 last_pulse_received_time_4 = HAL_GetTick();
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                 last_pulse_received_time4
+../Core/Src/main.c:137:17: error: 'last_pulse_received_time_5' undeclared (first use in this function); did you mean 'last_pulse_received_time5'?
+  137 |                 last_pulse_received_time_5 = HAL_GetTick();
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                 last_pulse_received_time5
+../Core/Src/main.c:140:17: error: 'last_pulse_received_time_6' undeclared (first use in this function); did you mean 'last_pulse_received_time6'?
+  140 |                 last_pulse_received_time_6 = HAL_GetTick();
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                 last_pulse_received_time6
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+15:16:27 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'CheckObjectDetection':
+../Core/Src/main.c:87:17: error: break statement not within loop or switch
+   87 |                 break;        // No need to check further if one sensor times out
+      |                 ^~~~~
+../Core/Src/main.c:91:17: error: break statement not within loop or switch
+   91 |                 break;        // No need to check further if one sensor times out
+      |                 ^~~~~
+../Core/Src/main.c:95:17: error: break statement not within loop or switch
+   95 |                 break;        // No need to check further if one sensor times out
+      |                 ^~~~~
+../Core/Src/main.c:99:17: error: break statement not within loop or switch
+   99 |                 break;        // No need to check further if one sensor times out
+      |                 ^~~~~
+../Core/Src/main.c:103:17: error: break statement not within loop or switch
+  103 |                 break;        // No need to check further if one sensor times out
+      |                 ^~~~~
+../Core/Src/main.c:107:17: error: break statement not within loop or switch
+  107 |                 break;        // No need to check further if one sensor times out
+      |                 ^~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+15:17:16 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ir_sensor.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/ir_sensor/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ir_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ir_sensor.elf
+ 
+arm-none-eabi-size  ir_sensor.elf 
+arm-none-eabi-objdump -h -S ir_sensor.elf  > "ir_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+   6264	     12	   1676	   7952	   1f10	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ir_sensor.list
+ 
+15:18:41 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ir_sensor.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/ir_sensor/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ir_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ir_sensor.elf
+ 
+arm-none-eabi-size  ir_sensor.elf 
+arm-none-eabi-objdump -h -S ir_sensor.elf  > "ir_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+   6272	     12	   1676	   7960	   1f18	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ir_sensor.list
+ 
+17:57:14 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6272	     12	   1676	   7960	   1f18	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+17:59:38 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6272	     12	   1676	   7960	   1f18	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+18:04:01 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6272	     12	   1676	   7960	   1f18	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+10:36:01 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6272	     12	   1676	   7960	   1f18	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+10:45:34 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ir_sensor.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/ir_sensor/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ir_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ir_sensor.elf
+ 
+arm-none-eabi-size  ir_sensor.elf 
+arm-none-eabi-objdump -h -S ir_sensor.elf  > "ir_sensor.list"
+Finished building: ir_sensor.list
+ 
+   text	   data	    bss	    dec	    hex	filename
+   6336	     12	   1700	   8048	   1f70	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+10:52:36 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6336	     12	   1700	   8048	   1f70	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+11:11:19 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6336	     12	   1700	   8048	   1f70	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+11:55:05 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6336	     12	   1700	   8048	   1f70	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+11:57:04 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6336	     12	   1700	   8048	   1f70	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+12:00:27 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6336	     12	   1700	   8048	   1f70	ir_sensor.elf
 Finished building: default.size.stdout
  
