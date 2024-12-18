@@ -2,6 +2,9 @@
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
 #include <SoftwareSerial.h>
+#include <NTPClient.h>
+#include <WiFiUdp.h>
+#include <ctype.h> // Needed for isalnum function
 
 // Wi-Fi and MQTT settings
 const char* ssid = "nWO";                // Wi-Fi SSID
@@ -21,6 +24,10 @@ SoftwareSerial uart1(UART1_RX_PIN, UART1_TX_PIN);  // RX, TX for second UART
 WiFiClient espClient;
 PubSubClient client(espClient);
 
+// NTP Client settings
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP, "pool.ntp.org", 0, 60000); // UTC timezone, updates every minute
+
 const char* portId = "P01A";  // Static port ID
 #define BAUD_RATE 9600
 
@@ -35,8 +42,8 @@ void setup_wifi();
 void reconnect();
 void publishMessage(int uart_id, const char* command, const char* turnstile_id);
 void callback(char* topic, byte* payload, unsigned int length);
-void processUART(SoftwareSerial &uart, char* buffer, bool &data_flag, int uart_id);
-void sendToUART(SoftwareSerial &uart, const char* message);
+void processUART(Stream &uart, char* buffer, bool &data_flag, int uart_id);
+void sendToUART(Stream &uart, const char* message);
 String getTimestamp();
 
 void setup() {
@@ -46,6 +53,9 @@ void setup() {
 
   client.setServer(mqtt_server, mqtt_port);
   client.setCallback(callback);
+
+  // Start the NTP client
+  timeClient.begin();
 }
 
 void loop() {
@@ -53,6 +63,9 @@ void loop() {
     reconnect();
   }
   client.loop();
+
+  // Update the time from NTP server
+  timeClient.update();
 
   // Process UART0
   processUART(Serial, uart0_buffer, uart0_data_received, 0);
@@ -135,7 +148,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 }
 
 // Process UART input
-void processUART(SoftwareSerial &uart, char* buffer, bool &data_flag, int uart_id) {
+void processUART(Stream &uart, char* buffer, bool &data_flag, int uart_id) {
   if (uart.available() >= 2) {  // Minimum data length for command + turnstile ID
     int index = 0;
     while (uart.available() > 0 && index < sizeof(buffer) - 1) {
@@ -156,7 +169,7 @@ void processUART(SoftwareSerial &uart, char* buffer, bool &data_flag, int uart_i
       String turnstile_id = String(buffer[1]);
 
       // Validate data
-      if (command.isAlnum() && turnstile_id.isAlnum()) {
+      if (isalnum(buffer[0]) && isalnum(buffer[1])) {  // Fix applied here
         publishMessage(uart_id, command.c_str(), turnstile_id.c_str());
       } else {
         Serial.print("Invalid data on UART");
@@ -167,7 +180,7 @@ void processUART(SoftwareSerial &uart, char* buffer, bool &data_flag, int uart_i
 }
 
 // Send data via UART
-void sendToUART(SoftwareSerial &uart, const char* message) {
+void sendToUART(Stream &uart, const char* message) {
   Serial.print("Sending to UART: ");
   Serial.println(message);
   uart.write(message);
@@ -175,5 +188,6 @@ void sendToUART(SoftwareSerial &uart, const char* message) {
 
 // Get current timestamp
 String getTimestamp() {
-  return "2024-12-04 12:00:00";  // Replace with RTC or NTP logic
+  // Fetch formatted time from NTPClient
+  return timeClient.getFormattedTime();
 }

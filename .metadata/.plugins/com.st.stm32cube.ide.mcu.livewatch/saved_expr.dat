@@ -1,3 +1,11 @@
 intresponseData
 responseData
 interrupt_counters
+object_present
+ir_flag
+last_pulse_received_time_1
+last_pulse_received_time_2
+last_pulse_received_time_3
+last_pulse_received_time_4
+last_pulse_received_time_5
+last_pulse_received_time_6
