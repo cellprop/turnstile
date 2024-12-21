@@ -1,0 +1,9 @@
+../Core/Src/main.c:61:6:Speed_Control	16	static
+../Core/Src/main.c:67:6:Direction	16	static
+../Core/Src/main.c:80:6:HAL_GPIO_EXTI_Callback	16	static
+../Core/Src/main.c:102:6:encoder	8	static
+../Core/Src/main.c:111:6:quarter_cycle_cw	8	static
+../Core/Src/main.c:116:6:quarter_cycle_acw	8	static
+../Core/Src/main.c:127:5:main	8	static
+../Core/Src/main.c:181:6:SystemClock_Config	72	static
+../Core/Src/main.c:223:6:Error_Handler	4	static,ignoring_inline_asm

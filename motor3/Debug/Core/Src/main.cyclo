@@ -1,0 +1,9 @@
+../Core/Src/main.c:61:6:Speed_Control	1
+../Core/Src/main.c:67:6:Direction	3
+../Core/Src/main.c:80:6:HAL_GPIO_EXTI_Callback	3
+../Core/Src/main.c:102:6:encoder	2
+../Core/Src/main.c:111:6:quarter_cycle_cw	1
+../Core/Src/main.c:116:6:quarter_cycle_acw	1
+../Core/Src/main.c:127:5:main	1
+../Core/Src/main.c:181:6:SystemClock_Config	3
+../Core/Src/main.c:223:6:Error_Handler	1

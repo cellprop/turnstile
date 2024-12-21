@@ -7566,3 +7566,1237 @@ Caused by: org.xml.sax.SAXParseException; lineNumber: 2; columnNumber: 10; DOCTY
 	at org.eclipse.core.internal.runtime.XmlProcessorFactory.parseWithErrorOnDOCTYPE(XmlProcessorFactory.java:246)
 	at org.eclipse.urischeme.internal.registration.PlistFileWriter.getDom(PlistFileWriter.java:219)
 	... 6 more
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10052 2024-12-19 10:52:45.839
+!MESSAGE Cannot continue the operation.  There is another install operation in progress.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10052 2024-12-19 10:52:45.855
+!MESSAGE Cannot continue the operation.  There is another install operation in progress.
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2024-12-19 10:52:45.872
+!MESSAGE An error occurred while collecting items to be installed
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2024-12-19 10:52:45.872
+!MESSAGE session context was:(profile=STM32CubeIDE, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.ibm.icu,74.1.0
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.ecosystemintegration,2.5.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.ecosystemintegration.stinsider,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.ecosystemintegration.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.logger,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.logger.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.mx,6.13.0.202411220809
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.mx.macos64,6.13.0.202411220809
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.mx.oss,6.13.0.202411220809
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.mx.stinsider,6.13.0.202411220809
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.preferences,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.projectcreation,2.4.0.202410021139
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.projectcreation.ui,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.utils,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.cmake,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.common.services,2.6.0.202411150930
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.common.services.adapted,2.4.0.202410150958
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.common.services.mx,2.5.0.202410070941
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.common.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.common.ui.oss,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.common.utils,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.documentation,2.3.0.202411151103
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.jre.macos64,3.4.0.202409160955
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.analytics,2.4.0.202410091334
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.build,2.2.0.202410070941
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.build.ui,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.buildanalyzer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.cdt.lockdown,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.converters,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.converters.cubeide,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.converters.sw4stm32,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.converters.truestudio,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.cyclomaticcomplexity,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug,2.2.0.202410301457
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.dsf,3.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.dsf.oss,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.jlink,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.launch,3.4.100.202411041438
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.launch.oss,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.openocd,2.3.0.202411041438
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.stlink,2.4.0.202411041438
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.swv,3.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools,2.2.0.202410301006
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.macos64,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.gnu-arm-embedded,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.872
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.873
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1,1.1.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.873
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64,1.1.0.202410301201
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.873
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.jlink,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.873
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.jlink.macos64,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.873
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.make,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.873
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.make.macos64,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.873
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.openocd,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.873
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.openocd.macos64,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.873
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.oss,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.873
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.rtosproxy,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.873
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.rtosproxy.macos64,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.873
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.873
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.macos64,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.873
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.stlinkserver.macos64,2.3.0.202410301006
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.873
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.faultanalyzer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.freertos,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.ide,2.6.0.202410280845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.ide.oss,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.informationcenter,2.3.0.202410091335
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.linker,2.3.0.202411080940
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.linker.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.linkerdb,2.2.0.202410311509
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.livewatch,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.p2,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.productdb,2.4.0.202411172156
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.productdb.debug,2.2.0.202411061604
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.projectnatures,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.projecttree,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.rcp,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.resources,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.resources.common,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.resources.extended,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.resources.threadsafe,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.rtosproxy,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.sfr,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.874
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.sfrview,2.2.0.202409200931
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.stackanalyzer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.startup,2.3.0.202410090821
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.targetadapter,2.3.0.202409241225
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.tcp.console,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.threadx,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.toolchain,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.toolchain.arm-none,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.toolchain.arm-none.oss,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.toolchain.ui,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.toolchain.utils,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.linker,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.linkerdb,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.linux.ide,4.2.0.202411211331
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.linux.openstlinux.sources.core,2.3.0.202410111513
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.productdb,2.4.0.202411081354
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.productdb.debug,2.3.0.202411081354
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.projectnatures,2.2.0.202409171052
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.projecttree,2.2.0.202410111259
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.resources.common,2.2.0.202410111259
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.resources.extended,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.startup,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.targetadapter,2.2.0.202409171052
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.sun.jna,5.14.0.v20231211-1200
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,com.sun.jna.platform,5.14.0
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,jakarta.xml.bind,2.3.3.v20221203-1659
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,org.apache.commons.commons-io,2.16.1
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,org.apache.httpcomponents.httpclient,4.5.14.v20230516-1249
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.launchbar.core,2.5.200.202312281935
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.875
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.launchbar.ui,2.5.400.202403071917
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.876
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.remote.telnet.core,1.2.100.202402230238
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.876
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.remote.telnet.ui,1.1.200.202402230238
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.876
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.tools.templates.core,2.0.100.202402230238
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.876
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.tools.templates.freemarker,2.0.100.202402230238
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.876
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.tools.templates.ui,2.0.100.202402071818
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.876
+!MESSAGE No repository found containing: osgi.bundle,bcpg,1.77.0
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.876
+!MESSAGE No repository found containing: osgi.bundle,bcprov,1.77.0
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.876
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.ecosystemintegration,2.5.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.876
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.ecosystemintegration.stinsider,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.876
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.ecosystemintegration.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.876
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.logger,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.876
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.logger.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.877
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.mx,6.13.0.202411220809
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.877
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.mx.stinsider,6.13.0.202411220809
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.879
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.preferences,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.projectcreation,2.4.0.202410021139
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.projectcreation.ui,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.utils,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.cdt.lockdown,1.1.300.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.cmake,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.common.services.adapted,2.4.0.202410150958
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.common.services,2.6.0.202411150930
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.common.services.mx,2.5.0.202410070941
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.common.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.common.utils,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.documentation,2.3.0.202411151103
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.jre,3.4.0.202409160955
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.analytics,2.4.0.202410091334
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.build,2.2.0.202410070941
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.build.ui,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.buildanalyzer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.converters,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.cyclomaticcomplexity,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.debug,3.3.0.202411041438
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.debug.jlink,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.debug.openocd,2.2.0.202411041438
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.debug.sfrview,2.2.0.202409200931
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.debug.stlink,2.3.0.202411041438
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.debug.swv,3.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.cubeprogrammer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools,2.1.300.202410301006
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.gnu_arm_embedded,2.1.200.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.gnu_tools_for_stm32.12_3_rel1.bin,1.1.0.202410301201
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.gnu_tools_for_stm32.12_3_rel1,1.0.300.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.gnu_tools_for_stm32,2.2.300.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.jlink,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.make,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.openocd,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.stlink_gdb_server,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.stlinkserver,2.2.0.202410301006
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.faultanalyzer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.freertos,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.ide,2.6.0.202410280845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.informationcenter,2.3.0.202410091335
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.linker,2.3.0.202411080940
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.linker.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.880
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.linkerdb,2.2.0.202410311509
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.881
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.livewatch,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.881
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.p2,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.881
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.productdb.debug,2.2.0.202411061604
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.881
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.productdb,2.3.0.202411172156
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.881
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.projectnatures,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.881
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.projecttree,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.881
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.rcp,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.881
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.resources.common,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.881
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.resources.extended,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.881
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.resources.threadsafe,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.881
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.rtosproxy,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.881
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.stackanalyzer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.startup,2.3.0.202410090821
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.targetadapter,2.3.0.202409241225
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.tcp.console,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.threadx,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.toolchain.arm_none,2.3.500.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.toolchain,2.3.300.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.toolchain.ui,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.debug,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.debug.openocd,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.ide,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.linker,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.linkerdb,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.linux.debug,2.3.0.202409171043
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.linux.ide,3.2.0.202411211331
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.linux.openstlinux.core,2.3.0.202410111513
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.linux.projectcreation,3.1.0.202411252232
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.linux.toolchain,2.2.0.202409171043
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.productdb.debug,2.3.0.202411081354
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.productdb,2.4.0.202411081354
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.projectnatures,2.2.0.202409171052
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.projecttree,2.2.0.202410111259
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.remote.serial,2.3.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.remote.ssh,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.resources.common,2.2.0.202410111259
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.resources.extended,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.startup,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.targetadapter,2.2.0.202409171052
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 10:52:45.883
+!MESSAGE No repository found containing: binary,com.st.stm32cube.ide.mcu.rcp.product.executable.cocoa.macosx.x86_64,1.17.0
+
+!ENTRY org.eclipse.debug.core 4 125 2024-12-19 12:25:23.169
+!MESSAGE Error logged from Debug Core: 
+!STACK 1
+org.eclipse.core.runtime.CoreException: Target not available.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.getSourceName(DsfSourceLookupParticipant.java:164)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.findSourceElements(DsfSourceLookupParticipant.java:83)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector$SourceLookupQuery.run(AbstractSourceLookupDirector.java:138)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.doSourceLookup(AbstractSourceLookupDirector.java:473)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.getSourceElement(AbstractSourceLookupDirector.java:714)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.performLookup(DsfSourceDisplayAdapter.java:223)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.run(DsfSourceDisplayAdapter.java:203)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10001 2024-12-19 12:25:23.188
+!MESSAGE Target not available.
+
+!ENTRY org.eclipse.cdt.ui 4 0 2024-12-19 12:27:41.410
+!MESSAGE Error in CDT UI during reconcile
+!STACK 1
+C Model Exception: C Model Status [Element stm32f1xx_it.c does not exist.]
+	at org.eclipse.cdt.internal.core.model.CElement.newNotPresentException(CElement.java:485)
+	at org.eclipse.cdt.internal.core.model.TranslationUnit.makeConsistent(TranslationUnit.java:583)
+	at org.eclipse.cdt.internal.core.model.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:65)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.execute(CModelOperation.java:346)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.run(CModelOperation.java:613)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.runOperation(CModelOperation.java:641)
+	at org.eclipse.cdt.internal.core.model.WorkingCopy.reconcile(WorkingCopy.java:365)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:79)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 969 2024-12-19 12:27:41.421
+!MESSAGE Element stm32f1xx_it.c does not exist.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-12-19 12:34:55.403
+!MESSAGE Indexed 'turnstile_program_2' (20 sources, 79 headers) in 6.2 sec: 4,135 declarations; 17,902 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0091%)
+
+!ENTRY org.eclipse.debug.core 4 125 2024-12-19 12:39:27.695
+!MESSAGE Error logged from Debug Core: 
+!STACK 1
+org.eclipse.core.runtime.CoreException: Target not available.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.getSourceName(DsfSourceLookupParticipant.java:164)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.findSourceElements(DsfSourceLookupParticipant.java:83)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector$SourceLookupQuery.run(AbstractSourceLookupDirector.java:138)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.doSourceLookup(AbstractSourceLookupDirector.java:473)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.getSourceElement(AbstractSourceLookupDirector.java:714)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.performLookup(DsfSourceDisplayAdapter.java:223)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.run(DsfSourceDisplayAdapter.java:203)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10001 2024-12-19 12:39:27.698
+!MESSAGE Target not available.
+
+!ENTRY org.eclipse.debug.core 4 125 2024-12-19 12:49:36.642
+!MESSAGE Error logged from Debug Core: 
+!STACK 1
+org.eclipse.core.runtime.CoreException: Target not available.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.getSourceName(DsfSourceLookupParticipant.java:164)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.findSourceElements(DsfSourceLookupParticipant.java:83)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector$SourceLookupQuery.run(AbstractSourceLookupDirector.java:138)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.doSourceLookup(AbstractSourceLookupDirector.java:473)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.getSourceElement(AbstractSourceLookupDirector.java:714)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.performLookup(DsfSourceDisplayAdapter.java:223)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.run(DsfSourceDisplayAdapter.java:203)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10001 2024-12-19 12:49:36.645
+!MESSAGE Target not available.
+
+!ENTRY org.eclipse.debug.core 4 125 2024-12-19 12:51:10.957
+!MESSAGE Error logged from Debug Core: 
+!STACK 1
+org.eclipse.core.runtime.CoreException: Target not available.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.getSourceName(DsfSourceLookupParticipant.java:164)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.findSourceElements(DsfSourceLookupParticipant.java:83)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector$SourceLookupQuery.run(AbstractSourceLookupDirector.java:138)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.doSourceLookup(AbstractSourceLookupDirector.java:473)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.getSourceElement(AbstractSourceLookupDirector.java:714)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.performLookup(DsfSourceDisplayAdapter.java:223)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.run(DsfSourceDisplayAdapter.java:203)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10001 2024-12-19 12:51:10.961
+!MESSAGE Target not available.
+
+!ENTRY org.eclipse.debug.core 4 125 2024-12-19 12:55:49.960
+!MESSAGE Error logged from Debug Core: 
+!STACK 1
+org.eclipse.core.runtime.CoreException: Target not available.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.getSourceName(DsfSourceLookupParticipant.java:164)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.findSourceElements(DsfSourceLookupParticipant.java:83)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector$SourceLookupQuery.run(AbstractSourceLookupDirector.java:138)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.doSourceLookup(AbstractSourceLookupDirector.java:473)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.getSourceElement(AbstractSourceLookupDirector.java:714)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.performLookup(DsfSourceDisplayAdapter.java:223)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.run(DsfSourceDisplayAdapter.java:203)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10001 2024-12-19 12:55:49.965
+!MESSAGE Target not available.
+
+!ENTRY org.eclipse.debug.core 4 125 2024-12-19 13:15:42.301
+!MESSAGE Error logged from Debug Core: 
+!STACK 1
+org.eclipse.core.runtime.CoreException: Target not available.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.getSourceName(DsfSourceLookupParticipant.java:164)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.findSourceElements(DsfSourceLookupParticipant.java:83)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector$SourceLookupQuery.run(AbstractSourceLookupDirector.java:138)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.doSourceLookup(AbstractSourceLookupDirector.java:473)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.getSourceElement(AbstractSourceLookupDirector.java:714)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.performLookup(DsfSourceDisplayAdapter.java:223)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.run(DsfSourceDisplayAdapter.java:203)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10001 2024-12-19 13:15:42.306
+!MESSAGE Target not available.
+
+!ENTRY org.eclipse.debug.core 4 125 2024-12-19 13:16:59.464
+!MESSAGE Error logged from Debug Core: 
+!STACK 1
+org.eclipse.core.runtime.CoreException: Target not available.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.getSourceName(DsfSourceLookupParticipant.java:164)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.findSourceElements(DsfSourceLookupParticipant.java:83)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector$SourceLookupQuery.run(AbstractSourceLookupDirector.java:138)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.doSourceLookup(AbstractSourceLookupDirector.java:473)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.getSourceElement(AbstractSourceLookupDirector.java:714)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.performLookup(DsfSourceDisplayAdapter.java:223)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.run(DsfSourceDisplayAdapter.java:203)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10001 2024-12-19 13:16:59.467
+!MESSAGE Target not available.
+
+!ENTRY org.eclipse.debug.core 4 125 2024-12-19 13:17:40.276
+!MESSAGE Error logged from Debug Core: 
+!STACK 1
+org.eclipse.core.runtime.CoreException: Target not available.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.getSourceName(DsfSourceLookupParticipant.java:164)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.findSourceElements(DsfSourceLookupParticipant.java:83)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector$SourceLookupQuery.run(AbstractSourceLookupDirector.java:138)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.doSourceLookup(AbstractSourceLookupDirector.java:473)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.getSourceElement(AbstractSourceLookupDirector.java:714)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.performLookup(DsfSourceDisplayAdapter.java:223)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.run(DsfSourceDisplayAdapter.java:203)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10001 2024-12-19 13:17:40.280
+!MESSAGE Target not available.
+
+!ENTRY org.eclipse.debug.core 4 125 2024-12-19 13:26:08.049
+!MESSAGE Error logged from Debug Core: 
+!STACK 1
+org.eclipse.core.runtime.CoreException: Target not available.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.getSourceName(DsfSourceLookupParticipant.java:164)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.findSourceElements(DsfSourceLookupParticipant.java:83)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector$SourceLookupQuery.run(AbstractSourceLookupDirector.java:138)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.doSourceLookup(AbstractSourceLookupDirector.java:473)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.getSourceElement(AbstractSourceLookupDirector.java:714)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.performLookup(DsfSourceDisplayAdapter.java:223)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.run(DsfSourceDisplayAdapter.java:203)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10001 2024-12-19 13:26:08.054
+!MESSAGE Target not available.
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 104 2024-12-19 14:10:43.959
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor2/Debug/motor2.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:130)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:330)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:152)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:336)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:805)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1040)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1243)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 104 2024-12-19 14:10:43.964
+!MESSAGE /Users/vihaanravishankar/Desktop/Turnstile stuff/motor2/Debug/motor2.elf not found
+!STACK 0
+java.io.FileNotFoundException: /Users/vihaanravishankar/Desktop/Turnstile stuff/motor2/Debug/motor2.elf not found
+	at org.eclipse.cdt.dsf.gdb.launching.LaunchUtils.verifyProgramPath(LaunchUtils.java:130)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.checkBinaryDetails(GdbLaunchDelegate.java:330)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:152)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:336)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:805)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1040)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1243)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2024-12-19 15:04:45.209
+!MESSAGE An error occurred while collecting items to be installed
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2024-12-19 15:04:45.211
+!MESSAGE session context was:(profile=STM32CubeIDE, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.ibm.icu,74.1.0
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.ecosystemintegration,2.5.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.ecosystemintegration.stinsider,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.ecosystemintegration.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.logger,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.logger.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.mx,6.13.0.202411220809
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.mx.macos64,6.13.0.202411220809
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.mx.oss,6.13.0.202411220809
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.mx.stinsider,6.13.0.202411220809
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.preferences,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.projectcreation,2.4.0.202410021139
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.projectcreation.ui,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.common.utils,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.cmake,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.common.services,2.6.0.202411150930
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.common.services.adapted,2.4.0.202410150958
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.common.services.mx,2.5.0.202410070941
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.common.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.common.ui.oss,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.common.utils,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.documentation,2.3.0.202411151103
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.jre.macos64,3.4.0.202409160955
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.analytics,2.4.0.202410091334
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.build,2.2.0.202410070941
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.build.ui,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.buildanalyzer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.cdt.lockdown,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.converters,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.converters.cubeide,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.converters.sw4stm32,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.converters.truestudio,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.cyclomaticcomplexity,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug,2.2.0.202410301457
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.dsf,3.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.dsf.oss,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.jlink,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.launch,3.4.100.202411041438
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.launch.oss,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.openocd,2.3.0.202411041438
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.stlink,2.4.0.202411041438
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.debug.swv,3.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools,2.2.0.202410301006
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.macos64,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.gnu-arm-embedded,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1,1.1.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64,1.1.0.202410301201
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.jlink,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.jlink.macos64,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.make,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.make.macos64,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.openocd,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.openocd.macos64,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.oss,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.rtosproxy,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.rtosproxy.macos64,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.macos64,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.stlinkserver.macos64,2.3.0.202410301006
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.externaltools.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.faultanalyzer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.freertos,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.ide,2.6.0.202410280845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.ide.oss,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.informationcenter,2.3.0.202410091335
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.linker,2.3.0.202411080940
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.linker.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.linkerdb,2.2.0.202410311509
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.livewatch,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.p2,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.productdb,2.4.0.202411172156
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.productdb.debug,2.2.0.202411061604
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.projectnatures,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.projecttree,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.rcp,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.resources,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.resources.common,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.resources.extended,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.resources.threadsafe,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.211
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.rtosproxy,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.sfr,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.sfrview,2.2.0.202409200931
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.stackanalyzer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.startup,2.3.0.202410090821
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.targetadapter,2.3.0.202409241225
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.tcp.console,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.threadx,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.toolchain,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.toolchain.arm-none,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.toolchain.arm-none.oss,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.toolchain.ui,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mcu.toolchain.utils,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.linker,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.linkerdb,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.linux.ide,4.2.0.202411211331
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.linux.openstlinux.sources.core,2.3.0.202410111513
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.productdb,2.4.0.202411081354
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.productdb.debug,2.3.0.202411081354
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.projectnatures,2.2.0.202409171052
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.projecttree,2.2.0.202410111259
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.resources.common,2.2.0.202410111259
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.resources.extended,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.startup,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.st.stm32cube.ide.mpu.targetadapter,2.2.0.202409171052
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.sun.jna,5.14.0.v20231211-1200
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,com.sun.jna.platform,5.14.0
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.217
+!MESSAGE No repository found containing: osgi.bundle,jakarta.xml.bind,2.3.3.v20221203-1659
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: osgi.bundle,org.apache.commons.commons-io,2.16.1
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: osgi.bundle,org.apache.httpcomponents.httpclient,4.5.14.v20230516-1249
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.launchbar.core,2.5.200.202312281935
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.launchbar.ui,2.5.400.202403071917
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.remote.telnet.core,1.2.100.202402230238
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.remote.telnet.ui,1.1.200.202402230238
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.tools.templates.core,2.0.100.202402230238
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.tools.templates.freemarker,2.0.100.202402230238
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.tools.templates.ui,2.0.100.202402071818
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: osgi.bundle,bcpg,1.77.0
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: osgi.bundle,bcprov,1.77.0
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.ecosystemintegration,2.5.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.ecosystemintegration.stinsider,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.ecosystemintegration.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.logger,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.logger.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.mx,6.13.0.202411220809
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.mx.stinsider,6.13.0.202411220809
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.preferences,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.projectcreation,2.4.0.202410021139
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.projectcreation.ui,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.common.feature.utils,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.cdt.lockdown,1.1.300.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.cmake,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.common.services.adapted,2.4.0.202410150958
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.common.services,2.6.0.202411150930
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.common.services.mx,2.5.0.202410070941
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.common.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.common.utils,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.documentation,2.3.0.202411151103
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.jre,3.4.0.202409160955
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.analytics,2.4.0.202410091334
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.build,2.2.0.202410070941
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.build.ui,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.buildanalyzer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.converters,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.cyclomaticcomplexity,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.debug,3.3.0.202411041438
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.debug.jlink,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.debug.openocd,2.2.0.202411041438
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.debug.sfrview,2.2.0.202409200931
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.debug.stlink,2.3.0.202411041438
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.debug.swv,3.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.cubeprogrammer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools,2.1.300.202410301006
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.gnu_arm_embedded,2.1.200.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.gnu_tools_for_stm32.12_3_rel1.bin,1.1.0.202410301201
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.gnu_tools_for_stm32.12_3_rel1,1.0.300.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.gnu_tools_for_stm32,2.2.300.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.jlink,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.make,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.openocd,2.4.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.stlink_gdb_server,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.stlinkserver,2.2.0.202410301006
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.externaltools.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.faultanalyzer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.freertos,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.ide,2.6.0.202410280845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.informationcenter,2.3.0.202410091335
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.linker,2.3.0.202411080940
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.linker.ui,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.linkerdb,2.2.0.202410311509
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.livewatch,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.p2,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.productdb.debug,2.2.0.202411061604
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.productdb,2.3.0.202411172156
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.projectnatures,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.projecttree,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.rcp,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.resources.common,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.resources.extended,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.resources.threadsafe,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.rtosproxy,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.stackanalyzer,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.startup,2.3.0.202410090821
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.targetadapter,2.3.0.202409241225
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.tcp.console,1.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.threadx,2.2.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.toolchain.arm_none,2.3.500.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.toolchain,2.3.300.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mcu.toolchain.ui,2.3.0.202409170845
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.debug,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.debug.openocd,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.ide,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.linker,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.linkerdb,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.linux.debug,2.3.0.202409171043
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.linux.ide,3.2.0.202411211331
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.linux.openstlinux.core,2.3.0.202410111513
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.linux.projectcreation,3.1.0.202411252232
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.linux.toolchain,2.2.0.202409171043
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.productdb.debug,2.3.0.202411081354
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.productdb,2.4.0.202411081354
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.projectnatures,2.2.0.202409171052
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.projecttree,2.2.0.202410111259
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.remote.serial,2.3.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.remote.ssh,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.resources.common,2.2.0.202410111259
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.resources.extended,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.startup,2.2.0.202409171044
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: org.eclipse.update.feature,com.st.stm32cube.ide.feature.mpu.targetadapter,2.2.0.202409171052
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2024-12-19 15:04:45.218
+!MESSAGE No repository found containing: binary,com.st.stm32cube.ide.mcu.rcp.product.executable.cocoa.macosx.x86_64,1.17.0
+
+!ENTRY org.eclipse.debug.core 4 125 2024-12-19 16:55:28.714
+!MESSAGE Error logged from Debug Core: 
+!STACK 1
+org.eclipse.core.runtime.CoreException: Target not available.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.getSourceName(DsfSourceLookupParticipant.java:164)
+	at org.eclipse.cdt.dsf.debug.sourcelookup.DsfSourceLookupParticipant.findSourceElements(DsfSourceLookupParticipant.java:83)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector$SourceLookupQuery.run(AbstractSourceLookupDirector.java:138)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.doSourceLookup(AbstractSourceLookupDirector.java:473)
+	at org.eclipse.debug.core.sourcelookup.AbstractSourceLookupDirector.getSourceElement(AbstractSourceLookupDirector.java:714)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.performLookup(DsfSourceDisplayAdapter.java:223)
+	at org.eclipse.cdt.dsf.debug.ui.sourcelookup.DsfSourceDisplayAdapter$LookupJob.run(DsfSourceDisplayAdapter.java:203)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10001 2024-12-19 16:55:28.716
+!MESSAGE Target not available.
+!SESSION 2024-12-20 10:37:52.142 -----------------------------------------------
+eclipse.buildId=Version 1.16.1
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -keyring /Users/vihaanravishankar/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/vihaanravishankar/.eclipse_keyring
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-12-20 10:38:07.335
+!MESSAGE Log4j2 initialized with config file /Users/vihaanravishankar/Desktop/Turnstile stuff/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-12-20 10:38:25.643
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.urischeme 4 0 2024-12-20 10:38:29.192
+!MESSAGE org.xml.sax.SAXParseException; lineNumber: 2; columnNumber: 10; DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+!STACK 0
+java.lang.IllegalArgumentException: org.xml.sax.SAXParseException; lineNumber: 2; columnNumber: 10; DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+	at org.eclipse.urischeme.internal.registration.PlistFileWriter.getDom(PlistFileWriter.java:221)
+	at org.eclipse.urischeme.internal.registration.PlistFileWriter.<init>(PlistFileWriter.java:69)
+	at org.eclipse.urischeme.internal.registration.RegistrationMacOsX.getPlistFileWriter(RegistrationMacOsX.java:122)
+	at org.eclipse.urischeme.internal.registration.RegistrationMacOsX.changePlistFile(RegistrationMacOsX.java:139)
+	at org.eclipse.urischeme.internal.registration.RegistrationMacOsX.handleSchemes(RegistrationMacOsX.java:55)
+	at org.eclipse.urischeme.AutoRegisterSchemeHandlersJob.run(AutoRegisterSchemeHandlersJob.java:95)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 2; columnNumber: 10; DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.eclipse.core.internal.runtime.XmlProcessorFactory.parseWithErrorOnDOCTYPE(XmlProcessorFactory.java:246)
+	at org.eclipse.urischeme.internal.registration.PlistFileWriter.getDom(PlistFileWriter.java:219)
+	... 6 more
+
+!ENTRY org.eclipse.ui 4 0 2024-12-20 11:47:07.548
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4918)
+	at org.eclipse.swt.SWT.error(SWT.java:4833)
+	at org.eclipse.swt.SWT.error(SWT.java:4804)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:811)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:597)
+	at org.eclipse.swt.widgets.Table.getItems(Table.java:1684)
+	at org.eclipse.jface.viewers.CheckboxTableViewer.setAllChecked(CheckboxTableViewer.java:368)
+	at org.eclipse.equinox.internal.p2.ui.dialogs.TrustCertificateDialog.lambda$31(TrustCertificateDialog.java:649)
+	at org.eclipse.swt.events.SelectionListener$1.widgetSelected(SelectionListener.java:84)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:252)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4645)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1524)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1547)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1532)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1325)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4412)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3988)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:823)
+	at org.eclipse.jface.window.Window.open(Window.java:799)
+	at org.eclipse.equinox.internal.p2.ui.ValidationDialogServiceUI.lambda$10(ValidationDialogServiceUI.java:239)
+	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:68)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:172)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4367)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3990)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+
+!ENTRY org.eclipse.core.jobs 2 2 2024-12-20 11:47:08.720
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.equinox.p2.operations.ProfileModificationJob
+!SESSION 2024-12-20 11:47:20.817 -----------------------------------------------
+eclipse.buildId=Version 1.16.1
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -keyring /Users/vihaanravishankar/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/vihaanravishankar/.eclipse_keyring
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-12-20 11:47:33.371
+!MESSAGE Log4j2 initialized with config file /Users/vihaanravishankar/Desktop/Turnstile stuff/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-12-20 11:47:49.014
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.urischeme 4 0 2024-12-20 11:47:52.907
+!MESSAGE org.xml.sax.SAXParseException; lineNumber: 2; columnNumber: 10; DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+!STACK 0
+java.lang.IllegalArgumentException: org.xml.sax.SAXParseException; lineNumber: 2; columnNumber: 10; DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+	at org.eclipse.urischeme.internal.registration.PlistFileWriter.getDom(PlistFileWriter.java:221)
+	at org.eclipse.urischeme.internal.registration.PlistFileWriter.<init>(PlistFileWriter.java:69)
+	at org.eclipse.urischeme.internal.registration.RegistrationMacOsX.getPlistFileWriter(RegistrationMacOsX.java:122)
+	at org.eclipse.urischeme.internal.registration.RegistrationMacOsX.changePlistFile(RegistrationMacOsX.java:139)
+	at org.eclipse.urischeme.internal.registration.RegistrationMacOsX.handleSchemes(RegistrationMacOsX.java:55)
+	at org.eclipse.urischeme.AutoRegisterSchemeHandlersJob.run(AutoRegisterSchemeHandlersJob.java:95)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 2; columnNumber: 10; DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.eclipse.core.internal.runtime.XmlProcessorFactory.parseWithErrorOnDOCTYPE(XmlProcessorFactory.java:246)
+	at org.eclipse.urischeme.internal.registration.PlistFileWriter.getDom(PlistFileWriter.java:219)
+	... 6 more
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2024-12-20 11:52:41.591
+!MESSAGE An error occurred during the org.eclipse.equinox.internal.p2.engine.phases.CheckTrust phase.
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2024-12-20 11:52:41.594
+!MESSAGE session context was:(profile=STM32CubeIDE, phase=org.eclipse.equinox.internal.p2.engine.phases.CheckTrust, operand=, action=).
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2024-12-20 11:52:41.594
+!MESSAGE Error reading signed content.
+!STACK 0
+java.io.FileNotFoundException: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.rtosproxy_1.2.0.202409170845.jar (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at org.eclipse.osgi.internal.signedcontent.SignedContentFromBundleFile.lambda$2(SignedContentFromBundleFile.java:198)
+	at org.eclipse.osgi.internal.signedcontent.SignedContentFromBundleFile.getSignedEntries(SignedContentFromBundleFile.java:223)
+	at org.eclipse.osgi.internal.signedcontent.SignedContentFromBundleFile.<init>(SignedContentFromBundleFile.java:193)
+	at org.eclipse.osgi.internal.signedcontent.SignedBundleHook.getSignedContent(SignedBundleHook.java:169)
+	at org.eclipse.equinox.internal.p2.engine.phases.CertificateChecker.checkCertificates(CertificateChecker.java:173)
+	at org.eclipse.equinox.internal.p2.engine.phases.CertificateChecker.start(CertificateChecker.java:121)
+	at org.eclipse.equinox.internal.p2.engine.phases.CheckTrust.completePhase(CheckTrust.java:64)
+	at org.eclipse.equinox.internal.p2.engine.Phase.postPerform(Phase.java:254)
+	at org.eclipse.equinox.internal.p2.engine.Phase.perform(Phase.java:105)
+	at org.eclipse.equinox.internal.p2.engine.PhaseSet.perform(PhaseSet.java:50)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:95)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:49)
+	at org.eclipse.equinox.p2.operations.ProvisioningSession.performProvisioningPlan(ProvisioningSession.java:175)
+	at org.eclipse.equinox.p2.operations.ProfileModificationJob.runModal(ProfileModificationJob.java:76)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:188)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-12-21 10:26:56.922
+!MESSAGE Indexed 'motor3' (20 sources, 79 headers) in 13 sec: 4,135 declarations; 17,902 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0091%)
