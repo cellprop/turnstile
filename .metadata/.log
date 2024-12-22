@@ -8800,3 +8800,31 @@ java.io.FileNotFoundException: /Applications/STM32CubeIDE.app/Contents/Eclipse/p
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-12-21 10:26:56.922
 !MESSAGE Indexed 'motor3' (20 sources, 79 headers) in 13 sec: 4,135 declarations; 17,902 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0091%)
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2024-12-21 11:13:47.306
+!MESSAGE An error occurred during the org.eclipse.equinox.internal.p2.engine.phases.CheckTrust phase.
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2024-12-21 11:13:47.309
+!MESSAGE session context was:(profile=STM32CubeIDE, phase=org.eclipse.equinox.internal.p2.engine.phases.CheckTrust, operand=, action=).
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2024-12-21 11:13:47.309
+!MESSAGE Error reading signed content.
+!STACK 0
+java.io.FileNotFoundException: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.rtosproxy_1.2.0.202409170845.jar (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at org.eclipse.osgi.internal.signedcontent.SignedContentFromBundleFile.lambda$2(SignedContentFromBundleFile.java:198)
+	at org.eclipse.osgi.internal.signedcontent.SignedContentFromBundleFile.getSignedEntries(SignedContentFromBundleFile.java:223)
+	at org.eclipse.osgi.internal.signedcontent.SignedContentFromBundleFile.<init>(SignedContentFromBundleFile.java:193)
+	at org.eclipse.osgi.internal.signedcontent.SignedBundleHook.getSignedContent(SignedBundleHook.java:169)
+	at org.eclipse.equinox.internal.p2.engine.phases.CertificateChecker.checkCertificates(CertificateChecker.java:173)
+	at org.eclipse.equinox.internal.p2.engine.phases.CertificateChecker.start(CertificateChecker.java:121)
+	at org.eclipse.equinox.internal.p2.engine.phases.CheckTrust.completePhase(CheckTrust.java:64)
+	at org.eclipse.equinox.internal.p2.engine.Phase.postPerform(Phase.java:254)
+	at org.eclipse.equinox.internal.p2.engine.Phase.perform(Phase.java:105)
+	at org.eclipse.equinox.internal.p2.engine.PhaseSet.perform(PhaseSet.java:50)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:95)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:49)
+	at org.eclipse.equinox.p2.operations.ProvisioningSession.performProvisioningPlan(ProvisioningSession.java:175)
+	at org.eclipse.equinox.p2.operations.ProfileModificationJob.runModal(ProfileModificationJob.java:76)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:188)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

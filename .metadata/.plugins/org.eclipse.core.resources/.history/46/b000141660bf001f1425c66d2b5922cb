@@ -88,7 +88,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 				counter = 0;
 			}
 	}
-	if(GPIO_Pin == GPIO_PIN_10)
+	/*if(GPIO_Pin == GPIO_PIN_10)
 	{
 		Speed_Control(0);
 		counter = 0;
@@ -97,7 +97,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	{
 		Speed_Control(0);
 		counter = 0;
-	}
+	}*/
 }
 void encoder(void)
 {

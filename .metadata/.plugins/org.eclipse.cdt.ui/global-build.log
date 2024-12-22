@@ -146,3 +146,10 @@ Finished building: default.size.stdout
  
 Finished building: motor3.list
  
+11:18:24 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9416	     12	   1724	  11152	   2b90	motor3.elf
+Finished building: default.size.stdout
+ 
