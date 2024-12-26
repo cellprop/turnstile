@@ -45,7 +45,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-volatile int counter = 0;
+volatile int counter1 = 0;
+volatile int counter2 = 0;
 volatile int rev = 0;
 volatile int check = 0;
 /* USER CODE END PV */
@@ -58,10 +59,15 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void Speed_Control(int a)
+void Speed_Control1(int a)
 {
 	__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_1, a);
-	//__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_2, a);
+	//__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_2, a - 30);
+}
+void Speed_Control2(int a)
+{
+	//__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_1, a);
+	__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_2, a);
 }
 
 void Direction(int a)
@@ -81,14 +87,14 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if(GPIO_Pin == GPIO_PIN_2)
 	{
-			counter++;
-			if(counter == 588)
+			counter1++;
+			if(counter1 == 588)
 			{
-				Speed_Control(0);
-				counter = 0;
+				Speed_Control1(0);
+				counter1 = 0;
 			}
 	}
-	if(GPIO_Pin == GPIO_PIN_10)
+	/*if(GPIO_Pin == GPIO_PIN_10)
 	{
 		Speed_Control(0);
 		counter = 0;
@@ -97,9 +103,25 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	{
 		Speed_Control(0);
 		counter = 0;
+	}*/
+	if(GPIO_Pin == GPIO_PIN_12)
+	{
+			counter2++;
+			if(counter2 == 588)
+			{
+				Speed_Control2(0);
+				counter2 = 0;
+			}
+	}
+	if(GPIO_Pin == GPIO_PIN_13)
+	{
+			counter1 = 0;
+			counter2 = 0;
+			Speed_Control1(0);
+			Speed_Control2(0);
 	}
 }
-void encoder(void)
+/*void encoder(void)
 {
 	counter++;
 	if(counter == 588)
@@ -107,16 +129,18 @@ void encoder(void)
 		Speed_Control(0);
 		counter = 0;
 	}
-}
+}*/
 void quarter_cycle_cw(void)
 {
 	Direction(0);
-	Speed_Control(2000);
+	Speed_Control1(200);
+	Speed_Control2(255);
 }
 void quarter_cycle_acw(void)
 {
 	Direction(1);
-	Speed_Control(2000);
+	Speed_Control1(200);
+	Speed_Control2(255);
 }
 /* USER CODE END 0 */
 
@@ -154,6 +178,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start(&htim4);
   HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_2);
 
   //Speed_Control(0);
   check = 1;

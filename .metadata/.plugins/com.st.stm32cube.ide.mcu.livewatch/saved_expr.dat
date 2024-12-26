@@ -2,7 +2,7 @@ intresponseData
 responseData
 interrupt_counters
 object_present
-ir_flag
+flag_rev
 last_pulse_received_time_1
 last_pulse_received_time_2
 last_pulse_received_time_3
@@ -11,5 +11,6 @@ last_pulse_received_time_5
 last_pulse_received_time_6
 currentState
 usermsg
-counter
-check
+counter1
+responseData
+counter2

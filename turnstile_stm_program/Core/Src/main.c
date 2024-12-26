@@ -75,7 +75,8 @@ volatile uint8_t uart_source = 0;   // Variable to identify UART source (1 for U
 uint8_t responseData[2];      // For NOS response
 uint8_t intresponseData;
 /* Other variables */
-volatile int counter = 0;
+volatile int counter1 = 0;
+volatile int counter2 = 0;
 volatile int rev = 0;
 /*
 uint32_t last_pulse_received_time1 = 0;  // Time for last pulse reception
@@ -349,9 +350,14 @@ int CheckObjectDetection(void) {
 
 
 //MOTOR CONTROL FUNCTIONS
-void Speed_Control(int a)
+void Speed_Control1(int a)
 {
 	__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_1, a);
+	//__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_2, a - 30);
+}
+void Speed_Control2(int a)
+{
+	//__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_1, a);
 	__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_2, a);
 }
 
@@ -361,21 +367,12 @@ void Direction(int a)
 	{
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_RESET);
-
 	}
 	if(a==0)
 	{
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_SET);
 	}
-}
-
-void encoder(void) {
-    counter++;
-    if (counter == ENCODER_THRESHOLD) {
-        Speed_Control(0); // Stop the motor
-        counter = 0;      // Reset counter for next operation
-    }
 }
 
 const uint16_t pulse_pins[NUM_SENSORS] = {GPIO_PIN_1, GPIO_PIN_3, GPIO_PIN_4, GPIO_PIN_5, GPIO_PIN_6, GPIO_PIN_7};
@@ -387,30 +384,37 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
             return; // Exit after updating the correct sensor
         }
     }*/
-
-    // Handle encoder feedback or motor stop
-    switch (GPIO_Pin) {
-        case GPIO_PIN_2:
-            //HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
-            encoder();
-            break;
-
-        case GPIO_PIN_10:
-        case GPIO_PIN_11:
-        case GPIO_PIN_14:
-        case GPIO_PIN_15:
-            Speed_Control(0);
-            counter = 0;
-            break;
-
-        default:
-            break;
-    }
+	if(GPIO_Pin == GPIO_PIN_2)
+	{
+			counter1++;
+			if(counter1 == 588)
+			{
+				Speed_Control1(0);
+				counter1 = 0;
+			}
+	}
+	if(GPIO_Pin == GPIO_PIN_12)
+	{
+			counter2++;
+			if(counter2 == 588)
+			{
+				Speed_Control2(0);
+				counter2 = 0;
+			}
+	}
+	if(GPIO_Pin == GPIO_PIN_13)
+	{
+			counter1 = 0;
+			counter2 = 0;
+			Speed_Control1(0);
+			Speed_Control2(0);
+	}
 }
 
 void quarter_cycle_open(int source) {
     uint32_t start_time = HAL_GetTick();  // Record the start time
-    counter = 0;  // Reset the counter at the start of the operation
+    counter1 = 0;  // Reset the counter at the start of the operation
+    counter2 = 0;
 
     // Set motor direction based on the source
     if (source == 1) {
@@ -419,25 +423,17 @@ void quarter_cycle_open(int source) {
         Direction(1);  // Direction for source 2
     }
 
-    Speed_Control(1000);  // Start the motor
+	Speed_Control1(50);
+	Speed_Control2(40);
 
-    // Wait for the encoder interrupt to stop the motor or timeout
-    while (HAL_GetTick() - start_time <= 3000) {
-        if (counter == 0) {  // If encoder reset counter, motor has stopped
-            break;
-        }
-    }
 
-    if (counter != 0) {  // If the counter is not reset, stop the motor manually
-        Speed_Control(0);  // Safety stop
-        //Report_Error("Timeout: Encoder failed to stop motor");
-    }
+
 }
 
 void quarter_cycle_closed(int source) {
     uint32_t start_time = HAL_GetTick();  // Record the start time
-    counter = 0;  // Reset the counter at the start of the operation
-
+    counter1 = 0;  // Reset the counter at the start of the operation
+    counter2 = 0;
     // Set motor direction based on the source
     if (source == 1) {
         Direction(1);  // Direction for source 1
@@ -445,19 +441,9 @@ void quarter_cycle_closed(int source) {
         Direction(0);  // Direction for source 2
     }
 
-    Speed_Control(1000);  // Start the motor
+	Speed_Control1(50);
+	Speed_Control2(40);
 
-    // Wait for the encoder interrupt to stop the motor or timeout
-    while (HAL_GetTick() - start_time <= 3000) {
-        if (counter == 0) {  // If encoder reset counter, motor has stopped
-            break;
-        }
-    }
-
-    if (counter != 0) {  // If the counter is not reset, stop the motor manually
-        Speed_Control(0);  // Safety stop
-        //Report_Error("Timeout: Encoder failed to stop motor");
-    }
 }
 
 //STATE FUNCTIONS
@@ -481,30 +467,20 @@ void ready_state(void) {
 }
 
 void reading_state(void) {
-    static uint32_t start_time = 0;
 
-    if (start_time == 0) {  // Initialize timer on first call
-        start_time = HAL_GetTick();
+    if (flag_rev == 1) {
+        HAL_UART_Transmit_IT(&huart2, (uint8_t *)usermsg, strlen(usermsg));
+        flag_rev = 0;
     }
 
-    if (HAL_GetTick() - start_time >= 1000) {
-        // Execute logic after 1 second delay
-        if (flag_rev == 1) {
-            HAL_UART_Transmit_IT(&huart2, (uint8_t *)usermsg, strlen(usermsg));
-            flag_rev = 0;
-        }
-
-        // NOS Potential Responses Setup
-        switch (intresponseData) {
-            case 0: currentState = STATE_READY; break;
-            case 1: currentState = STATE_OPEN; break;
-            case 2: currentState = STATE_CLOSED; break;
-            case 3: currentState = STATE_EMERGENCY; break;
-            case 4: currentState = STATE_SLEEP; break;
-            case 5: currentState = STATE_OVERCAPACITY; break;
-        }
-
-        start_time = 0;  // Reset timer
+    // NOS Potential Responses Setup
+    switch (intresponseData) {
+        case 0: currentState = STATE_READY; break;
+        case 1: currentState = STATE_OPEN; break;
+        case 2: currentState = STATE_CLOSED; break;
+        case 3: currentState = STATE_EMERGENCY; break;
+        case 4: currentState = STATE_SLEEP; break;
+        case 5: currentState = STATE_OVERCAPACITY; break;
     }
 }
 
@@ -670,6 +646,7 @@ int main(void)
 /*  while(1){
 
   }*/
+  //quarter_cycle_open(1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -760,7 +737,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 
         uart_source = 1;
         processedData[12] = uart_source + '0';
-        processedData[13] = '\0'; // Null-terminate the string
+        processedData[13] = TURNSTILE_ID + '0';
 
         // Use sprintf to format usermsg with identification flag
         sprintf(usermsg, "%s", processedData);
@@ -792,7 +769,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
         }
         uart_source = 2;
 		processedData[12] = uart_source + '0';
-		processedData[13] = '\0'; // Null-terminate the string
+        processedData[13] = TURNSTILE_ID + '0';
 
         // Use sprintf to format usermsg with identification flag
         sprintf(usermsg, "%s", processedData);
@@ -821,7 +798,7 @@ void Error_Handler(void)
     uint32_t error_start_time = HAL_GetTick();
 
     while (1) {
-        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);  // Indicate error
+        HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);  // Indicate error
         HAL_Delay(500);
 
         char error_msg[128];

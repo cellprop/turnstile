@@ -32,17 +32,15 @@ const char* portId = "P01A";  // Static port ID
 #define BAUD_RATE 9600
 
 // UART Buffers
-char uart1_buffer[256];
-char uart0_buffer[256];
+char uart1_buffer[14];  // Exactly 14 bytes for RFID (12) + entry/exit (1) + turnstile ID (1)
 bool uart1_data_received = false;
-bool uart0_data_received = false;
 
 // Function prototypes
 void setup_wifi();
 void reconnect();
-void publishMessage(int uart_id, const char* command, const char* turnstile_id);
+void publishMessage(const char* rfid, const char* command, const char* turnstile_id);
 void callback(char* topic, byte* payload, unsigned int length);
-void processUART(Stream &uart, char* buffer, bool &data_flag, int uart_id);
+void processUART();
 void sendToUART(Stream &uart, const char* message);
 String getTimestamp();
 
@@ -50,12 +48,15 @@ void setup() {
   Serial.begin(BAUD_RATE);  // Initialize UART0
   uart1.begin(BAUD_RATE);   // Initialize UART1
   setup_wifi();
-
   client.setServer(mqtt_server, mqtt_port);
   client.setCallback(callback);
 
   // Start the NTP client
   timeClient.begin();
+
+  // Set up onboard LED for visual indication
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, HIGH); // Turn off LED initially
 }
 
 void loop() {
@@ -67,11 +68,8 @@ void loop() {
   // Update the time from NTP server
   timeClient.update();
 
-  // Process UART0
-  processUART(Serial, uart0_buffer, uart0_data_received, 0);
-
   // Process UART1
-  processUART(uart1, uart1_buffer, uart1_data_received, 1);
+  processUART();
 }
 
 // Connect to Wi-Fi
@@ -105,10 +103,10 @@ void reconnect() {
 }
 
 // Publish message to MQTT
-void publishMessage(int uart_id, const char* command, const char* turnstile_id) {
+void publishMessage(const char* rfid, const char* command, const char* turnstile_id) {
   if (client.connected()) {
     StaticJsonDocument<200> doc;
-    doc["RFID"] = uart_id;
+    doc["RFID"] = rfid;
     doc["entry"] = command;
     doc["turnstileID"] = turnstile_id;
     doc["timeStamp"] = getTimestamp();
@@ -128,58 +126,50 @@ void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print("Message arrived [");
   Serial.print(topic);
   Serial.print("] ");
-
   String message;
   for (unsigned int i = 0; i < length; i++) {
     message += (char)payload[i];
   }
   Serial.println(message);
 
-  // Process message (assume it's a command)
-  int received_value = message.toInt();
-  if (received_value >= 1 && received_value <= 10) {
-    sendToUART(Serial, String(received_value).c_str());
-    sendToUART(uart1, String(received_value).c_str());
-  } else if (received_value > 10) {
-    int recent = received_value % 10;
-    sendToUART(Serial, String(recent).c_str());
-    sendToUART(uart1, String(recent).c_str());
-  }
+  // Send the received command back via UART
+  sendToUART(uart1, message.c_str());
 }
 
-// Process UART input
-void processUART(Stream &uart, char* buffer, bool &data_flag, int uart_id) {
-  if (uart.available() >= 2) {  // Minimum data length for command + turnstile ID
-    int index = 0;
-    while (uart.available() > 0 && index < sizeof(buffer) - 1) {
-      buffer[index++] = uart.read();
-      delay(10);  // Stabilize input
-    }
-    buffer[index] = '\0';
-    data_flag = true;
+// Process UART data
+void processUART() {
+  static int index = 0;
 
-    Serial.print("Data received on UART");
-    Serial.print(uart_id);
-    Serial.print(": ");
-    Serial.println(buffer);
+  while (uart1.available() > 0) {
+    delay(500); // Small delay before reading UART
+    char c = uart1.read();
+    uart1_buffer[index++] = c;
 
-    // Split command and ID
-    if (index >= 2) {
-      String command = String(buffer[0]);
-      String turnstile_id = String(buffer[1]);
+    if (index >= 14) {  // When all 14 bytes are received
+      uart1_buffer[index] = '\0';  // Null-terminate
+      uart1_data_received = true;
+      index = 0;  // Reset index for next message
 
-      // Validate data
-      if (isalnum(buffer[0]) && isalnum(buffer[1])) {  // Fix applied here
-        publishMessage(uart_id, command.c_str(), turnstile_id.c_str());
+      // Split data
+      char rfid[13] = {0};  // 12 bytes for RFID + 1 null-terminator
+      char command[2] = {0};  // 1 byte for entry/exit + 1 null-terminator
+      char turnstile_id[2] = {0};  // 1 byte for turnstile ID + 1 null-terminator
+
+      strncpy(rfid, uart1_buffer, 12);
+      command[0] = uart1_buffer[12];
+      turnstile_id[0] = uart1_buffer[13];
+
+      // Validate received data
+      if (isalnum(command[0]) && isalnum(turnstile_id[0])) {
+        publishMessage(rfid, command, turnstile_id);
       } else {
-        Serial.print("Invalid data on UART");
-        Serial.println(uart_id);
+        Serial.println("Invalid data received on UART1.");
       }
     }
   }
 }
 
-// Send data via UART
+// Send message to UART
 void sendToUART(Stream &uart, const char* message) {
   Serial.print("Sending to UART: ");
   Serial.println(message);
