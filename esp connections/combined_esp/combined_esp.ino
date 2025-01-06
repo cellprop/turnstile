@@ -138,35 +138,35 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
 // Process UART data
 void processUART() {
-  static int index = 0;
+    static int index = 0;
 
-  while (uart1.available() > 0) {
-    delay(500); // Small delay before reading UART
-    char c = uart1.read();
-    uart1_buffer[index++] = c;
+    while (uart1.available() > 0) {
+        delay(500); // Small delay before reading UART
+        char c = uart1.read();
+        uart1_buffer[index++] = c;
 
-    if (index >= 14) {  // When all 14 bytes are received
-      uart1_buffer[index] = '\0';  // Null-terminate
-      uart1_data_received = true;
-      index = 0;  // Reset index for next message
+        if (index >= 16) {  // When all 16 bytes are received (14 RFID + 1 Entry/Exit + 1 Turnstile ID)
+            uart1_buffer[index] = '\0';  // Null-terminate
+            uart1_data_received = true;
+            index = 0;  // Reset index for next message
 
-      // Split data
-      char rfid[13] = {0};  // 12 bytes for RFID + 1 null-terminator
-      char command[2] = {0};  // 1 byte for entry/exit + 1 null-terminator
-      char turnstile_id[2] = {0};  // 1 byte for turnstile ID + 1 null-terminator
+            // Split data
+            char rfid[15] = {0};  // 14 bytes for RFID + 1 null-terminator
+            char command[2] = {0};  // 1 byte for entry/exit + 1 null-terminator
+            char turnstile_id[2] = {0};  // 1 byte for turnstile ID + 1 null-terminator
 
-      strncpy(rfid, uart1_buffer, 12);
-      command[0] = uart1_buffer[12];
-      turnstile_id[0] = uart1_buffer[13];
+            strncpy(rfid, uart1_buffer, 14);
+            command[0] = uart1_buffer[14];
+            turnstile_id[0] = uart1_buffer[15];
 
-      // Validate received data
-      if (isalnum(command[0]) && isalnum(turnstile_id[0])) {
-        publishMessage(rfid, command, turnstile_id);
-      } else {
-        Serial.println("Invalid data received on UART1.");
-      }
+            // Validate received data
+            if ((command[0] == '1' || command[0] == '2') && isalnum(turnstile_id[0])) {
+                publishMessage(rfid, command, turnstile_id);
+            } else {
+                Serial.println("Error: Invalid entry/exit value received. Must be '1' or '2'.");
+            }
+        }
     }
-  }
 }
 
 // Send message to UART
@@ -176,8 +176,22 @@ void sendToUART(Stream &uart, const char* message) {
   uart.write(message);
 }
 
-// Get current timestamp
+// Get current timestamp and convert UTC to IST
 String getTimestamp() {
-  // Fetch formatted time from NTPClient
-  return timeClient.getFormattedTime();
+    // Fetch the current UTC time from the NTP client
+    timeClient.update();
+    unsigned long epochTime = timeClient.getEpochTime();  // Get epoch time (seconds since Jan 1, 1970)
+    
+    // Convert UTC to IST (UTC + 5 hours 30 minutes = UTC + 19800 seconds)
+    epochTime += 19800;  // Adding 5 hours 30 minutes in seconds
+
+    // Break down epoch time into date components
+    int hours = (epochTime % 86400L) / 3600;  // Hours since midnight
+    int minutes = (epochTime % 3600) / 60;
+    int seconds = epochTime % 60;
+
+    // Return formatted IST time as a string
+    char timeBuffer[20];
+    sprintf(timeBuffer, "%02d:%02d:%02d IST", hours, minutes, seconds);
+    return String(timeBuffer);
 }
