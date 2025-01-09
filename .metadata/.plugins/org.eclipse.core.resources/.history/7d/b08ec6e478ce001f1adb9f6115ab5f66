@@ -70,7 +70,6 @@ uint8_t rxData[14];        // Single buffer for USART1 and USART2
 uint8_t processedData[15]; // Buffer to store processed data
 char usermsg[15];          // Message to send
 volatile uint8_t flag_rev = 0;      // Flag to indicate data reception
-volatile uint8_t rfid_flag = 1; //to manage data flow
 volatile uint8_t uart_source = 0;   // Variable to identify UART source (1 for USART1, 2 for USART2)
 volatile uint8_t RFID_counter = 0;
 uint8_t responseData[2];      // For NOS response
@@ -643,10 +642,10 @@ int main(void)
   HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
 
   // Start UART reception for Additional UART (USART2)
-  HAL_UART_Receive_IT(&huart3, rxData, sizeof(rxData));
+  HAL_UART_Receive_IT(&huart2, rxData, sizeof(rxData));
 
   // Start UART reception for NOS response (USART3)
-  HAL_UART_Receive_IT(&huart2, &responseData, 2);
+  HAL_UART_Receive_IT(&huart3, &responseData, 2);
 /*  while(1){
 
   }*/
@@ -733,7 +732,7 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-    if (huart->Instance == USART1 && rfid_flag == 1) { // Data received from USART1
+    if (huart->Instance == USART1) { // Data received from USART1
         // Process the received data
         for (int i = 0; i < 12; i++) {
             processedData[i] = rxData[i + 1]; // Skip the start byte
@@ -748,7 +747,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
         sprintf(usermsg, "%s", processedData);
 
         flag_rev = 1; // Set flag to indicate data has been received
-        rfid_flag = 0;
 
         // Re-enable UART reception for USART1
         HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
@@ -764,13 +762,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
             intresponseData = receivedCommand;  // Store the command
             // Add your logic here to handle the command
         }
-        rfid_flag = 1;
-
 
         // Re-enable UART reception for USART2
         HAL_UART_Receive_IT(&huart2, responseData, 2);
     }
-    else if (huart->Instance == USART3 && rfid_flag == 1) {  // USART3 Interrupt
+    else if (huart->Instance == USART3) {  // USART3 Interrupt
         // Process the received data
         for (int i = 0; i < 12; i++) {
             processedData[i] = rxData[i + 1]; // Skip the start byte
@@ -784,7 +780,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
         sprintf(usermsg, "%s", processedData);
 
         flag_rev = 1; // Set flag to indicate data has been received
-        rfid_flag = 0;
 
 
 

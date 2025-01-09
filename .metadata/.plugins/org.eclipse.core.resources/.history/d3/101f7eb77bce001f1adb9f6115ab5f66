@@ -643,10 +643,10 @@ int main(void)
   HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
 
   // Start UART reception for Additional UART (USART2)
-  HAL_UART_Receive_IT(&huart3, rxData, sizeof(rxData));
+  HAL_UART_Receive_IT(&huart2, rxData, sizeof(rxData));
 
   // Start UART reception for NOS response (USART3)
-  HAL_UART_Receive_IT(&huart2, &responseData, 2);
+  HAL_UART_Receive_IT(&huart3, &responseData, 2);
 /*  while(1){
 
   }*/

@@ -21,17 +21,18 @@ const char* subscribe_topic = "turnstile_subscribe";
 #define UART1_RX_PIN 5  // D1
 #define UART1_TX_PIN 4  // D2
 
-// ✅ UART Buffer Management
-volatile char uart1_buffer[16];  // 14 bytes RFID + 1 Command + 1 Turnstile ID
+// ✅ UART Buffer Management (14 bytes total: RFID + Entry/Exit + Turnstile ID)
+volatile char uart1_buffer[14];  
 volatile int uart1_index = 0;
 volatile bool uart1_data_received = false;
+String error_code = "21";
 
 // ✅ MQTT and Wi-Fi Objects
-SoftwareSerial uart1(UART1_RX_PIN, UART1_TX_PIN);  // RX, TX for second UART
+SoftwareSerial uart1(UART1_RX_PIN, UART1_TX_PIN);  
 WiFiClient espClient;
 PubSubClient client(espClient);
 WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, "pool.ntp.org", 0, 60000);  // UTC timezone, updates every minute
+NTPClient timeClient(ntpUDP, "pool.ntp.org", 0, 60000);  
 
 const char* portId = "P01A";  
 #define BAUD_RATE 9600
@@ -43,7 +44,7 @@ void publishMessage(const char* rfid, const char* command, const char* turnstile
 void callback(char* topic, byte* payload, unsigned int length);
 void sendToUART(Stream &uart, const char* message);
 String getTimestamp();
-void uart_rx_handler();  // Using Arduino core-based polling
+void uart_rx_handler(); 
 
 // ✅ Setup Function
 void setup() {
@@ -58,7 +59,7 @@ void setup() {
     timeClient.begin();
 
     pinMode(LED_BUILTIN, OUTPUT);
-    digitalWrite(LED_BUILTIN, HIGH); // LED off initially
+    digitalWrite(LED_BUILTIN, HIGH); 
     Serial.println("[INFO] System Initialized Successfully.");
 }
 
@@ -72,53 +73,53 @@ void loop() {
     timeClient.update();
 
     // ✅ Continuously check for UART data
-    uart_rx_handler();  // Polling-based UART reception
+    uart_rx_handler();  
 }
 
-// ✅ UART Reception Handler (Polling-Based - Arduino Core Method)
+// ✅ UART Reception Handler (Polling-Based)
 void uart_rx_handler() {
     while (uart1.available() > 0) {
         char c = uart1.read();
-        Serial.println("Reading UART");
+        Serial.println("Reading UART Byte...");
 
-        if (uart1_index < sizeof(uart1_buffer) - 1) {  // Prevent overflow
+        if (uart1_index < sizeof(uart1_buffer)) {  
             uart1_buffer[uart1_index++] = c;
         }
 
-        // ✅ If 16 bytes are received, mark data as complete
+        // ✅ If 14 bytes are received, process data
         if (uart1_index >= sizeof(uart1_buffer)) {
-            uart1_buffer[15] = '\0';  // Null terminate for safety
             uart1_data_received = true;
-            uart1_index = 0;  // Reset index for next message
+            uart1_index = 0;  
 
-            Serial.println("[DEBUG] Complete UART Message Received!");
-            Serial.println((const char*)uart1_buffer);  // Casting volatile char* to const char*
+            Serial.println("[DEBUG] Complete 14-byte UART Message Received!");
+            
+            // ✅ Fixed: Proper slicing for 14 bytes
+            char rfid[13] = {0};         
+            char command[2] = {0};       
+            char turnstile_id[2] = {0};  
 
-            // ✅ Fixed: Cast volatile buffer safely for strncpy
-            char rfid[15] = {0};
-            char command[2] = {0};
-            char turnstile_id[2] = {0};
-
-            strncpy(rfid, (const char*)uart1_buffer, 14);  
-            command[0] = uart1_buffer[14];    
-            turnstile_id[0] = uart1_buffer[15];  
+            // ✅ Correct Parsing
+            strncpy(rfid, (const char*)uart1_buffer, 12);  
+            command[0] = uart1_buffer[12];    
+            turnstile_id[0] = uart1_buffer[13];  
 
             Serial.print("[USART RX] RFID: "); Serial.println(rfid);
             Serial.print("[USART RX] Command: "); Serial.println(command);
             Serial.print("[USART RX] Turnstile ID: "); Serial.println(turnstile_id);
 
-            // ✅ Publish if data is valid
+            // ✅ Publish only if data is valid
             if ((command[0] == '1' || command[0] == '2') && isalnum(turnstile_id[0])) {
                 Serial.println("[DEBUG] Data validated. Preparing to publish...");
                 publishMessage(rfid, command, turnstile_id);
             } else {
                 Serial.println("[ERROR] Invalid data received, skipping publish.");
+                sendToUART(uart1, error_code.c_str());
             }
         }
     }
 }
 
-// ✅ Wi-Fi Setup Function with Debug Messages
+// ✅ Wi-Fi Setup Function
 void setup_wifi() {
     delay(10);
     Serial.print("[INFO] Connecting to Wi-Fi: ");
@@ -134,13 +135,13 @@ void setup_wifi() {
     Serial.println(WiFi.localIP());
 }
 
-// ✅ MQTT Reconnection with Debugging
+// ✅ MQTT Reconnection (from `combined_esp`)
 void reconnect() {
     while (!client.connected()) {
         Serial.println("[DEBUG] Attempting MQTT Connection...");
         if (client.connect("ESP8266Client")) {
             Serial.println("[INFO] Connected to MQTT Broker!");
-            client.subscribe(subscribe_topic);
+            client.subscribe(subscribe_topic);  // ✅ Subscribe right after connecting
         } else {
             Serial.print("[ERROR] MQTT Connection Failed. Error Code: ");
             Serial.println(client.state());
@@ -149,7 +150,7 @@ void reconnect() {
     }
 }
 
-// ✅ MQTT Publishing with Detailed Debugging
+// ✅ MQTT Publishing Logic (from `combined_esp`)
 void publishMessage(const char* rfid, const char* command, const char* turnstile_id) {
     if (client.connected()) {
         StaticJsonDocument<200> doc;
@@ -161,17 +162,23 @@ void publishMessage(const char* rfid, const char* command, const char* turnstile
 
         char jsonBuffer[256];
         serializeJson(doc, jsonBuffer);
-        client.publish(publish_topic, jsonBuffer);
-
-        Serial.println("[MQTT TX] Data Published Successfully!");
-        Serial.println("[MQTT TX] JSON Payload:");
-        Serial.println(jsonBuffer);
+        
+        // ✅ Using publish logic from `combined_esp`
+        if (client.publish(publish_topic, jsonBuffer)) {
+            Serial.println("[MQTT TX] Data Published Successfully!");
+            Serial.println("[MQTT TX] JSON Payload:");
+            Serial.println(jsonBuffer);
+        } else {
+            Serial.println("[ERROR] Failed to publish data to MQTT.");
+            sendToUART(uart1, error_code.c_str());
+        }
     } else {
         Serial.println("[ERROR] MQTT Client Not Connected. Publish Failed.");
+        sendToUART(uart1, error_code.c_str());
     }
 }
 
-// ✅ MQTT Subscription Callback with Debugging
+// ✅ MQTT Subscription Logic (from `combined_esp`)
 void callback(char* topic, byte* payload, unsigned int length) {
     Serial.print("[MQTT RX] Message received on topic: ");
     Serial.println(topic);
@@ -183,6 +190,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     Serial.print("[MQTT RX] Message Content: ");
     Serial.println(message);
 
+    // ✅ Send data back via UART after receiving an MQTT message
     sendToUART(uart1, message.c_str());
 }
 
@@ -197,7 +205,7 @@ void sendToUART(Stream &uart, const char* message) {
 String getTimestamp() {
     timeClient.update();
     unsigned long epochTime = timeClient.getEpochTime();  
-    epochTime += 19800;  // Offset for IST (UTC + 5:30)
+    epochTime += 19800;  
     struct tm *timeInfo;
     time_t rawTime = epochTime;
     timeInfo = gmtime(&rawTime);  
