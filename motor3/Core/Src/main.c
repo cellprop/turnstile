@@ -47,6 +47,8 @@
 /* USER CODE BEGIN PV */
 volatile int counter1 = 0;
 volatile int counter2 = 0;
+volatile int counter3 = 0;
+volatile int counter4 = 0;
 volatile int rev = 0;
 volatile int check = 0;
 /* USER CODE END PV */
@@ -87,30 +89,28 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if(GPIO_Pin == GPIO_PIN_2)
 	{
-			counter1++;
-			if(counter1 == 588)
-			{
-				Speed_Control1(0);
-				counter1 = 0;
-			}
-	}
-	/*if(GPIO_Pin == GPIO_PIN_10)
-	{
-		Speed_Control(0);
-		counter = 0;
-	}
-	if(GPIO_Pin == GPIO_PIN_11)
-	{
-		Speed_Control(0);
-		counter = 0;
-	}*/
-	if(GPIO_Pin == GPIO_PIN_12)
-	{
 			counter2++;
-			if(counter2 == 588)
+			if(counter2 == 520)
 			{
 				Speed_Control2(0);
 				counter2 = 0;
+			}
+	}
+	if(GPIO_Pin == GPIO_PIN_10)
+	{
+		counter3++;
+	}
+	if(GPIO_Pin == GPIO_PIN_11)
+	{
+		counter4++;
+	}
+	if(GPIO_Pin == GPIO_PIN_12)
+	{
+			counter1++;
+			if(counter1 == 598)
+			{
+				Speed_Control1(0);
+				counter1 = 0;
 			}
 	}
 	if(GPIO_Pin == GPIO_PIN_13)
@@ -133,14 +133,14 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 void quarter_cycle_cw(void)
 {
 	Direction(0);
-	Speed_Control1(200);
-	Speed_Control2(255);
+	Speed_Control1(100);
+	Speed_Control2(80);
 }
 void quarter_cycle_acw(void)
 {
 	Direction(1);
-	Speed_Control1(200);
-	Speed_Control2(255);
+	Speed_Control1(100);
+	Speed_Control2(80);
 }
 /* USER CODE END 0 */
 
@@ -211,12 +211,13 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
+  RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI_DIV2;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL16;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();

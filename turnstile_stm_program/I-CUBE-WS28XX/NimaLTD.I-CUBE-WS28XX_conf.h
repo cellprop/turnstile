@@ -6,7 +6,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2024 STMicroelectronics.
+  * Copyright (c) 2025 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -34,7 +34,7 @@
 
 /**
 	MiddleWare name : NimaLTD.I-CUBE-WS28XX.3.0.1
-	MiddleWare fileName : NimaLTD.I-CUBE-WS28XX_conf.h
+	MiddleWare fileName : ./NimaLTD.I-CUBE-WS28XX_conf.h
 */
 /*---------- WS28XX_PIXEL_MAX  -----------*/
 #define WS28XX_PIXEL_MAX      578

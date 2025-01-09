@@ -67,11 +67,11 @@ int cross_state = 1;      // State variable for blinking cross animation
 int brightness = 40;     // Global brightness level (40-255)
 SystemState currentState = STATE_READY; // Initialize to Ready State
 uint8_t rxData[14];        // Single buffer for USART1 and USART2
-char processedData[14]; // Buffer to store processed data
+uint8_t processedData[14]; // Buffer to store processed data
 char usermsg[14];          // Message to send
 volatile uint8_t flag_rev = 0;      // Flag to indicate data reception
 volatile uint8_t uart_source = 0;   // Variable to identify UART source (1 for USART1, 2 for USART2)
-
+volatile uint8_t RFID_counter = 0;
 uint8_t responseData[2];      // For NOS response
 uint8_t intresponseData;
 /* Other variables */
@@ -384,19 +384,19 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
             return; // Exit after updating the correct sensor
         }
     }*/
-	if(GPIO_Pin == GPIO_PIN_2)
+	if(GPIO_Pin == GPIO_PIN_12)
 	{
 			counter1++;
-			if(counter1 == 588)
+			if(counter1 == 598)
 			{
 				Speed_Control1(0);
 				counter1 = 0;
 			}
 	}
-	if(GPIO_Pin == GPIO_PIN_12)
+	if(GPIO_Pin == GPIO_PIN_2)
 	{
 			counter2++;
-			if(counter2 == 588)
+			if(counter2 == 520)
 			{
 				Speed_Control2(0);
 				counter2 = 0;
@@ -423,8 +423,8 @@ void quarter_cycle_open(int source) {
         Direction(1);  // Direction for source 2
     }
 
-	Speed_Control1(50);
-	Speed_Control2(40);
+	Speed_Control1(100);
+	Speed_Control2(80);
 
 
 
@@ -441,8 +441,8 @@ void quarter_cycle_closed(int source) {
         Direction(0);  // Direction for source 2
     }
 
-	Speed_Control1(50);
-	Speed_Control2(40);
+	Speed_Control1(100);
+	Speed_Control2(80);
 
 }
 
@@ -463,13 +463,15 @@ void ready_state(void) {
 
     if (flag_rev == 1) {
         currentState = STATE_READING;
+        RFID_counter++;
     }
 }
 
 void reading_state(void) {
 
     if (flag_rev == 1) {
-        HAL_UART_Transmit_IT(&huart2, (uint8_t *)usermsg, strlen(usermsg));
+    	//sprintf(usermsg, "%s", processedData);
+        HAL_UART_Transmit(&huart2, (uint8_t *)usermsg, 14, HAL_MAX_DELAY);
         flag_rev = 0;
     }
 
