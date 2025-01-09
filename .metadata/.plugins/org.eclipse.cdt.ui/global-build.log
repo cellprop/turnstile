@@ -3076,3 +3076,17 @@ Finished building: default.size.stdout
  
 Finished building: turnstile_stm_program.list
  
+17:14:00 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-size  turnstile_stm_program.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25472	   1008	  18200	  44680	   ae88	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+17:14:35 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-size  turnstile_stm_program.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25472	   1008	  18200	  44680	   ae88	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
