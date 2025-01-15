@@ -51,19 +51,25 @@ uart1_tx = DigitalOutputDevice(UART1_TX_PIN, active_high=True)
 uart2_rx = Button(UART2_RX_PIN, pull_up=False)
 uart2_tx = DigitalOutputDevice(UART2_TX_PIN, active_high=True)
 
-# MQTT callback functions
+# MQTT Client setup
+client = mqtt.Client()
+
+# Callback when the client receives a CONNACK response from the server
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
-        logger.info("Connected to MQTT Broker!")
+        logger.info("Connected to MQTT Broker")
+        # Subscribe to the topic
         client.subscribe(SUBSCRIBE_TOPIC)
         logger.info(f"Subscribed to topic: {SUBSCRIBE_TOPIC}")
     else:
         logger.error(f"Failed to connect, return code {rc}")
 
+# Callback when a message is received from the server
 def on_message(client, userdata, msg):
-    logger.info(f"Message received on topic {msg.topic} (size={len(msg.payload)}): {msg.payload.decode()}")
     try:
-        received_value = int(msg.payload.decode())
+        payload = json.loads(msg.payload.decode())
+        received_value = int(payload.get('message'))
+        
         if 1 <= received_value <= 10:
             transmit_to_uart(1, str(received_value))
             transmit_to_uart(2, str(received_value))
@@ -71,8 +77,10 @@ def on_message(client, userdata, msg):
             recent = received_value % 10
             transmit_to_uart(1, str(recent))
             transmit_to_uart(2, str(recent))
-    except ValueError:
-        logger.error("Invalid message format")
+        else:
+            logger.error("Invalid message value received.")
+    except (ValueError, json.JSONDecodeError) as e:
+        logger.error(f"Error processing message: {e}")
 
 # Function to publish MQTT messages
 def publish_message(client, uart_id, command, turnstile_id):
@@ -134,21 +142,20 @@ def transmit_to_uart(uart_id, command):
 def get_timestamp():
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-# Main function
-def main():
-    client = mqtt.Client()
-    client.on_connect = on_connect
-    client.on_message = on_message
-    client.reconnect_delay_set(min_delay=1, max_delay=120)
+# Assign MQTT callbacks
+client.on_connect = on_connect
+client.on_message = on_message
 
+# Connect to the MQTT Broker
+def main():
     try:
         client.connect(MQTT_SERVER, MQTT_PORT, keepalive=60)
+        client.loop_start()  # Start the MQTT loop in a separate thread
     except Exception as e:
         logger.error(f"Failed to connect to MQTT Broker: {e}")
         return
 
-    client.loop_start()
-
+    # Start the UART handling threads
     uart_thread_1 = Thread(target=uart_interrupt_handler, args=(uart1_rx, uart_buffer_1, client, "UART1"), daemon=True)
     uart_thread_2 = Thread(target=uart_interrupt_handler, args=(uart2_rx, uart_buffer_2, client, "UART2"), daemon=True)
     uart_thread_1.start()
