@@ -25,6 +25,6 @@
 ../Core/Src/main.c:558:6:overcapacity_state	3
 ../Core/Src/main.c:574:6:emergency_state	4
 ../Core/Src/main.c:603:5:main	8
-../Core/Src/main.c:698:6:SystemClock_Config	3
-../Core/Src/main.c:735:6:HAL_UART_RxCpltCallback	9
-../Core/Src/main.c:803:6:Error_Handler	2
+../Core/Src/main.c:697:6:SystemClock_Config	3
+../Core/Src/main.c:734:6:HAL_UART_RxCpltCallback	9
+../Core/Src/main.c:802:6:Error_Handler	2
