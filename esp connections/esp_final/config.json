@@ -1,0 +1,23 @@
+{
+    // MQTT broker settings
+    "mqtt_server": "192.168.68.106",
+    "mqtt_port": 1884,
+  
+    // Turnstile port identifier (from ESP code: portId = "P01A")
+    "port_id": "P01A",
+  
+    // Pin assignments (ESP8266 SoftwareSerial pins mapped to Python)
+    // Adjust as needed if you have different wiring on the Raspberry Pi.
+    "uart1_rx_pin": 5, 
+    "uart1_tx_pin": 4,
+  
+    // For the second UART, if your Python code expects it.
+    // You can choose suitable GPIO pins on your Raspberry Pi
+    // or leave these as placeholders if you only use one UART.
+    "uart2_rx_pin": 22,
+    "uart2_tx_pin": 23,
+  
+    // Baud rate (ESP & Python both use 9600)
+    "baud_rate": 9600
+  }
+  
