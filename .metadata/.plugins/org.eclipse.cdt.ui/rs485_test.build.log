@@ -1,0 +1,17 @@
+15:03:59 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6704	     36	   1692	   8432	   20f0	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+
+15:04:01 Build Finished. 0 errors, 0 warnings. (took 1s.851ms)
+
