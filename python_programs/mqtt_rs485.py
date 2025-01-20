@@ -56,18 +56,8 @@ def read_register(register):
     try:
         ser = serial.Serial(COM_PORT_NAME, BAUD_RATE, 8, 'N', 1, timeout=3)
         if ser.is_open:
-            print("✅ Serial port opened successfully!")
-            # Prepare Modbus request
-            req = [DEVICE_SLAVE_ADDRESS, FUNCTION_CODE, 0x00, register, 0x00, 0x02]
-            crc = ModRTU_CRC(req)
-            req.append(crc & 0xFF)  # Low byte of CRC
-            req.append((crc >> 8) & 0xFF)  # High byte of CRC
-
-            print(f"Sending Modbus request: {req}")
-            ser.write(bytearray(req))
             response = ser.read(9)  # Expected response length
             print(f"Received response: {list(response)}")
-
             ser.close()
             print("✅ Serial port closed successfully!")
 

@@ -1,25 +1,34 @@
-12:19:48 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+16:28:52 **** Incremental Build of configuration Debug for project rs485_test ****
 make -j7 all 
-arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:40:17: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+   40 | #define ADDRESS 0x02
+      |                 ^~~~
+      |                 |
+      |                 int
+../Core/Src/main.c:100:36: note: in expansion of macro 'ADDRESS'
+  100 |         HAL_UART_Transmit(&huart2, ADDRESS, 2, HAL_MAX_DELAY);
+      |                                    ^~~~~~~
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:10:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:749:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'int'
+  749 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
    text	   data	    bss	    dec	    hex	filename
-  25012	   1008	  18056	  44076	   ac2c	turnstile_stm_program.elf
+   6720	     36	   1692	   8448	   2100	rs485_test.elf
 Finished building: default.size.stdout
  
-12:19:58 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
-make -j7 all 
-arm-none-eabi-size  turnstile_stm_program.elf 
-   text	   data	    bss	    dec	    hex	filename
-  25012	   1008	  18056	  44076	   ac2c	turnstile_stm_program.elf
-Finished building: default.size.stdout
+Finished building: rs485_test.list
  
-12:20:58 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
-make -j7 all 
-arm-none-eabi-size  turnstile_stm_program.elf 
-   text	   data	    bss	    dec	    hex	filename
-  25012	   1008	  18056	  44076	   ac2c	turnstile_stm_program.elf
-Finished building: default.size.stdout
- 
-14:42:06 **** Build of configuration Debug for project rs485_test ****
+16:50:33 **** Incremental Build of configuration Debug for project rs485_test ****
 make -j7 all 
 arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
 arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
@@ -35,48 +44,70 @@ arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -
 arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
 arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
 arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
-arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32f103rbtx.d" -MT"Core/Startup/startup_stm32f103rbtx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Startup/startup_stm32f103rbtx.o" "../Core/Startup/startup_stm32f103rbtx.s"
 arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/gpio.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
 arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
-arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/syscalls.o"
-arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sysmem.o"
 arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
 arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/usart.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:40:17: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+   40 | #define ADDRESS 0x02
+      |                 ^~~~
+      |                 |
+      |                 int
+../Core/Src/main.c:100:36: note: in expansion of macro 'ADDRESS'
+  100 |         HAL_UART_Transmit(&huart2, ADDRESS, 2, HAL_MAX_DELAY);
+      |                                    ^~~~~~~
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:10:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:749:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'int'
+  749 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
 arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: rs485_test.elf
  
 arm-none-eabi-size  rs485_test.elf 
 arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
    text	   data	    bss	    dec	    hex	filename
-   6704	     36	   1692	   8432	   20f0	rs485_test.elf
+   6720	     36	   1692	   8448	   2100	rs485_test.elf
 Finished building: default.size.stdout
  
 Finished building: rs485_test.list
  
-14:42:17 **** Incremental Build of configuration Debug for project rs485_test ****
+16:56:11 **** Incremental Build of configuration Debug for project rs485_test ****
 make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:40:17: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+   40 | #define ADDRESS 2
+      |                 ^
+      |                 |
+      |                 int
+../Core/Src/main.c:100:36: note: in expansion of macro 'ADDRESS'
+  100 |         HAL_UART_Transmit(&huart2, ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^~~~~~~
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:10:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:749:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'int'
+  749 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
 arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
    text	   data	    bss	    dec	    hex	filename
-   6704	     36	   1692	   8432	   20f0	rs485_test.elf
+   6720	     36	   1692	   8448	   2100	rs485_test.elf
 Finished building: default.size.stdout
  
-14:42:37 **** Incremental Build of configuration Debug for project rs485_test ****
-make -j7 all 
-arm-none-eabi-size  rs485_test.elf 
-   text	   data	    bss	    dec	    hex	filename
-   6704	     36	   1692	   8432	   20f0	rs485_test.elf
-Finished building: default.size.stdout
+Finished building: rs485_test.list
  
-14:47:41 **** Incremental Build of configuration Debug for project rs485_test ****
-make -j7 all 
-arm-none-eabi-size  rs485_test.elf 
-   text	   data	    bss	    dec	    hex	filename
-   6704	     36	   1692	   8432	   20f0	rs485_test.elf
-Finished building: default.size.stdout
- 
-15:03:59 **** Incremental Build of configuration Debug for project rs485_test ****
+16:56:49 **** Incremental Build of configuration Debug for project rs485_test ****
 make -j7 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -85,8 +116,593 @@ Finished building target: rs485_test.elf
 arm-none-eabi-size  rs485_test.elf 
 arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
    text	   data	    bss	    dec	    hex	filename
-   6704	     36	   1692	   8432	   20f0	rs485_test.elf
+   6720	     36	   1692	   8448	   2100	rs485_test.elf
 Finished building: default.size.stdout
  
 Finished building: rs485_test.list
+ 
+16:57:50 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  101 |         HAL_UART_Transmit(&huart2, (uint8_t*)ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6728	     36	   1692	   8456	   2108	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+16:58:39 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+  101 |         HAL_UART_Transmit(&huart2, ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^~~~~~~
+      |                                    |
+      |                                    uint8_t {aka unsigned char}
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:10:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:749:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  749 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6728	     36	   1692	   8456	   2108	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+16:59:09 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+  101 |         HAL_UART_Transmit(&huart2, ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^~~~~~~
+      |                                    |
+      |                                    uint8_t {aka unsigned char}
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:10:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:749:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  749 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:102:36: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+  102 |         HAL_UART_Transmit(&huart2, ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^~~~~~~
+      |                                    |
+      |                                    uint8_t {aka unsigned char}
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:749:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  749 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6744	     36	   1692	   8472	   2118	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:02:16 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-size  rs485_test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6744	     36	   1692	   8472	   2118	rs485_test.elf
+Finished building: default.size.stdout
+ 
+17:05:53 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6724	     36	   1692	   8452	   2104	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:06:53 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6724	     36	   1692	   8452	   2104	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:07:47 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:44:16: warning: initialization of 'char' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+   44 | char ADDRESS = "2";
+      |                ^~~
+../Core/Src/main.c:44:16: error: initializer element is not computable at load time
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  101 |         HAL_UART_Transmit(&huart2, (uint8_t*)ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+17:08:12 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:44:17: warning: missing terminating ' character
+   44 | char ADDRESS = 2';
+      |                 ^
+../Core/Src/main.c:44:17: error: missing terminating ' character
+   44 | char ADDRESS = 2';
+      |                 ^~
+../Core/Src/main.c:48:1: error: expected ',' or ';' before 'void'
+   48 | void SystemClock_Config(void);
+      | ^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:86:3: warning: implicit declaration of function 'SystemClock_Config'; did you mean 'SysTick_Config'? [-Wimplicit-function-declaration]
+   86 |   SystemClock_Config();
+      |   ^~~~~~~~~~~~~~~~~~
+      |   SysTick_Config
+../Core/Src/main.c:101:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  101 |         HAL_UART_Transmit(&huart2, (uint8_t*)ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:132:6: warning: conflicting types for 'SystemClock_Config'; have 'void(void)'
+  132 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:86:3: note: previous implicit declaration of 'SystemClock_Config' with type 'void(void)'
+   86 |   SystemClock_Config();
+      |   ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+17:08:22 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  101 |         HAL_UART_Transmit(&huart2, (uint8_t*)ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6728	     36	   1692	   8456	   2108	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:08:48 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  101 |         HAL_UART_Transmit(&huart2, (uint8_t*)ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6728	     40	   1696	   8464	   2110	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:09:09 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  101 |         HAL_UART_Transmit(&huart2, (uint8_t*)ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6728	     36	   1692	   8456	   2108	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:13:40 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  101 |         HAL_UART_Transmit(&huart2, (uint8_t*)ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6728	     36	   1692	   8456	   2108	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:14:11 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  101 |         HAL_UART_Transmit(&huart2, (uint8_t*)ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6728	     36	   1692	   8456	   2108	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:14:46 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  101 |         HAL_UART_Transmit(&huart2, (uint8_t*)ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6708	     16	   1696	   8420	   20e4	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:15:28 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  101 |         HAL_UART_Transmit(&huart2, (uint8_t*)ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6708	     16	   1696	   8420	   20e4	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:16:07 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  101 |         HAL_UART_Transmit(&huart2, (uint8_t*)ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6708	     16	   1696	   8420	   20e4	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:16:47 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  101 |         HAL_UART_Transmit(&huart2, (uint8_t*)ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6708	     16	   1696	   8420	   20e4	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:17:31 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:44:16: warning: multi-character character constant [-Wmultichar]
+   44 | char ADDRESS = '0x41';
+      |                ^~~~~~
+../Core/Src/main.c:44:16: warning: unsigned conversion from 'int' to 'char' changes value from '813184049' to '49' [-Woverflow]
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  101 |         HAL_UART_Transmit(&huart2, (uint8_t*)ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6708	     16	   1696	   8420	   20e4	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:18:05 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:44:16: warning: multi-character character constant [-Wmultichar]
+   44 | char ADDRESS = '65';
+      |                ^~~~
+../Core/Src/main.c:44:16: warning: unsigned conversion from 'int' to 'char' changes value from '13877' to '53' [-Woverflow]
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  101 |         HAL_UART_Transmit(&huart2, (uint8_t*)ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6708	     16	   1696	   8420	   20e4	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:18:50 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6708	     16	   1696	   8420	   20e4	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:20:20 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  101 |         HAL_UART_Transmit(&huart2, (uint8_t*)ADDRESS, sizeof(ADDRESS), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   6708	     16	   1696	   8420	   20e4	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:22:37 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:102:9: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  102 |         sprintf(usermsg, "%s", 'a');
+      |         ^~~~~~~
+../Core/Src/main.c:13:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   12 | #include "gpio.h"
+  +++ |+#include <stdio.h>
+   13 | 
+../Core/Src/main.c:102:9: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  102 |         sprintf(usermsg, "%s", 'a');
+      |         ^~~~~~~
+../Core/Src/main.c:102:9: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:102:17: warning: passing argument 1 of 'sprintf' makes pointer from integer without a cast [-Wint-conversion]
+  102 |         sprintf(usermsg, "%s", 'a');
+      |                 ^~~~~~~
+      |                 |
+      |                 char
+../Core/Src/main.c:102:17: note: expected 'char *' but argument is of type 'char'
+../Core/Src/main.c:102:28: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'int' [-Wformat=]
+  102 |         sprintf(usermsg, "%s", 'a');
+      |                           ~^   ~~~
+      |                            |   |
+      |                            |   int
+      |                            char *
+      |                           %d
+../Core/Src/main.c:103:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  103 |         HAL_UART_Transmit(&huart2, (uint8_t*)usermsg, sizeof(usermsg), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   9204	     92	   2028	  11324	   2c3c	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:23:30 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:103:9: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  103 |         sprintf(usermsg, "%s", 'a');
+      |         ^~~~~~~
+../Core/Src/main.c:14:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   13 | #include "string.h"
+  +++ |+#include <stdio.h>
+   14 | 
+../Core/Src/main.c:103:9: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  103 |         sprintf(usermsg, "%s", 'a');
+      |         ^~~~~~~
+../Core/Src/main.c:103:9: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:103:17: warning: passing argument 1 of 'sprintf' makes pointer from integer without a cast [-Wint-conversion]
+  103 |         sprintf(usermsg, "%s", 'a');
+      |                 ^~~~~~~
+      |                 |
+      |                 char
+../Core/Src/main.c:103:17: note: expected 'char *' but argument is of type 'char'
+../Core/Src/main.c:103:28: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'int' [-Wformat=]
+  103 |         sprintf(usermsg, "%s", 'a');
+      |                           ~^   ~~~
+      |                            |   |
+      |                            |   int
+      |                            char *
+      |                           %d
+../Core/Src/main.c:104:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  104 |         HAL_UART_Transmit(&huart2, (uint8_t*)usermsg, sizeof(usermsg), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   9204	     92	   2028	  11324	   2c3c	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:24:39 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:103:9: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  103 |         sprintf(usermsg, "%s", 'a');
+      |         ^~~~~~~
+../Core/Src/main.c:14:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   13 | #include "string.h"
+  +++ |+#include <stdio.h>
+   14 | 
+../Core/Src/main.c:103:9: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  103 |         sprintf(usermsg, "%s", 'a');
+      |         ^~~~~~~
+../Core/Src/main.c:103:9: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:103:28: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'int' [-Wformat=]
+  103 |         sprintf(usermsg, "%s", 'a');
+      |                           ~^   ~~~
+      |                            |   |
+      |                            |   int
+      |                            char *
+      |                           %d
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   9196	     92	   2036	  11324	   2c3c	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:25:13 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:103:9: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  103 |         sprintf(usermsg, "%s", ADDRESS);
+      |         ^~~~~~~
+../Core/Src/main.c:14:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   13 | #include "string.h"
+  +++ |+#include <stdio.h>
+   14 | 
+../Core/Src/main.c:103:9: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  103 |         sprintf(usermsg, "%s", ADDRESS);
+      |         ^~~~~~~
+../Core/Src/main.c:103:9: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   9200	    104	   2040	  11344	   2c50	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+17:26:05 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:103:9: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  103 |         sprintf(usermsg, "%s", ADDRESS);
+      |         ^~~~~~~
+../Core/Src/main.c:14:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   13 | #include "string.h"
+  +++ |+#include <stdio.h>
+   14 | 
+../Core/Src/main.c:103:9: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  103 |         sprintf(usermsg, "%s", ADDRESS);
+      |         ^~~~~~~
+../Core/Src/main.c:103:9: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rs485_test.elf
+ 
+arm-none-eabi-size  rs485_test.elf 
+arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
+   text	   data	    bss	    dec	    hex	filename
+   9200	     96	   2032	  11328	   2c40	rs485_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: rs485_test.list
+ 
+10:32:56 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-size  rs485_test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9200	     96	   2032	  11328	   2c40	rs485_test.elf
+Finished building: default.size.stdout
+ 
+10:33:12 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-size  rs485_test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9200	     96	   2032	  11328	   2c40	rs485_test.elf
+Finished building: default.size.stdout
+ 
+10:33:32 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-size  rs485_test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9200	     96	   2032	  11328	   2c40	rs485_test.elf
+Finished building: default.size.stdout
  

@@ -10,6 +10,7 @@
 #include "main.h"
 #include "usart.h"
 #include "gpio.h"
+#include "string.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -38,8 +39,11 @@
 #define RS485_DE_RE_PIN GPIO_PIN_4
 #define RS485_DE_RE_PORT GPIOA
 
+
 char txData[] = "Hello Raspberry Pi!\r\n";
 char rxData[50]; // Buffer for received data
+char ADDRESS[2] = "hi";
+char usermsg[2];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -96,7 +100,9 @@ int main(void)
     {
         // Transmit Mode
         RS485_EnableTransmit();  // Enable TX Mode
-        HAL_UART_Transmit(&huart2, (uint8_t*)txData, sizeof(txData), HAL_MAX_DELAY);
+        sprintf(usermsg, "%s", ADDRESS);
+        HAL_UART_Transmit(&huart2, (uint8_t*)usermsg, sizeof(usermsg), HAL_MAX_DELAY);
+        //HAL_UART_Transmit(&huart2, (uint8_t*)txData, sizeof(txData), HAL_MAX_DELAY);
         HAL_Delay(100);  // Delay for data to stabilize
 
         // Receive Mode
