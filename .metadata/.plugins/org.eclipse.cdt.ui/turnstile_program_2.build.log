@@ -1,4 +1,4 @@
-17:53:23 **** Incremental Build of configuration Debug for project turnstile_program_2 ****
+10:56:52 **** Incremental Build of configuration Debug for project turnstile_program_2 ****
 make -j7 all 
 arm-none-eabi-gcc "../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.d" -MT"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o"
 In file included from ../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c:6:
@@ -9,5 +9,5 @@ compilation terminated.
 make: *** [Middlewares/Third_Party/NimaLTD_Driver/WS28XX/subdir.mk:19: Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o] Error 1
 "make -j7 all" terminated with exit code 2. Build might be incomplete.
 
-17:53:24 Build Failed. 2 errors, 0 warnings. (took 545ms)
+10:56:52 Build Failed. 2 errors, 0 warnings. (took 257ms)
 

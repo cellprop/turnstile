@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="flag_rev"/>
 		<list key="findhistory">
+			<item value="flag_rev"/>
 			<item value="13"/>
 			<item value="break;"/>
 			<item value="target_counter"/>

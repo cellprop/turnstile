@@ -1,178 +1,148 @@
-import struct
 import serial
 import time
 import paho.mqtt.client as mqtt
 import json
 from datetime import datetime
-from threading import Thread
-from queue import Queue
 
 # Load configuration
 def load_config(filename="config.json"):
     try:
-        print(f"Loading configuration from {filename}...")
         with open(filename, "r") as file:
-            config = json.load(file)
-            print("✅ Configuration loaded successfully!")
-            return config
-    except (FileNotFoundError, json.JSONDecodeError) as e:
+            return json.load(file)
+    except Exception as e:
         print(f"❌ Error loading config: {e}")
         raise
 
 config = load_config()
 
-# Configuration details
+# Configuration
 MQTT_SERVER = config["mqtt_server"]
 MQTT_PORT = config["mqtt_port"]
 PUBLISH_TOPIC = "turnstile_publish"
 SUBSCRIBE_TOPIC = "turnstile_subscribe"
-PORT_ID = config["port_id"]
-
-# Modbus Configuration
-DEVICE_SLAVE_ADDRESS = config["modbus_slave_address"]
-FUNCTION_CODE = 0x04  # Read Input Registers
 COM_PORT_NAME = config["com_port_name"]
 BAUD_RATE = config["baud_rate"]
+SERIAL_TIMEOUT = 0.1  # Timeout for serial reads
+DATA_SIZE = 14  # Total bytes to read for RFID data
 
-# MQTT Client initialization
+# Initialize MQTT client
 client = mqtt.Client()
 
-# CRC16 Calculation (Modbus CRC)
-def ModRTU_CRC(data):
-    crc = 0xFFFF
-    for pos in data:
-        crc ^= pos
-        for _ in range(8):
-            if (crc & 0x0001) != 0:
-                crc >>= 1
-                crc ^= 0xA001
-            else:
-                crc >>= 1
-    return crc & 0xFFFF
+# Initialize serial port
+serial_port = serial.Serial(COM_PORT_NAME, BAUD_RATE, timeout=SERIAL_TIMEOUT)
 
-# Modbus request and response handler
-def read_register(register):
-    print(f"🔍 Reading register {register} via Modbus...")
-    try:
-        ser = serial.Serial(COM_PORT_NAME, BAUD_RATE, 8, 'N', 1, timeout=3)
-        if ser.is_open:
-            response = ser.read(9)  # Expected response length
-            print(f"Received response: {list(response)}")
-            ser.close()
-            print("✅ Serial port closed successfully!")
+# Global flag to hold MQTT received data
+mqtt_response = None
 
-            # Process response
-            if len(response) >= 7:  # Valid response
-                data_bytes = response[3:7]
-                float_value = struct.unpack('>f', data_bytes)[0]  # Big-endian float
-                print(f"✅ Successfully read value: {float_value}")
-                return "", float_value
-            else:
-                print("⚠️ Invalid response length or format.")
-                return "FAILURE", 0.00
-        else:
-            print("❌ Serial port failed to open.")
-            return "FAILURE", 0.00
-    except Exception as e:
-        print(f"❌ Error while reading Modbus register: {e}")
-        return "FAILURE", 0.00
 
-# MQTT Callback Functions
+# MQTT Callbacks
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print(f"✅ Connected to MQTT Broker at {MQTT_SERVER}:{MQTT_PORT}")
         client.subscribe(SUBSCRIBE_TOPIC)
-        print(f"✅ Subscribed to topic: {SUBSCRIBE_TOPIC}")
     else:
-        print(f"❌ Failed to connect to MQTT Broker. Return code: {rc}")
+        print(f"❌ MQTT connection failed with code {rc}")
 
 def on_message(client, userdata, msg):
-    print(f"📩 Received MQTT message on topic {msg.topic}: {msg.payload.decode()}")
+    global mqtt_response
+    print(f"📩 MQTT Message: {msg.payload.decode()}")
     try:
+        # Extract 2 bytes from MQTT response
         payload = json.loads(msg.payload.decode())
-        received_value = int(payload.get('message', 0))  # Default to 0 if 'message' is missing
-
-        if 1 <= received_value <= 10:
-            print(f"📤 Valid message received. Transmitting via Modbus: {received_value}")
-            transmit_to_modbus(received_value)
+        response_data = payload.get("response_data", "").encode("utf-8")
+        if len(response_data) == 2:
+            mqtt_response = response_data
+            print(f"✅ MQTT Response Ready: {mqtt_response}")
         else:
-            print("⚠️ Received invalid message value.")
-    except (ValueError, json.JSONDecodeError) as e:
-        print(f"❌ Error processing MQTT message: {e}")
+            print(f"⚠️ MQTT Response data invalid or not 2 bytes.")
+    except json.JSONDecodeError as e:
+        print(f"❌ Error decoding MQTT message: {e}")
 
-# Transmit data via Modbus
-def transmit_to_modbus(value):
-    print(f"🔗 Transmitting value {value} via Modbus...")
-    MODBUS_WRITE_REGISTER = config["modbus_write_register"]
 
-    # Send data as a Modbus write request
-    status, _ = read_register(MODBUS_WRITE_REGISTER)
-    if status == "FAILURE":
-        print(f"❌ Failed to transmit Modbus data: {value}")
-    else:
-        print(f"📤 Successfully transmitted data to register {MODBUS_WRITE_REGISTER}")
+client.on_connect = on_connect
+client.on_message = on_message
 
-# Publish MQTT message
-def publish_message(client, uart_id, command, turnstile_id):
-    timestamp = get_timestamp()
+# Send Serial Data
+def send_serial(data):
+    """Send data via UART."""
+    if serial_port.is_open:
+        serial_port.write(data)
+        print(f"📤 Sent to UART: {data}")
+
+# Read Serial Data
+def read_serial():
+    """Read and validate data from UART."""
+    try:
+        if serial_port.is_open:
+            data = serial_port.read(DATA_SIZE)  # Read exactly 14 bytes
+            if len(data) == DATA_SIZE:
+                print(f"📥 Received from UART: {data}")
+                rfid = data[:12].decode('utf-8')  # First 12 bytes are RFID
+                entry_exit = data[12]  # 13th byte
+                turnstile_id = data[13]  # 14th byte
+                return rfid, entry_exit, turnstile_id
+            else:
+                print(f"⚠️ Incomplete data received: {data}")
+    except Exception as e:
+        print(f"❌ Serial error: {e}")
+    return None, None, None
+
+# Publish MQTT Message
+def publish_message(client, rfid, entry_exit, turnstile_id):
+    """Encapsulate data in JSON and publish via MQTT."""
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     payload = {
-        "RFID": uart_id,
-        "entry": command,
+        "RFID": rfid,
+        "entry": entry_exit,
         "turnstileID": turnstile_id,
         "timeStamp": timestamp,
-        "portId": PORT_ID
     }
-    print(f"Preparing to publish MQTT message: {payload}")
-    try:
-        result = client.publish(PUBLISH_TOPIC, json.dumps(payload))
-        if result.rc == mqtt.MQTT_ERR_SUCCESS:
-            print(f"✅ Published successfully: {payload}")
-        else:
-            print(f"❌ Failed to publish message. Return code: {result.rc}")
-    except Exception as e:
-        print(f"❌ Exception while publishing message: {e}")
+    print(f"📤 Publishing MQTT message: {payload}")
+    result = client.publish(PUBLISH_TOPIC, json.dumps(payload))
+    if result.rc == mqtt.MQTT_ERR_SUCCESS:
+        print(f"✅ Published successfully: {payload}")
+    else:
+        print(f"❌ Failed to publish MQTT message.")
 
-# Generate timestamp
-def get_timestamp():
-    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-# Improved MQTT reconnection logic
-def mqtt_reconnect():
-    while True:
-        try:
-            print("🔄 Attempting to reconnect to MQTT Broker...")
-            client.connect(MQTT_SERVER, MQTT_PORT, keepalive=60)
-            print("✅ Reconnected to MQTT Broker.")
-            client.loop_start()
-            break
-        except Exception as e:
-            print(f"❌ Reconnection failed: {e}")
-            time.sleep(5)
-
-# Main function
+# Main loop
 def main():
-    print("🚀 Starting program...")
+    global mqtt_response
     try:
-        print(f"Connecting to MQTT Broker at {MQTT_SERVER}:{MQTT_PORT}...")
+        # Connect to MQTT broker
         client.connect(MQTT_SERVER, MQTT_PORT, keepalive=60)
         client.loop_start()
-        print("✅ MQTT loop started.")
-    except Exception as e:
-        print(f"❌ Initial connection failed: {e}")
-        mqtt_reconnect()
+        print("🚀 MQTT Loop started.")
 
-    try:
         while True:
+            # Step 1: Read from Serial
+            rfid, entry_exit, turnstile_id = read_serial()
+            if rfid and entry_exit is not None and turnstile_id is not None:
+                # Step 2: Publish to MQTT
+                publish_message(client, rfid, entry_exit, turnstile_id)
+
+                # Step 3: Wait for MQTT Response
+                mqtt_response = None
+                timeout = 5  # Wait up to 5 seconds for MQTT response
+                start_time = time.time()
+                while mqtt_response is None and time.time() - start_time < timeout:
+                    time.sleep(0.1)
+
+                if mqtt_response:
+                    # Step 4: Send response back via Serial
+                    send_serial(mqtt_response)
+                else:
+                    print("⚠️ No MQTT response received within timeout.")
             time.sleep(0.5)
+
     except KeyboardInterrupt:
-        print("🛑 Shutting down gracefully...")
+        print("🛑 Program interrupted.")
+    finally:
+        # Clean up
         client.loop_stop()
         client.disconnect()
+        if serial_port.is_open:
+            serial_port.close()
+        print("🔌 Serial port closed.")
 
 if __name__ == "__main__":
-    # Assign MQTT callbacks
-    client.on_connect = on_connect
-    client.on_message = on_message
-
-    # Start the main loop
     main()

@@ -44,6 +44,7 @@ char txData[] = "Hello Raspberry Pi!\r\n";
 char rxData[50]; // Buffer for received data
 char ADDRESS[2] = "hi";
 char usermsg[2];
+volatile int check = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -102,6 +103,7 @@ int main(void)
         RS485_EnableTransmit();  // Enable TX Mode
         sprintf(usermsg, "%s", ADDRESS);
         HAL_UART_Transmit(&huart2, (uint8_t*)usermsg, sizeof(usermsg), HAL_MAX_DELAY);
+        check = 1;
         //HAL_UART_Transmit(&huart2, (uint8_t*)txData, sizeof(txData), HAL_MAX_DELAY);
         HAL_Delay(100);  // Delay for data to stabilize
 
@@ -110,7 +112,7 @@ int main(void)
         if (HAL_UART_Receive(&huart2, (uint8_t*)rxData, sizeof(rxData), HAL_MAX_DELAY) == HAL_OK) {
             // Optional: Echo back received data for testing
             RS485_EnableTransmit();
-            HAL_UART_Transmit(&huart2, (uint8_t*)rxData, sizeof(rxData), HAL_MAX_DELAY);
+            //HAL_UART_Transmit(&huart2, (uint8_t*)rxData, sizeof(rxData), HAL_MAX_DELAY);
         }
 
         HAL_Delay(1000); // Loop delay

@@ -3,7 +3,7 @@ responseData
 interrupt_counters
 object_present
 flag_rev
-last_pulse_received_time_1
+rfid_flag
 last_pulse_received_time_2
 last_pulse_received_time_3
 last_pulse_received_time_4
@@ -15,3 +15,8 @@ counter1
 responseData
 counter2
 RFID_counter
+counter3
+counter4
+check
+processedData
+rxData

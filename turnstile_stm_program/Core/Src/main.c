@@ -472,7 +472,9 @@ void reading_state(void) {
 
     if (flag_rev == 1) {
     	//sprintf(usermsg, "%s", processedData);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
         HAL_UART_Transmit_IT(&huart2, (uint8_t *)usermsg, sizeof(usermsg));
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
         HAL_Delay(1000);
         flag_rev = 0;
     }
@@ -637,7 +639,7 @@ int main(void)
   HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_2);
   WS28XX_Init(&ws, &htim3, 72, TIM_CHANNEL_1, LED_TOTAL);
 
-
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
   // Start UART reception for RFID Reader (USART1)
   HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
 
@@ -646,6 +648,7 @@ int main(void)
 
   // Start UART reception for NOS response (USART3)
   HAL_UART_Receive_IT(&huart2, &responseData, 2);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
 /*  while(1){
 
   }*/
@@ -750,6 +753,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
         rfid_flag = 0;
 
         // Re-enable UART reception for USART1
+
         HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
     }
     else if (huart->Instance == USART2) { // Data received from USART2
@@ -767,6 +771,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 
 
         // Re-enable UART reception for USART2
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
         HAL_UART_Receive_IT(&huart2, responseData, 2);
     }
     else if (huart->Instance == USART3 && rfid_flag == 1) {  // USART3 Interrupt
@@ -789,6 +794,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 
 
         // Re-enable UART reception
+
         HAL_UART_Receive_IT(&huart3,  rxData, sizeof(rxData));
     }
 }
