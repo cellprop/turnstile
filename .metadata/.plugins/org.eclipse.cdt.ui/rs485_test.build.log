@@ -1,29 +1,10 @@
-11:07:36 **** Incremental Build of configuration Debug for project rs485_test ****
+11:09:45 **** Incremental Build of configuration Debug for project rs485_test ****
 make -j7 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:104:9: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
-  104 |         sprintf(usermsg, "%s", ADDRESS);
-      |         ^~~~~~~
-../Core/Src/main.c:14:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
-   13 | #include "string.h"
-  +++ |+#include <stdio.h>
-   14 | 
-../Core/Src/main.c:104:9: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
-  104 |         sprintf(usermsg, "%s", ADDRESS);
-      |         ^~~~~~~
-../Core/Src/main.c:104:9: note: include '<stdio.h>' or provide a declaration of 'sprintf'
-arm-none-eabi-gcc -o "rs485_test.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/rs485_test/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: rs485_test.elf
- 
 arm-none-eabi-size  rs485_test.elf 
-arm-none-eabi-objdump -h -S rs485_test.elf  > "rs485_test.list"
    text	   data	    bss	    dec	    hex	filename
-   9196	     96	   2032	  11324	   2c3c	rs485_test.elf
+  11532	     96	   2040	  13668	   3564	rs485_test.elf
 Finished building: default.size.stdout
  
-Finished building: rs485_test.list
- 
 
-11:07:37 Build Finished. 0 errors, 2 warnings. (took 915ms)
+11:09:46 Build Finished. 0 errors, 0 warnings. (took 298ms)
 

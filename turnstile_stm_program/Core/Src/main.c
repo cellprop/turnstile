@@ -52,6 +52,8 @@ typedef enum {
 #define ENCODER_THRESHOLD 570
 #define TURNSTILE_ID 1  // Set manually to 1 for one Nucleo, and 2 for the other
 #define NUM_SENSORS 6
+#define RS485_DE_RE_PIN GPIO_PIN_4
+#define RS485_DE_RE_PORT GPIOA
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -79,6 +81,7 @@ uint8_t intresponseData;
 volatile int counter1 = 0;
 volatile int counter2 = 0;
 volatile int rev = 0;
+volatile int data_received = 0;
 /*
 uint32_t last_pulse_received_time1 = 0;  // Time for last pulse reception
 uint32_t last_pulse_received_time2 = 0;  // Time for last pulse reception
@@ -447,6 +450,20 @@ void quarter_cycle_closed(int source) {
 
 }
 
+// Function to enable RS485 Transmit Mode
+void RS485_EnableTransmit(void) {
+    HAL_GPIO_WritePin(RS485_DE_RE_PORT, RS485_DE_RE_PIN, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+
+}
+
+// Function to enable RS485 Receive Mode
+void RS485_EnableReceive(void) {
+    HAL_GPIO_WritePin(RS485_DE_RE_PORT, RS485_DE_RE_PIN, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+
+}
+
 //STATE FUNCTIONS
 
 void ready_state(void) {
@@ -472,10 +489,12 @@ void reading_state(void) {
 
     if (flag_rev == 1) {
     	//sprintf(usermsg, "%s", processedData);
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-        HAL_UART_Transmit_IT(&huart2, (uint8_t *)usermsg, sizeof(usermsg));
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
-        HAL_Delay(1000);
+    	RS485_EnableTransmit();  // Enable TX Mode
+    	HAL_Delay(100);
+    	HAL_UART_Transmit(&huart2, (uint8_t *)usermsg, sizeof(usermsg), HAL_MAX_DELAY);
+    	//HAL_Delay(1000);
+        RS485_EnableReceive();  // Enable RX Mode
+        //HAL_Delay(1000);
         flag_rev = 0;
     }
 
@@ -639,7 +658,7 @@ int main(void)
   HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_2);
   WS28XX_Init(&ws, &htim3, 72, TIM_CHANNEL_1, LED_TOTAL);
 
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+  //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
   // Start UART reception for RFID Reader (USART1)
   HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
 
@@ -647,8 +666,8 @@ int main(void)
   HAL_UART_Receive_IT(&huart3, rxData, sizeof(rxData));
 
   // Start UART reception for NOS response (USART3)
-  HAL_UART_Receive_IT(&huart2, &responseData, 2);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+  HAL_UART_Receive_IT(&huart2, &responseData, sizeof(responseData));
+  //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
 /*  while(1){
 
   }*/
@@ -757,7 +776,9 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
         HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
     }
     else if (huart->Instance == USART2) { // Data received from USART2
-        char receivedCommandChar = responseData[0];  // First character is the command
+
+    	data_received++;
+    	char receivedCommandChar = responseData[0];  // First character is the command
         char receivedTurnstileIDChar = responseData[1];  // Second character is the Turnstile ID
 
         int receivedCommand = receivedCommandChar - '0';  // Convert Command to integer
@@ -767,12 +788,13 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
             intresponseData = receivedCommand;  // Store the command
             // Add your logic here to handle the command
         }
+
         rfid_flag = 1;
 
 
         // Re-enable UART reception for USART2
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
-        HAL_UART_Receive_IT(&huart2, responseData, 2);
+        //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+        HAL_UART_Receive_IT(&huart2, responseData, sizeof(responseData));
     }
     else if (huart->Instance == USART3 && rfid_flag == 1) {  // USART3 Interrupt
         // Process the received data

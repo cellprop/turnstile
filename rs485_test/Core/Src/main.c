@@ -10,7 +10,6 @@
 #include "main.h"
 #include "usart.h"
 #include "gpio.h"
-#include "string.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -45,6 +44,7 @@ char rxData[50]; // Buffer for received data
 char ADDRESS[2] = "hi";
 char usermsg[2];
 volatile int check = 0;
+volatile int data_received = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -63,6 +63,18 @@ void RS485_EnableTransmit(void) {
 // Function to enable RS485 Receive Mode
 void RS485_EnableReceive(void) {
     HAL_GPIO_WritePin(RS485_DE_RE_PORT, RS485_DE_RE_PIN, GPIO_PIN_RESET);
+}
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+
+    if (huart->Instance == USART2) { // Data received from USART2
+
+    	data_received++;
+
+        // Re-enable UART reception for USART2
+        //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+        HAL_UART_Receive_IT(&huart2, rxData, sizeof(rxData));
+    }
+
 }
 /* USER CODE END 0 */
 
@@ -109,7 +121,7 @@ int main(void)
 
         // Receive Mode
         RS485_EnableReceive();  // Enable RX Mode
-        if (HAL_UART_Receive(&huart2, (uint8_t*)rxData, sizeof(rxData), HAL_MAX_DELAY) == HAL_OK) {
+        if (HAL_UART_Receive_IT(&huart2, (uint8_t*)rxData, sizeof(rxData)) == HAL_OK) {
             // Optional: Echo back received data for testing
             RS485_EnableTransmit();
             //HAL_UART_Transmit(&huart2, (uint8_t*)rxData, sizeof(rxData), HAL_MAX_DELAY);
