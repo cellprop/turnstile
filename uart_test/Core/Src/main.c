@@ -44,8 +44,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t x = 10;
-char myvalue[10];
+uint8_t rxData[14];        // Single buffer for USART1 and USART3
+uint8_t responseData[2];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -56,6 +56,26 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+	if ((huart->Instance == USART1))  // Data received from USART1
+    {
+        // Re-enable UART reception for USART1
+
+        HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
+    }
+     if (huart->Instance == USART2) { // Data received from USART2
+
+        // Re-enable UART reception for USART2
+        HAL_UART_Receive_IT(&huart2, responseData, sizeof(responseData));
+    }
+    if ((huart->Instance == USART3))// USART3 Interrupt
+    {
+
+        // Re-enable UART reception
+
+        HAL_UART_Receive_IT(&huart3,  rxData, sizeof(rxData));
+    }
+}
 
 /* USER CODE END 0 */
 
@@ -90,7 +110,16 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   MX_USART3_UART_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+  // Start UART reception for RFID Reader (USART1)
+  HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
+
+  // Start UART reception for Additional UART (USART2)
+  HAL_UART_Receive_IT(&huart3, rxData, sizeof(rxData));
+
+  // Start UART reception for NOS response (USART3)
+  HAL_UART_Receive_IT(&huart2, responseData, sizeof(responseData));
 
   /* USER CODE END 2 */
 
@@ -98,9 +127,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-      sprintf(myvalue,"%s","star");
-	  HAL_UART_Transmit(&huart2, (uint8_t *)myvalue, 10, 1000);
-	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -121,12 +147,13 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
+  RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI_DIV2;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL16;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();

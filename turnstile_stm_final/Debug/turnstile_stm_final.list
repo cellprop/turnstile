@@ -1337,10 +1337,10 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
  8000b86:	3301      	adds	r3, #1
  8000b88:	4a11      	ldr	r2, [pc, #68]	@ (8000bd0 <HAL_GPIO_EXTI_Callback+0x88>)
  8000b8a:	6013      	str	r3, [r2, #0]
-			if(counter2 == 520)
+			if(counter2 == 560)
  8000b8c:	4b10      	ldr	r3, [pc, #64]	@ (8000bd0 <HAL_GPIO_EXTI_Callback+0x88>)
  8000b8e:	681b      	ldr	r3, [r3, #0]
- 8000b90:	f5b3 7f02 	cmp.w	r3, #520	@ 0x208
+ 8000b90:	f5b3 7f0c 	cmp.w	r3, #560	@ 0x230
  8000b94:	d105      	bne.n	8000ba2 <HAL_GPIO_EXTI_Callback+0x5a>
 			{
 				Speed_Control2(0);
@@ -1421,8 +1421,8 @@ void quarter_cycle_open(int source) {
 	Speed_Control1(100);
  8000c08:	2064      	movs	r0, #100	@ 0x64
  8000c0a:	f7ff ff55 	bl	8000ab8 <Speed_Control1>
-	Speed_Control2(80);
- 8000c0e:	2050      	movs	r0, #80	@ 0x50
+	Speed_Control2(75);
+ 8000c0e:	204b      	movs	r0, #75	@ 0x4b
  8000c10:	f7ff ff62 	bl	8000ad8 <Speed_Control2>
 
 

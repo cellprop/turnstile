@@ -1,47 +1,10 @@
-12:18:09 **** Incremental Build of configuration Debug for project turnstile_stm_final ****
+18:29:30 **** Incremental Build of configuration Debug for project turnstile_stm_final ****
 make -j7 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../I-CUBE-WS28XX -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'quarter_cycle_open':
-../Core/Src/main.c:390:14: warning: unused variable 'start_time' [-Wunused-variable]
-  390 |     uint32_t start_time = HAL_GetTick();  // Record the start time
-      |              ^~~~~~~~~~
-../Core/Src/main.c: In function 'quarter_cycle_closed':
-../Core/Src/main.c:409:14: warning: unused variable 'start_time' [-Wunused-variable]
-  409 |     uint32_t start_time = HAL_GetTick();  // Record the start time
-      |              ^~~~~~~~~~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:649:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_IT' differ in signedness [-Wpointer-sign]
-  649 |   HAL_UART_Receive_IT(&huart2, responseData, 2);
-      |                                ^~~~~~~~~~~~
-      |                                |
-      |                                char *
-In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
-                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:752:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
-  752 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
-      |                                                                  ~~~~~~~~~^~~~~
-../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
-../Core/Src/main.c:781:38: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_IT' differ in signedness [-Wpointer-sign]
-  781 |         HAL_UART_Receive_IT(&huart2, responseData, sizeof(responseData));
-      |                                      ^~~~~~~~~~~~
-      |                                      |
-      |                                      char *
-../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:752:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
-  752 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
-      |                                                                  ~~~~~~~~~^~~~~
-arm-none-eabi-gcc -o "turnstile_stm_final.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_final/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_final.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: turnstile_stm_final.elf
- 
 arm-none-eabi-size  turnstile_stm_final.elf 
-arm-none-eabi-objdump -h -S turnstile_stm_final.elf  > "turnstile_stm_final.list"
    text	   data	    bss	    dec	    hex	filename
   23844	    396	  18060	  42300	   a53c	turnstile_stm_final.elf
 Finished building: default.size.stdout
  
-Finished building: turnstile_stm_final.list
- 
 
-12:18:11 Build Finished. 0 errors, 4 warnings. (took 1s.811ms)
+18:29:31 Build Finished. 0 errors, 0 warnings. (took 627ms)
 

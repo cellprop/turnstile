@@ -65,6 +65,7 @@ void Speed_Control1(int a)
 {
 	__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_1, a);
 	//__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_2, a - 30);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 }
 void Speed_Control2(int a)
 {
@@ -134,13 +135,13 @@ void quarter_cycle_cw(void)
 {
 	Direction(0);
 	Speed_Control1(100);
-	Speed_Control2(80);
+	Speed_Control2(100);
 }
 void quarter_cycle_acw(void)
 {
 	Direction(1);
 	Speed_Control1(100);
-	Speed_Control2(80);
+	Speed_Control2(100);
 }
 /* USER CODE END 0 */
 
