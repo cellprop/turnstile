@@ -1,204 +1,182 @@
-11:42:20 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+17:53:49 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
 make -j7 all 
-arm-none-eabi-gcc "../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.d" -MT"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
-arm-none-eabi-gcc "../Core/Src/dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dma.d" -MT"Core/Src/dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/dma.o"
-arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/gpio.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
-arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
 ../Core/Src/main.c: In function 'Clear_All_Animations':
-../Core/Src/main.c:228:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  228 |     Led_Strip(&ws, entryStrip, entryStripSize, "off");
-      |               ^~~
-      |               |
-      |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:229:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  229 |     Led_Strip(&ws, entryRFID, entryRFIDSize, "off");
-      |               ^~~
-      |               |
-      |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:230:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  230 |     Led_Strip(&ws, exitStrip, exitStripSize, "off");
-      |               ^~~
-      |               |
-      |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
 ../Core/Src/main.c:231:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  231 |     Led_Strip(&ws, exitRFID, exitRFIDSize, "off");
+  231 |     Led_Strip(&ws, entryStrip, entryStripSize, "off");
       |               ^~~
       |               |
       |               WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:232:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  232 |     Led_Strip(&ws, entryRFID, entryRFIDSize, "off");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:233:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  233 |     Led_Strip(&ws, exitStrip, exitStripSize, "off");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:234:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  234 |     Led_Strip(&ws, exitRFID, exitRFIDSize, "off");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
       |                ~~~~~~~~~~~~~~~~~~~~~~^~
 ../Core/Src/main.c: In function 'Entry_Granted_Animation':
-../Core/Src/main.c:245:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  245 |         Led_Strip(&ws, entryStrip, entryStripSize, "green");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:246:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  246 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "green");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:247:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  247 |         Led_Strip(&ws, exitStrip, exitStripSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
 ../Core/Src/main.c:248:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  248 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
+  248 |         Led_Strip(&ws, entryStrip, entryStripSize, "green");
       |                   ^~~
       |                   |
       |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:249:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  249 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "green");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:250:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  250 |         Led_Strip(&ws, exitStrip, exitStripSize, "red");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:251:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  251 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
       |                ~~~~~~~~~~~~~~~~~~~~~~^~
 ../Core/Src/main.c: In function 'Exit_Granted_Animation':
-../Core/Src/main.c:273:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  273 |         Led_Strip(&ws, entryStrip, entryStripSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:274:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  274 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:275:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  275 |         Led_Strip(&ws, exitStrip, exitStripSize, "green");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
 ../Core/Src/main.c:276:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  276 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "green");
+  276 |         Led_Strip(&ws, entryStrip, entryStripSize, "red");
       |                   ^~~
       |                   |
       |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:277:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  277 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:278:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  278 |         Led_Strip(&ws, exitStrip, exitStripSize, "green");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:279:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  279 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "green");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
       |                ~~~~~~~~~~~~~~~~~~~~~~^~
 ../Core/Src/main.c: In function 'Ready_State_Animation':
-../Core/Src/main.c:291:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  291 |         Led_Strip(&ws, entryStrip, entryStripSize, "blue");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
-../Core/Src/main.c:292:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  292 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "blue");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:293:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  293 |         Led_Strip(&ws, exitStrip, exitStripSize, "blue");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/tim.o"
 ../Core/Src/main.c:294:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  294 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "blue");
+  294 |         Led_Strip(&ws, entryStrip, entryStripSize, "blue");
       |                   ^~~
       |                   |
       |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:295:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  295 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "blue");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:296:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  296 |         Led_Strip(&ws, exitStrip, exitStripSize, "blue");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:297:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  297 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "blue");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
       |                ~~~~~~~~~~~~~~~~~~~~~~^~
 ../Core/Src/main.c: In function 'Access_Denied_Animation':
-../Core/Src/main.c:322:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  322 |         Led_Strip(&ws, entryStrip, entryStripSize, "red");
-arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/usart.o"
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:323:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  323 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
-../Core/Src/main.c:324:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  324 |         Led_Strip(&ws, exitStrip, exitStripSize, "red");
-      |                   ^~~
-      |                   |
-      |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~^~
 ../Core/Src/main.c:325:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
-  325 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
+  325 |         Led_Strip(&ws, entryStrip, entryStripSize, "red");
       |                   ^~~
       |                   |
       |                   WS28XX_HandleTypeDef **
-../Core/Src/main.c:178:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
-  178 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:326:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  326 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:327:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  327 |         Led_Strip(&ws, exitStrip, exitStripSize, "red");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:328:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  328 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
       |                ~~~~~~~~~~~~~~~~~~~~~~^~
 ../Core/Src/main.c: In function 'quarter_cycle_open':
-../Core/Src/main.c:416:14: warning: unused variable 'start_time' [-Wunused-variable]
-  416 |     uint32_t start_time = HAL_GetTick();  // Record the start time
+../Core/Src/main.c:419:14: warning: unused variable 'start_time' [-Wunused-variable]
+  419 |     uint32_t start_time = HAL_GetTick();  // Record the start time
       |              ^~~~~~~~~~
 ../Core/Src/main.c: In function 'quarter_cycle_closed':
-../Core/Src/main.c:435:14: warning: unused variable 'start_time' [-Wunused-variable]
-  435 |     uint32_t start_time = HAL_GetTick();  // Record the start time
+../Core/Src/main.c:438:14: warning: unused variable 'start_time' [-Wunused-variable]
+  438 |     uint32_t start_time = HAL_GetTick();  // Record the start time
       |              ^~~~~~~~~~
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:650:32: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
-  650 |   HAL_UART_Receive_IT(&huart2, &responseData, 2);
+../Core/Src/main.c:669:32: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+  669 |   HAL_UART_Receive_IT(&huart2, &responseData, 2);
       |                                ^~~~~~~~~~~~~
       |                                |
       |                                uint8_t (*)[2] {aka unsigned char (*)[2]}
@@ -215,11 +193,11 @@ Finished building target: turnstile_stm_program.elf
 arm-none-eabi-size  turnstile_stm_program.elf 
 arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
    text	   data	    bss	    dec	    hex	filename
-  25076	   1008	  18056	  44140	   ac6c	turnstile_stm_program.elf
+  25004	   1008	  18064	  44076	   ac2c	turnstile_stm_program.elf
 Finished building: default.size.stdout
  
 Finished building: turnstile_stm_program.list
  
 
-11:42:22 Build Finished. 0 errors, 23 warnings. (took 1s.564ms)
+17:53:50 Build Finished. 0 errors, 23 warnings. (took 971ms)
 
