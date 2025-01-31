@@ -131,7 +131,7 @@ def main():
 
                 # Step 3: Wait for MQTT Response
                 mqtt_response = None
-                timeout = 10  # Wait up to 5 seconds for MQTT response
+                timeout = 20  # Wait up to 5 seconds for MQTT response
                 start_time = time.time()
                 while mqtt_response is None and time.time() - start_time < timeout:
                     time.sleep(0.1)
