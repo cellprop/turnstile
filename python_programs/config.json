@@ -7,7 +7,7 @@
   "uart2_rx_pin": 22,
   "uart2_tx_pin": 23,
   "baud_rate": 9600,
-  //"modbus_slave_address": 1,           // Replace with the actual Modbus slave address of your device
-  "com_port_name": "/dev/ttyUSB0",      // Replace with the correct UART port on your system
-  "modbus_write_register": 100        // Replace with the Modbus register for writing data to your device
+  "modbus_slave_address": 1,           
+  "com_port_name": "/dev/ttyUSB0",    
+  "modbus_write_register": 100        
 }
