@@ -203,3 +203,1168 @@ arm-none-eabi-size  motor3.elf
    9668	     12	   1732	  11412	   2c94	motor3.elf
 Finished building: default.size.stdout
  
+15:37:33 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9668	     12	   1732	  11412	   2c94	motor3.elf
+Finished building: default.size.stdout
+ 
+15:59:59 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9668	     12	   1732	  11412	   2c94	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+16:05:40 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9668	     12	   1732	  11412	   2c94	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+16:08:49 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9668	     12	   1732	  11412	   2c94	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+16:10:01 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9668	     12	   1732	  11412	   2c94	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+16:43:28 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9656	     12	   1732	  11400	   2c88	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+16:44:31 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9656	     12	   1732	  11400	   2c88	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+16:47:35 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9656	     12	   1732	  11400	   2c88	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+11:30:46 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/usart.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+14:47:35 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9684	     12	   1732	  11428	   2ca4	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+14:47:57 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9684	     12	   1732	  11428	   2ca4	motor3.elf
+Finished building: default.size.stdout
+ 
+14:51:17 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+14:52:31 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9676	     12	   1732	  11420	   2c9c	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+14:53:49 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9676	     12	   1732	  11420	   2c9c	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+14:54:45 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9676	     12	   1732	  11420	   2c9c	motor3.elf
+Finished building: default.size.stdout
+ 
+14:55:21 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9676	     12	   1732	  11420	   2c9c	motor3.elf
+Finished building: default.size.stdout
+ 
+14:56:07 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9676	     12	   1732	  11420	   2c9c	motor3.elf
+Finished building: default.size.stdout
+ 
+14:57:55 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:01:23 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9664	     12	   1732	  11408	   2c90	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:04:23 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9664	     12	   1732	  11408	   2c90	motor3.elf
+Finished building: default.size.stdout
+ 
+15:05:09 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9664	     12	   1732	  11408	   2c90	motor3.elf
+Finished building: default.size.stdout
+ 
+15:05:51 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9664	     12	   1732	  11408	   2c90	motor3.elf
+Finished building: default.size.stdout
+ 
+15:06:32 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9664	     12	   1732	  11408	   2c90	motor3.elf
+Finished building: default.size.stdout
+ 
+15:07:52 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9664	     12	   1732	  11408	   2c90	motor3.elf
+Finished building: default.size.stdout
+ 
+15:09:06 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9664	     12	   1732	  11408	   2c90	motor3.elf
+Finished building: default.size.stdout
+ 
+15:09:38 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9664	     12	   1732	  11408	   2c90	motor3.elf
+Finished building: default.size.stdout
+ 
+15:10:16 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9664	     12	   1732	  11408	   2c90	motor3.elf
+Finished building: default.size.stdout
+ 
+15:10:47 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9664	     12	   1732	  11408	   2c90	motor3.elf
+Finished building: default.size.stdout
+ 
+15:11:05 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9664	     12	   1732	  11408	   2c90	motor3.elf
+Finished building: default.size.stdout
+ 
+15:12:47 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9664	     12	   1732	  11408	   2c90	motor3.elf
+Finished building: default.size.stdout
+ 
+15:13:24 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9664	     12	   1732	  11408	   2c90	motor3.elf
+Finished building: default.size.stdout
+ 
+15:17:12 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:22:50 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+15:26:24 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:27:13 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:28:03 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:30:07 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:35:25 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+15:36:00 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+15:52:09 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+15:52:28 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+16:10:19 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+16:22:14 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+16:22:33 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+16:23:33 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9672	     12	   1732	  11416	   2c98	motor3.elf
+Finished building: default.size.stdout
+ 
+16:32:28 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:130,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:665:29: error: called object is not a function or function pointer
+  665 | #define GPIOB               ((GPIO_TypeDef *)GPIOB_BASE)
+      |                             ^
+../Core/Src/main.c:111:38: note: in expansion of macro 'GPIOB'
+  111 |                 if (HAL_GPIO_ReadPin(GPIOB GPIO_PIN_12) == GPIO_PIN_SET_){
+      |                                      ^~~~~
+../Core/Src/main.c:111:21: error: too few arguments to function 'HAL_GPIO_ReadPin'
+  111 |                 if (HAL_GPIO_ReadPin(GPIOB GPIO_PIN_12) == GPIO_PIN_SET_){
+      |                     ^~~~~~~~~~~~~~~~
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:242:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h:233:15: note: declared here
+  233 | GPIO_PinState HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
+      |               ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:111:60: error: 'GPIO_PIN_SET_' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+  111 |                 if (HAL_GPIO_ReadPin(GPIOB GPIO_PIN_12) == GPIO_PIN_SET_){
+      |                                                            ^~~~~~~~~~~~~
+      |                                                            GPIO_PIN_SET
+../Core/Src/main.c:111:60: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+16:32:45 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:111:60: error: 'GPIO_PIN_SET_' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+  111 |                 if (HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_12) == GPIO_PIN_SET_){
+      |                                                            ^~~~~~~~~~~~~
+      |                                                            GPIO_PIN_SET
+../Core/Src/main.c:111:60: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+16:33:14 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9696	     12	   1724	  11432	   2ca8	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+16:33:56 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9716	     12	   1724	  11452	   2cbc	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+17:33:59 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9716	     12	   1724	  11452	   2cbc	motor3.elf
+Finished building: default.size.stdout
+ 
+17:35:47 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9716	     12	   1724	  11452	   2cbc	motor3.elf
+Finished building: default.size.stdout
+ 
+15:13:13 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9716	     12	   1724	  11452	   2cbc	motor3.elf
+Finished building: default.size.stdout
+ 
+15:13:32 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9716	     12	   1724	  11452	   2cbc	motor3.elf
+Finished building: default.size.stdout
+ 
+15:14:24 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9716	     12	   1724	  11452	   2cbc	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:14:57 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9716	     12	   1724	  11452	   2cbc	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:15:33 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9712	     12	   1724	  11448	   2cb8	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:19:43 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9716	     12	   1724	  11452	   2cbc	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:21:03 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9744	     12	   1724	  11480	   2cd8	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:21:25 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9824	     12	   1724	  11560	   2d28	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:21:56 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9824	     12	   1724	  11560	   2d28	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:31:17 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9824	     12	   1724	  11560	   2d28	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:32:02 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9824	     12	   1724	  11560	   2d28	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:32:46 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9824	     12	   1724	  11560	   2d28	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:34:59 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9824	     12	   1724	  11560	   2d28	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:37:50 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9820	     12	   1724	  11556	   2d24	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:38:48 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9820	     12	   1724	  11556	   2d24	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:39:50 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9820	     12	   1724	  11556	   2d24	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:40:56 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9820	     12	   1724	  11556	   2d24	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+15:43:51 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9820	     12	   1724	  11556	   2d24	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 
+16:16:01 **** Incremental Build of configuration Debug for project ir_sensor ****
+make -j7 all 
+arm-none-eabi-size  ir_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6336	     12	   1700	   8048	   1f70	ir_sensor.elf
+Finished building: default.size.stdout
+ 
+16:16:03 **** Incremental Build of configuration Debug for project led_matrix ****
+make -j7 all 
+arm-none-eabi-size  led_matrix.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14208	     12	   8708	  22928	   5990	led_matrix.elf
+Finished building: default.size.stdout
+ 
+16:16:04 **** Incremental Build of configuration Debug for project limit_switch ****
+make -j7 all 
+arm-none-eabi-size  limit_switch.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12812	     12	   2892	  15716	   3d64	limit_switch.elf
+Finished building: default.size.stdout
+ 
+16:16:05 **** Incremental Build of configuration Debug for project limit_switch2 ****
+make -j7 all 
+arm-none-eabi-size  limit_switch2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5656	     12	   1644	   7312	   1c90	limit_switch2.elf
+Finished building: default.size.stdout
+ 
+16:16:05 **** Incremental Build of configuration Debug for project motor2 ****
+make -j7 all 
+arm-none-eabi-size  motor2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9500	     12	   1724	  11236	   2be4	motor2.elf
+Finished building: default.size.stdout
+ 
+16:16:06 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-size  motor3.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9820	     12	   1724	  11556	   2d24	motor3.elf
+Finished building: default.size.stdout
+ 
+16:16:07 **** Incremental Build of configuration Debug for project rfid ****
+make -j7 all 
+arm-none-eabi-size  rfid.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11532	     92	   2148	  13772	   35cc	rfid.elf
+Finished building: default.size.stdout
+ 
+16:16:08 **** Incremental Build of configuration Debug for project rs485_test ****
+make -j7 all 
+arm-none-eabi-size  rs485_test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11532	     96	   2040	  13668	   3564	rs485_test.elf
+Finished building: default.size.stdout
+ 
+16:16:09 **** Incremental Build of configuration Debug for project turnstile_program_2 ****
+make -j7 all 
+arm-none-eabi-gcc "../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.d" -MT"Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o"
+In file included from ../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.c:6:
+../Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.h:34:10: fatal error: tim.h: No such file or directory
+   34 | #include "tim.h"
+      |          ^~~~~~~
+compilation terminated.
+make: *** [Middlewares/Third_Party/NimaLTD_Driver/WS28XX/subdir.mk:19: Middlewares/Third_Party/NimaLTD_Driver/WS28XX/ws28xx.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+16:16:10 **** Incremental Build of configuration Debug for project turnstile_reverse_LED_wiring ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../I-CUBE-WS28XX -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'quarter_cycle_open':
+../Core/Src/main.c:322:14: warning: unused variable 'start_time' [-Wunused-variable]
+  322 |     uint32_t start_time = HAL_GetTick();  // Record the start time
+      |              ^~~~~~~~~~
+../Core/Src/main.c: In function 'quarter_cycle_closed':
+../Core/Src/main.c:341:14: warning: unused variable 'start_time' [-Wunused-variable]
+  341 |     uint32_t start_time = HAL_GetTick();  // Record the start time
+      |              ^~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:580:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_IT' differ in signedness [-Wpointer-sign]
+  580 |   HAL_UART_Receive_IT(&huart2, responseData, sizeof(responseData));
+      |                                ^~~~~~~~~~~~
+      |                                |
+      |                                char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:752:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  752 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:697:38: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_IT' differ in signedness [-Wpointer-sign]
+  697 |         HAL_UART_Receive_IT(&huart2, responseData, sizeof(responseData));
+      |                                      ^~~~~~~~~~~~
+      |                                      |
+      |                                      char *
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:752:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  752 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "turnstile_reverse_LED_wiring.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_reverse_LED_wiring/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_reverse_LED_wiring.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_reverse_LED_wiring.elf
+ 
+arm-none-eabi-size  turnstile_reverse_LED_wiring.elf 
+arm-none-eabi-objdump -h -S turnstile_reverse_LED_wiring.elf  > "turnstile_reverse_LED_wiring.list"
+   text	   data	    bss	    dec	    hex	filename
+  23928	    396	  18060	  42384	   a590	turnstile_reverse_LED_wiring.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_reverse_LED_wiring.list
+ 
+16:16:11 **** Incremental Build of configuration Debug for project turnstile_stm_final ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../I-CUBE-WS28XX -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'quarter_cycle_open':
+../Core/Src/main.c:390:14: warning: unused variable 'start_time' [-Wunused-variable]
+  390 |     uint32_t start_time = HAL_GetTick();  // Record the start time
+      |              ^~~~~~~~~~
+../Core/Src/main.c: In function 'quarter_cycle_closed':
+../Core/Src/main.c:409:14: warning: unused variable 'start_time' [-Wunused-variable]
+  409 |     uint32_t start_time = HAL_GetTick();  // Record the start time
+      |              ^~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:648:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_IT' differ in signedness [-Wpointer-sign]
+  648 |   HAL_UART_Receive_IT(&huart2, responseData, sizeof(responseData));
+      |                                ^~~~~~~~~~~~
+      |                                |
+      |                                char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:752:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  752 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:765:38: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_IT' differ in signedness [-Wpointer-sign]
+  765 |         HAL_UART_Receive_IT(&huart2, responseData, sizeof(responseData));
+      |                                      ^~~~~~~~~~~~
+      |                                      |
+      |                                      char *
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:752:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  752 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "turnstile_stm_final.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_final/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_final.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_final.elf
+ 
+arm-none-eabi-size  turnstile_stm_final.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_final.elf  > "turnstile_stm_final.list"
+   text	   data	    bss	    dec	    hex	filename
+  23844	    396	  18060	  42300	   a53c	turnstile_stm_final.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_stm_final.list
+ 
+16:16:13 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Clear_All_Animations':
+../Core/Src/main.c:231:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  231 |     Led_Strip(&ws, entryStrip, entryStripSize, "off");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:232:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  232 |     Led_Strip(&ws, entryRFID, entryRFIDSize, "off");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:233:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  233 |     Led_Strip(&ws, exitStrip, exitStripSize, "off");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:234:15: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  234 |     Led_Strip(&ws, exitRFID, exitRFIDSize, "off");
+      |               ^~~
+      |               |
+      |               WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c: In function 'Entry_Granted_Animation':
+../Core/Src/main.c:248:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  248 |         Led_Strip(&ws, entryStrip, entryStripSize, "green");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:249:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  249 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "green");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:250:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  250 |         Led_Strip(&ws, exitStrip, exitStripSize, "red");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:251:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  251 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c: In function 'Exit_Granted_Animation':
+../Core/Src/main.c:276:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  276 |         Led_Strip(&ws, entryStrip, entryStripSize, "red");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:277:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  277 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:278:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  278 |         Led_Strip(&ws, exitStrip, exitStripSize, "green");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:279:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  279 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "green");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c: In function 'Ready_State_Animation':
+../Core/Src/main.c:294:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  294 |         Led_Strip(&ws, entryStrip, entryStripSize, "blue");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:295:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  295 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "blue");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:296:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  296 |         Led_Strip(&ws, exitStrip, exitStripSize, "blue");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:297:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  297 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "blue");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c: In function 'Access_Denied_Animation':
+../Core/Src/main.c:325:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  325 |         Led_Strip(&ws, entryStrip, entryStripSize, "red");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:326:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  326 |         Led_Strip(&ws, entryRFID, entryRFIDSize, "red");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:327:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  327 |         Led_Strip(&ws, exitStrip, exitStripSize, "red");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c:328:19: warning: passing argument 1 of 'Led_Strip' from incompatible pointer type [-Wincompatible-pointer-types]
+  328 |         Led_Strip(&ws, exitRFID, exitRFIDSize, "red");
+      |                   ^~~
+      |                   |
+      |                   WS28XX_HandleTypeDef **
+../Core/Src/main.c:181:38: note: expected 'WS28XX_HandleTypeDef *' but argument is of type 'WS28XX_HandleTypeDef **'
+  181 | void Led_Strip(WS28XX_HandleTypeDef *ws, int *strip, int strip_size, char *color) {
+      |                ~~~~~~~~~~~~~~~~~~~~~~^~
+../Core/Src/main.c: In function 'quarter_cycle_open':
+../Core/Src/main.c:419:14: warning: unused variable 'start_time' [-Wunused-variable]
+  419 |     uint32_t start_time = HAL_GetTick();  // Record the start time
+      |              ^~~~~~~~~~
+../Core/Src/main.c: In function 'quarter_cycle_closed':
+../Core/Src/main.c:438:14: warning: unused variable 'start_time' [-Wunused-variable]
+  438 |     uint32_t start_time = HAL_GetTick();  // Record the start time
+      |              ^~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:669:32: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+  669 |   HAL_UART_Receive_IT(&huart2, &responseData, sizeof(responseData));
+      |                                ^~~~~~~~~~~~~
+      |                                |
+      |                                uint8_t (*)[2] {aka unsigned char (*)[2]}
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:752:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[2]' {aka 'unsigned char (*)[2]'}
+  752 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "turnstile_stm_program.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/turnstile_stm_program/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="turnstile_stm_program.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: turnstile_stm_program.elf
+ 
+arm-none-eabi-size  turnstile_stm_program.elf 
+arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
+   text	   data	    bss	    dec	    hex	filename
+  24996	   1008	  18064	  44068	   ac24	turnstile_stm_program.elf
+Finished building: default.size.stdout
+ 
+Finished building: turnstile_stm_program.list
+ 
+16:16:14 **** Incremental Build of configuration Debug for project uart_test ****
+make -j7 all 
+arm-none-eabi-size  uart_test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8968	     12	   1804	  10784	   2a20	uart_test.elf
+Finished building: default.size.stdout
+ 
+16:25:30 **** Incremental Build of configuration Debug for project motor3 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "motor3.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/vihaanravishankar/Desktop/Turnstile stuff/motor3/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="motor3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: motor3.elf
+ 
+arm-none-eabi-size  motor3.elf 
+arm-none-eabi-objdump -h -S motor3.elf  > "motor3.list"
+   text	   data	    bss	    dec	    hex	filename
+   9820	     12	   1724	  11556	   2d24	motor3.elf
+Finished building: default.size.stdout
+ 
+Finished building: motor3.list
+ 

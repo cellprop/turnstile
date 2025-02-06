@@ -1,0 +1,800 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2024 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+#include "dma.h"
+#include "tim.h"
+#include "usart.h"
+#include "gpio.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "ws28xx.h"
+#include <string.h>
+#include <stdio.h>
+#include "dma.h"
+#include "tim.h"
+#include "usart.h"
+#include "gpio.h"
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+typedef enum {
+    STATE_READY,
+    STATE_READING,
+    STATE_OPEN,
+    STATE_CLOSED,
+    STATE_OVERCAPACITY,
+    STATE_SLEEP,
+    STATE_EMERGENCY
+} SystemState;
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+
+#define LED_ROWS 8
+#define LED_COLS 32
+#define LED_FIRST_MATRIX 256
+#define LED_LAST_MATRIX_START 322
+#define LED_LAST_MATRIX 256
+#define LED_SECOND_SEGMENT_START 256
+#define LED_SECOND_SEGMENT_COUNT 19
+#define LED_THIRD_SEGMENT_START 275
+#define LED_THIRD_SEGMENT_COUNT 14
+#define LED_FOURTH_SEGMENT_START 289
+#define LED_FOURTH_SEGMENT_COUNT 14
+#define LED_FIFTH_SEGMENT_START 303
+#define LED_FIFTH_SEGMENT_COUNT 19
+#define LED_TOTAL 578  // Total number of LEDs after adjustments
+#define DELAY_TIME 100  // Delay for animation steps
+#define OBJECT_DETECTION_TIMEOUT 500  // Timeout period for object detection (in ms)
+#define PULSE_INTERVAL 100            // Interval for pulse transmission (in ms)
+#define ENCODER_THRESHOLD 570
+#define TURNSTILE_ID 1  // Set manually to 1 for one Nucleo, and 2 for the other
+#define NUM_SENSORS 6
+#define RS485_DE_RE_PIN GPIO_PIN_4
+#define RS485_DE_RE_PORT GPIOA
+
+
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+
+/* USER CODE BEGIN PV */
+
+// State variable for blinking cross animation
+WS28XX_HandleTypeDef ws;
+int global_brightness = 100;  // Global brightness control
+int brightness = 40;     // Global brightness level (40-255)
+SystemState currentState = STATE_READY; // Initialize to Ready State
+uint8_t rxData[14];        // Single buffer for USART1 and USART3
+uint8_t processedData[15]; // Buffer to store processed data
+char usermsg[15];          // Message to send
+volatile uint8_t flag_rev = 0;      // Flag to indicate data reception
+int rfid_flag = 1; //to manage data flow
+volatile uint8_t rfid_flag_1 = 1;
+volatile uint8_t uart_source = 0;   // Variable to identify UART source (1 for USART1, 2 for USART2)
+volatile uint8_t RFID_counter = 0;
+char responseData[2];      // For NOS response
+uint8_t intresponseData;
+/* Other variables */
+volatile int counter1 = 0;
+volatile int counter2 = 0;
+volatile int rev = 0;
+volatile int data_received = 0;
+int flag4=0;
+int flag5=0;
+int flag33=0;
+int flag333=0;
+int counterrfid=0;
+int test_count=0;
+volatile int rfid_trigger = 0;
+
+
+char receivedTurnstileIDChar;
+char receivedCommandChar;
+
+uint8_t receivedCommand;
+char receivedTurnstileID[1];
+volatile int ir_flag = 0;
+
+//uint8_t receivedTurnstileID = 0;
+
+uint32_t last_pulse_received_time[NUM_SENSORS] = {0};
+
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+//LED MATRIX FUNCTIONS
+/* Arrow shape indices for entry and exit matrices */
+
+
+int arrow[] = {
+    83, 84, 91, 92, 99, 100, 107, 108, 115, 116, 123, 124,
+    131, 132, 137, 138, 139, 140, 141, 142, 146, 147, 148, 149,
+    155, 156
+};
+
+
+
+/* Cross shape LED indices for the first matrix (0–255) */
+int topCrossFirst[] = {24, 31, 33, 38, 42, 45, 51, 52, 59, 60, 66, 69, 73, 78, 80, 87};
+int middleCrossFirst[] = {96, 103, 105, 110, 114, 117, 123, 124, 131, 132, 138, 141, 145, 150, 152, 159};
+int bottomCrossFirst[] = {168, 175, 177, 182, 186, 189, 195, 196, 203, 204, 210, 213, 217, 222, 224, 231};
+
+/* Cross shape LED indices for the last matrix (322–577) */
+int topCrossLast[] = {346, 353, 355, 360, 364, 367, 373, 374, 381, 382, 388, 391, 395, 400, 402, 409};
+int middleCrossLast[] = {418, 425, 427, 432, 436, 439, 445, 446, 453, 454, 460, 463, 467, 472, 474, 481};
+int bottomCrossLast[] = {490, 497, 499, 504, 508, 511, 517, 518, 525, 526, 532, 535, 539, 544, 546, 553};
+
+/* Strips and RFID indices */
+int entryStrip[] = {256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274};
+int exitStrip[] = {315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333};
+
+int entryRFID[] = {275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294};
+int exitRFID[] = {295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314};
+
+int swingBarrierStrip[] = {};//Left empty till confirmation
+
+const int entryStripSize = sizeof(entryStrip) / sizeof(entryStrip[0]);
+const int exitStripSize = sizeof(exitStrip) / sizeof(exitStrip[0]);
+const int entryRFIDSize = sizeof(entryRFID) / sizeof(entryRFID[0]);
+const int exitRFIDSize = sizeof(exitRFID) / sizeof(exitRFID[0]);
+
+
+
+/* Function to shift the arrow forward by one row, limited to the first strip */
+
+int Get_LED_Index(int row, int col) {
+    if (row % 2 == 0) {
+        // Even row (left-to-right)
+        return (row * LED_COLS) + col;
+    } else {
+        // Odd row (right-to-left)
+        return (row * LED_COLS) + (LED_COLS - 1 - col);
+    }
+}
+
+void Draw_Cross(WS28XX_HandleTypeDef *ws, int *cross, int color) {
+    for (int i = 0; i < 16; i++) {
+        if (cross[i] >= 0 && cross[i] < 577) {
+            WS28XX_SetPixel_RGBW_565(ws, cross[i], color, global_brightness);
+        }
+    }
+    WS28XX_Update(ws);
+}
+
+/* Function to turn off the "X" shapes for the cross */
+void Clear_Cross(WS28XX_HandleTypeDef *ws, int *cross) {
+    for (int i = 0; i < 16; i++) {
+        if (cross[i] >= 0 && cross[i] < 577) {
+            WS28XX_SetPixel_RGBW_565(ws, cross[i], COLOR_RGB565_BLACK, 0);
+        }
+    }
+    WS28XX_Update(ws);
+}
+
+/* Function to light up a range of LEDs with a specific color */
+void Light_Range(WS28XX_HandleTypeDef *ws, int start, int count, int color) {
+    for (int i = start; i < start + count; i++) {
+        WS28XX_SetPixel_RGBW_565(ws, i, color, global_brightness);
+    }
+    WS28XX_Update(ws);
+}
+
+/* Function to draw the arrow */
+void Draw_Arrow(WS28XX_HandleTypeDef *ws, int *arrow, int color, int offset) {
+    for (int i = 0; i < 26; i++) {
+        int led_index = arrow[i] + offset;
+        if (led_index >= 0 && led_index < 577) {
+            WS28XX_SetPixel_RGBW_565(ws, led_index, color, global_brightness);
+        }
+    }
+    WS28XX_Update(ws);
+}
+
+/* Function to clear the arrow */
+void Clear_Arrow(WS28XX_HandleTypeDef *ws, int *arrow, int offset) {
+    for (int i = 0; i < 26; i++) {
+        int led_index = arrow[i] + offset;
+        if (led_index >= 0 && led_index < 577) {
+            WS28XX_SetPixel_RGBW_565(ws, led_index, COLOR_RGB565_BLACK, 0);
+        }
+    }
+    WS28XX_Update(ws);
+}
+
+/* Function to shift the arrow forward */
+void Shift_Arrow(int *arrow) {
+    for (int i = 0; i < 26; i++) {
+        arrow[i] = arrow[i] + 8;
+        if (arrow[i] >= LED_FIRST_MATRIX) {  // Reset the arrow within the first matrix
+            arrow[i] = arrow[i] % LED_FIRST_MATRIX;
+        }
+    }
+}
+
+
+void clear_function(WS28XX_HandleTypeDef *ws, int *display)
+{
+
+	 for (int i = 0; i < 200; i++) {
+	        if (display[i] >= 0 && display[i] < 577) {
+	            WS28XX_SetPixel_RGBW_565(ws, display[i], COLOR_RGB565_BLACK, 0);
+	        }
+	    }
+}
+
+/* Function to draw the "X" shapes for the cross */
+
+//Reverse mode function
+void Reverse_Mode() {
+    Clear_Arrow(&ws, arrow, 0);
+    Shift_Arrow(arrow);
+    Draw_Arrow(&ws, arrow, COLOR_RGB565_GREEN, 0);  // Arrow in first matrix
+    Draw_Cross(&ws, topCrossLast, COLOR_RGB565_RED);
+    Draw_Cross(&ws, middleCrossLast, COLOR_RGB565_RED);
+    Draw_Cross(&ws, bottomCrossLast, COLOR_RGB565_RED);
+
+    // Static segments
+    Light_Range(&ws, LED_SECOND_SEGMENT_START, LED_SECOND_SEGMENT_COUNT, COLOR_RGB565_GREEN);
+    Light_Range(&ws, LED_THIRD_SEGMENT_START, LED_THIRD_SEGMENT_COUNT, COLOR_RGB565_GREEN);
+    Light_Range(&ws, LED_FOURTH_SEGMENT_START, LED_FOURTH_SEGMENT_COUNT, COLOR_RGB565_RED);
+    Light_Range(&ws, LED_FIFTH_SEGMENT_START, LED_FIFTH_SEGMENT_COUNT, COLOR_RGB565_RED);
+}
+
+/* Normal Mode Function */
+void Normal_Mode() {
+    Clear_Arrow(&ws, arrow, LED_LAST_MATRIX_START);
+    Shift_Arrow(arrow);
+    Draw_Arrow(&ws, arrow, COLOR_RGB565_GREEN, LED_LAST_MATRIX_START);  // Arrow in last matrix
+    Draw_Cross(&ws, topCrossFirst, COLOR_RGB565_RED);
+    Draw_Cross(&ws, middleCrossFirst, COLOR_RGB565_RED);
+    Draw_Cross(&ws, bottomCrossFirst, COLOR_RGB565_RED);
+
+    // Static segments (reversed)
+    Light_Range(&ws, LED_SECOND_SEGMENT_START, LED_SECOND_SEGMENT_COUNT, COLOR_RGB565_RED);
+    Light_Range(&ws, LED_THIRD_SEGMENT_START, LED_THIRD_SEGMENT_COUNT, COLOR_RGB565_RED);
+    Light_Range(&ws, LED_FOURTH_SEGMENT_START, LED_FOURTH_SEGMENT_COUNT, COLOR_RGB565_GREEN);
+    Light_Range(&ws, LED_FIFTH_SEGMENT_START, LED_FIFTH_SEGMENT_COUNT, COLOR_RGB565_GREEN);
+}
+//MOTOR CONTROL FUNCTIONS
+void Speed_Control1(int a)
+{
+	__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_1, a);
+}
+void Speed_Control2(int a)
+{
+	__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_2, a);
+}
+
+void Direction(int a)
+{
+	if(a==1)
+	{
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_RESET);
+	}
+	if(a==0)
+	{
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_SET);
+	}
+}
+
+const uint16_t pulse_pins[NUM_SENSORS] = {GPIO_PIN_1, GPIO_PIN_3, GPIO_PIN_4, GPIO_PIN_5, GPIO_PIN_6, GPIO_PIN_7};
+
+
+
+void quarter_cycle_open(int source) {
+    uint32_t start_time = HAL_GetTick();  // Record the start time
+    counter1 = 0;  // Reset the counter at the start of the operation
+    counter2 = 0;
+
+    // Set motor direction based on the source
+    if (source == 2) {
+        Direction(0);  // Direction for source 1
+    } else if (source == 1) {
+        Direction(1);  // Direction for source 2
+    }
+
+	Speed_Control1(100);
+	Speed_Control2(75);
+
+
+
+}
+
+void quarter_cycle_closed(int source) {
+    uint32_t start_time = HAL_GetTick();  // Record the start time
+    counter1 = 0;  // Reset the counter at the start of the operation
+    counter2 = 0;
+    // Set motor direction based on the source
+    if (source == 2) {
+        Direction(1);  // Direction for source 1
+    } else if (source == 1) {
+        Direction(0);  // Direction for source 2
+    }
+
+	Speed_Control1(100);
+	Speed_Control2(80);
+
+}
+
+// Function to enable RS485 Transmit Mode
+void RS485_EnableTransmit(void) {
+    HAL_GPIO_WritePin(RS485_DE_RE_PORT, RS485_DE_RE_PIN, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+
+}
+
+// Function to enable RS485 Receive Mode
+void RS485_EnableReceive(void) {
+    HAL_GPIO_WritePin(RS485_DE_RE_PORT, RS485_DE_RE_PIN, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+
+}
+
+//STATE FUNCTIONS
+
+void ready_state(void) {
+	rfid_flag = 1;
+    if (flag_rev == 1) {
+        currentState = STATE_READING;
+        RFID_counter++;
+    }
+}
+
+void reading_state(void) {
+
+    if (flag_rev == 1) {
+    	//sprintf(usermsg, "%s", processedData);
+    	RS485_EnableTransmit();  // Enable TX Mode
+    	HAL_Delay(100);
+    	HAL_UART_Transmit(&huart2, (uint8_t *)usermsg, sizeof(usermsg), HAL_MAX_DELAY);
+    	flag_rev = 0;
+    	//HAL_Delay(1000);
+        RS485_EnableReceive();  // Enable RX Mode
+        //HAL_Delay(1000);
+
+    }
+    while(intresponseData == 0){
+
+        if (responseData[0]== '1') {  // Process only if ID matches
+           	flag333=1;
+           	receivedCommand = responseData[1];
+               intresponseData = receivedCommand;  // Store the command
+           }
+
+
+
+        else if (responseData[1]== '1') {  // Process only if ID matches
+			flag333=1;
+			receivedCommand = responseData[0];
+			   intresponseData = receivedCommand;  // Store the command
+		   }
+    }
+    intresponseData = intresponseData - 48;
+    HAL_Delay(100);
+
+    // NOS Potential Responses Setup
+    switch (intresponseData) {
+        case 6:
+        	intresponseData = 0;
+        	currentState = STATE_READY;
+        	break;
+        case 1:
+        	intresponseData = 0;
+        	responseData[1] = 0;
+        	responseData[0] = 0;
+        	currentState = STATE_OPEN;
+        	break;
+        case 2:
+        	intresponseData = 0;
+        	flag333 = 0;
+        	responseData[1] = 0;
+        	responseData[0] = 0;
+        	currentState = STATE_CLOSED;
+        	break;
+        case 3:
+        	intresponseData = 0;
+        	currentState = STATE_EMERGENCY;
+        	break;
+        case 4:
+        	intresponseData = 0;
+        	currentState = STATE_SLEEP;
+        	break;
+        case 5:
+        	intresponseData = 0;
+        	currentState = STATE_OVERCAPACITY;
+        	break;
+    }
+}
+
+void open_state(void) {
+    static uint32_t start_time = 0;
+    static int step = 0;
+
+    if (step == 0) {
+
+        quarter_cycle_open(uart_source);
+        start_time = HAL_GetTick();
+        step = 1;
+    }
+
+    if (step == 1 && HAL_GetTick() - start_time >= 2000) {
+        // Step 1: Wait for 2 seconds after opening
+        step = 2;
+    }
+
+    if (step == 2) {
+        if (uart_source == 1) {
+
+        } else if (uart_source == 2) {
+
+        }
+        HAL_Delay(4000);
+
+        // No object detected, proceed to close the doors
+        step = 3;
+    }
+
+    if (step == 3) {
+        quarter_cycle_closed(uart_source);
+        currentState = STATE_READY;
+        step = 0; // Reset step for the next cycle
+    }
+}
+
+void closed_state(void) {
+	HAL_Delay(2000);
+	currentState = STATE_READY;
+
+}
+
+void sleep_state(void) {
+
+
+    HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
+}
+
+void overcapacity_state(void) {
+    static uint32_t start_time = 0;
+
+    if (start_time == 0) {
+        start_time = HAL_GetTick();
+    }
+
+    if (HAL_GetTick() - start_time < 2000) {
+
+    } else {
+        currentState = STATE_READY;
+        start_time = 0; // Reset timer
+    }
+}
+
+void emergency_state(void) {
+    static uint32_t last_blink_time = 0;
+    static int blink_count = 0;
+
+    if (blink_count < 10) {
+        if (HAL_GetTick() - last_blink_time >= 500) {
+            last_blink_time = HAL_GetTick();
+            if (blink_count % 2 == 0) {
+
+
+            } else {
+
+            }
+            blink_count++;
+        }
+    } else {
+        quarter_cycle_open(1);
+        quarter_cycle_open(1);
+        currentState = STATE_SLEEP;
+        blink_count = 0;
+    }
+}
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_USART2_UART_Init();
+  MX_TIM3_Init();
+  MX_TIM4_Init();
+  MX_USART1_UART_Init();
+  MX_USART3_UART_Init();
+  /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start(&htim4);
+  HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_2);
+  WS28XX_Init(&ws, &htim3, 72, TIM_CHANNEL_1, LED_TOTAL);
+
+  // Start UART reception for RFID Reader (USART1)
+  HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
+
+  // Start UART reception for Additional UART (USART2)
+  HAL_UART_Receive_IT(&huart3, rxData, sizeof(rxData));
+
+  // Start UART reception for NOS response (USART3)
+  HAL_UART_Receive_IT(&huart2, responseData, sizeof(responseData));
+
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+		    Normal_Mode();
+		switch (currentState)
+		{
+			case STATE_READY:
+				ready_state();
+				break;
+			case STATE_READING:
+				reading_state();
+				break;
+			case STATE_OPEN:
+				open_state();
+				break;
+			case STATE_CLOSED:
+				closed_state();
+				break;
+			// Leave other states empty for now
+			case STATE_OVERCAPACITY:
+				overcapacity_state();
+				break;
+			case STATE_SLEEP:
+				sleep_state();
+				break;
+			case STATE_EMERGENCY:
+				emergency_state();
+				break;
+			default:
+				break;
+		}
+
+		test_count++;
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+  }
+  /* USER CODE END 3 */
+}
+
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
+  RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/* USER CODE BEGIN 4 */
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+	if ((huart->Instance == USART1))  // Data received from USART1
+    {
+		if(rfid_flag == 1)
+		{
+	    	flag_rev = 1; // Set flag to indicate data has been received
+	    	rfid_trigger++;
+	    	rfid_flag = 0;
+	        // Process the received data
+	        for (int i = 0; i < 12; i++) {
+	            processedData[i] = rxData[i + 1]; // Skip the start byte
+	        }
+
+	        uart_source = 1;
+	        processedData[12] = uart_source + '0';
+	        processedData[13] = TURNSTILE_ID + '0';
+	        processedData[14] = '\0';
+
+	        // Use sprintf to format usermsg with identification flag
+	        sprintf(usermsg, "%s", processedData);
+
+		}
+
+        // Re-enable UART reception for USART1
+
+        HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
+    }
+     if (huart->Instance == USART2) { // Data received from USART2
+    	data_received++;
+        receivedCommand = responseData[1];  // Second character is the Turnstile ID
+        // Re-enable UART reception for USART2
+        HAL_UART_Receive_IT(&huart2, responseData, sizeof(responseData));
+    }
+    if ((huart->Instance == USART3))// USART3 Interrupt
+    {
+		if(rfid_flag == 1)
+		{
+	    	flag_rev = 1; // Set flag to indicate data has been received
+	    	rfid_trigger++;
+	    	rfid_flag = 0;
+	        // Process the received data
+	        for (int i = 0; i < 12; i++) {
+	            processedData[i] = rxData[i + 1]; // Skip the start byte
+	        }
+
+	        uart_source = 2;
+	        processedData[12] = uart_source + '0';
+	        processedData[13] = TURNSTILE_ID + '0';
+	        processedData[14] = '\0';
+
+	        // Use sprintf to format usermsg with identification flag
+	        sprintf(usermsg, "%s", processedData);
+
+		}
+        // Re-enable UART reception
+
+        HAL_UART_Receive_IT(&huart3,  rxData, sizeof(rxData));
+    }
+}
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+	if(GPIO_Pin == GPIO_PIN_12)
+	{
+		if (HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_12) == GPIO_PIN_SET){
+			counter1++;
+			if(counter1 == 560)
+			{
+				Speed_Control1(0);
+				counter1 = 0;
+			}
+		}
+	}
+	if(GPIO_Pin == GPIO_PIN_2)
+	{
+		if (HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_2) == GPIO_PIN_SET){
+			counter2++;
+			if(counter2 == 560)
+			{
+				Speed_Control2(0);
+				counter2 = 0;
+			}
+		}
+	}
+	if(GPIO_Pin == GPIO_PIN_13)
+	{
+			counter1 = 0;
+			counter2 = 0;
+			Speed_Control1(0);
+			Speed_Control2(0);
+	}
+}
+
+/* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+    __disable_irq();
+    uint32_t error_start_time = HAL_GetTick();
+
+    while (1) {
+        HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);  // Indicate error
+        HAL_Delay(500);
+
+        char error_msg[128];
+        snprintf(error_msg, sizeof(error_msg), "Error in state: %d, time: %lu\n", currentState, HAL_GetTick());
+        HAL_UART_Transmit(&huart3, (uint8_t *)error_msg, strlen(error_msg), HAL_MAX_DELAY);
+
+        if (HAL_GetTick() - error_start_time > 10000) {  // Reset system after prolonged error
+            HAL_NVIC_SystemReset();
+        }
+    }
+  /* USER CODE END Error_Handler_Debug */
+}
+
+#ifdef  USE_FULL_ASSERT
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */

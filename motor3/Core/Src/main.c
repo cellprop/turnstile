@@ -65,7 +65,7 @@ void Speed_Control1(int a)
 {
 	__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_1, a);
 	//__HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_2, a - 30);
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 }
 void Speed_Control2(int a)
 {
@@ -77,42 +77,47 @@ void Direction(int a)
 {
 	if(a==1)
 	{
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_SET);
 	}
 	if(a==0)
 	{
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_RESET);
 	}
 }
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if(GPIO_Pin == GPIO_PIN_2)
 	{
+		if (HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_2) == GPIO_PIN_SET){
 			counter2++;
-			if(counter2 == 520)
+			if(counter2 == 560)
 			{
 				Speed_Control2(0);
 				counter2 = 0;
 			}
+		}
 	}
 	if(GPIO_Pin == GPIO_PIN_10)
 	{
-		counter3++;
+		//counter3++;
 	}
 	if(GPIO_Pin == GPIO_PIN_11)
 	{
-		counter4++;
+		//counter4++;
 	}
+
 	if(GPIO_Pin == GPIO_PIN_12)
 	{
+		if (HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_12) == GPIO_PIN_SET){
 			counter1++;
-			if(counter1 == 598)
+			if(counter1 == 560)
 			{
 				Speed_Control1(0);
 				counter1 = 0;
 			}
+		}
 	}
 	if(GPIO_Pin == GPIO_PIN_13)
 	{
@@ -134,14 +139,14 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 void quarter_cycle_cw(void)
 {
 	Direction(0);
-	Speed_Control1(100);
+	Speed_Control1(127);
 	Speed_Control2(100);
 }
 void quarter_cycle_acw(void)
 {
 	Direction(1);
-	Speed_Control1(100);
-	Speed_Control2(100);
+	Speed_Control1(120);
+	Speed_Control2(110);
 }
 /* USER CODE END 0 */
 
@@ -184,7 +189,9 @@ int main(void)
   //Speed_Control(0);
   check = 1;
   quarter_cycle_acw();
+  HAL_Delay(4000);
   check = 2;
+  quarter_cycle_cw();
   //Speed_Control(0);
   check = 3;
   /* USER CODE END 2 */

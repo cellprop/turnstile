@@ -1,4 +1,4 @@
-17:53:49 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
+16:16:13 **** Incremental Build of configuration Debug for project turnstile_stm_program ****
 make -j7 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../I-CUBE-WS28XX -I../Middlewares/Third_Party/NimaLTD_Driver/WS28XX -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'Clear_All_Animations':
@@ -176,7 +176,7 @@ arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -D
       |              ^~~~~~~~~~
 ../Core/Src/main.c: In function 'main':
 ../Core/Src/main.c:669:32: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
-  669 |   HAL_UART_Receive_IT(&huart2, &responseData, 2);
+  669 |   HAL_UART_Receive_IT(&huart2, &responseData, sizeof(responseData));
       |                                ^~~~~~~~~~~~~
       |                                |
       |                                uint8_t (*)[2] {aka unsigned char (*)[2]}
@@ -193,11 +193,11 @@ Finished building target: turnstile_stm_program.elf
 arm-none-eabi-size  turnstile_stm_program.elf 
 arm-none-eabi-objdump -h -S turnstile_stm_program.elf  > "turnstile_stm_program.list"
    text	   data	    bss	    dec	    hex	filename
-  25004	   1008	  18064	  44076	   ac2c	turnstile_stm_program.elf
+  24996	   1008	  18064	  44068	   ac24	turnstile_stm_program.elf
 Finished building: default.size.stdout
  
 Finished building: turnstile_stm_program.list
  
 
-17:53:50 Build Finished. 0 errors, 23 warnings. (took 971ms)
+16:16:14 Build Finished. 0 errors, 23 warnings. (took 1s.159ms)
 

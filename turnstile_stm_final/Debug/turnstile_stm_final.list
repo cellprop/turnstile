@@ -37,15 +37,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00018a13  00000000  00000000  0001980f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00010baa  00000000  00000000  00032222  2**0
+ 17 .debug_line   00010ba6  00000000  00000000  00032222  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0008c1de  00000000  00000000  00042dcc  2**0
+ 18 .debug_str    0008c1de  00000000  00000000  00042dc8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  000cefaa  2**0
+ 19 .comment      00000043  00000000  00000000  000cefa6  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00004188  00000000  00000000  000ceff0  2**2
+ 20 .debug_frame  00004188  00000000  00000000  000cefec  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000073  00000000  00000000  000d3178  2**0
+ 21 .debug_line_str 00000073  00000000  00000000  000d3174  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -2097,7 +2097,6 @@ int main(void)
  8000ff4:	4824      	ldr	r0, [pc, #144]	@ (8001088 <main+0xe0>)
  8000ff6:	f003 ff59 	bl	8004eac <WS28XX_Init>
 
-  //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
   // Start UART reception for RFID Reader (USART1)
   HAL_UART_Receive_IT(&huart1, rxData, sizeof(rxData));
  8000ffa:	220e      	movs	r2, #14
@@ -2113,7 +2112,7 @@ int main(void)
  800100a:	f003 f996 	bl	800433a <HAL_UART_Receive_IT>
 
   // Start UART reception for NOS response (USART3)
-  HAL_UART_Receive_IT(&huart2, responseData, 2);
+  HAL_UART_Receive_IT(&huart2, responseData, sizeof(responseData));
  800100e:	2202      	movs	r2, #2
  8001010:	4921      	ldr	r1, [pc, #132]	@ (8001098 <main+0xf0>)
  8001012:	4822      	ldr	r0, [pc, #136]	@ (800109c <main+0xf4>)
@@ -2182,7 +2181,6 @@ int main(void)
  8001072:	bf00      	nop
 		}
 
-//		receivedTurnstileIDChar = responseData[0];
 		test_count++;
  8001074:	4b0b      	ldr	r3, [pc, #44]	@ (80010a4 <main+0xfc>)
  8001076:	681b      	ldr	r3, [r3, #0]
@@ -2389,7 +2387,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
  80011ac:	4837      	ldr	r0, [pc, #220]	@ (800128c <HAL_UART_RxCpltCallback+0x158>)
  80011ae:	f004 f833 	bl	8005218 <siprintf>
 
-
+		}
 
         // Re-enable UART reception for USART1
 
@@ -2405,7 +2403,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
  80011c0:	4a34      	ldr	r2, [pc, #208]	@ (8001294 <HAL_UART_RxCpltCallback+0x160>)
  80011c2:	4293      	cmp	r3, r2
  80011c4:	d10d      	bne.n	80011e2 <HAL_UART_RxCpltCallback+0xae>
-
     	data_received++;
  80011c6:	4b34      	ldr	r3, [pc, #208]	@ (8001298 <HAL_UART_RxCpltCallback+0x164>)
  80011c8:	681b      	ldr	r3, [r3, #0]
@@ -2417,11 +2414,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
  80011d2:	785a      	ldrb	r2, [r3, #1]
  80011d4:	4b32      	ldr	r3, [pc, #200]	@ (80012a0 <HAL_UART_RxCpltCallback+0x16c>)
  80011d6:	701a      	strb	r2, [r3, #0]
-
-
-
         // Re-enable UART reception for USART2
-        //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
         HAL_UART_Receive_IT(&huart2, responseData, sizeof(responseData));
  80011d8:	2202      	movs	r2, #2
  80011da:	4930      	ldr	r1, [pc, #192]	@ (800129c <HAL_UART_RxCpltCallback+0x168>)

@@ -326,12 +326,13 @@ void quarter_cycle_open(int source) {
     // Set motor direction based on the source
     if (source == 2) {
         Direction(0);  // Direction for source 1
+    	Speed_Control1(127);
+    	Speed_Control2(100);
     } else if (source == 1) {
         Direction(1);  // Direction for source 2
+    	Speed_Control1(120);
+    	Speed_Control2(110);
     }
-
-	Speed_Control1(100);
-	Speed_Control2(75);
 
 
 
@@ -344,12 +345,14 @@ void quarter_cycle_closed(int source) {
     // Set motor direction based on the source
     if (source == 2) {
         Direction(1);  // Direction for source 1
+    	Speed_Control1(120);
+    	Speed_Control2(110);
     } else if (source == 1) {
         Direction(0);  // Direction for source 2
+    	Speed_Control1(127);
+    	Speed_Control2(100);
     }
 
-	Speed_Control1(100);
-	Speed_Control2(80);
 
 }
 
@@ -725,21 +728,25 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	if(GPIO_Pin == GPIO_PIN_12)
 	{
+		if (HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_12) == GPIO_PIN_SET){
 			counter1++;
-			if(counter1 == 598)
+			if(counter1 == 560)
 			{
 				Speed_Control1(0);
 				counter1 = 0;
 			}
+		}
 	}
 	if(GPIO_Pin == GPIO_PIN_2)
 	{
+		if (HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_2) == GPIO_PIN_SET){
 			counter2++;
 			if(counter2 == 560)
 			{
 				Speed_Control2(0);
 				counter2 = 0;
 			}
+		}
 	}
 	if(GPIO_Pin == GPIO_PIN_13)
 	{
